@@ -50,62 +50,6 @@
 
 
 
-    
-        <script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      loader: {
-        
-            load: ['[tex]/mhchem'],
-        
-        source: {
-          '[tex]/amsCd': '[tex]/amscd',
-          '[tex]/AMScd': '[tex]/amscd'
-        }
-      },
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-        
-            packages: {'[+]': ['mhchem']},
-        
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              let target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    (function () {
-      var script = document.createElement('script');
-      script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
-      script.defer = true;
-      document.head.appendChild(script);
-    })();
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
           
 
 
@@ -264,113 +208,25 @@
   
   <main id="main-contain" class="mdui-container mdui-m-t-5">
     
-    <article class="mdui-card mdui-m-b-5 mdui-hoverable">    
-      
-      
-        <div class="post-header"> 
-  <a class="post-header-title" href="/real_hexo/2022/04/25/namomocamp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%EF%BC%88Div2%EF%BC%89/">Namomocamp每日一题（Div2）</a>
-  <div class="post-header-meta">
-    <span>
-      <span class="iconfont icon-calendar"></span>
-      发布于:&nbsp;2022-04-25
-    </span>
-    <span>
-      <span class="iconfont icon-calendar-check"></span>
-      更新于:&nbsp;2022-04-25
-    </span>
-    <span>
-      <span class="iconfont icon-folder"></span>
-      分类于:&nbsp;<a class="category-link" href="/real_hexo/categories/%E6%8A%80%E6%9C%AF/">技术</a> > <a class="category-link" href="/real_hexo/categories/%E6%8A%80%E6%9C%AF/%E7%AE%97%E6%B3%95/">算法</a>
-    </span>
     
-  </div>
-</div>   
     
 
 
-
-      
-      
-  <div class="post-tags">
-    
-      <i class="iconfont icon-tag">
-        <a rel="tag" href = /real_hexo/tags/C/ >C++</a>
-      </i>
-    
-      <i class="iconfont icon-tag">
-        <a rel="tag" href = /real_hexo/tags/%E7%AE%97%E6%B3%95/ >算法</a>
-      </i>
-    
-      <i class="iconfont icon-tag">
-        <a rel="tag" href = /real_hexo/tags/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/ >每日一题</a>
-      </i>
-    
-  </div>
-
-      
-      <div id="achieve-abstract" class="mdui-card-content mdui-p-x-4">
-        <div class="post-abstract mdui-typo ">
-          
-            <h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><h2 id="太菜了所以只有通过写blog来复盘写过的题这样子"><a href="#太菜了所以只有通过写blog来复盘写过的题这样子" class="headerlink" title="太菜了所以只有通过写blog来复盘写过的题这样子"></a>太菜了所以只有通过写blog来复盘写过的题这样子</h2><p>除了每日一题可能还有平时的错题或者一些比较经典的题，也许是个督促自己不摸鱼的好方式（？</p>
-<p>还兼顾学md语法（雾</p...
-          
+<div class="mdui-card mdui-p-a-4 mdui-m-b-5">
+    <div class="posts-collapse">
+        <div class="collection-title">
+            <h2>算法<small>标签</small></h2>
         </div>
         
-        <div style="text-align:center;">
-          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/real_hexo/2022/04/25/namomocamp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%EF%BC%88Div2%EF%BC%89/">阅读更多</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="mdui-card mdui-m-b-5 mdui-hoverable">    
-      
-      
-        <div class="post-header"> 
-  <a class="post-header-title" href="/real_hexo/2022/04/25/My-first-blog/">My first blog</a>
-  <div class="post-header-meta">
-    <span>
-      <span class="iconfont icon-calendar"></span>
-      发布于:&nbsp;2022-04-25
-    </span>
-    <span>
-      <span class="iconfont icon-calendar-check"></span>
-      更新于:&nbsp;2022-04-25
-    </span>
-    <span>
-      <span class="iconfont icon-folder"></span>
-      分类于:&nbsp;<a class="category-link" href="/real_hexo/categories/Hexo-Test/">Hexo Test</a>
-    </span>
-    
-  </div>
-</div>   
-    
-
-
-
-      
-      
-  <div class="post-tags">
-    
-      <i class="iconfont icon-tag">
-        <a rel="tag" href = /real_hexo/tags/C/ >C++</a>
-      </i>
-    
-  </div>
-
-      
-      <div id="achieve-abstract" class="mdui-card-content mdui-p-x-4">
-        <div class="post-abstract mdui-typo ">
-          
-            <h2 id="This-is-just-a-Test"><a href="#This-is-just-a-Test" class="headerlink" title="This is just a Test"></a>This is just a Test</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#incldue <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Hello World!&quot;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          
-        </div>
+            <div class="collection-item">
+                <h3><a href="/real_hexo/2022/04/25/namomocamp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%EF%BC%88Div2%EF%BC%89/">Namomocamp每日一题（Div2）</a></h3>
+                <time itemprop="dateCreated" datetime=2022-04-25 >
+                    2022.04.25
+                </time>
+            </div>
         
-        <div style="text-align:center;">
-          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/real_hexo/2022/04/25/My-first-blog/">阅读更多</a>
-        </div>
-      </div>
-    </article>
-
+    </div>
+</div>
 
 
   </main>
