@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,shrink-to-fit=no">
     <meta name="renderer" content="webkit">
     <meta name="force-rendering" content="webkit">
-    <meta name="author" content="Chike Lee">
+    <meta name="author" content="InariInDream">
     <meta name="keywords" content="每日一题,BFS">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
@@ -17,13 +17,13 @@
     <link rel="icon" href="https://s1.ax1x.com/2022/04/27/Lb5QhD.jpg">
     <link rel="apple-touch-icon" href="https://s1.ax1x.com/2022/04/27/Lb5QhD.jpg">
     
-    <title>Camp每日一题(div2)4.27 | Inari的Blog小站</title>
+    <title>Camp每日一题(div2)4.27 | Inari&#39;s Blog</title>
 
     
         
 
 
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","mainEntityOfPage":"https://inariindream.gitee.com/real_hexo/real_hexo/2022/04/27/Camp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98-div2-4-27/index.html","headline":"Camp每日一题(div2)4.27","datePublished":"2022-04-27T02:09:06.000Z","dateModified":"2022-04-27T08:06:23.499Z","author":{"@type":"Person","name":"Chike Lee","image":{"@type":"ImageObject","url":"https://s1.ax1x.com/2022/04/27/Lb5HD1.jpg"},"description":"This is a slogan."},"publisher":{"@type":"Organization","name":"Inari的Blog小站","logo":"https://s1.ax1x.com/2022/04/27/Lb5QhD.jpg"},"keywords":"每日一题,BFS","description":"我愿投身前途未卜的群星"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","mainEntityOfPage":"https://inariindream.gitee.com/real_hexo/real_hexo/2022/04/27/Camp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98-div2-4-27/index.html","headline":"Camp每日一题(div2)4.27","datePublished":"2022-04-27T02:09:06.000Z","dateModified":"2022-04-27T08:46:34.256Z","author":{"@type":"Person","name":"InariInDream","image":{"@type":"ImageObject","url":"https://s1.ax1x.com/2022/04/27/Lb5HD1.jpg"},"description":"我为什么这么菜"},"publisher":{"@type":"Organization","name":"Inari's Blog","logo":"https://s1.ax1x.com/2022/04/27/Lb5QhD.jpg"},"keywords":"每日一题,BFS","description":"我愿投身前途未卜的群星"}</script>
 
     
 
@@ -40,11 +40,11 @@
 
     
         
-<link rel="stylesheet" href="/real_hexo/css/style.css">
+<link rel="stylesheet" href="/real_hexo/css/prism-vsc-dark-plus.min.css">
 
     
         
-<link rel="stylesheet" href="/real_hexo/css/prism.css">
+<link rel="stylesheet" href="/real_hexo/css/style.css">
 
     
         
@@ -55,7 +55,7 @@
 
 <style>
     * {
-        --sidebar-image: url(https://picsum.photos/600/400.webp?blur=10);
+        --sidebar-image: url(https://s1.ax1x.com/2022/04/27/Lq5jfS.jpg);
         --sidebar-image-color: #d2cbca;
         --banner-image: url(https://picsum.photos/1200/500.webp);
         --banner-image-color: #d2cbca;
@@ -86,7 +86,7 @@
         >
         <div class="mdui-card-media-covered akarin-util-text-gradient">
             <div class="mdui-card-primary">
-                <div class="mdui-typo-subheading">Chike Lee </div>
+                <div class="mdui-typo-subheading">InariInDream </div>
                 <div class="mdui-typo-caption akarin-util-opacity-half">我愿投身前途未卜的群星 </div>
             </div>
         </div>
@@ -231,6 +231,8 @@
         class="akarin-post-bg akarin-util-bg-cover mdui-ripple"
         
         
+            data-src="https://s1.ax1x.com/2022/04/27/Lqf2o8.png"
+        
         
         
     >
@@ -264,7 +266,7 @@
     <div class="mdui-card-header mdui-valign">
         <div>
             <img class="mdui-card-header-avatar akarin-hover-spin" src="https://s1.ax1x.com/2022/04/27/Lb5HD1.jpg">
-            <div class="mdui-card-header-title">Chike Lee</div>
+            <div class="mdui-card-header-title">InariInDream</div>
             <div class="mdui-card-header-subtitle">2022-04-27 10:09:06</div>
         </div>
         
@@ -292,74 +294,74 @@
 <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>想到了和cf某场的2B很像，只不过那场不需要按位处理，而是加1或加2后取余，做法是BFS。那这题也一样，但开始没想到怎么去枚举每一位的数字的变化，甚至想用<code>to_string()</code>来做，后来发现取每一位取模后除就行了…是C语言期末考试难度的题…</p>
 <p>提醒自己多注意细节问题，多个$testcase$的时候一定要将<code>全局变量</code>清空！！！</p>
 <p>更多细节见代码</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int prime[10000], used[10000];
-int cnt[10000];
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> prime<span class="token punctuation">[</span><span class="token number">10000</span><span class="token punctuation">]</span><span class="token punctuation">,</span> used<span class="token punctuation">[</span><span class="token number">10000</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> cnt<span class="token punctuation">[</span><span class="token number">10000</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-void init()&#123;
-    int j;
-    for (int i &#x3D; 1000; i &lt;&#x3D; 10000; i++) &#123;
-        for (j &#x3D; 2; j &lt; i; j++) &#123;
-            if (i % j &#x3D;&#x3D; 0)&#123;
-                prime[i] &#x3D; 0;
-                break;
-            &#125;
-        &#125;
-        if (j &#x3D;&#x3D; i)&#123;
-            prime[i] &#x3D; 1;
-        &#125;
-    &#125;
-&#125;
+<span class="token keyword">void</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">int</span> j<span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1000</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token number">10000</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span>j <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> i<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">%</span> j <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+                prime<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>j <span class="token operator">==</span> i<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            prime<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
 
-int bfs(int x, int y)&#123;
-    for (int i &#x3D; 1000; i &lt; 10000; i++) &#123; &#x2F;&#x2F; 因为忘清空WA了一次
-        cnt[i] &#x3D; 0;
-        used[i] &#x3D; 0;
-    &#125;
-    queue&lt;int&gt;q;
-    int temp &#x3D; 0, v[4];
-    q.push(x);
-    used[x] &#x3D; 1;
-    cnt[x] &#x3D; 0;
-    while (!q.empty())&#123;
-        int t &#x3D; q.front();
-        if (t &#x3D;&#x3D; y)
-            return cnt[t];
-        q.pop();
-        v[0] &#x3D; t &#x2F; 1000;
-        v[1] &#x3D; t % 1000 &#x2F; 100;
-        v[2] &#x3D; t % 100 &#x2F; 10;
-        v[3] &#x3D; t % 10;
-        for (int i &#x3D; 0; i &lt; 4; i++) &#123;
-            int vtemp &#x3D; v[i];
-            for (int j &#x3D; 0; j &lt; 10; j++) &#123;
-                if (j !&#x3D; vtemp)&#123;
-                    v[i] &#x3D; j;
-                    temp &#x3D; 1000 * v[0] + 100 * v[1] + 10 * v[2] + v[3];
-                    if (prime[temp] &amp;&amp; !used[temp])&#123;
-                        q.push(temp);
-                        used[temp] &#x3D; 1;
-                        cnt[temp] &#x3D; cnt[t] + 1;
-                    &#125;
-&#x2F;&#x2F;                    if (temp &#x3D;&#x3D; y)
-&#x2F;&#x2F;                        return cnt[temp];后来发现这步完全是多余的，因为如果是第一次到的话cnt应该是没值的
-                &#125;
-                v[i] &#x3D; vtemp; &#x2F;&#x2F; 写的时候遗漏了这一步，在进入下一个i的循环之前要将上一次的v[i]复原
-            &#125;
-        &#125;
-    &#125;
-    return -1; &#x2F;&#x2F; 前面都没return这里只能return -1了
-&#125;
+<span class="token keyword">int</span> <span class="token function">bfs</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span> <span class="token keyword">int</span> y<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1000</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10000</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 因为忘清空WA了一次</span>
+        cnt<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        used<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    queue<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span>q<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> temp <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> v<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    q<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    used<span class="token punctuation">[</span>x<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    cnt<span class="token punctuation">[</span>x<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span>q<span class="token punctuation">.</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">int</span> t <span class="token operator">=</span> q<span class="token punctuation">.</span><span class="token function">front</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>t <span class="token operator">==</span> y<span class="token punctuation">)</span>
+            <span class="token keyword">return</span> cnt<span class="token punctuation">[</span>t<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        q<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        v<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> t <span class="token operator">/</span> <span class="token number">1000</span><span class="token punctuation">;</span>
+        v<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> t <span class="token operator">%</span> <span class="token number">1000</span> <span class="token operator">/</span> <span class="token number">100</span><span class="token punctuation">;</span>
+        v<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> t <span class="token operator">%</span> <span class="token number">100</span> <span class="token operator">/</span> <span class="token number">10</span><span class="token punctuation">;</span>
+        v<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">=</span> t <span class="token operator">%</span> <span class="token number">10</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">4</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">int</span> vtemp <span class="token operator">=</span> v<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>j <span class="token operator">!=</span> vtemp<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+                    v<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> j<span class="token punctuation">;</span>
+                    temp <span class="token operator">=</span> <span class="token number">1000</span> <span class="token operator">*</span> v<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token number">100</span> <span class="token operator">*</span> v<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token number">10</span> <span class="token operator">*</span> v<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">+</span> v<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+                    <span class="token keyword">if</span> <span class="token punctuation">(</span>prime<span class="token punctuation">[</span>temp<span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>used<span class="token punctuation">[</span>temp<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+                        q<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>temp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        used<span class="token punctuation">[</span>temp<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+                        cnt<span class="token punctuation">[</span>temp<span class="token punctuation">]</span> <span class="token operator">=</span> cnt<span class="token punctuation">[</span>t<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">&#125;</span>
+<span class="token comment">//                    if (temp == y)</span>
+<span class="token comment">//                        return cnt[temp];后来发现这步完全是多余的，因为如果是第一次到的话cnt应该是没值的</span>
+                <span class="token punctuation">&#125;</span>
+                v<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> vtemp<span class="token punctuation">;</span> <span class="token comment">// 写的时候遗漏了这一步，在进入下一个i的循环之前要将上一次的v[i]复原</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment">// 前面都没return这里只能return -1了</span>
+<span class="token punctuation">&#125;</span>
 
-void solve()&#123;
-    int n;
-    cin &gt;&gt; n;
-    init();
-    int a, b;
-    while (n--)&#123;
-        cin &gt;&gt; a &gt;&gt; b;
-        cout &lt;&lt; bfs(a, b) &lt;&lt; endl;
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">void</span> <span class="token function">solve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">int</span> n<span class="token punctuation">;</span>
+    cin <span class="token operator">>></span> n<span class="token punctuation">;</span>
+    <span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> a<span class="token punctuation">,</span> b<span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>n<span class="token operator">--</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        cin <span class="token operator">>></span> a <span class="token operator">>></span> b<span class="token punctuation">;</span>
+        cout <span class="token operator">&lt;&lt;</span> <span class="token function">bfs</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>这种简单题以后争取十分钟以内切吧（</p>
 
@@ -405,7 +407,7 @@ void solve()&#123;
     <footer class="mdui-container mdui-typo mdui-m-y-5" style="display:flex;max-width:1024px">
     <div class="mdui-text-left mdui-typo-body-1-opacity">
         
-            Copyright © 2022 Chike Lee
+            Copyright © 2022 InariInDream
         
         <br>
         Hosted by <a href="https://pages.github.com/" target="_blank">Github Pages</a>
@@ -413,8 +415,8 @@ void solve()&#123;
     <div style="flex-grow:1"></div>
     <div class="mdui-text-right mdui-typo-body-1-opacity">
         Powered by <a href="https://hexo.io" target="_blank">Hexo</a> <span class="mdui-hidden-xs-down">6.1.0</span>
-        <br>
-        Theme - <a href="https://github.com/TransparentLC/hexo-theme-akarin" target="_blank">Akarin</a>
+<!--        <br>-->
+<!--        Theme - <a href="https://github.com/TransparentLC/hexo-theme-akarin" target="_blank">Akarin</a>-->
     </div>
 </footer>
 
@@ -431,18 +433,6 @@ void solve()&#123;
     
         
 <script src="/real_hexo/js/script.js"></script>
-
-    
-        
-<script src="/real_hexo/js/prism.js"></script>
-
-    
-        
-<script src="/real_hexo/js/prism-line-highlight.js"></script>
-
-    
-        
-<script src="/real_hexo/js/prism-cpp.min.js"></script>
 
     
 
