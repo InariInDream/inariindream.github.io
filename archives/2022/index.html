@@ -1,363 +1,763 @@
+
+
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="Cache-Control" content="no-siteapp">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,shrink-to-fit=no">
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta name="author" content="Chike Lee">
+    <meta name="keywords" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
-    <meta name="referrer" content="no-referrer-when-downgrade">
-    
-    <meta name="renderer" content="webkit"/>
-    <meta name="force-rendering" content="webkit"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
-    
-    
-        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Regular.woff2" as="font">
-        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Bold.woff2" as="font">
-    
-    
-    
-        <link rel="shortcut icon" href="https://s1.ax1x.com/2022/04/27/Lb5QhD.jpg">
     
 
+    <link rel="icon shortcut" type="image/ico" href="https://s1.ax1x.com/2022/04/27/Lb5QhD.jpg">
+    <link rel="icon" href="https://s1.ax1x.com/2022/04/27/Lb5QhD.jpg">
+    <link rel="apple-touch-icon" href="https://s1.ax1x.com/2022/04/27/Lb5QhD.jpg">
+    
+    <title>归档：2022 | Inari的Blog小站</title>
+
+    
+        
+
+
+    
+
+    <script>/MSIE|Trident/.test(navigator.userAgent) && (location.href = '/real_hexo/upgrade-browser.html')</script>
+    <!-- 导入CSS -->
     
     
         
-<link rel="stylesheet" href="/real_hexo/css/mdui.min.v1.0.0.css">
+<link rel="stylesheet" href="/real_hexo/css/mdui.min.css">
 
     
-    
-<link rel="stylesheet" href="/real_hexo/css/main.css">
-<link rel="stylesheet" href="/real_hexo/css/iconfont.css">
-
-
-    
-    
-
-    
-        <script data-ad-client="ca-" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    
-
-
-
-
-
-
-
-
-
-
-
-
-          
-
-
-    
-    
-    <title>
-          
-            Inari的Blog小站
         
-    </title>
-    
-    
-<meta name="generator" content="Hexo 6.1.0"></head>
-<body class="mdui-drawer-body-left mdui-appbar-with-toolbar mdui-theme-primary-blue mdui-theme-accent-blue">
-  
-  <header class="mdui-appbar mdui-appbar-fixed">
-  <div id="toolbar" class="mdui-toolbar mdui-color-theme">
-    <button class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#sidebar', swipe: true}"><i class="iconfont icon-menu"></i></button>
-    <a href="/real_hexo/" class="mdui-typo-headline">Inari的Blog小站</a>
-    <a href="/real_hexo/" class="header-subtitle mdui-typo-headline"></a>
-    <div class="mdui-toolbar-spacer"></div>
-    <button class="mdui-btn mdui-btn-icon" mdui-dialog="{target: '#search'}" mdui-tooltip="{content: 'search'}"><i class="iconfont icon-search"></i></button>
-  </div>
-</header>
-
-<div class="mdui-dialog" id="search">
-  
-    <div class="search-form">
-      <input type="search" class="search-form-input" placeholder="请输入关键字" onfocus="listenSearchFunc()">
-    </div>
-    <div class="search-result" data-resource="/real_hexo/search.xml"></div>
-  
-</div>
-
-  <aside id="sidebar" class="mdui-drawer">
-    <div class="mdui-tab" mdui-tab>
-        <a href="#sidebar-tab1" id="sidebartab" class="mdui-ripple mdui-tab-active">站点概览</a>
-        <a href="#sidebar-tab2" id="sidebartab" class="mdui-ripple">关于</a>
-    </div>
+<link rel="stylesheet" href="/real_hexo/css/prism-line-numbers.css">
 
     
-    <div id="sidebar-tab1" class="mdui-p-a-1">
-        <div class="mdui-list">
-            
-                
-                <a href="/real_hexo/" class="mdui-list-item mdui-ripple">
-                    <div class="mdui-list-item-icon">
-                        <i class="iconfont icon-home"></i>
-                    </div>
-                    <div class="mdui-list-item-content">主页</div>
-                </a>
-            
-                
-                <a href="/real_hexo/tags/" class="mdui-list-item mdui-ripple">
-                    <div class="mdui-list-item-icon">
-                        <i class="iconfont icon-bookmark"></i>
-                    </div>
-                    <div class="mdui-list-item-content">标签</div>
-                </a>
-            
-                
-                <a href="/real_hexo/categories/" class="mdui-list-item mdui-ripple">
-                    <div class="mdui-list-item-icon">
-                        <i class="iconfont icon-folder"></i>
-                    </div>
-                    <div class="mdui-list-item-content">分类</div>
-                </a>
-            
-                
-                <a href="/real_hexo/archives/" class="mdui-list-item mdui-ripple">
-                    <div class="mdui-list-item-icon">
-                        <i class="iconfont icon-archive"></i>
-                    </div>
-                    <div class="mdui-list-item-content">归档</div>
-                </a>
-            
-                
-                <a href="/real_hexo/about/" class="mdui-list-item mdui-ripple">
-                    <div class="mdui-list-item-icon">
-                        <i class="iconfont icon-user"></i>
-                    </div>
-                    <div class="mdui-list-item-content">关于</div>
-                </a>
-            
-            <div class="mdui-list-item mdui-ripple">
-                <div class="mdui-list-item-icon">
-                    <i class="iconfont icon-moon"></i>
-                </div>
-                <div class="mdui-list-item-content">夜间模式</div>
-                <label class="mdui-switch" id="darkmode">
-                  <input type="checkbox" id="nightmode_switch"/>
-                  <i class="mdui-switch-icon"></i>
-                </label>
-            </div>           
+        
+<link rel="stylesheet" href="/real_hexo/css/style.css">
+
+    
+        
+<link rel="stylesheet" href="/real_hexo/css/prism.css">
+
+    
+        
+<link rel="stylesheet" href="/real_hexo/css/prism-line-highlight.css">
+
+    
+
+
+<style>
+    * {
+        --sidebar-image: url(https://picsum.photos/600/400.webp?blur=10);
+        --sidebar-image-color: #d2cbca;
+        --banner-image: url(https://picsum.photos/1200/500.webp);
+        --banner-image-color: #d2cbca;
+        --post-thumbnail-color: #67b5d2;
+        --copy-code-btn-color: #fff;
+    }
+</style>
+
+<meta name="generator" content="Hexo 6.1.0"><link rel="stylesheet" href="/real_hexo/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/real_hexo/css/prism-line-numbers.css" type="text/css"></head>
+<body class="mdui-theme-primary-light-blue mdui-theme-accent-light-blue mdui-drawer-body-left">
+    <script>window.switchDark=t=>{const a={auto:"mdui-theme-layout-auto",enable:"mdui-theme-layout-dark",disable:""};(t=t||localStorage.getItem("dark"))in a||(t="auto");for(const e in a)a[e]&&document.body.classList[e===t?"add":"remove"](a[e]);localStorage.setItem("dark",t)},switchDark()</script>
+
+    <!-- 抽屉菜单 -->
+    <!-- 打开抽屉菜单的按钮 -->
+<button
+    class="mdui-fab mdui-text-color-grey-700 mdui-shadow-0 mdui-m-a-2"
+    style="position:fixed;z-index:1"
+    mdui-drawer="{target:'#akarin-drawer'}"
+><i class="mdui-icon material-icons">menu</i></button>
+
+<!-- 左边的抽屉菜单 -->
+<nav id="akarin-drawer" class="mdui-drawer mdui-drawer-full-height mdui-shadow-6">
+    <div id="akarin-drawer-media" class="mdui-p-x-2 akarin-util-bg-cover">
+        <img
+            id="akarin-drawer-avatar"
+            class="mdui-m-t-4 mdui-img-circle akarin-hover-spin"
+            src="https://s1.ax1x.com/2022/04/27/Lb5HD1.jpg"
+        >
+        <div class="mdui-card-media-covered akarin-util-text-gradient">
+            <div class="mdui-card-primary">
+                <div class="mdui-typo-subheading">Chike Lee </div>
+                <div class="mdui-typo-caption akarin-util-opacity-half">我愿投身前途未卜的群星 </div>
+            </div>
         </div>
     </div>
+    <div class="mdui-list" mdui-collapse>
+        
+            
+                <div>
+                    <a class="mdui-list-item mdui-ripple" href="/real_hexo/">
+                        
+                            <i class="mdui-list-item-icon mdui-icon material-icons">home</i>
+                        
+                        <span class="mdui-list-item-content">主页</span>
+                    </a>
+                </div>
+            
+            
+        
+            
+                <div>
+                    <a class="mdui-list-item mdui-ripple" href="/real_hexo/about">
+                        
+                            <i class="mdui-list-item-icon mdui-icon material-icons">person</i>
+                        
+                        <span class="mdui-list-item-content">关于我</span>
+                    </a>
+                </div>
+            
+            
+        
+            
+                <div>
+                    <a class="mdui-list-item mdui-ripple" href="/real_hexo/friend">
+                        
+                            <i class="mdui-list-item-icon mdui-icon material-icons">link</i>
+                        
+                        <span class="mdui-list-item-content">友链</span>
+                    </a>
+                </div>
+            
+            
+        
+            
+                <div>
+                    <a class="mdui-list-item mdui-ripple" href="/real_hexo/archives">
+                        <i class="mdui-list-item-icon mdui-icon material-icons">collections_bookmark</i>
+                        <span class="mdui-list-item-content">归档</span>
+                        <small class="mdui-color-theme-accent akarin-drawer-badge">7</small>
+                    </a>
+                </div>
+            
+            
+        
+            
+                
+            
+            
+                <div class="mdui-divider"></div>
+            
+        
+            
+                <div class="mdui-collapse-item mdui-collapse-item-open">
+                    <div class="mdui-list-item mdui-ripple mdui-collapse-item-header">
+                        <i class="mdui-list-item-icon mdui-icon material-icons">brightness_4</i>
+                        <span class="mdui-list-item-content">深色模式</span>
+                        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+                    </div>
+                    <div class="mdui-list mdui-collapse-item-body">
+                        <div class="mdui-list-item mdui-ripple" data-dark="auto">
+                            <span class="mdui-list-item-content">根据系统主题切换</span>
+                        </div>
+                        <div class="mdui-list-item mdui-ripple" data-dark="enable">
+                            <span class="mdui-list-item-content">启用</span>
+                        </div>
+                        <div class="mdui-list-item mdui-ripple" data-dark="disable">
+                            <span class="mdui-list-item-content">禁用</span>
+                        </div>
+                    </div>
+                </div>
+            
+            
+        
+            
+                
+                    <div class="mdui-collapse-item mdui-collapse-item-open">
+                        <div class="mdui-list-item mdui-ripple mdui-collapse-item-header">
+                            <i class="mdui-list-item-icon mdui-icon material-icons">insert_chart</i>
+                            <span class="mdui-list-item-content">访问统计</span>
+                            <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+                        </div>
+                        <div class="mdui-list mdui-collapse-item-body">
+                            
+                                <div class="mdui-list-item mdui-ripple">
+                                    <span class="mdui-list-item-content">站点访问量</span>
+                                    <small id="busuanzi_value_site_pv" class="mdui-color-theme-accent akarin-drawer-badge">Loading</small>
+                                </div>
+                            
+                            
+                                <div class="mdui-list-item mdui-ripple">
+                                    <span class="mdui-list-item-content">站点访客数</span>
+                                    <small id="busuanzi_value_site_uv" class="mdui-color-theme-accent akarin-drawer-badge">Loading</small>
+                                </div>
+                            
+                            
+                                <div class="mdui-list-item mdui-ripple">
+                                    <span class="mdui-list-item-content">页面访问量</span>
+                                    <small id="busuanzi_value_page_pv" class="mdui-color-theme-accent akarin-drawer-badge">Loading</small>
+                                </div>
+                            
+                        </div>
+                    </div>
+                
+            
+            
+        
+    </div>
+</nav>
+
+    <!-- 右下角的返回顶部 -->
+    
+    
+        <button
+            id="akarin-top"
+            title="返回顶部"
+            class="mdui-fab mdui-fab-mini mdui-fab-fixed mdui-fab-hide mdui-color-theme-accent mdui-ripple"
+        ><i class="mdui-icon material-icons">keyboard_arrow_up</i></button>
+    
+
+
+
+    <!-- 主页大图 -->
+    
+        <div style="padding-top:20px"></div>
+        <div class="mdui-hidden-sm-down" style="padding-top:40px"></div>
+        <div class="mdui-hidden-md-down" style="padding-top:40px"></div>
+    
+
+    <!-- 页面本体 -->
+    <main class="mdui-container" style="max-width:1024px">
+        
+
 
     
-    <div id="sidebar-tab2" class="mdui-p-a-1">
-        <div class="sidebar-overview">
-            <div class="sidebar-avatar">
+        <div class="mdui-card mdui-m-y-5 mdui-hoverable akarin-util-rounded-5">
+    <div
+        class="akarin-post-entry-bg akarin-util-bg-cover mdui-ripple"
+        
+        
+        
+        
+    >
+        
+
+        <div class="akarin-post-entry-title akarin-util-text-gradient">
+            <div class="mdui-card-primary">
+                <div class="mdui-card-primary-title mdui-text-color-white-text">
+                    Camp每日一题(div2)4.27
+                </div>
                 
-                    <img src="https://s1.ax1x.com/2022/04/27/Lb5HD1.jpg"/>
+                    <div class="mdui-card-primary-subtitle mdui-text-color-white-text akarin-util-opacity-half">
+                        
+                            <a
+                                href="/real_hexo/categories/%E6%8A%80%E6%9C%AF/"
+                                class="mdui-text-color-theme-secondary mdui-text-color-white-text"
+                            >技术</a>
+                            &gt;
+                        
+                            <a
+                                href="/real_hexo/categories/%E6%8A%80%E6%9C%AF/%E7%AE%97%E6%B3%95/"
+                                class="mdui-text-color-theme-secondary mdui-text-color-white-text"
+                            >算法</a>
+                            
+                        
+                    </div>
                 
             </div>
-            <div class="sidebar-author-name">Chike Lee</div>
-            <div class="sidebar-description">我愿投身前途未卜的群星</div>
         </div>
-        <div class="sidebar-links">
-            
-                
-                <div class="mdui-chip">
-                    <span class="mdui-chip-icon"><i class="iconfont icon-mail"></i></span>
-                    <a href="mailto:inariindream@163.com" class="mdui-chip-title">E-Mail</a>
-                </div>
-            
-                
-                <div class="mdui-chip">
-                    <span class="mdui-chip-icon"><i class="iconfont icon-github"></i></span>
-                    <a target="_blank" rel="noopener" href="https://github.com/InariInDream" class="mdui-chip-title">GitHub</a>
-                </div>
-            
-                
-                <div class="mdui-chip">
-                    <span class="mdui-chip-icon"><i class="iconfont icon-steam"></i></span>
-                    <a target="_blank" rel="noopener" href="https://steamcommunity.com/profiles/76561198813007792/" class="mdui-chip-title">Steam</a>
-                </div>
-            
-                
-                <div class="mdui-chip">
-                    <span class="mdui-chip-icon"><i class="iconfont icon-qq"></i></span>
-                    <a target="_blank" rel="noopener" href="https://qm.qq.com/cgi-bin/qm/qr?k=27rU7Xj-tyEQaVU-YiAIUWLokUwjFuwe&noverify=0" class="mdui-chip-title">QQ</a>
-                </div>
-            
-                
-                <div class="mdui-chip">
-                    <span class="mdui-chip-icon"><i class="iconfont icon-twitter"></i></span>
-                    <a target="_blank" rel="noopener" href="https://twitter.com/inariindream" class="mdui-chip-title">Twitter</a>
-                </div>
-            
-        </div>
-        <ul class="mdui-list" mdui-collapse="{accordion: true}">
-            <li class="mdui-collapse-item">
-                <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
-                    <div class="mdui-list-item-icon">
-                        <i class="iconfont icon-link"></i>
-                    </div>
-                    <div class="mdui-list-item-content">友情链接</div>
-                    <div class="mdui-collapse-item-arrow">
-                        <i class="mdui-list-item-icon iconfont icon-angle-down"></i>
-                    </div>
-                </div>
-                <ul id="linksList" class="mdui-collapse-item-body mdui-list mdui-list-dense">
-                    
-                        <a target="_blank" rel="noopener" href="https://garybear.cn/hexo-theme-meadow/" class="mdui-list-item mdui-ripple">
-                            Meadow说明文档
-                        </a>
-                    
-                </ul>
-            </li>
-        </ul>
     </div>
-
+    <div class="mdui-card-content mdui-typo">
+        题目链接描述现给定两个 四位素数 a,b。 你可以执行多次下面的操作：
+修改数字 a 的某一位, 使其成为另一个 四位素数。
+例如，1033→1733，其中 1033 与 1733 均为素数。
+问至少多少次变换后能从 a 得到 b ?...
+        <a href="/real_hexo/2022/04/27/Camp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98-div2-4-27/" data-entry>阅读全文</a>
+    </div>
     <div class="mdui-divider"></div>
-    
-    
-</aside>
-  
-  <main id="main-contain" class="mdui-container mdui-m-t-5">
-    
-
-<div class="mdui-card mdui-p-a-4 mdui-m-b-5">
-    <div class="page-describe">
-        目前共计 7 篇日志。
-    </div>
-    <div class="posts-collapse">
+    <div class="mdui-card-header mdui-valign">
+        <div>
+            <img class="mdui-card-header-avatar akarin-hover-spin" src="https://s1.ax1x.com/2022/04/27/Lb5HD1.jpg">
+            <div class="mdui-card-header-title">Chike Lee</div>
+            <div class="mdui-card-header-subtitle">2022-04-27 10:09:06</div>
+        </div>
         
-            
-            
-                <div class="collection-title">
-                    <a href="/real_hexo/archives/2022"><h2>2022<small>归档</small></h2></a>
-                </div>
+            <div style="flex-grow:1"></div>
+            <div class="mdui-text-right">
                 
-            
-
-            <div class="collection-item">
-                <h3><a href="/real_hexo/2022/04/27/Camp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98-div2-4-27/">Camp每日一题(div2)4.27</a></h3>
-                <time itemprop="dateCreated" datetime=2022-04-27 >
-                    2022.04.27
-                </time>
-            </div>
-        
-            
-            
-
-            <div class="collection-item">
-                <h3><a href="/real_hexo/2022/04/26/Camp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98-div2-4-26/">Camp每日一题(div2)4.26</a></h3>
-                <time itemprop="dateCreated" datetime=2022-04-26 >
-                    2022.04.26
-                </time>
-            </div>
-        
-            
-            
-
-            <div class="collection-item">
-                <h3><a href="/real_hexo/2022/04/26/2020%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/">2020年终总结</a></h3>
-                <time itemprop="dateCreated" datetime=2022-04-26 >
-                    2022.04.26
-                </time>
-            </div>
-        
-            
-            
-
-            <div class="collection-item">
-                <h3><a href="/real_hexo/2022/04/26/Camp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98-div2-4-22/">Camp每日一题(div2)4.22</a></h3>
-                <time itemprop="dateCreated" datetime=2022-04-26 >
-                    2022.04.26
-                </time>
-            </div>
-        
-            
-            
-
-            <div class="collection-item">
-                <h3><a href="/real_hexo/2022/04/26/Namomocamp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98-div2-4-23/">Camp每日一题(div2) 4.23</a></h3>
-                <time itemprop="dateCreated" datetime=2022-04-26 >
-                    2022.04.26
-                </time>
-            </div>
-        
-            
-            
-
-            <div class="collection-item">
-                <h3><a href="/real_hexo/2022/04/25/namomocamp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%EF%BC%88Div2%EF%BC%89/">Camp每日一题（Div2） 4.25</a></h3>
-                <time itemprop="dateCreated" datetime=2022-04-25 >
-                    2022.04.25
-                </time>
-            </div>
-        
-            
-            
-
-            <div class="collection-item">
-                <h3><a href="/real_hexo/2022/04/25/My-first-blog/">My first blog</a></h3>
-                <time itemprop="dateCreated" datetime=2022-04-25 >
-                    2022.04.25
-                </time>
+                    <a
+                        href="/real_hexo/tags/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/"
+                        class="mdui-text-color-theme-secondary"
+                    >每日一题</a>
+                
+                    <a
+                        href="/real_hexo/tags/BFS/"
+                        class="mdui-text-color-theme-secondary"
+                    >BFS</a>
+                
             </div>
         
     </div>
 </div>
-
-
-  </main>
-  <footer id="footer" class="mdui-text-center mdui-m-t-5 mdui-p-b-2 mdui-p-t-4 mdui-color-theme">
-  <div class="mdui-container">
-    <div class="mdui-row">
-      
-        <a href="https://beian.miit.gov.cn" rel="noopener" target="_blank"></a>
-      
-      <span>
-        &copy; 2022 - 2022 
+    
+        <div class="mdui-card mdui-m-y-5 mdui-hoverable akarin-util-rounded-5">
+    <div
+        class="akarin-post-entry-bg akarin-util-bg-cover mdui-ripple"
         
-          <span style="color:#d9333f" class="iconfont icon-heart"></span>
         
-        Chike Lee
-      </span>
-    </div>
-    <div class="mdui-row">
-      
-        <span>Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a></span>
-      
-    </div>
-    <div class="mdui-row">
-      
-        <div class="mdui-col-xs-6 mdui-text-right">
-          <span id="busuanzi_container_site_uv" style="display: none;"> <span class="iconfont icon-user"></span>总访客量 <span id="busuanzi_value_site_uv"></span></span>
+        
+        
+    >
+        
+
+        <div class="akarin-post-entry-title akarin-util-text-gradient">
+            <div class="mdui-card-primary">
+                <div class="mdui-card-primary-title mdui-text-color-white-text">
+                    Camp每日一题(div2)4.26
+                </div>
+                
+                    <div class="mdui-card-primary-subtitle mdui-text-color-white-text akarin-util-opacity-half">
+                        
+                            <a
+                                href="/real_hexo/categories/%E6%8A%80%E6%9C%AF/"
+                                class="mdui-text-color-theme-secondary mdui-text-color-white-text"
+                            >技术</a>
+                            &gt;
+                        
+                            <a
+                                href="/real_hexo/categories/%E6%8A%80%E6%9C%AF/%E7%AE%97%E6%B3%95/"
+                                class="mdui-text-color-theme-secondary mdui-text-color-white-text"
+                            >算法</a>
+                            
+                        
+                    </div>
+                
+            </div>
         </div>
-        <div class="mdui-col-xs-6 mdui-text-left">
-          <span id="busuanzi_container_site_pv" style="display: none;"> <span class="iconfont icon-eye"></span>总访问量 <span id="busuanzi_value_site_pv"></span></span>
-        </div>
-      
     </div>
- </div>
-</footer>
-  
-  <button id="gotop" class="mdui-fab mdui-fab-fixed mdui-fab-hide mdui-ripple mdui-color-teal" style="z-index:100;"><i class="iconfont icon-arrowup"></i></button>
-  
-  
+    <div class="mdui-card-content mdui-typo">
+        题目链接描述判断有没有一种办法可以将从$1$ 到 $N$ 的 $N$个人排成一排，并满足给定的$M$个要求。
+对于每个要求给出两个整数 $A_i$和$B_i$，表示编号$A_i$和$B_i$的人是相邻的
+保证每个要求都不同，即给出$1...
+        <a href="/real_hexo/2022/04/26/Camp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98-div2-4-26/" data-entry>阅读全文</a>
+    </div>
+    <div class="mdui-divider"></div>
+    <div class="mdui-card-header mdui-valign">
+        <div>
+            <img class="mdui-card-header-avatar akarin-hover-spin" src="https://s1.ax1x.com/2022/04/27/Lb5HD1.jpg">
+            <div class="mdui-card-header-title">Chike Lee</div>
+            <div class="mdui-card-header-subtitle">2022-04-26 16:42:13</div>
+        </div>
+        
+            <div style="flex-grow:1"></div>
+            <div class="mdui-text-right">
+                
+                    <a
+                        href="/real_hexo/tags/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/"
+                        class="mdui-text-color-theme-secondary"
+                    >每日一题</a>
+                
+                    <a
+                        href="/real_hexo/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/"
+                        class="mdui-text-color-theme-secondary"
+                    >并查集</a>
+                
+                    <a
+                        href="/real_hexo/tags/%E5%9B%BE%E8%AE%BA/"
+                        class="mdui-text-color-theme-secondary"
+                    >图论</a>
+                
+            </div>
+        
+    </div>
+</div>
+    
+        <div class="mdui-card mdui-m-y-5 mdui-hoverable akarin-util-rounded-5">
+    <div
+        class="akarin-post-entry-bg akarin-util-bg-cover mdui-ripple"
+        
+        
+        
+        
+    >
+        
 
-    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        <div class="akarin-post-entry-title akarin-util-text-gradient">
+            <div class="mdui-card-primary">
+                <div class="mdui-card-primary-title mdui-text-color-white-text">
+                    2020年终总结
+                </div>
+                
+                    <div class="mdui-card-primary-subtitle mdui-text-color-white-text akarin-util-opacity-half">
+                        
+                            <a
+                                href="/real_hexo/categories/%E6%9D%82%E8%B0%88/"
+                                class="mdui-text-color-theme-secondary mdui-text-color-white-text"
+                            >杂谈</a>
+                            
+                        
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="mdui-card-content mdui-typo">
+        
+用一句话总结我所经历的2020年
+“在理想中死亡，在现实中重生。”
+今年是无比艰难的一年，以至于每个人都在年末的时候对未来有着美好的祝愿。
+像2019年的这个时候我们祝愿的那样。
+突如其来的疫情打乱了我们每一个人的既定节奏，年初一直...
+        <a href="/real_hexo/2022/04/26/2020%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/" data-entry>阅读全文</a>
+    </div>
+    <div class="mdui-divider"></div>
+    <div class="mdui-card-header mdui-valign">
+        <div>
+            <img class="mdui-card-header-avatar akarin-hover-spin" src="https://s1.ax1x.com/2022/04/27/Lb5HD1.jpg">
+            <div class="mdui-card-header-title">Chike Lee</div>
+            <div class="mdui-card-header-subtitle">2022-04-26 11:35:14</div>
+        </div>
+        
+    </div>
+</div>
+    
+        <div class="mdui-card mdui-m-y-5 mdui-hoverable akarin-util-rounded-5">
+    <div
+        class="akarin-post-entry-bg akarin-util-bg-cover mdui-ripple"
+        
+        
+        
+        
+    >
+        
 
+        <div class="akarin-post-entry-title akarin-util-text-gradient">
+            <div class="mdui-card-primary">
+                <div class="mdui-card-primary-title mdui-text-color-white-text">
+                    Camp每日一题(div2)4.22
+                </div>
+                
+                    <div class="mdui-card-primary-subtitle mdui-text-color-white-text akarin-util-opacity-half">
+                        
+                            <a
+                                href="/real_hexo/categories/%E6%8A%80%E6%9C%AF/"
+                                class="mdui-text-color-theme-secondary mdui-text-color-white-text"
+                            >技术</a>
+                            &gt;
+                        
+                            <a
+                                href="/real_hexo/categories/%E6%8A%80%E6%9C%AF/%E7%AE%97%E6%B3%95/"
+                                class="mdui-text-color-theme-secondary mdui-text-color-white-text"
+                            >算法</a>
+                            
+                        
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="mdui-card-content mdui-typo">
+        （待补）题目链接
+题解链接
+描述给定两个队列$a$,$b$，每队$n$人，身高分别为$a_i$, $b_i$
+每队的人都可以与前后相邻者交换位置，次数不限，仅在同队换，问使$\sum (a_i - b_i)^2$最小的交换次数
+思路两...
+        <a href="/real_hexo/2022/04/26/Camp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98-div2-4-22/" data-entry>阅读全文</a>
+    </div>
+    <div class="mdui-divider"></div>
+    <div class="mdui-card-header mdui-valign">
+        <div>
+            <img class="mdui-card-header-avatar akarin-hover-spin" src="https://s1.ax1x.com/2022/04/27/Lb5HD1.jpg">
+            <div class="mdui-card-header-title">Chike Lee</div>
+            <div class="mdui-card-header-subtitle">2022-04-26 09:53:09</div>
+        </div>
+        
+            <div style="flex-grow:1"></div>
+            <div class="mdui-text-right">
+                
+                    <a
+                        href="/real_hexo/tags/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/"
+                        class="mdui-text-color-theme-secondary"
+                    >归并排序</a>
+                
+                    <a
+                        href="/real_hexo/tags/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/"
+                        class="mdui-text-color-theme-secondary"
+                    >每日一题</a>
+                
+            </div>
+        
+    </div>
+</div>
+    
+        <div class="mdui-card mdui-m-y-5 mdui-hoverable akarin-util-rounded-5">
+    <div
+        class="akarin-post-entry-bg akarin-util-bg-cover mdui-ripple"
+        
+        
+        
+        
+    >
+        
 
+        <div class="akarin-post-entry-title akarin-util-text-gradient">
+            <div class="mdui-card-primary">
+                <div class="mdui-card-primary-title mdui-text-color-white-text">
+                    Camp每日一题(div2) 4.23
+                </div>
+                
+                    <div class="mdui-card-primary-subtitle mdui-text-color-white-text akarin-util-opacity-half">
+                        
+                            <a
+                                href="/real_hexo/categories/%E6%8A%80%E6%9C%AF/"
+                                class="mdui-text-color-theme-secondary mdui-text-color-white-text"
+                            >技术</a>
+                            &gt;
+                        
+                            <a
+                                href="/real_hexo/categories/%E6%8A%80%E6%9C%AF/%E7%AE%97%E6%B3%95/"
+                                class="mdui-text-color-theme-secondary mdui-text-color-white-text"
+                            >算法</a>
+                            
+                        
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="mdui-card-content mdui-typo">
+        (BFS板题)题目链接
+题目描述给出一个 N 个顶点 M 条边的无向无权图。
+问从顶点 1 开始，到其他每个点的最短路有几条。
+思路BFS板题，每次遍历的时候记录层数，如果当前遍历到的$x$节点是$t$节点的下一层，那么$x$的最短路...
+        <a href="/real_hexo/2022/04/26/Namomocamp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98-div2-4-23/" data-entry>阅读全文</a>
+    </div>
+    <div class="mdui-divider"></div>
+    <div class="mdui-card-header mdui-valign">
+        <div>
+            <img class="mdui-card-header-avatar akarin-hover-spin" src="https://s1.ax1x.com/2022/04/27/Lb5HD1.jpg">
+            <div class="mdui-card-header-title">Chike Lee</div>
+            <div class="mdui-card-header-subtitle">2022-04-26 09:29:29</div>
+        </div>
+        
+            <div style="flex-grow:1"></div>
+            <div class="mdui-text-right">
+                
+                    <a
+                        href="/real_hexo/tags/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/"
+                        class="mdui-text-color-theme-secondary"
+                    >每日一题</a>
+                
+                    <a
+                        href="/real_hexo/tags/BFS/"
+                        class="mdui-text-color-theme-secondary"
+                    >BFS</a>
+                
+            </div>
+        
+    </div>
+</div>
+    
+        <div class="mdui-card mdui-m-y-5 mdui-hoverable akarin-util-rounded-5">
+    <div
+        class="akarin-post-entry-bg akarin-util-bg-cover mdui-ripple"
+        
+        
+        
+        
+    >
+        
 
+        <div class="akarin-post-entry-title akarin-util-text-gradient">
+            <div class="mdui-card-primary">
+                <div class="mdui-card-primary-title mdui-text-color-white-text">
+                    Camp每日一题（Div2） 4.25
+                </div>
+                
+                    <div class="mdui-card-primary-subtitle mdui-text-color-white-text akarin-util-opacity-half">
+                        
+                            <a
+                                href="/real_hexo/categories/%E6%8A%80%E6%9C%AF/"
+                                class="mdui-text-color-theme-secondary mdui-text-color-white-text"
+                            >技术</a>
+                            &gt;
+                        
+                            <a
+                                href="/real_hexo/categories/%E6%8A%80%E6%9C%AF/%E7%AE%97%E6%B3%95/"
+                                class="mdui-text-color-theme-secondary mdui-text-color-white-text"
+                            >算法</a>
+                            
+                        
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="mdui-card-content mdui-typo">
+        写在前面太菜了所以只有通过写blog来复盘写过的题这样子除了每日一题可能还有平时的错题或者一些比较经典的题，也许是个督促自己不摸鱼的好方式（？
+还兼顾学md语法（雾
+今天是第一天写blog 好像不知道写什么， 待会把每日一题写了再搞点...
+        <a href="/real_hexo/2022/04/25/namomocamp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%EF%BC%88Div2%EF%BC%89/" data-entry>阅读全文</a>
+    </div>
+    <div class="mdui-divider"></div>
+    <div class="mdui-card-header mdui-valign">
+        <div>
+            <img class="mdui-card-header-avatar akarin-hover-spin" src="https://s1.ax1x.com/2022/04/27/Lb5HD1.jpg">
+            <div class="mdui-card-header-title">Chike Lee</div>
+            <div class="mdui-card-header-subtitle">2022-04-25 20:19:49</div>
+        </div>
+        
+            <div style="flex-grow:1"></div>
+            <div class="mdui-text-right">
+                
+                    <a
+                        href="/real_hexo/tags/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/"
+                        class="mdui-text-color-theme-secondary"
+                    >每日一题</a>
+                
+                    <a
+                        href="/real_hexo/tags/C/"
+                        class="mdui-text-color-theme-secondary"
+                    >C++</a>
+                
+                    <a
+                        href="/real_hexo/tags/%E7%AE%97%E6%B3%95/"
+                        class="mdui-text-color-theme-secondary"
+                    >算法</a>
+                
+            </div>
+        
+    </div>
+</div>
+    
+        <div class="mdui-card mdui-m-y-5 mdui-hoverable akarin-util-rounded-5">
+    <div
+        class="akarin-post-entry-bg akarin-util-bg-cover mdui-ripple"
+        
+        
+        
+        
+    >
+        
 
+        <div class="akarin-post-entry-title akarin-util-text-gradient">
+            <div class="mdui-card-primary">
+                <div class="mdui-card-primary-title mdui-text-color-white-text">
+                    My first blog
+                </div>
+                
+                    <div class="mdui-card-primary-subtitle mdui-text-color-white-text akarin-util-opacity-half">
+                        
+                            <a
+                                href="/real_hexo/categories/Hexo-Test/"
+                                class="mdui-text-color-theme-secondary mdui-text-color-white-text"
+                            >Hexo Test</a>
+                            
+                        
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="mdui-card-content mdui-typo">
+        This is just a Test123456#incldue &lt;iostream&gt;using namespace std;int main()&#123;    cout &lt;&lt; &quot;Hello W...
+        <a href="/real_hexo/2022/04/25/My-first-blog/" data-entry>阅读全文</a>
+    </div>
+    <div class="mdui-divider"></div>
+    <div class="mdui-card-header mdui-valign">
+        <div>
+            <img class="mdui-card-header-avatar akarin-hover-spin" src="https://s1.ax1x.com/2022/04/27/Lb5HD1.jpg">
+            <div class="mdui-card-header-title">Chike Lee</div>
+            <div class="mdui-card-header-subtitle">2022-04-25 14:18:04</div>
+        </div>
+        
+            <div style="flex-grow:1"></div>
+            <div class="mdui-text-right">
+                
+                    <a
+                        href="/real_hexo/tags/C/"
+                        class="mdui-text-color-theme-secondary"
+                    >C++</a>
+                
+            </div>
+        
+    </div>
+</div>
+    
 
+    <!-- Paginator in archive.ejs -->
+    <div class="mdui-valign mdui-m-t-2">
+    
+        <button class="mdui-btn mdui-btn-icon mdui-ripple" disabled>
+            <i class="mdui-icon material-icons">chevron_left</i>
+        </button>
+    
+    
 
+    <span class="mdui-typo-body-1-opacity mdui-text-center" style="flex-grow:1">
+        
+            1 / 1
+        
+    </span>
 
     
-<script src="/real_hexo/js/mdui.min.v1.0.0.js"></script>
+
+    
+        <button class="mdui-btn mdui-btn-icon mdui-ripple" disabled>
+            <i class="mdui-icon material-icons">chevron_right</i>
+        </button>
+    
+</div>
+
+    </main>
+
+    <!-- 页面底部 -->
+    <footer class="mdui-container mdui-typo mdui-m-y-5" style="display:flex;max-width:1024px">
+    <div class="mdui-text-left mdui-typo-body-1-opacity">
+        
+            Copyright © 2022 Chike Lee
+        
+        <br>
+        Hosted by <a href="https://pages.github.com/" target="_blank">Github Pages</a>
+    </div>
+    <div style="flex-grow:1"></div>
+    <div class="mdui-text-right mdui-typo-body-1-opacity">
+        Powered by <a href="https://hexo.io" target="_blank">Hexo</a> <span class="mdui-hidden-xs-down">6.1.0</span>
+        <br>
+        Theme - <a href="https://github.com/TransparentLC/hexo-theme-akarin" target="_blank">Akarin</a>
+    </div>
+</footer>
+
+    <!-- 导入JS -->
+    
+    
+        
+<script src="/real_hexo/js/mdui.min.js"></script>
+
+    
+        
+<script src="/real_hexo/js/medium-zoom.min.js"></script>
+
+    
+        
+<script src="/real_hexo/js/script.js"></script>
+
+    
+        
+<script src="/real_hexo/js/prism.js"></script>
+
+    
+        
+<script src="/real_hexo/js/prism-line-highlight.js"></script>
+
+    
+        
+<script src="/real_hexo/js/prism-cpp.min.js"></script>
+
+    
 
 
 
+    <script src="https://cdn.jsdelivr.net/gh/TransparentLC/hexo-theme-akarin/source/js/bsz.min.js" async></script>
 
-<script src="/real_hexo/js/meadow.js"></script>
+
 
 </body>
-</html >
+</html>

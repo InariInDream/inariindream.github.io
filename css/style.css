@@ -1,0 +1,250 @@
+/* 导入思源黑体 */
+@font-face {
+    font-family: 'Noto Sans CJK SC';
+    font-style: normal;
+    font-weight: 100;
+    src: local('Noto Sans CJK SC Thin'), local('Source Han Sans SC ExtraLight'), local('Source Han Sans CN ExtraLight');
+}
+@font-face {
+    font-family: 'Noto Sans CJK SC';
+    font-style: normal;
+    font-weight: 300;
+    src: local('Noto Sans CJK SC Light'), local('Source Han Sans SC Light'), local('Source Han Sans CN Light');
+}
+@font-face {
+    font-family: 'Noto Sans CJK SC';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Noto Sans CJK SC Regular'), local('Source Han Sans SC Regular'), local('Source Han Sans CN Regular');
+}
+@font-face {
+    font-family: 'Noto Sans CJK SC';
+    font-style: normal;
+    font-weight: 500;
+    src: local('Noto Sans CJK SC Medium'), local('Source Han Sans SC Medium'), local('Source Han Sans CN Medium');
+}
+@font-face {
+    font-family: 'Noto Sans CJK SC';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Noto Sans CJK SC Bold'), local('Source Han Sans SC Bold'), local('Source Han Sans CN Bold');
+}
+@font-face {
+    font-family: 'Noto Sans CJK SC';
+    font-style: normal;
+    font-weight: 900;
+    src: local('Noto Sans CJK SC Black'), local('Source Han Sans SC Heavy'), local('Source Han Sans CN Heavy');
+}
+body {
+    font-family:
+        Roboto,
+        Noto,
+        "Helvetica Neue",
+        Helvetica,
+        "Noto Sans CJK SC",
+        "PingFang SC",
+        "Hiragino Sans GB",
+        "Microsoft YaHei",
+        "微软雅黑",
+        Arial,
+        sans-serif;
+}
+
+/* 抽屉菜单 */
+#akarin-drawer-media {
+    position: relative;
+    height: 150px;
+    background-color: var(--sidebar-image-color);
+    background-image: var(--sidebar-image);
+}
+#akarin-drawer-avatar {
+    width: 54px;
+    height: 54px;
+}
+.akarin-drawer-badge {
+    border-radius: 1em;
+    padding: 2px 6px;
+}
+
+/* 主页大图 */
+#akarin-home-banner-wrapper {
+    padding-top: 150px;
+    padding-bottom: 200px;
+    margin-bottom: -150px;
+    background-color: var(--banner-image-color);
+    background-image: var(--banner-image);
+}
+@media (min-width:600px) {
+    #akarin-home-banner-wrapper {
+        padding-top: 200px;
+        padding-bottom: 300px;
+        margin-bottom: -150px;
+    }
+}
+#akarin-home-banner {
+    max-width: 800px;
+    display: inline-block;
+    background-color: rgba(0, 0, 0, .4);
+}
+
+/* 返回顶部 */
+picture#akarin-top img,
+picture#akarin-top source {
+    position: fixed;
+    cursor: pointer;
+    width: auto;
+    height: 180px;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    transition: transform ease-out .25s;
+    transform: translateX(70%);
+}
+picture#akarin-top img:hover,
+picture#akarin-top source:hover {
+    transform: translateX(0);
+}
+button#akarin-top {
+    z-index: 1000;
+}
+
+/* hover头像时的旋转效果 */
+.akarin-hover-spin {
+    transition: transform .4s ease;
+}
+.akarin-hover-spin:hover {
+    transform: rotate(360deg);
+}
+
+/* 文章Entry和本体 */
+.akarin-post-entry-bg {
+    min-height: 180px;
+    position: relative;
+    background-color: var(--post-thumbnail-color);
+}
+@media (min-width:600px) {
+    .akarin-post-entry-bg {
+        min-height: 210px;
+    }
+}
+@media (min-width:1024px) {
+    .akarin-post-entry-bg {
+        min-height: 240px;
+    }
+}
+.akarin-post-bg {
+    min-height: 240px;
+    position: relative;
+    background-color: var(--post-thumbnail-color);
+}
+@media (min-width:600px) {
+    .akarin-post-bg {
+        min-height: 270px;
+    }
+}
+@media (min-width:1024px) {
+    .akarin-post-bg {
+        min-height: 300px;
+    }
+}
+.akarin-post-title,
+.akarin-post-entry-title {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+/* 封面图模糊效果 */
+.akarin-blurred-cover {
+    /* The “Blur Up” Technique for Loading Background Images  */
+    /* https://css-tricks.com/the-blur-up-technique-for-loading-background-images/#recreating-the-blur-filter-with-svg */
+    filter: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='_'%3E%3CfeGaussianBlur stdDeviation='9'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='discrete' tableValues='1 1'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3C/svg%3E#_");
+    transform: translateZ(0);
+}
+.akarin-blurred-cover-fade-out {
+    transition: opacity 1s;
+    opacity: 0;
+}
+
+/* 文章内容 */
+.akarin-copy-code-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    color: var(--copy-code-btn-color);
+}
+@media (min-width:600px) {
+    article.mdui-typo {
+        font-size: 16px;
+    }
+}
+article.mdui-typo pre {
+    font-size: 1em;
+}
+article.mdui-typo pre,
+article.mdui-typo code,
+article.mdui-typo pre code {
+    line-height: 1.25;
+    font-family: "Cascadia Mono", "Segoe UI Mono", "Ubuntu Mono", "Roboto Mono", Menlo, Monaco, Consolas, monospace;
+}
+article.mdui-typo img {
+    max-height: 480px;
+    box-shadow:
+        0 3px 3px -2px rgba(0, 0, 0, .2),
+        0 3px 4px 0 rgba(0, 0, 0, .14),
+        0 1px 8px 0 rgba(0, 0, 0, .12);
+}
+.medium-zoom-image.medium-zoom-image--opened,
+.medium-zoom-overlay {
+    z-index: 10000;
+    filter: none !important
+}
+article.mdui-typo img.mdui-hoverable.medium-zoom-image {
+    transition:
+        transform .3s cubic-bezier(.2, 0, .2, 1),
+        box-shadow .25s cubic-bezier(.4, 0, .2, 1)
+        !important;
+}
+article.mdui-typo a.headerlink::before {
+    position: initial;
+    background-color: transparent;
+    content: '#';
+}
+article.mdui-typo a.headerlink {
+    visibility: hidden;
+    margin-left: -.65em;
+    position: absolute;
+}
+article.mdui-typo h1:hover .headerlink,
+article.mdui-typo h2:hover .headerlink,
+article.mdui-typo h3:hover .headerlink,
+article.mdui-typo h4:hover .headerlink,
+article.mdui-typo h5:hover .headerlink,
+article.mdui-typo h6:hover .headerlink {
+    visibility: visible;
+}
+
+/* 其他工具类 */
+.akarin-util-bg-cover {
+    background-position: center;
+    background-size: cover;
+}
+.akarin-util-opacity-half {
+    opacity: .5;
+}
+.akarin-util-opacity-quarter {
+    opacity: .75;
+}
+.akarin-util-text-gradient {
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, .35), rgba(0, 0, 0, .5))
+}
+.akarin-util-rounded-5 {
+    border-radius: 5px;
+}
+.akarin-util-rounded-7 {
+    border-radius: 7px;
+}
+.akarin-util-rounded-9 {
+    border-radius: 9px;
+}
