@@ -23,7 +23,7 @@
         
 
 
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","mainEntityOfPage":"https://inariindream.github.io/2022/04/30/Camp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98-div2-4-30/index.html","headline":"Camp每日一题(div2)4.30","datePublished":"2022-04-30T01:55:08.000Z","dateModified":"2022-04-30T03:03:28.903Z","author":{"@type":"Person","name":"InariInDream","image":{"@type":"ImageObject","url":"https://s1.ax1x.com/2022/04/27/Lb5HD1.jpg"},"description":"我为什么这么菜"},"publisher":{"@type":"Organization","name":"Inari's Blog","logo":"https://s1.ax1x.com/2022/04/27/Lb5QhD.jpg"},"keywords":"每日一题,优先队列,堆,桶排序","description":"我愿投身前途未卜的群星"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","mainEntityOfPage":"https://inariindream.github.io/2022/04/30/Camp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98-div2-4-30/index.html","headline":"Camp每日一题(div2)4.30","datePublished":"2022-04-30T01:55:08.000Z","dateModified":"2022-04-30T03:04:10.130Z","author":{"@type":"Person","name":"InariInDream","image":{"@type":"ImageObject","url":"https://s1.ax1x.com/2022/04/27/Lb5HD1.jpg"},"description":"我为什么这么菜"},"publisher":{"@type":"Organization","name":"Inari's Blog","logo":"https://s1.ax1x.com/2022/04/27/Lb5QhD.jpg"},"keywords":"每日一题,优先队列,堆,桶排序","description":"我愿投身前途未卜的群星"}</script>
 
     
 
@@ -335,6 +335,7 @@
 <p>那就需要优化插入操作的复杂度了，且将初始化的排序优化为<a target="_blank" rel="noopener" href="https://oi-wiki.org/basic/bucket-sort/">桶排序</a>(因为$a_i$只有$10^5$)</p>
 <p>做法是建立两个队列，将桶排的结果放进第一个队列$Q_1$，将合并的结果放进第二个队列$Q_2$，每次取两个队列的最小值合并</p>
 <p>(其实就是把合并的结果单独放在一个队列里面，这样就不用插入了)</p>
+<p>复杂度为$O(n)$</p>
 <h2 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h2><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> cnt<span class="token punctuation">[</span><span class="token number">100005</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 queue<span class="token operator">&lt;</span>ll<span class="token operator">&gt;</span>q1<span class="token punctuation">;</span>
 queue<span class="token operator">&lt;</span>ll<span class="token operator">&gt;</span>q2<span class="token punctuation">;</span>
