@@ -23,7 +23,7 @@
         
 
 
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","mainEntityOfPage":"https://inariindream.github.io/2022/04/30/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98%E8%AE%B0%E5%BD%95%EF%BC%88%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86%EF%BC%89/index.html","headline":"洛谷专题记录（前缀和与差分）","datePublished":"2022-04-30T05:15:13.000Z","dateModified":"2022-04-30T05:52:24.023Z","author":{"@type":"Person","name":"InariInDream","image":{"@type":"ImageObject","url":"https://s1.ax1x.com/2022/04/27/Lb5HD1.jpg"},"description":"我为什么这么菜"},"publisher":{"@type":"Organization","name":"Inari's Blog","logo":"https://s1.ax1x.com/2022/04/27/Lb5QhD.jpg"},"keywords":"前缀和,洛谷专题,差分","description":"我愿投身前途未卜的群星"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","mainEntityOfPage":"https://inariindream.github.io/2022/04/30/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98%E8%AE%B0%E5%BD%95%EF%BC%88%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86%EF%BC%89/index.html","headline":"洛谷专题记录（前缀和与差分）","datePublished":"2022-04-30T05:15:13.000Z","dateModified":"2022-04-30T08:11:25.742Z","author":{"@type":"Person","name":"InariInDream","image":{"@type":"ImageObject","url":"https://s1.ax1x.com/2022/04/27/Lb5HD1.jpg"},"description":"我为什么这么菜"},"publisher":{"@type":"Organization","name":"Inari's Blog","logo":"https://s1.ax1x.com/2022/04/27/Lb5QhD.jpg"},"keywords":"前缀和,洛谷专题,差分","description":"我愿投身前途未卜的群星"}</script>
 
     
 
@@ -315,14 +315,36 @@
     cout <span class="token operator">&lt;&lt;</span> ans <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-
+<hr>
 <h1 id="地毯"><a href="#地毯" class="headerlink" title="地毯"></a><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3397">地毯</a></h1><h2 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h2><p>在 $n\times n$ 的格子上有 $m$ 个地毯。</p>
 <p>给出这些地毯的信息，问每个点被多少个地毯覆盖。</p>
 <p>输入格式<br>第一行，两个正整数 $n,m$。意义如题所述。</p>
 <p>接下来$m$ 行，每行两个坐标 $(x_1,y_1)$ 和 $(x_2,y_2)$，代表一块地毯，左上角是 $(x_1,y_1)$，右下角是 $(x_2,y_2)$。</p>
 <p>输出格式<br>输出 $n$ 行，每行 $n$ 个正整数。</p>
 <p>第 $i$ 行第 $j$ 列的正整数表示 $(i,j)$ 这个格子被多少个地毯覆盖。</p>
+<p>$n, m \leqslant 1000$</p>
 <h2 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h2><p>差分</p>
+<blockquote>
+<h3 id="复习"><a href="#复习" class="headerlink" title="复习"></a>复习</h3><h4 id="何为差分"><a href="#何为差分" class="headerlink" title="何为差分"></a>何为差分</h4><p>假设我们现在要给[2,5]这个区间加一。</p>
+<p>原来的序列是：<br><code>0 0 0 0 0 0 0 0</code></p>
+<p>这时候我们在2上面打 +1 标记， 6 上面打 -1 标记。</p>
+<p>那么现在的序列是：<br><code>0 +1 0 0 0 -1 0</code></p>
+<p>这样的话，从左往右扫描这个数组，记录当前经过的标签之和，这个和就是那个数对应的答案</p>
+<p>这样，对于每个区间加操作，只需要$O(1)$的时间打上标记，<br>最后扫描输出即可</p>
+</blockquote>
+<p>现在把问题拓展到二维。假设我们要覆盖$[(2,2),(5,5)]$ ，那么标记便可以这样打：</p>
+<pre class="line-numbers language-0" data-language="0"><div class="caption"><span>0 0 0 0 0</span></div><code class="language-0">0 +1 0 0 0 -1
+0 +1 0 0 0 -1
+0 +1 0 0 0 -1
+0 +1 0 0 0 -1
+0 0 0 0 0 0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>即在每一行都按照一维的方式来操作：</p>
+<pre class="line-numbers language-CPP" data-language="CPP"><code class="language-CPP">for (int j = x1; j &lt;= x2; j++) {
+    cf[j][y1]++;
+    cf[j][y2 + 1]--;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这样一来,打标记时候的复杂度为$O(n)$,总复杂度为$O(mn + n^2)$</p>
 <h2 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h2><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> cf<span class="token punctuation">[</span><span class="token number">2000</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">2000</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
 <span class="token keyword">void</span> <span class="token function">solve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
@@ -346,6 +368,65 @@
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<hr>
+<h1 id="海底高铁"><a href="#海底高铁" class="headerlink" title="海底高铁"></a><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3406">海底高铁</a></h1><h2 id="题目描述-2"><a href="#题目描述-2" class="headerlink" title="题目描述"></a>题目描述</h2><p>一个铁路经过$N$个城市，每个城市一个站，但不能直达，只能相邻城市的一段铁路单独买票</p>
+<p>对于一段铁路$i$，连接了城市$i$和城市$i+ 1$，有两种买票方式。</p>
+<ol>
+<li><p>单独购买纸质票，价格为$A_i$</p>
+</li>
+<li><p>买卡，只需要花工本费$C_i$，每次通行花费$B_i（B_i &lt; A_i )$</p>
+</li>
+</ol>
+<p>现在一个人要出差去$M$个城市，按照$P_i$的顺序访问，可能会多次访问一个城市，且相邻访问的城市位置不一定相邻，而且不会是同一个城市。</p>
+<p>求总费用的最小值</p>
+<p>$M，N \leqslant 10^5, A_i,B_i,C_i \leqslant 10 ^ 5$</p>
+<h2 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h2><p>前缀和和差分数组结合， 对于其中一小段，我们要么全部买纸票，要么全部刷卡。</p>
+<p>所以问题拆分成了统计每一小段经过的总次数，再在两种费用方案之间取最小值</p>
+<p>后者不难，此题的考点在前者，直接暴力统计会绎演丁真，鉴定为纯纯的$TLE$</p>
+<p>因此先用差分数组预处理每次要去的起点和终点，打上标记。</p>
+<p>然后再求每一项的前缀和，这样最后前缀和数组就是每一段铁路的经过次数了</p>
+<p>例：如果我们要经过$1-3$ 和 $2-4$</p>
+<p>先打上标记</p>
+<pre class="line-numbers language-none"><code class="language-none">                 +1      -1          +1 +1   -1 -1
+- - - - -        --  - - -- -        -- -- - -- --
+1 2 3 4 5        1   2 3 4  5        1  2  3 4  5
+   图1                图2                 图3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p> 再进行前缀和</p>
+ <pre class="line-numbers language-none"><code class="language-none"> 1 2 2 1 0
+- - - - -
+1 2 3 4 5
+    图4<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p> 更多细节见代码</p>
+<h2 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h2> <pre class="line-numbers language-CPP" data-language="CPP"><code class="language-CPP"> void solve(){
+    int n, m;
+    cin &gt;&gt; n &gt;&gt; m;
+    vector&lt;ll&gt;p(n + 2);//station
+    vector&lt;ll&gt;cnt(n + 2);//count
+    for (int i = 1; i &lt;= m; i++) {
+        cin &gt;&gt; p[i];
+    }
+    ll ma, mi;
+    for (int i = 1; i &lt;= m - 1; i++) {
+        ma = max(p[i], p[i + 1]);
+        mi = min(p[i], p[i + 1]);
+        cnt[ma]--;//因为第i段铁路是从第i连到第i+1个城市，所以减去ma就是减去第ma-1 +1段铁路
+        cnt[mi]++;
+    }
+    for (int i = 1; i &lt;= n; i++) {//WA了一发，开始的range是[1,m]
+        cnt[i] += cnt[i - 1];//这就是为什么前缀和处理的话数组下标要从1开始
+    }
+    int a, b, c;
+    ll ans = 0;
+    for (int i = 1; i &lt;= n - 1; i++) {
+        cin &gt;&gt; a &gt;&gt; b &gt;&gt; c;
+        ans += min(a * cnt[i], b * cnt[i] + c);
+    }
+    cout &lt;&lt; ans &lt;&lt; endl;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<hr>
 
 
         
