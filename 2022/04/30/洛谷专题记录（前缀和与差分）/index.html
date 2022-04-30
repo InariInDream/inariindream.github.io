@@ -23,7 +23,7 @@
         
 
 
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","mainEntityOfPage":"https://inariindream.github.io/2022/04/30/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98%E8%AE%B0%E5%BD%95%EF%BC%88%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86%EF%BC%89/index.html","headline":"洛谷专题记录（前缀和与差分）","datePublished":"2022-04-30T05:15:13.000Z","dateModified":"2022-04-30T08:11:25.742Z","author":{"@type":"Person","name":"InariInDream","image":{"@type":"ImageObject","url":"https://s1.ax1x.com/2022/04/27/Lb5HD1.jpg"},"description":"我为什么这么菜"},"publisher":{"@type":"Organization","name":"Inari's Blog","logo":"https://s1.ax1x.com/2022/04/27/Lb5QhD.jpg"},"keywords":"前缀和,洛谷专题,差分","description":"我愿投身前途未卜的群星"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","mainEntityOfPage":"https://inariindream.github.io/2022/04/30/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98%E8%AE%B0%E5%BD%95%EF%BC%88%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86%EF%BC%89/index.html","headline":"洛谷专题记录（前缀和与差分）","datePublished":"2022-04-30T05:15:13.000Z","dateModified":"2022-04-30T08:12:46.079Z","author":{"@type":"Person","name":"InariInDream","image":{"@type":"ImageObject","url":"https://s1.ax1x.com/2022/04/27/Lb5HD1.jpg"},"description":"我为什么这么菜"},"publisher":{"@type":"Organization","name":"Inari's Blog","logo":"https://s1.ax1x.com/2022/04/27/Lb5QhD.jpg"},"keywords":"前缀和,洛谷专题,差分","description":"我愿投身前途未卜的群星"}</script>
 
     
 
@@ -339,10 +339,10 @@
 0 +1 0 0 0 -1
 0 0 0 0 0 0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>即在每一行都按照一维的方式来操作：</p>
-<pre class="line-numbers language-CPP" data-language="CPP"><code class="language-CPP">for (int j = x1; j &lt;= x2; j++) {
-    cf[j][y1]++;
-    cf[j][y2 + 1]--;
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> x1<span class="token punctuation">;</span> j <span class="token operator">&lt;=</span> x2<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    cf<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">[</span>y1<span class="token punctuation">]</span><span class="token operator">++</span><span class="token punctuation">;</span>
+    cf<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">[</span>y2 <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">--</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>这样一来,打标记时候的复杂度为$O(n)$,总复杂度为$O(mn + n^2)$</p>
 <h2 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h2><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> cf<span class="token punctuation">[</span><span class="token number">2000</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">2000</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
@@ -393,38 +393,38 @@
    图1                图2                 图3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p> 再进行前缀和</p>
- <pre class="line-numbers language-none"><code class="language-none"> 1 2 2 1 0
+ <pre class="line-numbers language-none"><code class="language-none">1 2 2 1 0
 - - - - -
 1 2 3 4 5
     图4<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p> 更多细节见代码</p>
-<h2 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h2> <pre class="line-numbers language-CPP" data-language="CPP"><code class="language-CPP"> void solve(){
-    int n, m;
-    cin &gt;&gt; n &gt;&gt; m;
-    vector&lt;ll&gt;p(n + 2);//station
-    vector&lt;ll&gt;cnt(n + 2);//count
-    for (int i = 1; i &lt;= m; i++) {
-        cin &gt;&gt; p[i];
-    }
-    ll ma, mi;
-    for (int i = 1; i &lt;= m - 1; i++) {
-        ma = max(p[i], p[i + 1]);
-        mi = min(p[i], p[i + 1]);
-        cnt[ma]--;//因为第i段铁路是从第i连到第i+1个城市，所以减去ma就是减去第ma-1 +1段铁路
-        cnt[mi]++;
-    }
-    for (int i = 1; i &lt;= n; i++) {//WA了一发，开始的range是[1,m]
-        cnt[i] += cnt[i - 1];//这就是为什么前缀和处理的话数组下标要从1开始
-    }
-    int a, b, c;
-    ll ans = 0;
-    for (int i = 1; i &lt;= n - 1; i++) {
-        cin &gt;&gt; a &gt;&gt; b &gt;&gt; c;
-        ans += min(a * cnt[i], b * cnt[i] + c);
-    }
-    cout &lt;&lt; ans &lt;&lt; endl;
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h2> <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"> <span class="token keyword">void</span> <span class="token function">solve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">int</span> n<span class="token punctuation">,</span> m<span class="token punctuation">;</span>
+    cin <span class="token operator">&gt;&gt;</span> n <span class="token operator">&gt;&gt;</span> m<span class="token punctuation">;</span>
+    vector<span class="token operator">&lt;</span>ll<span class="token operator">&gt;</span><span class="token function">p</span><span class="token punctuation">(</span>n <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//station</span>
+    vector<span class="token operator">&lt;</span>ll<span class="token operator">&gt;</span><span class="token function">cnt</span><span class="token punctuation">(</span>n <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//count</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> m<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        cin <span class="token operator">&gt;&gt;</span> p<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    ll ma<span class="token punctuation">,</span> mi<span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> m <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        ma <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>p<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> p<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        mi <span class="token operator">=</span> <span class="token function">min</span><span class="token punctuation">(</span>p<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> p<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        cnt<span class="token punctuation">[</span>ma<span class="token punctuation">]</span><span class="token operator">--</span><span class="token punctuation">;</span><span class="token comment">//因为第i段铁路是从第i连到第i+1个城市，所以减去ma就是减去第ma-1 +1段铁路</span>
+        cnt<span class="token punctuation">[</span>mi<span class="token punctuation">]</span><span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token comment">//WA了一发，开始的range是[1,m]</span>
+        cnt<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+=</span> cnt<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment">//这就是为什么前缀和处理的话数组下标要从1开始</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">int</span> a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">;</span>
+    ll ans <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        cin <span class="token operator">&gt;&gt;</span> a <span class="token operator">&gt;&gt;</span> b <span class="token operator">&gt;&gt;</span> c<span class="token punctuation">;</span>
+        ans <span class="token operator">+=</span> <span class="token function">min</span><span class="token punctuation">(</span>a <span class="token operator">*</span> cnt<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> b <span class="token operator">*</span> cnt<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+</span> c<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    cout <span class="token operator">&lt;&lt;</span> ans <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <hr>
 
