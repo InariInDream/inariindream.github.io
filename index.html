@@ -136,7 +136,7 @@
                     <a class="mdui-list-item mdui-ripple" href="/archives">
                         <i class="mdui-list-item-icon mdui-icon material-icons">collections_bookmark</i>
                         <span class="mdui-list-item-content">归档</span>
-                        <small class="mdui-color-theme-accent akarin-drawer-badge">14</small>
+                        <small class="mdui-color-theme-accent akarin-drawer-badge">15</small>
                     </a>
                 </div>
             
@@ -237,6 +237,87 @@
     <!-- 页面本体 -->
     <main class="mdui-container" style="max-width:1024px">
         
+    
+        <div class="mdui-card mdui-m-y-5 mdui-hoverable akarin-util-rounded-5">
+    <div
+        class="akarin-post-entry-bg akarin-util-bg-cover mdui-ripple"
+        
+        
+            data-src="https://s1.ax1x.com/2022/04/27/Lqf2o8.png"
+        
+        
+        
+    >
+        
+
+        <div class="akarin-post-entry-title akarin-util-text-gradient">
+            <div class="mdui-card-primary">
+                <div class="mdui-card-primary-title mdui-text-color-white-text">
+                    Camp每日一题（div2）5.3
+                </div>
+                
+                    <div class="mdui-card-primary-subtitle mdui-text-color-white-text akarin-util-opacity-half">
+                        
+                            <a
+                                href="/categories/%E6%8A%80%E6%9C%AF/"
+                                class="mdui-text-color-theme-secondary mdui-text-color-white-text"
+                            >技术</a>
+                            &gt;
+                        
+                            <a
+                                href="/categories/%E6%8A%80%E6%9C%AF/%E7%AE%97%E6%B3%95/"
+                                class="mdui-text-color-theme-secondary mdui-text-color-white-text"
+                            >算法</a>
+                            
+                        
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="mdui-card-content mdui-typo">
+        （待补）题目链接描述给出一个长度为$N$的数组$A$和一个数字$k$
+请问数组A中有多少个子数组，其元素和为$k$？
+$1≤N≤2×105 ，|A_i|≤109，|k|≤1015$
+思路DP
+代码（copy）ll get_sum(vector&lt;int&gt;&amp; nums, ll k){
+    ll res = 0, sum = 0;
+    unordered_map&lt;ll,int&gt;mp;
+    mp[0] = 1;
+    for(auto num : nums){
+     ...
+        <a href="/2022/05/03/Camp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%EF%BC%88div2%EF%BC%895-3/" data-entry>阅读全文</a>
+    </div>
+    <div class="mdui-divider"></div>
+    <div class="mdui-card-header mdui-valign">
+        <div>
+            <img class="mdui-card-header-avatar akarin-hover-spin" src="https://s1.ax1x.com/2022/04/27/Lb5HD1.jpg">
+            <div class="mdui-card-header-title">InariInDream</div>
+            <div class="mdui-card-header-subtitle">2022-05-03 22:42:36</div>
+        </div>
+        
+            <div style="flex-grow:1"></div>
+            <div class="mdui-text-right">
+                
+                    <a
+                        href="/tags/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/"
+                        class="mdui-text-color-theme-secondary"
+                    >每日一题</a>
+                
+                    <a
+                        href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/"
+                        class="mdui-text-color-theme-secondary"
+                    >前缀和</a>
+                
+                    <a
+                        href="/tags/%E5%93%88%E5%B8%8C/"
+                        class="mdui-text-color-theme-secondary"
+                    >哈希</a>
+                
+            </div>
+        
+    </div>
+</div>
     
         <div class="mdui-card mdui-m-y-5 mdui-hoverable akarin-util-rounded-5">
     <div
@@ -936,84 +1017,6 @@ $\sum (a_i - b_i)^2 = \sum((a_i + b_i)^2 - 4 * a_i * b_i)$
                         href="/tags/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/"
                         class="mdui-text-color-theme-secondary"
                     >每日一题</a>
-                
-            </div>
-        
-    </div>
-</div>
-    
-        <div class="mdui-card mdui-m-y-5 mdui-hoverable akarin-util-rounded-5">
-    <div
-        class="akarin-post-entry-bg akarin-util-bg-cover mdui-ripple"
-        
-        
-            data-src="https://s1.ax1x.com/2022/04/27/Lqf2o8.png"
-        
-        
-        
-    >
-        
-
-        <div class="akarin-post-entry-title akarin-util-text-gradient">
-            <div class="mdui-card-primary">
-                <div class="mdui-card-primary-title mdui-text-color-white-text">
-                    Camp每日一题（div2） 4.23
-                </div>
-                
-                    <div class="mdui-card-primary-subtitle mdui-text-color-white-text akarin-util-opacity-half">
-                        
-                            <a
-                                href="/categories/%E6%8A%80%E6%9C%AF/"
-                                class="mdui-text-color-theme-secondary mdui-text-color-white-text"
-                            >技术</a>
-                            &gt;
-                        
-                            <a
-                                href="/categories/%E6%8A%80%E6%9C%AF/%E7%AE%97%E6%B3%95/"
-                                class="mdui-text-color-theme-secondary mdui-text-color-white-text"
-                            >算法</a>
-                            
-                        
-                    </div>
-                
-            </div>
-        </div>
-    </div>
-    <div class="mdui-card-content mdui-typo">
-        (BFS板题)题目链接
-题目描述给出一个 N 个顶点 M 条边的无向无权图。
-问从顶点 1 开始，到其他每个点的最短路有几条。
-思路BFS板题，每次遍历的时候记录层数，如果当前遍历到的$x$节点是$t$节点的下一层，那么$x$的最短路数量就是当前$x$的最短路数量加上$t$的最短路数量
-因为每次遍历到的时候都会加一遍，就相当于乘法了
-代码const int N = 1e6 + 5;
-const int mod = 100003;
-
-
-vector&lt;int&gt;e[N];
-int used[N];
-in...
-        <a href="/2022/04/26/Namomocamp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98-div2-4-23/" data-entry>阅读全文</a>
-    </div>
-    <div class="mdui-divider"></div>
-    <div class="mdui-card-header mdui-valign">
-        <div>
-            <img class="mdui-card-header-avatar akarin-hover-spin" src="https://s1.ax1x.com/2022/04/27/Lb5HD1.jpg">
-            <div class="mdui-card-header-title">InariInDream</div>
-            <div class="mdui-card-header-subtitle">2022-04-26 09:29:29</div>
-        </div>
-        
-            <div style="flex-grow:1"></div>
-            <div class="mdui-text-right">
-                
-                    <a
-                        href="/tags/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/"
-                        class="mdui-text-color-theme-secondary"
-                    >每日一题</a>
-                
-                    <a
-                        href="/tags/BFS/"
-                        class="mdui-text-color-theme-secondary"
-                    >BFS</a>
                 
             </div>
         
