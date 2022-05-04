@@ -276,16 +276,13 @@
         </div>
     </div>
     <div class="mdui-card-content mdui-typo">
-        （待补）题目链接描述给出一个长度为$N$的数组$A$和一个数字$k$
+        题目链接描述给出一个长度为$N$的数组$A$和一个数字$k$
 请问数组A中有多少个子数组，其元素和为$k$？
 $1≤N≤2×105 ，|A_i|≤109，|k|≤1015$
-思路DP
-代码（copy）ll get_sum(vector&lt;int&gt;&amp; nums, ll k){
-    ll res = 0, sum = 0;
-    unordered_map&lt;ll,int&gt;mp;
-    mp[0] = 1;
-    for(auto num : nums){
-     ...
+思路首先看数据范围，因为有负数，所以双指针应该是不行的。
+看到区间和首先想到的就是前缀和，遍历一遍$a_i$，每次如果找到区间和为$k$的就$cnt$++
+但是如果直接硬扫的话是$O(n^2)$的，肯定不行，所以要换另一种查询的方法，可以选择set或者map（这个思想zj在某次div2B也说过）
+以map为例，满足条件的前缀和和当前前缀和...
         <a href="/2022/05/03/Camp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%EF%BC%88div2%EF%BC%895-3/" data-entry>阅读全文</a>
     </div>
     <div class="mdui-divider"></div>
