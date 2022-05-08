@@ -23,7 +23,7 @@
         
 
 
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","mainEntityOfPage":"https://inariindream.github.io/2022/05/05/Camp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%EF%BC%88div2%EF%BC%895-5/index.html","headline":"Camp每日一题（div2）5.5","datePublished":"2022-05-05T02:21:28.000Z","dateModified":"2022-05-05T02:49:23.134Z","author":{"@type":"Person","name":"InariInDream","image":{"@type":"ImageObject","url":"https://s1.ax1x.com/2022/04/27/Lb5HD1.jpg"},"description":"我为什么这么菜"},"publisher":{"@type":"Organization","name":"Inari's Blog","logo":"https://s1.ax1x.com/2022/04/27/Lb5QhD.jpg"},"keywords":"每日一题,图论,BFS,LCA","description":"我愿投身前途未卜的群星"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","mainEntityOfPage":"https://inariindream.github.io/2022/05/05/Camp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%EF%BC%88div2%EF%BC%895-5/index.html","headline":"Camp每日一题（div2）5.5","datePublished":"2022-05-05T02:21:28.000Z","dateModified":"2022-05-05T02:59:19.246Z","author":{"@type":"Person","name":"InariInDream","image":{"@type":"ImageObject","url":"https://s1.ax1x.com/2022/04/27/Lb5HD1.jpg"},"description":"我为什么这么菜"},"publisher":{"@type":"Organization","name":"Inari's Blog","logo":"https://s1.ax1x.com/2022/04/27/Lb5QhD.jpg"},"keywords":"每日一题,图论,BFS,LCA","description":"我愿投身前途未卜的群星"}</script>
 
     
 
@@ -136,7 +136,7 @@
                     <a class="mdui-list-item mdui-ripple" href="/archives">
                         <i class="mdui-list-item-icon mdui-icon material-icons">collections_bookmark</i>
                         <span class="mdui-list-item-content">归档</span>
-                        <small class="mdui-color-theme-accent akarin-drawer-badge">16</small>
+                        <small class="mdui-color-theme-accent akarin-drawer-badge">17</small>
                     </a>
                 </div>
             
@@ -304,7 +304,7 @@
 <p>$1≤q≤100000$</p>
 <p>对于每一个询问 $1 ≤ c_i &lt; d_i ≤ n$</p>
 <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>这题拿到手最开始想的是就是一个简单的无向图求最短路然后判断奇偶，写了个BFS过了样例，自信满满交了一发，结果在第一个点就T飞了。</p>
-<p>重新读了一遍题才发现询问次数q是1e5的，这样的话无论是BFS还是Dijkstra跑一趟都会超时，因为在每次询问的时候都要<code>memset</code>距离数组和<code>used</code>数组一次（后发现是自己BFS套板子套的太笨了，一样有人用BFS过了）</p>
+<p>重新读了一遍题才发现询问次数$q$是$1e5$的，这样的话无论是BFS还是Dijkstra跑一趟都会超时，因为在每次询问的时候都要<code>memset</code>距离数组和<code>used</code>数组一次（后发现是自己BFS套板子套的太笨了，一样有人用BFS过了）</p>
 <p>后在dls的建议下用LCA，因为$n-1$条路的话是树。套了个二月底写<a target="_blank" rel="noopener" href="http://oj.daimayuan.top/course/10/problem/451">div1每日一题</a>的LCA板子过了，但是还是晕晕乎乎的，有时间一定补!（顺便把代码用<code>vector</code>重构一下）</p>
 <p>看了别人的代码才发现发现BFS是完全能做的，因为完全没有必要去求两点间的最短路，可以直接预处理根节点到每个节点的距离，再求距离差的奇偶性即可，这样也只需要一次memset了。</p>
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">const</span> <span class="token keyword">int</span> N <span class="token operator">=</span> <span class="token number">200005</span><span class="token punctuation">;</span>
@@ -441,10 +441,12 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
 
     <div class="mdui-valign mdui-m-t-2">
     
-        <button class="mdui-btn mdui-btn-icon mdui-ripple" disabled>
+        <a href="/2022/05/08/Camp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%EF%BC%88div2%EF%BC%895-7/" class="mdui-btn mdui-btn-icon mdui-ripple">
             <i class="mdui-icon material-icons">chevron_left</i>
-        </button>
+        </a>
     
+    
+        <span class="mdui-typo-body-1-opacity mdui-m-l-1 mdui-text-left" title="Camp每日一题（div2）5.7">上一篇</span>
     
 
     <span class="mdui-typo-body-1-opacity mdui-text-center" style="flex-grow:1">
