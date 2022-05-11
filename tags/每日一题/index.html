@@ -134,7 +134,7 @@
                     <a class="mdui-list-item mdui-ripple" href="/archives">
                         <i class="mdui-list-item-icon mdui-icon material-icons">collections_bookmark</i>
                         <span class="mdui-list-item-content">归档</span>
-                        <small class="mdui-color-theme-accent akarin-drawer-badge">19</small>
+                        <small class="mdui-color-theme-accent akarin-drawer-badge">20</small>
                     </a>
                 </div>
             
@@ -227,6 +227,78 @@
     <!-- 页面本体 -->
     <main class="mdui-container" style="max-width:1024px">
         
+    <div class="mdui-card mdui-m-y-5 mdui-hoverable akarin-util-rounded-5">
+    <div
+        class="akarin-post-entry-bg akarin-util-bg-cover mdui-ripple"
+        
+        
+            data-src="https://s1.ax1x.com/2022/04/27/Lqf2o8.png"
+        
+        
+        
+    >
+        
+
+        <div class="akarin-post-entry-title akarin-util-text-gradient">
+            <div class="mdui-card-primary">
+                <div class="mdui-card-primary-title mdui-text-color-white-text">
+                    Camp每日一题（div2）5.11
+                </div>
+                
+                    <div class="mdui-card-primary-subtitle mdui-text-color-white-text akarin-util-opacity-half">
+                        
+                            <a
+                                href="/categories/%E6%8A%80%E6%9C%AF/"
+                                class="mdui-text-color-theme-secondary mdui-text-color-white-text"
+                            >技术</a>
+                            &gt;
+                        
+                            <a
+                                href="/categories/%E6%8A%80%E6%9C%AF/%E7%AE%97%E6%B3%95/"
+                                class="mdui-text-color-theme-secondary mdui-text-color-white-text"
+                            >算法</a>
+                            
+                        
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="mdui-card-content mdui-typo">
+        题目链接描述有一个长度为$n$的序列，现在我们想把它切割成三段(每一段都是连续的），使得每一段的元素总和都相同，请问有多少种不同的切割方法
+思路前缀和处理数组，从前往后扫一遍。切割成相同且连续的三段的话必然每个方案的切点都有$\dfrac{sum}{3}$和$\dfrac{2\times sum}{3}$且前者一定在右者的左边，这样一来，只需要记录三分之一处的数量，然后在每次遇见三分之二处的时候加上到目前为止的左端点的数量即可。
+注意在$n$处不能当右端点。
+代码ll l, r, x, cnt = 0;
+
+v...
+        <a href="/2022/05/11/Camp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%EF%BC%88div2%EF%BC%895-11/" data-entry>阅读全文</a>
+    </div>
+    <div class="mdui-divider"></div>
+    <div class="mdui-card-header mdui-valign">
+        <div>
+            <img class="mdui-card-header-avatar akarin-hover-spin" src="https://s1.ax1x.com/2022/04/27/Lb5HD1.jpg">
+            <div class="mdui-card-header-title">InariInDream</div>
+            <div class="mdui-card-header-subtitle">2022-05-11 14:51:52</div>
+        </div>
+        
+            <div style="flex-grow:1"></div>
+            <div class="mdui-text-right">
+                
+                    <a
+                        href="/tags/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/"
+                        class="mdui-text-color-theme-secondary"
+                    >每日一题</a>
+                
+                    <a
+                        href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/"
+                        class="mdui-text-color-theme-secondary"
+                    >前缀和</a>
+                
+            </div>
+        
+    </div>
+</div>
+
     <div class="mdui-card mdui-m-y-5 mdui-hoverable akarin-util-rounded-5">
     <div
         class="akarin-post-entry-bg akarin-util-bg-cover mdui-ripple"
@@ -913,90 +985,6 @@ void solve(){
                         href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/"
                         class="mdui-text-color-theme-secondary"
                     >双指针</a>
-                
-            </div>
-        
-    </div>
-</div>
-
-    <div class="mdui-card mdui-m-y-5 mdui-hoverable akarin-util-rounded-5">
-    <div
-        class="akarin-post-entry-bg akarin-util-bg-cover mdui-ripple"
-        
-        
-            data-src="https://s1.ax1x.com/2022/04/27/Lqf2o8.png"
-        
-        
-        
-    >
-        
-
-        <div class="akarin-post-entry-title akarin-util-text-gradient">
-            <div class="mdui-card-primary">
-                <div class="mdui-card-primary-title mdui-text-color-white-text">
-                    Camp每日一题（div2） 4.28
-                </div>
-                
-                    <div class="mdui-card-primary-subtitle mdui-text-color-white-text akarin-util-opacity-half">
-                        
-                            <a
-                                href="/categories/%E6%8A%80%E6%9C%AF/"
-                                class="mdui-text-color-theme-secondary mdui-text-color-white-text"
-                            >技术</a>
-                            &gt;
-                        
-                            <a
-                                href="/categories/%E6%8A%80%E6%9C%AF/%E7%AE%97%E6%B3%95/"
-                                class="mdui-text-color-theme-secondary mdui-text-color-white-text"
-                            >算法</a>
-                            
-                        
-                    </div>
-                
-            </div>
-        </div>
-    </div>
-    <div class="mdui-card-content mdui-typo">
-        题目链接描述给定一个$H$行和$W$列的网格，我们让$(i,j)$表示从北边第i行和从西边第j列的网格
-
-在一个网格上修建一个火车站的代价是$A_{i,j}$
-
-在两个网格间建一条铁轨的代价是这两个点位置的曼哈顿距离
-
-
-求造一条铁路的最小花费
-        <a href="/2022/04/28/Camp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98-div2-4-28/" data-entry>阅读全文</a>
-    </div>
-    <div class="mdui-divider"></div>
-    <div class="mdui-card-header mdui-valign">
-        <div>
-            <img class="mdui-card-header-avatar akarin-hover-spin" src="https://s1.ax1x.com/2022/04/27/Lb5HD1.jpg">
-            <div class="mdui-card-header-title">InariInDream</div>
-            <div class="mdui-card-header-subtitle">2022-04-28 19:34:58</div>
-        </div>
-        
-            <div style="flex-grow:1"></div>
-            <div class="mdui-text-right">
-                
-                    <a
-                        href="/tags/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/"
-                        class="mdui-text-color-theme-secondary"
-                    >每日一题</a>
-                
-                    <a
-                        href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"
-                        class="mdui-text-color-theme-secondary"
-                    >动态规划</a>
-                
-                    <a
-                        href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/"
-                        class="mdui-text-color-theme-secondary"
-                    >前缀和</a>
-                
-                    <a
-                        href="/tags/%E6%95%B0%E5%AD%A6/"
-                        class="mdui-text-color-theme-secondary"
-                    >数学</a>
                 
             </div>
         
