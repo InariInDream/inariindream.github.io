@@ -23,7 +23,7 @@
         
 
 
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","mainEntityOfPage":"https://inariindream.github.io/2022/05/11/Camp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%EF%BC%88div2%EF%BC%895-11/index.html","headline":"Camp每日一题（div2）5.11","datePublished":"2022-05-11T06:51:52.000Z","dateModified":"2022-05-11T06:57:51.550Z","author":{"@type":"Person","name":"InariInDream","image":{"@type":"ImageObject","url":"https://s1.ax1x.com/2022/04/27/Lb5HD1.jpg"},"description":"我为什么这么菜"},"publisher":{"@type":"Organization","name":"Inari's Blog","logo":"https://s1.ax1x.com/2022/04/27/Lb5QhD.jpg"},"keywords":"每日一题,前缀和","description":"我愿投身前途未卜的群星"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","mainEntityOfPage":"https://inariindream.github.io/2022/05/11/Camp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%EF%BC%88div2%EF%BC%895-11/index.html","headline":"Camp每日一题（div2）5.11","datePublished":"2022-05-11T06:51:52.000Z","dateModified":"2022-05-12T11:56:20.792Z","author":{"@type":"Person","name":"InariInDream","image":{"@type":"ImageObject","url":"https://s1.ax1x.com/2022/04/27/Lb5HD1.jpg"},"description":"我为什么这么菜"},"publisher":{"@type":"Organization","name":"Inari's Blog","logo":"https://s1.ax1x.com/2022/04/27/Lb5QhD.jpg"},"keywords":"每日一题,前缀和","description":"我愿投身前途未卜的群星"}</script>
 
     
 
@@ -136,7 +136,7 @@
                     <a class="mdui-list-item mdui-ripple" href="/archives">
                         <i class="mdui-list-item-icon mdui-icon material-icons">collections_bookmark</i>
                         <span class="mdui-list-item-content">归档</span>
-                        <small class="mdui-color-theme-accent akarin-drawer-badge">20</small>
+                        <small class="mdui-color-theme-accent akarin-drawer-badge">21</small>
                     </a>
                 </div>
             
@@ -290,7 +290,7 @@
     </div>
     <article class="mdui-card-content mdui-typo mdui-p-a-3">
         <h1 id="题目链接"><a href="#题目链接" class="headerlink" title="题目链接"></a><a target="_blank" rel="noopener" href="http://oj.daimayuan.top/course/11/problem/872">题目链接</a></h1><h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>有一个长度为$n$的序列，现在我们想把它切割成三段(每一段都是连续的），使得每一段的元素总和都相同，请问有多少种不同的切割方法</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>前缀和处理数组，从前往后扫一遍。切割成相同且连续的三段的话必然每个方案的切点都有$\dfrac{sum}{3}$和<br>$\dfrac{2\times sum}{3}$且前者一定在右者的左边，这样一来，只需要记录三分之一处的数量，然后在每次遇见三分之二处的时候加上到目前为止的左端点的数量即可。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>前缀和处理数组，从前往后扫一遍。切割成相同且连续的三段的话必然每个方案的切点都有$\dfrac{sum}{3}$和$\dfrac{2\times sum}{3}$且前者一定在右者的左边，这样一来，只需要记录三分之一处的数量，然后在每次遇见三分之二处的时候加上到目前为止的左端点的数量即可。</p>
 <p>注意在$n$处不能当右端点。</p>
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">ll l<span class="token punctuation">,</span> r<span class="token punctuation">,</span> x<span class="token punctuation">,</span> cnt <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 
@@ -340,10 +340,12 @@
 
     <div class="mdui-valign mdui-m-t-2">
     
-        <button class="mdui-btn mdui-btn-icon mdui-ripple" disabled>
+        <a href="/2022/05/12/Camp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%EF%BC%88div2%EF%BC%895-12/" class="mdui-btn mdui-btn-icon mdui-ripple">
             <i class="mdui-icon material-icons">chevron_left</i>
-        </button>
+        </a>
     
+    
+        <span class="mdui-typo-body-1-opacity mdui-m-l-1 mdui-text-left" title="Camp每日一题（div2）5.12">上一篇</span>
     
 
     <span class="mdui-typo-body-1-opacity mdui-text-center" style="flex-grow:1">
