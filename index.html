@@ -136,7 +136,7 @@
                     <a class="mdui-list-item mdui-ripple" href="/archives">
                         <i class="mdui-list-item-icon mdui-icon material-icons">collections_bookmark</i>
                         <span class="mdui-list-item-content">归档</span>
-                        <small class="mdui-color-theme-accent akarin-drawer-badge">21</small>
+                        <small class="mdui-color-theme-accent akarin-drawer-badge">22</small>
                     </a>
                 </div>
             
@@ -276,20 +276,18 @@
         </div>
     </div>
     <div class="mdui-card-content mdui-typo">
-        题目链接描述有一个 $01$ 序列，每次可以对其中的某一位取反（$0$变$1$，$1$变$0$）
-求最少翻转其中的几位可以使得该序列变为非递减序列
-思路不能相信这个题我昨天居然没看出来。。。最开始想的是找第一个$1$后面的$0$，每两个一组，数数就完了。
-然后寄得很彻底，然后开摆了 然后甚至也没复习模电去看剧了
-正确思路是找到$0$和$1$的分界点，分界点前面有$0$必须全是$0$，后面有$1$必须全是$1$。所以要分别找前面的$1$的数量和后面的$0$的数量。
-用$a_i$记录到$i$点的前缀和，此分界点需...
-        <a href="/2022/05/12/Camp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%EF%BC%88div2%EF%BC%895-12/" data-entry>阅读全文</a>
+        （待补）题目链接描述约翰是一个农场主，他的农场有$n$块田，编号从 $1$到 $n$，这 $n$块田通过 $m$条双向道路相连(数据保证这$n$块田都是联通的)，我们假设第$i$块田会产生 $2^i$$kg$ 的收益，现在约翰想把农田的工作全部交给自己的两个孩子，划分方式必须满足以下规则:
+1.每一块田都需要恰好被分给一个孩子.
+2.分给两个孩子的农田必须是联通的.就是说对于任意一个孩子在划分给自己的任意一块田，都可以不经过另外一个孩子的田，到达自己的任意一块田.
+3.划分给两个孩子的收益必须尽可能的相等，如...
+        <a href="/2022/05/13/Camp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%EF%BC%88div2%EF%BC%895-12/" data-entry>阅读全文</a>
     </div>
     <div class="mdui-divider"></div>
     <div class="mdui-card-header mdui-valign">
         <div>
             <img class="mdui-card-header-avatar akarin-hover-spin" src="https://s1.ax1x.com/2022/04/27/Lb5HD1.jpg">
             <div class="mdui-card-header-title">InariInDream</div>
-            <div class="mdui-card-header-subtitle">2022-05-12 19:46:05</div>
+            <div class="mdui-card-header-subtitle">2022-05-13 15:37:52</div>
         </div>
         
             <div style="flex-grow:1"></div>
@@ -301,9 +299,14 @@
                     >每日一题</a>
                 
                     <a
-                        href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/"
+                        href="/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/"
                         class="mdui-text-color-theme-secondary"
-                    >前缀和</a>
+                    >并查集</a>
+                
+                    <a
+                        href="/tags/%E5%9B%BE%E8%AE%BA/"
+                        class="mdui-text-color-theme-secondary"
+                    >图论</a>
                 
             </div>
         
@@ -348,13 +351,85 @@
         </div>
     </div>
     <div class="mdui-card-content mdui-typo">
+        题目链接描述有一个 $01$ 序列，每次可以对其中的某一位取反（$0$变$1$，$1$变$0$）
+求最少翻转其中的几位可以使得该序列变为非递减序列
+思路不能相信这个题我昨天居然没看出来。。。最开始想的是找第一个$1$后面的$0$，每两个一组，数数就完了。
+然后寄得很彻底，然后开摆了 然后甚至也没复习模电去看剧了
+正确思路是找到$0$和$1$的分界点，分界点前面有$0$必须全是$0$，后面有$1$必须全是$1$。所以要分别找前面的$1$的数量和后面的$0$的数量。
+用$a_i$记录到$i$点的前缀和，此分界点需...
+        <a href="/2022/05/12/Camp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%EF%BC%88div2%EF%BC%895-11/" data-entry>阅读全文</a>
+    </div>
+    <div class="mdui-divider"></div>
+    <div class="mdui-card-header mdui-valign">
+        <div>
+            <img class="mdui-card-header-avatar akarin-hover-spin" src="https://s1.ax1x.com/2022/04/27/Lb5HD1.jpg">
+            <div class="mdui-card-header-title">InariInDream</div>
+            <div class="mdui-card-header-subtitle">2022-05-12 19:46:05</div>
+        </div>
+        
+            <div style="flex-grow:1"></div>
+            <div class="mdui-text-right">
+                
+                    <a
+                        href="/tags/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/"
+                        class="mdui-text-color-theme-secondary"
+                    >每日一题</a>
+                
+                    <a
+                        href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/"
+                        class="mdui-text-color-theme-secondary"
+                    >前缀和</a>
+                
+            </div>
+        
+    </div>
+</div>
+    
+        <div class="mdui-card mdui-m-y-5 mdui-hoverable akarin-util-rounded-5">
+    <div
+        class="akarin-post-entry-bg akarin-util-bg-cover mdui-ripple"
+        
+        
+            data-src="https://s1.ax1x.com/2022/04/27/Lqf2o8.png"
+        
+        
+        
+    >
+        
+
+        <div class="akarin-post-entry-title akarin-util-text-gradient">
+            <div class="mdui-card-primary">
+                <div class="mdui-card-primary-title mdui-text-color-white-text">
+                    Camp每日一题（div2）5.8
+                </div>
+                
+                    <div class="mdui-card-primary-subtitle mdui-text-color-white-text akarin-util-opacity-half">
+                        
+                            <a
+                                href="/categories/%E6%8A%80%E6%9C%AF/"
+                                class="mdui-text-color-theme-secondary mdui-text-color-white-text"
+                            >技术</a>
+                            &gt;
+                        
+                            <a
+                                href="/categories/%E6%8A%80%E6%9C%AF/%E7%AE%97%E6%B3%95/"
+                                class="mdui-text-color-theme-secondary mdui-text-color-white-text"
+                            >算法</a>
+                            
+                        
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="mdui-card-content mdui-typo">
         题目链接描述有一个长度为$n$的序列，现在我们想把它切割成三段(每一段都是连续的），使得每一段的元素总和都相同，请问有多少种不同的切割方法
 思路前缀和处理数组，从前往后扫一遍。切割成相同且连续的三段的话必然每个方案的切点都有$\dfrac{sum}{3}$和$\dfrac{2\times sum}{3}$且前者一定在右者的左边，这样一来，只需要记录三分之一处的数量，然后在每次遇见三分之二处的时候加上到目前为止的左端点的数量即可。
 注意在$n$处不能当右端点。
 代码ll l, r, x, cnt = 0;
 
 v...
-        <a href="/2022/05/11/Camp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%EF%BC%88div2%EF%BC%895-11/" data-entry>阅读全文</a>
+        <a href="/2022/05/11/Camp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%EF%BC%88div2%EF%BC%895-8/" data-entry>阅读全文</a>
     </div>
     <div class="mdui-divider"></div>
     <div class="mdui-card-header mdui-valign">
@@ -906,85 +981,6 @@ void solve(){
                         href="/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/"
                         class="mdui-text-color-theme-secondary"
                     >位运算</a>
-                
-            </div>
-        
-    </div>
-</div>
-    
-        <div class="mdui-card mdui-m-y-5 mdui-hoverable akarin-util-rounded-5">
-    <div
-        class="akarin-post-entry-bg akarin-util-bg-cover mdui-ripple"
-        
-        
-            data-src="https://s1.ax1x.com/2022/04/30/LzHLHf.jpg"
-        
-        
-        
-    >
-        
-
-        <div class="akarin-post-entry-title akarin-util-text-gradient">
-            <div class="mdui-card-primary">
-                <div class="mdui-card-primary-title mdui-text-color-white-text">
-                    洛谷专题记录（前缀和与差分）
-                </div>
-                
-                    <div class="mdui-card-primary-subtitle mdui-text-color-white-text akarin-util-opacity-half">
-                        
-                            <a
-                                href="/categories/%E6%8A%80%E6%9C%AF/"
-                                class="mdui-text-color-theme-secondary mdui-text-color-white-text"
-                            >技术</a>
-                            &gt;
-                        
-                            <a
-                                href="/categories/%E6%8A%80%E6%9C%AF/%E7%AE%97%E6%B3%95/"
-                                class="mdui-text-color-theme-secondary mdui-text-color-white-text"
-                            >算法</a>
-                            
-                        
-                    </div>
-                
-            </div>
-        </div>
-    </div>
-    <div class="mdui-card-content mdui-typo">
-        最大子段和题目描述给出一个长度为 $n$ 的序列 $a$，选出其中连续且非空的一段使得这段和最大。
-思路简单的前缀和 + 递推，用$a[i]$记录到第$i$个位置时与$i$相连续的最大值，用$ans$记录字段和的最大值
-转移方程a[i] = max(x, a[i - 1] + x)，  ans = max(a[i], ans)
-代码void solve(){
-    int n;
-    cin &gt;&gt; n;
-    vector&lt;int&gt;a(n);
-    int ans = -INF...
-        <a href="/2022/04/30/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98%E8%AE%B0%E5%BD%95%EF%BC%88%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86%EF%BC%89/" data-entry>阅读全文</a>
-    </div>
-    <div class="mdui-divider"></div>
-    <div class="mdui-card-header mdui-valign">
-        <div>
-            <img class="mdui-card-header-avatar akarin-hover-spin" src="https://s1.ax1x.com/2022/04/27/Lb5HD1.jpg">
-            <div class="mdui-card-header-title">InariInDream</div>
-            <div class="mdui-card-header-subtitle">2022-04-30 13:15:13</div>
-        </div>
-        
-            <div style="flex-grow:1"></div>
-            <div class="mdui-text-right">
-                
-                    <a
-                        href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/"
-                        class="mdui-text-color-theme-secondary"
-                    >前缀和</a>
-                
-                    <a
-                        href="/tags/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98/"
-                        class="mdui-text-color-theme-secondary"
-                    >洛谷专题</a>
-                
-                    <a
-                        href="/tags/%E5%B7%AE%E5%88%86/"
-                        class="mdui-text-color-theme-secondary"
-                    >差分</a>
                 
             </div>
         
