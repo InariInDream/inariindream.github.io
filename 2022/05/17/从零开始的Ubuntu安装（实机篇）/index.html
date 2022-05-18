@@ -1,0 +1,450 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,shrink-to-fit=no">
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta name="author" content="InariInDream">
+    <meta name="keywords" content="Linux,Ubuntu">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    
+
+    <link rel="icon shortcut" type="image/ico" href="https://s1.ax1x.com/2022/04/27/Lb5QhD.jpg">
+    <link rel="icon" href="https://s1.ax1x.com/2022/04/27/Lb5QhD.jpg">
+    <link rel="apple-touch-icon" href="https://s1.ax1x.com/2022/04/27/Lb5QhD.jpg">
+    
+    <title>从零开始的Ubuntu安装（实机篇） | Inari&#39;s Blog</title>
+
+    
+        
+
+
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","mainEntityOfPage":"https://inariindream.github.io/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84Ubuntu%E5%AE%89%E8%A3%85%EF%BC%88%E5%AE%9E%E6%9C%BA%E7%AF%87%EF%BC%89/index.html","headline":"从零开始的Ubuntu安装（实机篇）","datePublished":"2022-05-17T07:52:08.000Z","dateModified":"2022-05-18T05:10:39.814Z","author":{"@type":"Person","name":"InariInDream","image":{"@type":"ImageObject","url":"https://s1.ax1x.com/2022/04/27/Lb5HD1.jpg"},"description":"我为什么这么菜"},"publisher":{"@type":"Organization","name":"Inari's Blog","logo":"https://s1.ax1x.com/2022/04/27/Lb5QhD.jpg"},"keywords":"Linux,Ubuntu","description":"我愿投身前途未卜的群星"}</script>
+
+    
+
+    <script>/MSIE|Trident/.test(navigator.userAgent) && (location.href = '/upgrade-browser.html')</script>
+    <!-- 导入CSS -->
+    
+    
+        
+<link rel="stylesheet" href="/css/mdui.min.css">
+
+    
+        
+<link rel="stylesheet" href="/css/prism-line-numbers.min.css">
+
+    
+        
+<link rel="stylesheet" href="/css/prism-vsc-dark-plus.min.css">
+
+    
+        
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        
+<link rel="stylesheet" href="/css/prism-line-highlight.css">
+
+    
+
+
+<style>
+    * {
+        --sidebar-image: url(https://s1.ax1x.com/2022/04/27/Lq5jfS.jpg);
+        --sidebar-image-color: #d2cbca;
+        --banner-image: url(https://s1.ax1x.com/2022/04/27/LLe81K.jpg);
+        --banner-image-color: #d2cbca;
+        --post-thumbnail-color: #67b5d2;
+        --copy-code-btn-color: #fff;
+    }
+</style>
+
+<meta name="generator" content="Hexo 6.1.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+<body class="mdui-theme-primary-light-blue mdui-theme-accent-light-blue mdui-drawer-body-left">
+    <script>window.switchDark=t=>{const a={auto:"mdui-theme-layout-auto",enable:"mdui-theme-layout-dark",disable:""};(t=t||localStorage.getItem("dark"))in a||(t="auto");for(const e in a)a[e]&&document.body.classList[e===t?"add":"remove"](a[e]);localStorage.setItem("dark",t)},switchDark()</script>
+
+    <!-- 抽屉菜单 -->
+    <!-- 打开抽屉菜单的按钮 -->
+<button
+    class="mdui-fab mdui-text-color-grey-700 mdui-shadow-0 mdui-m-a-2"
+    style="position:fixed;z-index:1"
+    mdui-drawer="{target:'#akarin-drawer'}"
+><i class="mdui-icon material-icons">menu</i></button>
+
+<!-- 左边的抽屉菜单 -->
+<nav id="akarin-drawer" class="mdui-drawer mdui-drawer-full-height mdui-shadow-6">
+    <div id="akarin-drawer-media" class="mdui-p-x-2 akarin-util-bg-cover">
+        <img
+            id="akarin-drawer-avatar"
+            class="mdui-m-t-4 mdui-img-circle akarin-hover-spin"
+            src="https://s1.ax1x.com/2022/04/27/Lb5HD1.jpg"
+        >
+        <div class="mdui-card-media-covered akarin-util-text-gradient">
+            <div class="mdui-card-primary">
+                <div class="mdui-typo-subheading">InariInDream </div>
+                <div class="mdui-typo-caption akarin-util-opacity-half">我愿投身前途未卜的群星 </div>
+            </div>
+        </div>
+    </div>
+    <div class="mdui-list" mdui-collapse>
+        
+            
+                <div>
+                    <a class="mdui-list-item mdui-ripple" href="/">
+                        
+                            <i class="mdui-list-item-icon mdui-icon material-icons">home</i>
+                        
+                        <span class="mdui-list-item-content">主页</span>
+                    </a>
+                </div>
+            
+            
+        
+            
+                <div>
+                    <a class="mdui-list-item mdui-ripple" href="/about">
+                        
+                            <i class="mdui-list-item-icon mdui-icon material-icons">person</i>
+                        
+                        <span class="mdui-list-item-content">关于</span>
+                    </a>
+                </div>
+            
+            
+        
+            
+                <div>
+                    <a class="mdui-list-item mdui-ripple" href="/friend">
+                        
+                            <i class="mdui-list-item-icon mdui-icon material-icons">link</i>
+                        
+                        <span class="mdui-list-item-content">友人传送门</span>
+                    </a>
+                </div>
+            
+            
+        
+            
+                <div>
+                    <a class="mdui-list-item mdui-ripple" href="/archives">
+                        <i class="mdui-list-item-icon mdui-icon material-icons">collections_bookmark</i>
+                        <span class="mdui-list-item-content">归档</span>
+                        <small class="mdui-color-theme-accent akarin-drawer-badge">26</small>
+                    </a>
+                </div>
+            
+            
+        
+            
+                
+            
+            
+                <div class="mdui-divider"></div>
+            
+        
+            
+                <div class="mdui-collapse-item mdui-collapse-item-open">
+                    <div class="mdui-list-item mdui-ripple mdui-collapse-item-header">
+                        <i class="mdui-list-item-icon mdui-icon material-icons">brightness_4</i>
+                        <span class="mdui-list-item-content">深色模式</span>
+                        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+                    </div>
+                    <div class="mdui-list mdui-collapse-item-body">
+                        <div class="mdui-list-item mdui-ripple" data-dark="auto">
+                            <span class="mdui-list-item-content">根据系统主题切换</span>
+                        </div>
+                        <div class="mdui-list-item mdui-ripple" data-dark="enable">
+                            <span class="mdui-list-item-content">启用</span>
+                        </div>
+                        <div class="mdui-list-item mdui-ripple" data-dark="disable">
+                            <span class="mdui-list-item-content">禁用</span>
+                        </div>
+                    </div>
+                </div>
+            
+            
+        
+            
+                
+                    <div class="mdui-collapse-item mdui-collapse-item-open">
+                        <div class="mdui-list-item mdui-ripple mdui-collapse-item-header">
+                            <i class="mdui-list-item-icon mdui-icon material-icons">insert_chart</i>
+                            <span class="mdui-list-item-content">访问统计</span>
+                            <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+                        </div>
+                        <div class="mdui-list mdui-collapse-item-body">
+                            
+                                <div class="mdui-list-item mdui-ripple">
+                                    <span class="mdui-list-item-content">站点访问量</span>
+                                    <small id="busuanzi_value_site_pv" class="mdui-color-theme-accent akarin-drawer-badge">Loading</small>
+                                </div>
+                            
+                            
+                                <div class="mdui-list-item mdui-ripple">
+                                    <span class="mdui-list-item-content">站点访客数</span>
+                                    <small id="busuanzi_value_site_uv" class="mdui-color-theme-accent akarin-drawer-badge">Loading</small>
+                                </div>
+                            
+                            
+                                <div class="mdui-list-item mdui-ripple">
+                                    <span class="mdui-list-item-content">页面访问量</span>
+                                    <small id="busuanzi_value_page_pv" class="mdui-color-theme-accent akarin-drawer-badge">Loading</small>
+                                </div>
+                            
+                        </div>
+                    </div>
+                
+            
+            
+        
+    </div>
+</nav>
+
+    <!-- 右下角的返回顶部 -->
+    
+    
+        <button
+            id="akarin-top"
+            title="返回顶部"
+            class="mdui-fab mdui-fab-mini mdui-fab-fixed mdui-fab-hide mdui-color-theme-accent mdui-ripple"
+        ><i class="mdui-icon material-icons">keyboard_arrow_up</i></button>
+    
+
+
+
+    <!-- 主页大图 -->
+    
+        <div style="padding-top:20px"></div>
+        <div class="mdui-hidden-sm-down" style="padding-top:40px"></div>
+        <div class="mdui-hidden-md-down" style="padding-top:40px"></div>
+    
+
+    <!-- 页面本体 -->
+    <main class="mdui-container" style="max-width:1024px">
+        <div class="mdui-card mdui-shadow-4 akarin-util-rounded-5">
+    <div
+        class="akarin-post-bg akarin-util-bg-cover mdui-ripple"
+        
+        
+            data-src="https://s1.ax1x.com/2022/05/17/O4vPHS.png"
+        
+        
+        
+    >
+        
+
+        <div class="akarin-post-title akarin-util-text-gradient">
+            <div class="mdui-card-primary">
+                <div class="mdui-card-primary-title mdui-text-color-white-text">
+                    从零开始的Ubuntu安装（实机篇）
+                </div>
+                
+                    <div class="mdui-card-primary-subtitle mdui-text-color-white-text akarin-util-opacity-half">
+                        
+                            <a
+                                href="/categories/%E6%8A%80%E6%9C%AF/"
+                                class="mdui-text-color-theme-secondary mdui-text-color-white-text"
+                            >技术</a>
+                            &gt;
+                        
+                            <a
+                                href="/categories/%E6%8A%80%E6%9C%AF/os/"
+                                class="mdui-text-color-theme-secondary mdui-text-color-white-text"
+                            >os</a>
+                            
+                        
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="mdui-card-header mdui-valign">
+        <div>
+            <img class="mdui-card-header-avatar akarin-hover-spin" src="https://s1.ax1x.com/2022/04/27/Lb5HD1.jpg">
+            <div class="mdui-card-header-title">InariInDream</div>
+            <div class="mdui-card-header-subtitle">2022-05-17 15:52:08</div>
+        </div>
+        
+            <div style="flex-grow:1"></div>
+            <div class="mdui-text-right">
+                
+                    <a
+                        href="/tags/Linux/"
+                        class="mdui-text-color-theme-secondary"
+                    >Linux</a>
+                
+                    <a
+                        href="/tags/Ubuntu/"
+                        class="mdui-text-color-theme-secondary"
+                    >Ubuntu</a>
+                
+            </div>
+        
+    </div>
+    <article class="mdui-card-content mdui-typo mdui-p-a-3">
+        <h1 id="从零开始的Ubuntu安装（实机篇）"><a href="#从零开始的Ubuntu安装（实机篇）" class="headerlink" title="从零开始的Ubuntu安装（实机篇）"></a>从零开始的Ubuntu安装（实机篇）</h1><h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>想装Linux的原因最早是在空间看到派派发了一个Archlinux 的 deepin 桌面环境，感觉很炫酷且简洁，然后刚好自己有多的一台备用笔记本可以用来折腾，遂也想搞一个来钻研技术<del>和提升逼格</del></p>
+<p>然后昨天在响哥手把手的教学下在虚拟机上面装好了Ubuntu，并且把镜像刻进了U盘里面，今天下午就进行了愉快的装机之旅了。</p>
+<p>在找教程的时候发现了一个对新手十分友好的教程，但是是英文的，有一定阅读门槛，还是先贴在这吧</p>
+<p><a target="_blank" rel="noopener" href="https://itsfoss.com/install-ubuntu-1404-dual-boot-mode-windows-8-81-uefi/">https://itsfoss.com/install-ubuntu-1404-dual-boot-mode-windows-8-81-uefi/</a></p>
+<p>由于在安装的时候没想到截图或拍照，所以部分步骤图用网图代替</p>
+<h2 id="安装准备"><a href="#安装准备" class="headerlink" title="安装准备"></a>安装准备</h2><blockquote>
+<p>一块空的8G以上的U盘（传输速度越快越好）<br>一台电脑</p>
+</blockquote>
+<p>众所周知，安装系统一般是需要系统光盘的，或者像大白菜那样的系统商业U盘，但是其实有个软件是能将镜像os直接烧录到U盘里面的，名字叫<a target="_blank" rel="noopener" href="http://rufus.ie/zh/">Rufus</a></p>
+<p>镜像的下载可以在国内的<a target="_blank" rel="noopener" href="https://mirrors.ustc.edu.cn/">科大镜像站</a>下载</p>
+<p>
+        <img data-src="2022-05-18-12-27-21.png" class="mdui-img-fluid mdui-img-rounded mdui-center mdui-hoverable" alt="" title="">
+    <br>
+        <img data-src="2022-05-18-12-27-54.png" class="mdui-img-fluid mdui-img-rounded mdui-center mdui-hoverable" alt="" title="">
+    <br>选中最新版下载</p>
+<p>注意一般浏览器下载目录默认在C盘的Downloads下，Ubuntu的镜像文件较大，下载前注意查看C盘剩余空间</p>
+<p>然后下好之后就可以开始烧录在U盘里了</p>
+<p>烧录之前一定注意U盘里原来的东西是否已备份，烧录过程会将U盘清空</p>
+<p>引导类型选择镜像文件，然后选择刚刚下载好的镜像文件</p>
+<p>
+        <img data-src="2022-05-18-12-31-13.png" class="mdui-img-fluid mdui-img-rounded mdui-center mdui-hoverable" alt="" title="">
+    </p>
+<p>分区类型的话老电脑一般选择GPT，比较新一点的可以选择MBR <del>到时候发现不对回来重新烧一遍吧</del></p>
+<p>然后就开始等待烧录，时间根据U盘性能不同而不同<br>
+        <img data-src="2022-05-18-12-34-13.png" class="mdui-img-fluid mdui-img-rounded mdui-center mdui-hoverable" alt="" title="">
+    </p>
+<p>烧完之后就可以拔出U盘，这个时候准备工作就做完了。</p>
+<h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><p>打开需要安装的电脑，在开机时候进入bios界面。不同品牌的电脑进入方式各不相同，例如微星的电脑普遍是狂按<code>del</code>进入，华硕的电脑是<code>F2</code>（同一品牌不同型号的电脑也可能会有一定差异，建议百度一下自己的电脑型号）</p>
+<ol>
+<li>在Security里面将 Secure Boot改为disabled<br>
+        <img data-src="2022-05-18-12-38-44.png" class="mdui-img-fluid mdui-img-rounded mdui-center mdui-hoverable" alt="" title="">
+    </li>
+<li>在boot里面将Boot Mode改为 UEFI<br>
+        <img data-src="2022-05-18-12-40-35.png" class="mdui-img-fluid mdui-img-rounded mdui-center mdui-hoverable" alt="" title="">
+    </li>
+</ol>
+<p>（我的华硕笔记本当时好像只用把UEFI Boot的选项改为True就行了，不是按这两步来的）</p>
+<p>之后保存并退出。</p>
+<p>插入烧录好的U盘，开机狂按<code>F2</code>（华硕），选择从什么硬盘启动，这个时候要选择自己插入U盘的型号（注意，不是U盘在电脑里自己改的名称，是型号）例如我选择了<code>Kingston Traveler 2.0</code></p>
+<p>Enter之后又来到一个选择界面，选择最上面那项（我的是Try or install Ubuntu）</p>
+<p>然后稍等片刻即可进入安装</p>
+<p>进入Ubuntu界面后选择Install Ubuntu</p>
+<p>语言选择部分略过，按照自己的喜好来</p>
+<p>
+        <img data-src="2022-05-18-12-48-07.png" class="mdui-img-fluid mdui-img-rounded mdui-center mdui-hoverable" alt="" title="">
+    </p>
+<p>如果原来电脑上有Win10系统的话，可以选择Install Ubuntu alongside Win10，之后只用在开机的时候选择想进的系统即可。<br>
+        <img data-src="2022-05-18-12-50-33.png" class="mdui-img-fluid mdui-img-rounded mdui-center mdui-hoverable" alt="" title="">
+    <br>选择时区<br>
+        <img data-src="2022-05-18-12-51-42.png" class="mdui-img-fluid mdui-img-rounded mdui-center mdui-hoverable" alt="" title="">
+    <br>设置账户名和密码<br>
+        <img data-src="2022-05-18-12-52-20.png" class="mdui-img-fluid mdui-img-rounded mdui-center mdui-hoverable" alt="" title="">
+    <br>开始安装即可</p>
+<h2 id="大功告成"><a href="#大功告成" class="headerlink" title="大功告成"></a>大功告成</h2><p>安装完成之后重启即可<br>
+        <img data-src="2022-05-18-12-54-55.png" class="mdui-img-fluid mdui-img-rounded mdui-center mdui-hoverable" alt="" title="">
+    </p>
+<p>开始愉快的Ubuntu探索之旅吧</p>
+
+
+        
+        
+            <blockquote class="mdui-m-x-0 mdui-p-y-1 mdui-m-b-0" style="border-left:4px solid rgba(0,0,0,.36)">
+                <strong>本作品采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享署名-非商业性使用</a>进行许可。</strong>
+                <br>
+                <strong>本文作者：InariInDream</strong>
+                <br>
+                <strong>本文链接：<a href="https://inariindream.github.io/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84Ubuntu%E5%AE%89%E8%A3%85%EF%BC%88%E5%AE%9E%E6%9C%BA%E7%AF%87%EF%BC%89/">https://inariindream.github.io/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84Ubuntu%E5%AE%89%E8%A3%85%EF%BC%88%E5%AE%9E%E6%9C%BA%E7%AF%87%EF%BC%89/</a></strong>
+            </blockquote>
+        
+    </article>
+    
+        
+            
+        
+    
+</div>
+
+<!-- Paginator in post.ejs -->
+
+    <div class="mdui-valign mdui-m-t-2">
+    
+        <button class="mdui-btn mdui-btn-icon mdui-ripple" disabled>
+            <i class="mdui-icon material-icons">chevron_left</i>
+        </button>
+    
+    
+
+    <span class="mdui-typo-body-1-opacity mdui-text-center" style="flex-grow:1">
+        
+    </span>
+
+    
+        <span class="mdui-typo-body-1-opacity mdui-m-r-1 mdui-text-right" title="Camp每日一题（div2）5.13">下一篇</span>
+    
+
+    
+        <a href="/2022/05/16/Camp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%EF%BC%88div2%EF%BC%895-13/" class="mdui-btn mdui-btn-icon mdui-ripple">
+            <i class="mdui-icon material-icons">chevron_right</i>
+        </a>
+    
+</div>
+
+    </main>
+
+    <!-- 页面底部 -->
+    <footer class="mdui-container mdui-typo mdui-m-y-5" style="display:flex;max-width:1024px">
+    <div class="mdui-text-left mdui-typo-body-1-opacity">
+        
+            Copyright © 2022 InariInDream
+        
+        <br>
+        
+    </div>
+    <div style="flex-grow:1"></div>
+    <div class="mdui-text-right mdui-typo-body-1-opacity">
+<!--        Powered by <a href="https://hexo.io" target="_blank">Hexo</a> <span class="mdui-hidden-xs-down">6.1.0</span>-->
+<!--        <br>-->
+<!--        Theme - <a href="https://github.com/TransparentLC/hexo-theme-akarin" target="_blank">Akarin</a>-->
+    </div>
+</footer>
+
+    <!-- 导入JS -->
+    
+    
+        
+<script src="/js/mdui.min.js"></script>
+
+    
+        
+<script src="/js/medium-zoom.min.js"></script>
+
+    
+        
+<script src="/js/script.js"></script>
+
+    
+
+
+
+    <script src="https://cdn.jsdelivr.net/gh/TransparentLC/hexo-theme-akarin/source/js/bsz.min.js" async></script>
+
+
+
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['(', ')']],
+                processEscapes: true,
+            },
+            options: {
+                ignoreHtmlClass: 'tex2jax_ignore|dno',
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            },
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+
+</body>
+</html>
