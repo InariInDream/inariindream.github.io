@@ -23,7 +23,7 @@
         
 
 
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","mainEntityOfPage":"https://inariindream.github.io/2022/05/18/Ubuntu20-04%E7%BE%8E%E5%8C%96%E7%AF%87/index.html","headline":"保姆级的Ubuntu20.04美化","datePublished":"2022-05-18T14:04:44.000Z","dateModified":"2022-05-18T15:07:12.905Z","author":{"@type":"Person","name":"InariInDream","image":{"@type":"ImageObject","url":"https://s1.ax1x.com/2022/04/27/Lb5HD1.jpg"},"description":"我为什么这么菜"},"publisher":{"@type":"Organization","name":"Inari's Blog","logo":"https://s1.ax1x.com/2022/04/27/Lb5QhD.jpg"},"keywords":"Linux,Ubuntu","description":"我愿投身前途未卜的群星"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","mainEntityOfPage":"https://inariindream.github.io/2022/05/18/Ubuntu20-04%E7%BE%8E%E5%8C%96%E7%AF%87/index.html","headline":"保姆级的Ubuntu20.04美化","datePublished":"2022-05-18T14:04:44.000Z","dateModified":"2022-05-18T15:34:19.281Z","author":{"@type":"Person","name":"InariInDream","image":{"@type":"ImageObject","url":"https://s1.ax1x.com/2022/04/27/Lb5HD1.jpg"},"description":"我为什么这么菜"},"publisher":{"@type":"Organization","name":"Inari's Blog","logo":"https://s1.ax1x.com/2022/04/27/Lb5QhD.jpg"},"keywords":"Linux,Ubuntu","description":"我愿投身前途未卜的群星"}</script>
 
     
 
@@ -347,6 +347,15 @@ sudo apt install gnome-tweaks-extension<span aria-hidden="true" class="line-numb
 <p>
         <img data-src="2022-05-18-22-59-58.png" class="mdui-img-fluid mdui-img-rounded mdui-center mdui-hoverable" alt="" title="">
     </p>
+<p>然后再在插件应用商店寻找更改任务栏的插件，博主电脑使用<a target="_blank" rel="noopener" href="https://extensions.gnome.org/extension/307/dash-to-dock/"><em>dash to dock</em></a>会有bug，遂放弃而改用<a target="_blank" rel="noopener" href="https://extensions.gnome.org/extension/4703/dock-from-dash/"><em>dock from dash</em></a></p>
+<p>在一次唤醒之后你可能会发现有两个dock，解决办法：</p>
+<p>卸载系统自带的Dock，命令如下：</p>
+<pre class="line-numbers language-none"><code class="language-none">sudo apt remove gnome-shell-extension-ubuntu-dock<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>如果以后需要重新使用原生dock，安装命令如下：</p>
+<pre class="line-numbers language-none"><code class="language-none">sudo apt install gnome-shell-extension-ubuntu-dock<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
 <p>然后就大功告成了</p>
 <p>
         <img data-src="https://s1.ax1x.com/2022/05/18/O7Q4JO.jpg" class="mdui-img-fluid mdui-img-rounded mdui-center mdui-hoverable" alt="" title="">
