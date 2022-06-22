@@ -1,0 +1,395 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,shrink-to-fit=no">
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta name="author" content="Kotlin">
+    <meta name="keywords" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    
+
+    <link rel="icon shortcut" type="image/ico" href="https://s1.ax1x.com/2022/04/27/Lb5QhD.jpg">
+    <link rel="icon" href="https://s1.ax1x.com/2022/04/27/Lb5QhD.jpg">
+    <link rel="apple-touch-icon" href="https://s1.ax1x.com/2022/04/27/Lb5QhD.jpg">
+    
+    <title>分类：杂谈 | 知识小站</title>
+
+    
+        
+
+
+    
+
+    <script>/MSIE|Trident/.test(navigator.userAgent) && (location.href = '/upgrade-browser.html')</script>
+    <!-- 导入CSS -->
+    
+    
+        
+<link rel="stylesheet" href="/css/mdui.min.css">
+
+    
+        
+<link rel="stylesheet" href="/css/prism-line-numbers.min.css">
+
+    
+        
+<link rel="stylesheet" href="/css/prism-vsc-dark-plus.min.css">
+
+    
+        
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        
+<link rel="stylesheet" href="/css/prism-line-highlight.css">
+
+    
+
+
+<style>
+    * {
+        --sidebar-image: url(https://s1.ax1x.com/2022/04/27/Lq5jfS.jpg);
+        --sidebar-image-color: #d2cbca;
+        --banner-image: url(https://picsum.photos/1200/500.webp);
+        --banner-image-color: #d2cbca;
+        --post-thumbnail-color: #67b5d2;
+        --copy-code-btn-color: #fff;
+    }
+</style>
+
+<meta name="generator" content="Hexo 6.1.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+<body class="mdui-theme-primary-light-blue mdui-theme-accent-light-blue mdui-drawer-body-left">
+    <script>window.switchDark=t=>{const a={auto:"mdui-theme-layout-auto",enable:"mdui-theme-layout-dark",disable:""};(t=t||localStorage.getItem("dark"))in a||(t="auto");for(const e in a)a[e]&&document.body.classList[e===t?"add":"remove"](a[e]);localStorage.setItem("dark",t)},switchDark()</script>
+
+    <!-- 抽屉菜单 -->
+    <!-- 打开抽屉菜单的按钮 -->
+<button
+    class="mdui-fab mdui-text-color-grey-700 mdui-shadow-0 mdui-m-a-2"
+    style="position:fixed;z-index:1"
+    mdui-drawer="{target:'#akarin-drawer'}"
+><i class="mdui-icon material-icons">menu</i></button>
+
+<!-- 左边的抽屉菜单 -->
+<nav id="akarin-drawer" class="mdui-drawer mdui-drawer-full-height mdui-shadow-6">
+    <div id="akarin-drawer-media" class="mdui-p-x-2 akarin-util-bg-cover">
+        <img
+            id="akarin-drawer-avatar"
+            class="mdui-m-t-4 mdui-img-circle akarin-hover-spin"
+            src="https://s1.ax1x.com/2022/04/27/Lb5HD1.jpg"
+        >
+        <div class="mdui-card-media-covered akarin-util-text-gradient">
+            <div class="mdui-card-primary">
+                <div class="mdui-typo-subheading">Kotlin </div>
+                <div class="mdui-typo-caption akarin-util-opacity-half">我愿投身前途未卜的群星 </div>
+            </div>
+        </div>
+    </div>
+    <div class="mdui-list" mdui-collapse>
+        
+            
+                <div>
+                    <a class="mdui-list-item mdui-ripple" href="/">
+                        
+                            <i class="mdui-list-item-icon mdui-icon material-icons">home</i>
+                        
+                        <span class="mdui-list-item-content">主页</span>
+                    </a>
+                </div>
+            
+            
+        
+            
+                <div>
+                    <a class="mdui-list-item mdui-ripple" href="/about">
+                        
+                            <i class="mdui-list-item-icon mdui-icon material-icons">person</i>
+                        
+                        <span class="mdui-list-item-content">关于</span>
+                    </a>
+                </div>
+            
+            
+        
+            
+                <div>
+                    <a class="mdui-list-item mdui-ripple" href="/friend">
+                        
+                            <i class="mdui-list-item-icon mdui-icon material-icons">link</i>
+                        
+                        <span class="mdui-list-item-content">友人传送门</span>
+                    </a>
+                </div>
+            
+            
+        
+            
+                <div>
+                    <a class="mdui-list-item mdui-ripple" href="/archives">
+                        <i class="mdui-list-item-icon mdui-icon material-icons">collections_bookmark</i>
+                        <span class="mdui-list-item-content">归档</span>
+                        <small class="mdui-color-theme-accent akarin-drawer-badge">29</small>
+                    </a>
+                </div>
+            
+            
+        
+            
+                
+            
+            
+                <div class="mdui-divider"></div>
+            
+        
+            
+                <div class="mdui-collapse-item mdui-collapse-item-open">
+                    <div class="mdui-list-item mdui-ripple mdui-collapse-item-header">
+                        <i class="mdui-list-item-icon mdui-icon material-icons">brightness_4</i>
+                        <span class="mdui-list-item-content">深色模式</span>
+                        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+                    </div>
+                    <div class="mdui-list mdui-collapse-item-body">
+                        <div class="mdui-list-item mdui-ripple" data-dark="auto">
+                            <span class="mdui-list-item-content">根据系统主题切换</span>
+                        </div>
+                        <div class="mdui-list-item mdui-ripple" data-dark="enable">
+                            <span class="mdui-list-item-content">启用</span>
+                        </div>
+                        <div class="mdui-list-item mdui-ripple" data-dark="disable">
+                            <span class="mdui-list-item-content">禁用</span>
+                        </div>
+                    </div>
+                </div>
+            
+            
+        
+            
+                
+                    <div class="mdui-collapse-item mdui-collapse-item-open">
+                        <div class="mdui-list-item mdui-ripple mdui-collapse-item-header">
+                            <i class="mdui-list-item-icon mdui-icon material-icons">insert_chart</i>
+                            <span class="mdui-list-item-content">访问统计</span>
+                            <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+                        </div>
+                        <div class="mdui-list mdui-collapse-item-body">
+                            
+                                <div class="mdui-list-item mdui-ripple">
+                                    <span class="mdui-list-item-content">站点访问量</span>
+                                    <small id="busuanzi_value_site_pv" class="mdui-color-theme-accent akarin-drawer-badge">Loading</small>
+                                </div>
+                            
+                            
+                                <div class="mdui-list-item mdui-ripple">
+                                    <span class="mdui-list-item-content">站点访客数</span>
+                                    <small id="busuanzi_value_site_uv" class="mdui-color-theme-accent akarin-drawer-badge">Loading</small>
+                                </div>
+                            
+                            
+                                <div class="mdui-list-item mdui-ripple">
+                                    <span class="mdui-list-item-content">页面访问量</span>
+                                    <small id="busuanzi_value_page_pv" class="mdui-color-theme-accent akarin-drawer-badge">Loading</small>
+                                </div>
+                            
+                        </div>
+                    </div>
+                
+            
+            
+        
+    </div>
+</nav>
+
+    <!-- 右下角的返回顶部 -->
+    
+    
+        <button
+            id="akarin-top"
+            title="返回顶部"
+            class="mdui-fab mdui-fab-mini mdui-fab-fixed mdui-fab-hide mdui-color-theme-accent mdui-ripple"
+        ><i class="mdui-icon material-icons">keyboard_arrow_up</i></button>
+    
+
+
+
+    <!-- 主页大图 -->
+    
+        <div style="padding-top:20px"></div>
+        <div class="mdui-hidden-sm-down" style="padding-top:40px"></div>
+        <div class="mdui-hidden-md-down" style="padding-top:40px"></div>
+    
+
+    <!-- 页面本体 -->
+    <main class="mdui-container" style="max-width:1024px">
+        
+    <div class="mdui-card mdui-m-y-5 mdui-hoverable akarin-util-rounded-5">
+    <div
+        class="akarin-post-entry-bg akarin-util-bg-cover mdui-ripple"
+        
+        
+            data-src="https://s1.ax1x.com/2022/04/29/Lx8ogU.jpg"
+        
+        
+        
+    >
+        
+
+        <div class="akarin-post-entry-title akarin-util-text-gradient">
+            <div class="mdui-card-primary">
+                <div class="mdui-card-primary-title mdui-text-color-white-text">
+                    2021年终总结-归档
+                </div>
+                
+                    <div class="mdui-card-primary-subtitle mdui-text-color-white-text akarin-util-opacity-half">
+                        
+                            <a
+                                href="/categories/%E6%9D%82%E8%B0%88/"
+                                class="mdui-text-color-theme-secondary mdui-text-color-white-text"
+                            >杂谈</a>
+                            
+                        
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="mdui-card-content mdui-typo">
+        2021对我来说十分匆忙与短暂，以至于我在最后一天才有闲暇，来回望过去的这一年。
+我想了很久，今年似乎很难用一句话或一个词来概括我过去十二个月的经历了。以五月底的插班生考试为分界线，我的2021的上下半年过得截然不同。
+贯穿我上半年的两个词应该是犹豫与遗憾。年初犹豫着是否要正式进入一段感情，四月初犹豫着是否要把考插的路坚持走完，也在插班生和课内绩点之间犹豫不决。最终，这些犹豫都变成了遗憾。
+插班生考试以一道证明大题的差距结束了我九个月的旅程，绩点以0.002的差距而错失了转入CS的机会。我只能给自己冠上“惜败...
+        <a href="/2022/01/29/2021%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93-%E5%BD%92%E6%A1%A3/" data-entry>阅读全文</a>
+    </div>
+    <div class="mdui-divider"></div>
+    <div class="mdui-card-header mdui-valign">
+        <div>
+            <img class="mdui-card-header-avatar akarin-hover-spin" src="https://s1.ax1x.com/2022/04/27/Lb5HD1.jpg">
+            <div class="mdui-card-header-title">Kotlin</div>
+            <div class="mdui-card-header-subtitle">2022-01-29 09:39:43</div>
+        </div>
+        
+    </div>
+</div>
+
+    <div class="mdui-card mdui-m-y-5 mdui-hoverable akarin-util-rounded-5">
+    <div
+        class="akarin-post-entry-bg akarin-util-bg-cover mdui-ripple"
+        
+        
+            data-src="https://s1.ax1x.com/2022/04/27/LqhKmt.jpg"
+        
+        
+        
+    >
+        
+
+        <div class="akarin-post-entry-title akarin-util-text-gradient">
+            <div class="mdui-card-primary">
+                <div class="mdui-card-primary-title mdui-text-color-white-text">
+                    2020年终总结
+                </div>
+                
+                    <div class="mdui-card-primary-subtitle mdui-text-color-white-text akarin-util-opacity-half">
+                        
+                            <a
+                                href="/categories/%E6%9D%82%E8%B0%88/"
+                                class="mdui-text-color-theme-secondary mdui-text-color-white-text"
+                            >杂谈</a>
+                            
+                        
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="mdui-card-content mdui-typo">
+        用一句话总结我所经历的2020年
+“在理想中死亡，在现实中重生。”
+今年是无比艰难的一年，以至于每个人都在年末的时候对未来有着美好的祝愿。
+像2019年的这个时候我们祝愿的那样。
+突如其来的疫情打乱了我们每一个人的既定节奏，年初一直待在家里，我在一段时间内对外面发生的事情没有什么实感。但电视里看到的疫情速报是真的，手机里浏览到的在疫情下普通人的求助是真的，看着窗外的三环路从川流不息变为空无一车也是真的。在本应是开学典礼的时间，各科老师在线上，透过摄像头向我们传来了特殊的问候。在家里上课和考试特别考验一个人的心...
+        <a href="/2021/01/01/2020%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/" data-entry>阅读全文</a>
+    </div>
+    <div class="mdui-divider"></div>
+    <div class="mdui-card-header mdui-valign">
+        <div>
+            <img class="mdui-card-header-avatar akarin-hover-spin" src="https://s1.ax1x.com/2022/04/27/Lb5HD1.jpg">
+            <div class="mdui-card-header-title">Kotlin</div>
+            <div class="mdui-card-header-subtitle">2021-01-01 09:36:43</div>
+        </div>
+        
+    </div>
+</div>
+
+
+<!-- Paginator in category.ejs -->
+<div class="mdui-valign mdui-m-t-2">
+    
+        <button class="mdui-btn mdui-btn-icon mdui-ripple" disabled>
+            <i class="mdui-icon material-icons">chevron_left</i>
+        </button>
+    
+    
+
+    <span class="mdui-typo-body-1-opacity mdui-text-center" style="flex-grow:1">
+        
+            1 / 1
+        
+    </span>
+
+    
+
+    
+        <button class="mdui-btn mdui-btn-icon mdui-ripple" disabled>
+            <i class="mdui-icon material-icons">chevron_right</i>
+        </button>
+    
+</div>
+    </main>
+
+    <!-- 页面底部 -->
+    <footer class="mdui-container mdui-typo mdui-m-y-5" style="display:flex;max-width:1024px">
+    <div class="mdui-text-left mdui-typo-body-1-opacity">
+        
+            Copyright © 2022 Kotlin
+        
+        <br>
+        
+    </div>
+    <div style="flex-grow:1"></div>
+    <div class="mdui-text-right mdui-typo-body-1-opacity">
+<!--        Powered by <a href="https://hexo.io" target="_blank">Hexo</a> <span class="mdui-hidden-xs-down">6.1.0</span>-->
+<!--        <br>-->
+<!--        Theme - <a href="https://github.com/TransparentLC/hexo-theme-akarin" target="_blank">Akarin</a>-->
+    </div>
+</footer>
+
+    <!-- 导入JS -->
+    
+    
+        
+<script src="/js/mdui.min.js"></script>
+
+    
+        
+<script src="/js/medium-zoom.min.js"></script>
+
+    
+        
+<script src="/js/script.js"></script>
+
+    
+
+
+
+    <script src="https://cdn.jsdelivr.net/gh/TransparentLC/hexo-theme-akarin/source/js/bsz.min.js" async></script>
+
+
+
+</body>
+</html>
