@@ -265,14 +265,18 @@
         </div>
     </div>
     <div class="mdui-card-content mdui-typo">
-        最大子段和题目描述给出一个长度为 $n$ 的序列 $a$，选出其中连续且非空的一段使得这段和最大。
-思路简单的前缀和 + 递推，用$a[i]$记录到第$i$个位置时与$i$相连续的最大值，用$ans$记录字段和的最大值
+         最大子段和
+ 题目描述
+给出一个长度为 nnn 的序列 aaa，选出其中连续且非空的一段使得这段和最大。
+ 思路
+简单的前缀和 + 递推，用a[i]a[i]a[i]记录到第iii个位置时与iii相连续的最大值，用ansansans记录字段和的最大值
 转移方程a[i] = max(x, a[i - 1] + x)，  ans = max(a[i], ans)
-代码void solve(){
+ 代码
+void solve(){
     int n;
     cin &gt;&gt; n;
     vector&lt;int&gt;a(n);
-    int ans = -INF...
+...
         <a href="/2022/04/30/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98%E8%AE%B0%E5%BD%95%EF%BC%88%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86%EF%BC%89/" data-entry>阅读全文</a>
     </div>
     <div class="mdui-divider"></div>
