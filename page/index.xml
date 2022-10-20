@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Pages on Inari&#39;s Blog</title>
+        <link>https://inariindream.github.io/page/</link>
+        <description>Recent content in Pages on Inari&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <lastBuildDate>Tue, 28 May 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://inariindream.github.io/page/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>归档</title>
+        <link>https://inariindream.github.io/page/archives/</link>
+        <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://inariindream.github.io/page/archives/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>关于</title>
+        <link>https://inariindream.github.io/page/about/</link>
+        <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://inariindream.github.io/page/about/</guid>
+        <description>&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://git.io/typing-svg&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;img src=&#34;https://readme-typing-svg.herokuapp.com?font=Fira&amp;#43;Code&amp;amp;size=25&amp;amp;duration=3000&amp;amp;pause=700&amp;amp;color=1D27F7&amp;amp;width=435&amp;amp;lines=I%27m&amp;#43;InariInDream&amp;#43;%F0%9F%91%8B;Invictus&amp;#43;maneo;Be&amp;#43;awesome&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Typing SVG&#34;
+	
+	
+&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;这个站&#34;&gt;这个站&lt;/h1&gt;
+&lt;p&gt;建这个Blog的起因是看到一个dalao的题解之类的东西都是在&lt;a class=&#34;link&#34; href=&#34;https://rei.ac/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;自己网站&lt;/a&gt;上的Blog发的，由自己命名，自己客制化。&lt;/p&gt;
+&lt;p&gt;与CSDN和博客园不同，有属于自己的网站写Blog可以随心所欲的自定义，我觉得这是一件很&lt;em&gt;coooooool&lt;/em&gt;的事！&lt;/p&gt;
+&lt;p&gt;大概会用来记录一下平时写的题或者自己在技术上的折腾&lt;del&gt;或者一些闲言碎语（杂谈）&lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;除了每日一题可能还有平时的错题或者一些比较经典的题，也许是个督促自己不摸鱼的好方式（？&lt;/p&gt;
+&lt;p&gt;&lt;del&gt;还能兼顾学md语法&lt;/del&gt;&lt;/p&gt;
+&lt;h1 id=&#34;这个人&#34;&gt;这个人&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;华东地区某双非自动化大三学生&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;冲浪力度极高，but不欢迎鉴证&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;目前处于一个很菜，啥也不会的状态&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;硬件苦手，打过半学期智能车比赛让我确信我是硬件白痴，硬件水平仅限于拆装电脑及对游戏相关的硬件的了解&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;目前因为发觉自己太菜了已经戒游戏了&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;(想到啥之后再写)&lt;/p&gt;
+&lt;h1 id=&#34;本站大事记&#34;&gt;本站大事记&lt;/h1&gt;
+&lt;p&gt;2022.4.20 了解&lt;a class=&#34;link&#34; href=&#34;https://hexo.io/zh-cn/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Hexo&lt;/a&gt;并安装到本地成功在localhost上运行&lt;/p&gt;
+&lt;p&gt;2022.4.25 gitee pages服务通过审核，将blog部署在了&lt;a class=&#34;link&#34; href=&#34;https://inariindream.gitee.io/real_hexo/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;gitee pages&lt;/a&gt;上面。同日，发布了&lt;a class=&#34;link&#34; href=&#34;https://inariindream.gitee.io/real_hexo/2022/04/25/My-first-blog/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;第一篇Blog&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;2022.4.27 主题由&lt;a class=&#34;link&#34; href=&#34;https://github.com/kb1000fx/hexo-theme-meadow&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Meadow&lt;/a&gt;切换为&lt;a class=&#34;link&#34; href=&#34;https://github.com/TransparentLC/hexo-theme-akarin&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Akarin&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;2022.4.29 从gitee pages迁移至&lt;a class=&#34;link&#34; href=&#34;https://pages.github.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;github pages&lt;/a&gt;且进行了&lt;a class=&#34;link&#34; href=&#34;http://inariindream.fun/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;域名绑定&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;2022.10.20 从Hexo迁移到Hugo（大工程&amp;hellip;)&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>友人</title>
+        <link>https://inariindream.github.io/page/links/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://inariindream.github.io/page/links/</guid>
+        <description>&lt;p&gt;To use this feature, add &lt;code&gt;links&lt;/code&gt; section to frontmatter.&lt;/p&gt;
+&lt;p&gt;This page&amp;rsquo;s frontmatter:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;links&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  - &lt;span style=&#34;color:#f92672&#34;&gt;title&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;GitHub&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;description&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;GitHub is the world&amp;#39;s largest software development platform.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;website&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;https://github.com&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;image&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  - &lt;span style=&#34;color:#f92672&#34;&gt;title&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;TypeScript&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;description&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;website&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;https://www.typescriptlang.org&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;image&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;ts-logo-128.jpg&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;image&lt;/code&gt; field accepts both local and external images.&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>搜索</title>
+        <link>https://inariindream.github.io/page/search/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://inariindream.github.io/page/search/</guid>
+        <description></description>
+        </item>
+        
+    </channel>
+</rss>

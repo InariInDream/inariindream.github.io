@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='板刷记录'><title>洛谷专题记录（前缀和与差分）</title>
+
+<link rel='canonical' href='https://inariindream.github.io/blog/2022/04/30/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98%E8%AE%B0%E5%BD%95%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/'>
+
+<link rel="stylesheet" href="/scss/style.min.dabe5a3caa768ceba518e17d6f219cfe25b185d1e71692088025722b0f6fbc5c.css"><meta property='og:title' content='洛谷专题记录（前缀和与差分）'>
+<meta property='og:description' content='板刷记录'>
+<meta property='og:url' content='https://inariindream.github.io/blog/2022/04/30/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98%E8%AE%B0%E5%BD%95%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/'>
+<meta property='og:site_name' content='Inari&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='洛谷专题' /><meta property='article:published_time' content='2022-04-30T13:15:13&#43;00:00'/><meta property='article:modified_time' content='2022-10-20T19:58:06&#43;08:00'/><meta property='og:image' content='https://s1.ax1x.com/2022/04/30/LzHLHf.jpg' />
+<meta name="twitter:site" content="@inariindream">
+    <meta name="twitter:creator" content="@inariindream"><meta name="twitter:title" content="洛谷专题记录（前缀和与差分）">
+<meta name="twitter:description" content="板刷记录"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://s1.ax1x.com/2022/04/30/LzHLHf.jpg' />
+    <link rel="shortcut icon" href="https://s1.ax1x.com/2022/04/27/Lb5QhD.jpg" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    <img src="https://s1.ax1x.com/2022/04/27/Lb5HD1.jpg" width="300" height="300" class="site-logo" loading="lazy" alt="Avatar">
+                
+                </a>
+                
+                    <span class="emoji">✨</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Inari&#39;s Blog</a></h1>
+            <h2 class="site-description">我愿投身前途未卜的群星</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/InariInDream'
+                        target="_blank"
+                        title="GitHub"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com/InariInDream'
+                        target="_blank"
+                        title="Twitter"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/page/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/page/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/page/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/page/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友人</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/blog/2022/04/30/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98%E8%AE%B0%E5%BD%95%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/">
+                
+                    <img src="https://s1.ax1x.com/2022/04/30/LzHLHf.jpg" loading="lazy" alt="Featured image of post 洛谷专题记录（前缀和与差分）" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E7%AE%97%E6%B3%95/" style="background-color: #2f2d8f; color: #fff;">
+                算法
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/blog/2022/04/30/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98%E8%AE%B0%E5%BD%95%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/">洛谷专题记录（前缀和与差分）</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            板刷记录
+        </h3>
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Apr 30, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    6 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="最大子段和httpswwwluogucomcnproblemp1115"><a class="link" href="https://www.luogu.com.cn/problem/P1115"  target="_blank" rel="noopener"
+    >最大子段和</a></h1>
+<h2 id="题目描述">题目描述</h2>
+<p>给出一个长度为 $n$ 的序列 $a$，选出其中连续且非空的一段使得这段和最大。</p>
+<h2 id="思路">思路</h2>
+<p>简单的前缀和 + 递推，用$a[i]$记录到第$i$个位置时与$i$相连续的最大值，用$ans$记录字段和的最大值</p>
+<p>转移方程<code>a[i] = max(x, a[i - 1] + x)</code>，  <code>ans = max(a[i], ans)</code></p>
+<h2 id="代码">代码</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">solve</span>(){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> n;
+</span></span><span style="display:flex;"><span>    cin <span style="color:#f92672">&gt;&gt;</span> n;
+</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span>a(n);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> ans <span style="color:#f92672">=</span> <span style="color:#f92672">-</span>INF;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> x;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> n; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        cin <span style="color:#f92672">&gt;&gt;</span> x;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (i <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>){
+</span></span><span style="display:flex;"><span>            a[i] <span style="color:#f92672">=</span> x;
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">else</span>{
+</span></span><span style="display:flex;"><span>            a[i] <span style="color:#f92672">=</span> max(x, a[i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> x);
+</span></span><span style="display:flex;"><span>            ans <span style="color:#f92672">=</span> max(a[i], ans);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> ans <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><hr>
+<h1 id="地毯httpswwwluogucomcnproblemp3397"><a class="link" href="https://www.luogu.com.cn/problem/P3397"  target="_blank" rel="noopener"
+    >地毯</a></h1>
+<h2 id="题目描述-1">题目描述</h2>
+<p>在 $n\times n$ 的格子上有 $m$ 个地毯。</p>
+<p>给出这些地毯的信息，问每个点被多少个地毯覆盖。</p>
+<p>输入格式
+第一行，两个正整数 $n,m$。意义如题所述。</p>
+<p>接下来$m$ 行，每行两个坐标 $(x_1,y_1)$ 和 $(x_2,y_2)$，代表一块地毯，左上角是 $(x_1,y_1)$，右下角是 $(x_2,y_2)$。</p>
+<p>输出格式
+输出 $n$ 行，每行 $n$ 个正整数。</p>
+<p>第 $i$ 行第 $j$ 列的正整数表示 $(i,j)$ 这个格子被多少个地毯覆盖。</p>
+<p>$n, m \leqslant 1000$</p>
+<h2 id="思路-1">思路</h2>
+<p>差分</p>
+<blockquote>
+<h3 id="复习">复习</h3>
+<h4 id="何为差分">何为差分</h4>
+<p>假设我们现在要给[2,5]这个区间加一。</p>
+<p>原来的序列是：
+<code>0 0 0 0 0 0 0 0</code></p>
+<p>这时候我们在2上面打 +1 标记， 6 上面打 -1 标记。</p>
+<p>那么现在的序列是：
+<code>0 +1 0 0 0 -1 0</code></p>
+<p>这样的话，从左往右扫描这个数组，记录当前经过的标签之和，这个和就是那个数对应的答案</p>
+<p>这样，对于每个区间加操作，只需要$O(1)$的时间打上标记，
+最后扫描输出即可</p>
+</blockquote>
+<p>现在把问题拓展到二维。假设我们要覆盖$[(2,2),(5,5)]$ ，那么标记便可以这样打：</p>
+<pre tabindex="0"><code class="language-0" data-lang="0">0 +1 0 0 0 -1
+0 +1 0 0 0 -1
+0 +1 0 0 0 -1
+0 +1 0 0 0 -1
+0 0 0 0 0 0
+</code></pre><p>即在每一行都按照一维的方式来操作：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> x1; j <span style="color:#f92672">&lt;=</span> x2; j<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>    cf[j][y1]<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>    cf[j][y2 <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>]<span style="color:#f92672">--</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>这样一来,打标记时候的复杂度为$O(n)$,总复杂度为$O(mn + n^2)$</p>
+<h2 id="代码-1">代码</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> cf[<span style="color:#ae81ff">2000</span>][<span style="color:#ae81ff">2000</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">solve</span>(){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> n, m;
+</span></span><span style="display:flex;"><span>    cin <span style="color:#f92672">&gt;&gt;</span> n <span style="color:#f92672">&gt;&gt;</span> m;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> x1, y1, x2, y2;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> m; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        cin <span style="color:#f92672">&gt;&gt;</span> x1 <span style="color:#f92672">&gt;&gt;</span> y1 <span style="color:#f92672">&gt;&gt;</span> x2 <span style="color:#f92672">&gt;&gt;</span> y2;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> x1; j <span style="color:#f92672">&lt;=</span> x2; j<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>            cf[j][y1]<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>            cf[j][y2 <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>]<span style="color:#f92672">--</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> n; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; j <span style="color:#f92672">&lt;=</span> n; j<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>            cf[i][j] <span style="color:#f92672">+=</span> cf[i][j <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>];
+</span></span><span style="display:flex;"><span>            cout <span style="color:#f92672">&lt;&lt;</span> cf[i][j] <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; &#34;</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        cout <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><hr>
+<h1 id="海底高铁httpswwwluogucomcnproblemp3406"><a class="link" href="https://www.luogu.com.cn/problem/P3406"  target="_blank" rel="noopener"
+    >海底高铁</a></h1>
+<h2 id="题目描述-2">题目描述</h2>
+<p>一个铁路经过$N$个城市，每个城市一个站，但不能直达，只能相邻城市的一段铁路单独买票</p>
+<p>对于一段铁路$i$，连接了城市$i$和城市$i+ 1$，有两种买票方式。</p>
+<ol>
+<li>
+<p>单独购买纸质票，价格为$A_i$</p>
+</li>
+<li>
+<p>买卡，只需要花工本费$C_i$，每次通行花费$B_i（B_i &lt; A_i )$</p>
+</li>
+</ol>
+<p>现在一个人要出差去$M$个城市，按照$P_i$的顺序访问，可能会多次访问一个城市，且相邻访问的城市位置不一定相邻，而且不会是同一个城市。</p>
+<p>求总费用的最小值</p>
+<p>$M，N \leqslant 10^5, A_i,B_i,C_i \leqslant 10 ^ 5$</p>
+<h2 id="思路-2">思路</h2>
+<p>前缀和和差分数组结合， 对于其中一小段，我们要么全部买纸票，要么全部刷卡。</p>
+<p>所以问题拆分成了统计每一小段经过的总次数，再在两种费用方案之间取最小值</p>
+<p>后者不难，此题的考点在前者，直接暴力统计会绎演顶证，鉴定为纯纯的$TLE$</p>
+<p>因此先用差分数组预处理每次要去的起点和终点，打上标记。</p>
+<p>然后再求每一项的前缀和，这样最后前缀和数组就是每一段铁路的经过次数了</p>
+<p>例：如果我们要经过$1-3$ 和 $2-4$</p>
+<p>先打上标记</p>
+<pre tabindex="0"><code>                  +1      -1          +1 +1   -1 -1
+ - - - - -        --  - - -- -        -- -- - -- --
+ 1 2 3 4 5        1   2 3 4  5        1  2  3 4  5
+    图1                图2                 图3
+</code></pre><p>再进行前缀和</p>
+<pre tabindex="0"><code>1 2 2 1 0
+- - - - -
+1 2 3 4 5
+   图4
+</code></pre><p>更多细节见代码</p>
+<h2 id="代码-2">代码</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">solve</span>(){
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">int</span> n, m;
+</span></span><span style="display:flex;"><span>   cin <span style="color:#f92672">&gt;&gt;</span> n <span style="color:#f92672">&gt;&gt;</span> m;
+</span></span><span style="display:flex;"><span>   vector<span style="color:#f92672">&lt;</span>ll<span style="color:#f92672">&gt;</span>p(n <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span>);<span style="color:#75715e">//station
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>   vector<span style="color:#f92672">&lt;</span>ll<span style="color:#f92672">&gt;</span>cnt(n <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span>);<span style="color:#75715e">//count
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>   <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> m; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>       cin <span style="color:#f92672">&gt;&gt;</span> p[i];
+</span></span><span style="display:flex;"><span>   }
+</span></span><span style="display:flex;"><span>   ll ma, mi;
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> m <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>       ma <span style="color:#f92672">=</span> max(p[i], p[i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>]);
+</span></span><span style="display:flex;"><span>       mi <span style="color:#f92672">=</span> min(p[i], p[i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>]);
+</span></span><span style="display:flex;"><span>       cnt[ma]<span style="color:#f92672">--</span>;<span style="color:#75715e">//因为第i段铁路是从第i连到第i+1个城市，所以减去ma就是减去第ma-1 +1段铁路
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>       cnt[mi]<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>   }
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> n; i<span style="color:#f92672">++</span>) {<span style="color:#75715e">//WA了一发，开始的range是[1,m]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>       cnt[i] <span style="color:#f92672">+=</span> cnt[i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>];<span style="color:#75715e">//这就是为什么前缀和处理的话数组下标要从1开始
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>   }
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">int</span> a, b, c;
+</span></span><span style="display:flex;"><span>   ll ans <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> n <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>       cin <span style="color:#f92672">&gt;&gt;</span> a <span style="color:#f92672">&gt;&gt;</span> b <span style="color:#f92672">&gt;&gt;</span> c;
+</span></span><span style="display:flex;"><span>       ans <span style="color:#f92672">+=</span> min(a <span style="color:#f92672">*</span> cnt[i], b <span style="color:#f92672">*</span> cnt[i] <span style="color:#f92672">+</span> c);
+</span></span><span style="display:flex;"><span>   }
+</span></span><span style="display:flex;"><span>   cout <span style="color:#f92672">&lt;&lt;</span> ans <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><hr>
+<h1 id="最大加权矩形httpswwwluogucomcnproblemp1719"><a class="link" href="https://www.luogu.com.cn/problem/P1719"  target="_blank" rel="noopener"
+    >最大加权矩形</a></h1>
+<h2 id="题目描述-3">题目描述</h2>
+<p>一个$N \times N$的矩阵，矩阵里每个点有对应的权值，求子矩阵权值和的最大值</p>
+<p>$N \leqslant 120$</p>
+<h2 id="思路-3">思路</h2>
+<p>一眼二维前缀和，数据范围很小，直接用$O(n^4)$的复杂度莽过去了。</p>
+<p>但二维前缀和的公式还是不熟</p>
+<blockquote>
+<p>二维矩阵的前缀和（到0，0点的）:</p>
+<p>$$f[i][j] = f[i][j - 1] + f[i -1][j] - f[i - 1][j - 1] + a[i][j]$$
+子矩阵的和从$(i，j)$到$(k，l)$  $O(n^4)$：
+$$f[k][l] - f[k][j - 1] - f[i - 1][l] + f[i - 1][j - 1]$$</p>
+</blockquote>
+<h2 id="代码-on4">代码 （$O(n^4)$）</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> a[<span style="color:#ae81ff">125</span>][<span style="color:#ae81ff">125</span>], f[<span style="color:#ae81ff">125</span>][<span style="color:#ae81ff">125</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">solve</span>(){
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">int</span> n;
+</span></span><span style="display:flex;"><span>   cin <span style="color:#f92672">&gt;&gt;</span> n;
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> n; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>       <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; j <span style="color:#f92672">&lt;=</span> n; j<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>           cin <span style="color:#f92672">&gt;&gt;</span> a[i][j];
+</span></span><span style="display:flex;"><span>           f[i][j] <span style="color:#f92672">=</span> f[i][j <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> f[i <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>][j] <span style="color:#f92672">-</span> f[i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>][j <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> a[i][j];
+</span></span><span style="display:flex;"><span>       }
+</span></span><span style="display:flex;"><span>   }
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">int</span> ans <span style="color:#f92672">=</span> <span style="color:#f92672">-</span>INF;
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> n; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>       <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; j <span style="color:#f92672">&lt;=</span> n; j<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>           <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> l <span style="color:#f92672">=</span> i; l <span style="color:#f92672">&lt;=</span> n; l<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>               <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i1 <span style="color:#f92672">=</span> j; i1 <span style="color:#f92672">&lt;=</span> n; i1<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>                   ans <span style="color:#f92672">=</span> max(f[l][i1] <span style="color:#f92672">-</span> f[l][j <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">-</span> f[i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>][i1] <span style="color:#f92672">+</span> f[i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>][j <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>], ans);
+</span></span><span style="display:flex;"><span>               }
+</span></span><span style="display:flex;"><span>           }
+</span></span><span style="display:flex;"><span>       }
+</span></span><span style="display:flex;"><span>   }
+</span></span><span style="display:flex;"><span>   cout <span style="color:#f92672">&lt;&lt;</span> ans <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="优化版">优化版</h2>
+<h2 id="思路-4">思路</h2>
+<p>我们可以考虑将矩形压缩成一维，比如处理一个2行的矩形时，将a [ i ][ j ]与a [ i - 1 ][ j ]相加，成为一个新的数组f [ n ]，再使用上述代码进行动态规划，找出局部最优解。</p>
+<p>首先进行前缀和，这样可以用减法来快速表示压缩的矩形。</p>
+<p>可以模拟一下，a[ i ][ j ] - a[ i - k ][ j ]正好是以i为最下面一行，往上k行的压缩结果，这就很方便地表示了压缩后的矩形。</p>
+<p>那再次循环，运用第一个代码的简单变形，可以求出以i为最下一行，向上k行的矩形最大值，多次更新ans就行</p>
+<h2 id="代码-3">代码</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">solve2</span>(){
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">int</span> n;
+</span></span><span style="display:flex;"><span>   cin <span style="color:#f92672">&gt;&gt;</span> n;
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> n; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>       <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; j <span style="color:#f92672">&lt;=</span> n; j<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>           cin <span style="color:#f92672">&gt;&gt;</span> a[i][j];
+</span></span><span style="display:flex;"><span>           a[i][j] <span style="color:#f92672">+=</span> a[i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>][j]; <span style="color:#75715e">// 前缀和处理
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>       }
+</span></span><span style="display:flex;"><span>   }
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">int</span> ans <span style="color:#f92672">=</span> <span style="color:#f92672">-</span>INF;
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">int</span> f1[<span style="color:#ae81ff">150</span>] <span style="color:#f92672">=</span> {<span style="color:#ae81ff">0</span>}, dp[<span style="color:#ae81ff">150</span>] <span style="color:#f92672">=</span> {<span style="color:#ae81ff">0</span>};
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> n; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>       <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> k <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; k <span style="color:#f92672">&lt;=</span> i; k<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>           <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; j <span style="color:#f92672">&lt;=</span> n; j<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>               f1[j] <span style="color:#f92672">=</span> a[i][j] <span style="color:#f92672">-</span> a[i <span style="color:#f92672">-</span> k][j];
+</span></span><span style="display:flex;"><span>               dp[j] <span style="color:#f92672">=</span> max(dp[j <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> f1[j], f1[j]);
+</span></span><span style="display:flex;"><span>               ans <span style="color:#f92672">=</span> max(ans, dp[j]);
+</span></span><span style="display:flex;"><span>           }
+</span></span><span style="display:flex;"><span>       }
+</span></span><span style="display:flex;"><span>   }
+</span></span><span style="display:flex;"><span>   cout <span style="color:#f92672">&lt;&lt;</span> ans <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>这是前一种方法的速度
+<img src="/blog/2022/04/30/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98%E8%AE%B0%E5%BD%95%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/2022-07-08-14-25-03.png"
+	width="825"
+	height="320"
+	srcset="/blog/2022/04/30/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98%E8%AE%B0%E5%BD%95%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/2022-07-08-14-25-03_hude383ecce3397b878934e30e8bb44b5d_15691_480x0_resize_box_3.png 480w, /blog/2022/04/30/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98%E8%AE%B0%E5%BD%95%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/2022-07-08-14-25-03_hude383ecce3397b878934e30e8bb44b5d_15691_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="257"
+		data-flex-basis="618px"
+	
+></p>
+<p>这是后一种的
+<img src="/blog/2022/04/30/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98%E8%AE%B0%E5%BD%95%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/2022-07-08-14-25-42.png"
+	width="810"
+	height="306"
+	srcset="/blog/2022/04/30/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98%E8%AE%B0%E5%BD%95%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/2022-07-08-14-25-42_hubb1685245320096da27bc2128cf84b41_15384_480x0_resize_box_3.png 480w, /blog/2022/04/30/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98%E8%AE%B0%E5%BD%95%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/2022-07-08-14-25-42_hubb1685245320096da27bc2128cf84b41_15384_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="264"
+		data-flex-basis="635px"
+	
+></p>
+<p>可以看出来优化还是十分明显的</p>
+<hr>
+<h1 id="领地选择httpswwwluogucomcnproblemp2004"><a class="link" href="https://www.luogu.com.cn/problem/P2004"  target="_blank" rel="noopener"
+    >领地选择</a></h1>
+<h2 id="题目描述-4">题目描述</h2>
+<p>首都被认为是一个占地 $C \times C$ 的正方形。小 Z 希望你寻找到一个合适的位置，使得首都所占领的位置的土地价值和最高。</p>
+<h2 id="思路-5">思路</h2>
+<p>与上一题的第一种方法类似，使用二位前缀和预处理，然后$O(n^2)$扫一遍即可</p>
+<h2 id="代码-4">代码</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> a[<span style="color:#ae81ff">1005</span>][<span style="color:#ae81ff">1005</span>];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> f[<span style="color:#ae81ff">1005</span>][<span style="color:#ae81ff">1005</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">solve</span>(){
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">int</span> n, m, c;
+</span></span><span style="display:flex;"><span>   cin <span style="color:#f92672">&gt;&gt;</span> n <span style="color:#f92672">&gt;&gt;</span> m <span style="color:#f92672">&gt;&gt;</span> c;
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">int</span> ma <span style="color:#f92672">=</span> <span style="color:#f92672">-</span>INF;
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> n; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>       <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; j <span style="color:#f92672">&lt;=</span> m; j<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>           cin <span style="color:#f92672">&gt;&gt;</span> a[i][j];
+</span></span><span style="display:flex;"><span>           f[i][j] <span style="color:#f92672">=</span> f[i][j <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> f[i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>][j] <span style="color:#f92672">-</span> f[i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>][j <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> a[i][j];
+</span></span><span style="display:flex;"><span>       }
+</span></span><span style="display:flex;"><span>   }
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">int</span> x, y;
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> c; i <span style="color:#f92672">&lt;=</span> n; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>       <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> c; j <span style="color:#f92672">&lt;=</span> m; j<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>           <span style="color:#66d9ef">if</span> (f[i][j] <span style="color:#f92672">-</span> f[i][j <span style="color:#f92672">-</span> c] <span style="color:#f92672">-</span> f[i <span style="color:#f92672">-</span> c][j] <span style="color:#f92672">+</span> f[i <span style="color:#f92672">-</span> c][j <span style="color:#f92672">-</span> c] <span style="color:#f92672">&gt;</span> ma){
+</span></span><span style="display:flex;"><span>               ma <span style="color:#f92672">=</span> f[i][j] <span style="color:#f92672">-</span> f[i][j <span style="color:#f92672">-</span> c] <span style="color:#f92672">-</span> f[i <span style="color:#f92672">-</span> c][j] <span style="color:#f92672">+</span> f[i <span style="color:#f92672">-</span> c][j <span style="color:#f92672">-</span> c];
+</span></span><span style="display:flex;"><span>               x <span style="color:#f92672">=</span> i <span style="color:#f92672">-</span> c <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>               y <span style="color:#f92672">=</span> j <span style="color:#f92672">-</span> c <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>           }
+</span></span><span style="display:flex;"><span>       }
+</span></span><span style="display:flex;"><span>   }
+</span></span><span style="display:flex;"><span>   cout <span style="color:#f92672">&lt;&lt;</span> x <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; &#34;</span> <span style="color:#f92672">&lt;&lt;</span> y <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><hr>
+<h1 id="光骓者的荣耀httpswwwluogucomcnproblemp5638"><a class="link" href="https://www.luogu.com.cn/problem/P5638"  target="_blank" rel="noopener"
+    >光骓者的荣耀</a></h1>
+<h2 id="题目描述-5">题目描述</h2>
+<p>小 K 为了关心人民生活，决定定期进行走访。他每一次会从 $1$ 号城市到 $n$ 号城市并在经过的城市进行访问。其中终点必须为城市 $n$。</p>
+<p>不仅如此，他还有一个传送器，传送半径为 $k$，也就是可以传送到 $i-k$ 和 $i+k$。如果目标城市编号小于 $1$ 则为 $1$，大于 $n$ 则为 $n$。</p>
+<p>但是他的传送器电量不足，只能传送一次，况且由于一些原因，他想尽量快的完成访问，于是就想问交通部部长您最快的时间是多少。</p>
+<h2 id="思路-6">思路</h2>
+<p>先前缀和预处理，然后以区间大小为$k$扫一遍求传送的最大值即可</p>
+<p><em>（92分坑）：在求区间和最大值的时候，下标不要从1开始，因为cnt[i + k] - cnt[i]如果从1开始的话会忽略cnt[1]本身的值</em></p>
+<h2 id="代码-5">代码</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">solve</span>(){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> n, k;
+</span></span><span style="display:flex;"><span>    cin <span style="color:#f92672">&gt;&gt;</span> n <span style="color:#f92672">&gt;&gt;</span> k;
+</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span>ll<span style="color:#f92672">&gt;</span>a(n);
+</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span>ll<span style="color:#f92672">&gt;</span>cnt(n);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;</span> n; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        cin <span style="color:#f92672">&gt;&gt;</span> a[i];
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    partial_sum(all(a),cnt.begin());
+</span></span><span style="display:flex;"><span>    ll ans <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> n <span style="color:#f92672">-</span> k; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        ans <span style="color:#f92672">=</span> max(ans, cnt[i <span style="color:#f92672">+</span> k] <span style="color:#f92672">-</span> cnt[i]);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> cnt[n <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">-</span> ans <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98/">洛谷专题</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            最后更新于 Oct 20, 2022 19:58 CST
+        </span>
+    </section></footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css"integrity="sha256-J&#43;iAE0sgH8QSz9hpcDxXIftnj65JEZgNhGcgReTTK9s="crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js"integrity="sha256-InsNdER1b2xUewP&#43;pKCUJpkhiqwHgqiPXDlIk7GzBu4="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js"integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI="crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2022 Inari&#39;s Blog
+    </section>
+    
+    <section class="powerby">
+        
+
+
+
+
+
+
+
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title"> </h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#题目描述">题目描述</a></li>
+    <li><a href="#思路">思路</a></li>
+    <li><a href="#代码">代码</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#题目描述-1">题目描述</a></li>
+    <li><a href="#思路-1">思路</a>
+      <ul>
+        <li><a href="#复习">复习</a></li>
+      </ul>
+    </li>
+    <li><a href="#代码-1">代码</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#题目描述-2">题目描述</a></li>
+    <li><a href="#思路-2">思路</a></li>
+    <li><a href="#代码-2">代码</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#题目描述-3">题目描述</a></li>
+    <li><a href="#思路-3">思路</a></li>
+    <li><a href="#代码-on4">代码 （$O(n^4)$）</a></li>
+    <li><a href="#优化版">优化版</a></li>
+    <li><a href="#思路-4">思路</a></li>
+    <li><a href="#代码-3">代码</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#题目描述-4">题目描述</a></li>
+    <li><a href="#思路-5">思路</a></li>
+    <li><a href="#代码-4">代码</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#题目描述-5">题目描述</a></li>
+    <li><a href="#思路-6">思路</a></li>
+    <li><a href="#代码-5">代码</a></li>
+  </ul>
+</nav>
+        </div>
+    </section>
+
+            
+        
+            
+                <form action="/page/search/" class="search-form widget" >
+        <p>
+            <label> </label>
+            <input name="keyword" required placeholder=" " />
+        
+            <button title=" ">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+            </button>
+        </p>
+    </form>
+            
+        
+    </aside>
+
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
