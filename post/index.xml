@@ -259,7 +259,7 @@
         <pubDate>Thu, 26 May 2022 10:16:47 +0000</pubDate>
         
         <guid>https://inariindream.github.io/blog/2022/05/26/rss%E5%A4%87%E7%94%A8%E6%BA%90/</guid>
-        <description>&lt;img src="https://s1.ax1x.com/2022/05/26/XECXcR.jpg" alt="Featured image of post RSS备用源" /&gt;&lt;!-- raw HTML omitted --&gt;
+        <description>&lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;一些备用的rss源&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;http://rsshub.sksren.com/
 
@@ -595,7 +595,7 @@ sudo apt install gnome-tweaks-extension
         <pubDate>Tue, 17 May 2022 15:52:08 +0000</pubDate>
         
         <guid>https://inariindream.github.io/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/</guid>
-        <description>&lt;img src="https://s1.ax1x.com/2022/05/17/O4vPHS.png" alt="Featured image of post 从零开始的Ubuntu安装（实机篇）" /&gt;&lt;!-- raw HTML omitted --&gt;
+        <description>&lt;img src="https://s1.ax1x.com/2022/05/26/XECXcR.jpg" alt="Featured image of post 从零开始的Ubuntu安装（实机篇）" /&gt;&lt;!-- raw HTML omitted --&gt;
 &lt;h1 id=&#34;从零开始的ubuntu安装实机篇&#34;&gt;从零开始的Ubuntu安装（实机篇）&lt;/h1&gt;
 &lt;p&gt;[TOC]&lt;/p&gt;
 &lt;h2 id=&#34;写在前面&#34;&gt;写在前面&lt;/h2&gt;
@@ -2338,12 +2338,12 @@ $$n! - 2^{n - 1}$$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
         </item>
         <item>
-        <title>2021年终总结-归档</title>
-        <link>https://inariindream.github.io/blog/2022/01/29/2021%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93-%E5%BD%92%E6%A1%A3/</link>
+        <title>2021年终总结</title>
+        <link>https://inariindream.github.io/blog/2022/01/29/2021%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</link>
         <pubDate>Sat, 29 Jan 2022 09:39:43 +0000</pubDate>
         
-        <guid>https://inariindream.github.io/blog/2022/01/29/2021%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93-%E5%BD%92%E6%A1%A3/</guid>
-        <description>&lt;p&gt;2021对我来说十分匆忙与短暂，以至于我在最后一天才有闲暇，来回望过去的这一年。&lt;/p&gt;
+        <guid>https://inariindream.github.io/blog/2022/01/29/2021%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</guid>
+        <description>&lt;img src="https://s1.ax1x.com/2022/04/29/Lx8ogU.jpg" alt="Featured image of post 2021年终总结" /&gt;&lt;p&gt;2021对我来说十分匆忙与短暂，以至于我在最后一天才有闲暇，来回望过去的这一年。&lt;/p&gt;
 &lt;p&gt;我想了很久，今年似乎很难用一句话或一个词来概括我过去十二个月的经历了。以五月底的插班生考试为分界线，我的2021的上下半年过得截然不同。&lt;/p&gt;
 &lt;p&gt;贯穿我上半年的两个词应该是犹豫与遗憾。年初犹豫着是否要正式进入一段感情，四月初犹豫着是否要把考插的路坚持走完，也在插班生和课内绩点之间犹豫不决。最终，这些犹豫都变成了遗憾。&lt;/p&gt;
 &lt;p&gt;插班生考试以一道证明大题的差距结束了我九个月的旅程，绩点以0.002的差距而错失了转入CS的机会。我只能给自己冠上“惜败”的名号聊以自慰。本来对未来有无穷的憧憬与计划，但变化总会挫败计划好的道路，使人怀疑按原有的计划是否还能走到理想的目的地，也会使人踌躇，究竟是该坚持还是放弃。&lt;/p&gt;
