@@ -1,43 +1,19 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='从零开始的Ubuntu安装（Hyper-V虚拟机篇） [TOC]
-其实我是先装的虚拟机再装的实机的，但是装完实机之后趁记忆比较深刻先写了上一篇实机的，但其实虚拟机还要简单一点。而用Hyper—V一键装机就更是极简了。
-安装步骤 确保系统是 Windows 10 专业版/企业版/教育版，且必须是64位操作系统才支持。 如果不是那可以退出了，Win10家庭版不支持hyper-v。
-打开启动或关闭Windows功能
-将Hyper—V下属的两项都给勾上
-若第二项勾选不上则需要重启进入bios界面，不同型号的电脑进入方式不同，微星是按del，华硕是F2（其他的没用过建议自行使用搜索引擎） 进入bios后以微星主板amdcpu为例 依次点击
-然后重启电脑 此时应该可以将两项都勾选上了。 3. 完成后需要稍等一段时间，然后重启电脑； 4. 重启之后，点击“开始”，“所有程序”，点击“windows管理工具”然后就可以看到“Hyper-V”
-点击进入，便可根据自己的喜好一键装机了
-（保姆级服务'><title>从零开始的Ubuntu安装（Hyper-V虚拟机篇）</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Edu补完计划'><title>CodeforcesEdu补题合集</title>
 
-<link rel='canonical' href='https://inariindream.github.io/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/'>
+<link rel='canonical' href='https://inariindream.github.io/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/'>
 
-<link rel="stylesheet" href="/scss/style.min.dabe5a3caa768ceba518e17d6f219cfe25b185d1e71692088025722b0f6fbc5c.css"><meta property='og:title' content='从零开始的Ubuntu安装（Hyper-V虚拟机篇）'>
-<meta property='og:description' content='从零开始的Ubuntu安装（Hyper-V虚拟机篇） [TOC]
-其实我是先装的虚拟机再装的实机的，但是装完实机之后趁记忆比较深刻先写了上一篇实机的，但其实虚拟机还要简单一点。而用Hyper—V一键装机就更是极简了。
-安装步骤 确保系统是 Windows 10 专业版/企业版/教育版，且必须是64位操作系统才支持。 如果不是那可以退出了，Win10家庭版不支持hyper-v。
-打开启动或关闭Windows功能
-将Hyper—V下属的两项都给勾上
-若第二项勾选不上则需要重启进入bios界面，不同型号的电脑进入方式不同，微星是按del，华硕是F2（其他的没用过建议自行使用搜索引擎） 进入bios后以微星主板amdcpu为例 依次点击
-然后重启电脑 此时应该可以将两项都勾选上了。 3. 完成后需要稍等一段时间，然后重启电脑； 4. 重启之后，点击“开始”，“所有程序”，点击“windows管理工具”然后就可以看到“Hyper-V”
-点击进入，便可根据自己的喜好一键装机了
-（保姆级服务'>
-<meta property='og:url' content='https://inariindream.github.io/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/'>
+<link rel="stylesheet" href="/scss/style.min.dabe5a3caa768ceba518e17d6f219cfe25b185d1e71692088025722b0f6fbc5c.css"><meta property='og:title' content='CodeforcesEdu补题合集'>
+<meta property='og:description' content='Edu补完计划'>
+<meta property='og:url' content='https://inariindream.github.io/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/'>
 <meta property='og:site_name' content='Inari&#39;s Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Linux' /><meta property='article:tag' content='Ubuntu' /><meta property='article:tag' content='os' /><meta property='article:published_time' content='2022-05-18T13:15:21&#43;00:00'/><meta property='article:modified_time' content='2022-10-20T19:49:02&#43;08:00'/><meta property='og:image' content='https://s1.ax1x.com/2022/05/17/O4vPHS.png' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Codeforces专题' /><meta property='article:tag' content='cfedu' /><meta property='article:published_time' content='2022-10-21T09:56:46&#43;00:00'/><meta property='article:modified_time' content='2022-10-25T21:51:49&#43;08:00'/><meta property='og:image' content='https://inariindream.github.io/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/222.png' />
 <meta name="twitter:site" content="@inariindream">
-    <meta name="twitter:creator" content="@inariindream"><meta name="twitter:title" content="从零开始的Ubuntu安装（Hyper-V虚拟机篇）">
-<meta name="twitter:description" content="从零开始的Ubuntu安装（Hyper-V虚拟机篇） [TOC]
-其实我是先装的虚拟机再装的实机的，但是装完实机之后趁记忆比较深刻先写了上一篇实机的，但其实虚拟机还要简单一点。而用Hyper—V一键装机就更是极简了。
-安装步骤 确保系统是 Windows 10 专业版/企业版/教育版，且必须是64位操作系统才支持。 如果不是那可以退出了，Win10家庭版不支持hyper-v。
-打开启动或关闭Windows功能
-将Hyper—V下属的两项都给勾上
-若第二项勾选不上则需要重启进入bios界面，不同型号的电脑进入方式不同，微星是按del，华硕是F2（其他的没用过建议自行使用搜索引擎） 进入bios后以微星主板amdcpu为例 依次点击
-然后重启电脑 此时应该可以将两项都勾选上了。 3. 完成后需要稍等一段时间，然后重启电脑； 4. 重启之后，点击“开始”，“所有程序”，点击“windows管理工具”然后就可以看到“Hyper-V”
-点击进入，便可根据自己的喜好一键装机了
-（保姆级服务"><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='https://s1.ax1x.com/2022/05/17/O4vPHS.png' />
+    <meta name="twitter:creator" content="@inariindream"><meta name="twitter:title" content="CodeforcesEdu补题合集">
+<meta name="twitter:description" content="Edu补完计划"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://inariindream.github.io/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/222.png' />
     <link rel="shortcut icon" href="https://s1.ax1x.com/2022/04/27/Lb5QhD.jpg" />
 
     </head>
@@ -296,9 +272,13 @@
     <article class="has-image main-article">
     <header class="article-header">
         <div class="article-image">
-            <a href="/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/">
-                
-                    <img src="https://s1.ax1x.com/2022/05/17/O4vPHS.png" loading="lazy" alt="Featured image of post 从零开始的Ubuntu安装（Hyper-V虚拟机篇）" />
+            <a href="/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/">
+                <img src="/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/222_hu15b1962fdc5d535b167ff7ac7d802c19_3173586_800x0_resize_box_3.png"
+                        srcset="/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/222_hu15b1962fdc5d535b167ff7ac7d802c19_3173586_800x0_resize_box_3.png 800w, /blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/222_hu15b1962fdc5d535b167ff7ac7d802c19_3173586_1600x0_resize_box_3.png 1600w"
+                        width="800" 
+                        height="427" 
+                        loading="lazy"
+                        alt="Featured image of post CodeforcesEdu补题合集" />
                 
             </a>
         </div>
@@ -308,8 +288,8 @@
     
     <header class="article-category">
         
-            <a href="/categories/%E6%8A%80%E6%9C%AF/" style="background-color: #2a9d8f; color: #fff;">
-                技术
+            <a href="/categories/%E7%AE%97%E6%B3%95/" style="background-color: #2f2d8f; color: #fff;">
+                算法
             </a>
         
     </header>
@@ -317,9 +297,13 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/">从零开始的Ubuntu安装（Hyper-V虚拟机篇）</a>
+            <a href="/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/">CodeforcesEdu补题合集</a>
         </h2>
     
+        
+        <h3 class="article-subtitle">
+            Edu补完计划
+        </h3>
         
     </div>
 
@@ -336,7 +320,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">May 18, 2022</time>
+                <time class="article-time--published">Oct 21, 2022</time>
             </div>
         
 
@@ -351,7 +335,7 @@
 
 
                 <time class="article-time--reading">
-                    1 minute read
+                    2 minute read
                 </time>
             </div>
         
@@ -365,119 +349,121 @@
     <section class="article-content">
     
     
-    <!-- raw HTML omitted -->
-<h1 id="从零开始的ubuntu安装hyper-v虚拟机篇">从零开始的Ubuntu安装（Hyper-V虚拟机篇）</h1>
-<p>[TOC]</p>
-<p>其实我是先装的虚拟机再装的实机的，但是装完实机之后趁记忆比较深刻先写了上一篇实机的，但其实虚拟机还要简单一点。而用<em>Hyper—V</em>一键装机就更是极简了。</p>
-<h2 id="安装步骤">安装步骤</h2>
-<ol>
-<li>
-<p><strong>确保系统是 Windows 10 专业版/企业版/教育版，且必须是64位操作系统才支持。</strong>
-<img src="/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-20-20.png"
-	width="429"
-	height="186"
-	srcset="/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-20-20_hu3608472083983163e375086ce110c098_8099_480x0_resize_box_3.png 480w, /blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-20-20_hu3608472083983163e375086ce110c098_8099_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="230"
-		data-flex-basis="553px"
-	
->
-如果不是那可以退出了，<strong>Win10家庭版不支持hyper-v。</strong></p>
-</li>
-<li>
-<p>打开<code>启动或关闭Windows功能</code></p>
-<p>将Hyper—V下属的两项都给勾上</p>
-</li>
-</ol>
-<p><img src="/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-29-05.png"
-	width="429"
-	height="425"
-	srcset="/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-29-05_hud97dd130b37176afc6528ab2640e349b_25707_480x0_resize_box_3.png 480w, /blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-29-05_hud97dd130b37176afc6528ab2640e349b_25707_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="100"
-		data-flex-basis="242px"
-	
-></p>
-<p>若第二项勾选不上则需要重启进入bios界面，不同型号的电脑进入方式不同，微星是按<code>del</code>，华硕是<code>F2</code>（其他的没用过建议自行使用搜索引擎）
-进入bios后以微星主板amdcpu为例
-依次点击</p>
-<p><img src="/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-35-01.png"
-	width="650"
-	height="487"
-	srcset="/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-35-01_huab51fe70794d358d40c07c0195a91965_202228_480x0_resize_box_3.png 480w, /blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-35-01_huab51fe70794d358d40c07c0195a91965_202228_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="133"
-		data-flex-basis="320px"
-	
-></p>
-<p><img src="/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-35-08.png"
-	width="650"
-	height="486"
-	srcset="/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-35-08_hu5ef3904b4ae5cbd6ae26df309d311ca6_181560_480x0_resize_box_3.png 480w, /blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-35-08_hu5ef3904b4ae5cbd6ae26df309d311ca6_181560_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="133"
-		data-flex-basis="320px"
-	
-></p>
-<p>然后重启电脑
-此时应该可以将两项都勾选上了。
-3. 完成后需要稍等一段时间，然后重启电脑；
-4. 重启之后，点击“开始”，“所有程序”，点击“windows管理工具”然后就可以看到“Hyper-V”</p>
-<p><img src="/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-39-12.png"
-	width="302"
-	height="359"
-	srcset="/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-39-12_hu91b966cf1ce5742502b1b78aab3a2139_86365_480x0_resize_box_3.png 480w, /blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-39-12_hu91b966cf1ce5742502b1b78aab3a2139_86365_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="84"
-		data-flex-basis="201px"
-	
-></p>
-<ol start="5">
-<li>
-<p>点击进入，便可根据自己的喜好一键装机了</p>
-<p><img src="/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-40-48.png"
-	width="326"
-	height="105"
-	srcset="/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-40-48_hu8a97b1e4ba9b25c09f1d74bd3f8540ad_4245_480x0_resize_box_3.png 480w, /blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-40-48_hu8a97b1e4ba9b25c09f1d74bd3f8540ad_4245_1024x0_resize_box_3.png 1024w"
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="310"
-		data-flex-basis="745px"
-	
-></p>
-<p>（保姆级服务</p>
-<p><img src="/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-41-10.png"
-	width="826"
-	height="489"
-	srcset="/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-41-10_hu037745857cabff452ea0a00bddd61438_81735_480x0_resize_box_3.png 480w, /blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-41-10_hu037745857cabff452ea0a00bddd61438_81735_1024x0_resize_box_3.png 1024w"
+    <p><em>此纪录从2022-10-21 09:56:46始</em></p>
+<h2 id="educational-codeforces-round-138">Educational Codeforces Round 138</h2>
+<h1 id="c-number-gamehttpscodeforcescomcontest1749problemc"><a class="link" href="https://codeforces.com/contest/1749/problem/C"  target="_blank" rel="noopener"
+    >C Number Game</a></h1>
+<h1 id="题意">题意:</h1>
+<p>给定一个长度为$n$的整数数组$a$, Alice和Bob玩游戏.对于一个$k$, 游戏进行$k$轮, 第$i$轮,Alice选择从a中删除一个小于等于$k - i + 1$的数, Bob选择一个数加上$k - i + 1$.如果某一轮Alice没有数字可以选择,则Bob赢,否则Alice赢.问使得Alice赢的最大的k是多少?</p>
+<p>$(n &lt;= 100)$</p>
+<h1 id="思路">思路</h1>
+<p>最开始以为是二分答案，但注意到n比较小，所以可以直接写模拟，Bob的策略应该是每回合将Alice当前的$k - i + 1$加到当前数列的最小项上面，这样能最大化减少Alice能删掉的数量。Alice的策略则是趁$k - i + 1$减小之前每次尽可能删掉能删掉的最大数。</p>
+<p>其实这个思路很好想，昨晚在看题十分钟后就想到了，但写模拟代码写了一万年还调错了，典中典之脑子会了手没会。</p>
+<p>今早想清楚模拟过程之后10分钟1A了</p>
+<h1 id="代码">代码</h1>
+<p>$O(n^3)$</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">solve</span>():
+</span></span><span style="display:flex;"><span>    n <span style="color:#f92672">=</span> int(input())
+</span></span><span style="display:flex;"><span>    b <span style="color:#f92672">=</span> list(map(int, input()<span style="color:#f92672">.</span>split()))
+</span></span><span style="display:flex;"><span>    b<span style="color:#f92672">.</span>sort()
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>    k <span style="color:#f92672">=</span> n
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> k <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>:
+</span></span><span style="display:flex;"><span>        a <span style="color:#f92672">=</span> b<span style="color:#f92672">.</span>copy()  <span style="color:#75715e"># 最开始写的 a = b，没发现，调其他地方调了一万年</span>
+</span></span><span style="display:flex;"><span>        index <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> index <span style="color:#f92672">&lt;=</span> k:
+</span></span><span style="display:flex;"><span>            pos <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>            temp <span style="color:#f92672">=</span> k <span style="color:#f92672">-</span> index <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(len(a)):
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> temp <span style="color:#f92672">&gt;=</span> a[i]:
+</span></span><span style="display:flex;"><span>                    pos <span style="color:#f92672">=</span> i
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> pos <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>:
+</span></span><span style="display:flex;"><span>                k <span style="color:#f92672">-=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">break</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> index <span style="color:#f92672">==</span> k:
+</span></span><span style="display:flex;"><span>                print(k)
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span>
+</span></span><span style="display:flex;"><span>            a<span style="color:#f92672">.</span>remove(a[pos])
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> len(a) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>:
+</span></span><span style="display:flex;"><span>                a[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">+=</span> temp
+</span></span><span style="display:flex;"><span>            a<span style="color:#f92672">.</span>sort()
+</span></span><span style="display:flex;"><span>            index <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    print(k)
+</span></span></code></pre></div><p>$O(nlogn)$ <strong>待补</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">solve</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> n;
+</span></span><span style="display:flex;"><span>  cin <span style="color:#f92672">&gt;&gt;</span> n;
+</span></span><span style="display:flex;"><span>  vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> a(n);
+</span></span><span style="display:flex;"><span>  cin <span style="color:#f92672">&gt;&gt;</span> a;
+</span></span><span style="display:flex;"><span>  sort(a.begin(), a.end());
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> left <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, right <span style="color:#f92672">=</span> (n <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">auto</span> check <span style="color:#f92672">=</span> [<span style="color:#f92672">&amp;</span>](<span style="color:#66d9ef">int</span> k) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (k <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">return</span> true;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (a[k <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">!=</span> <span style="color:#ae81ff">1</span>) <span style="color:#66d9ef">return</span> false;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> k; i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> k <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (a[i] <span style="color:#f92672">&gt;</span> i <span style="color:#f92672">-</span> k <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> false;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> true;
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">while</span> (left <span style="color:#f92672">&lt;=</span> right) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> k <span style="color:#f92672">=</span> (left <span style="color:#f92672">+</span> right) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (check(k)) left <span style="color:#f92672">=</span> k <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> right <span style="color:#f92672">=</span> k <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  cout <span style="color:#f92672">&lt;&lt;</span> left <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="educational-codeforces-round-134">Educational Codeforces Round 134</h2>
+<h1 id="d-maximum-andhttpscodeforcescomcontest1721problemd">D. <a class="link" href="https://codeforces.com/contest/1721/problem/D"  target="_blank" rel="noopener"
+    >Maximum AND</a></h1>
+<h1 id="题意-1">题意</h1>
+<p>给定两个数列$a$, $b$, 令$c_i = a_i \bigoplus b_i$， 定义价值为 $c_1$ &amp; $c_2$ &amp; $c_3$&amp; &hellip; $c_n$ 求价值的最大值</p>
+<p>$(1≤n≤10^5)$
+$(0≤a_i, b_i&lt;2^{30})$</p>
+<h1 id="思路-1">思路</h1>
+<p>注意到c在某一位为1时只能是当所有的$c_i$在这一位都为1才能取到，进而需要所有匹配的$a_i$ 和 $b_i$在这一位的异或都为1。</p>
+<p>那么如何找这样满足条件的匹配呢，看题解发现有一种很妙的方法可以实现。$c$贪心地从最高位为$1$开始往下取，然后先假设$c$这一位为1，通过map计数check是否所有的$a_i, b_i$都能满足条件，而并不需要排列来对每个$i$进行匹配。</p>
+<p><img src="/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2022-10-21-20-49-42.png"
+	width="500"
+	height="297"
+	srcset="/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2022-10-21-20-49-42_hu565b2ba7ee54d6d263cc0577b92ec968_21437_480x0_resize_box_3.png 480w, /blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2022-10-21-20-49-42_hu565b2ba7ee54d6d263cc0577b92ec968_21437_1024x0_resize_box_3.png 1024w"
 	loading="lazy"
 	
 	
 		class="gallery-image" 
 		data-flex-grow="168"
-		data-flex-basis="405px"
+		data-flex-basis="404px"
 	
 ></p>
-</li>
-</ol>
-
+<p>如上图所示，如果存在一组满足这样关系的a和b，则用<code>map</code>计数添加进去，而如果c在这一位能够取到1的话，那么map的value一定是一个确定值。</p>
+<p>最后再让$c |= (1 &laquo; i)$（更新值），继续往后推：在这样的高位取值下，c的低位取值情况即可</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">solve</span>():
+</span></span><span style="display:flex;"><span>    n <span style="color:#f92672">=</span> int(input())
+</span></span><span style="display:flex;"><span>    a <span style="color:#f92672">=</span> list(map(int, input()<span style="color:#f92672">.</span>split()))
+</span></span><span style="display:flex;"><span>    b <span style="color:#f92672">=</span> list(map(int, input()<span style="color:#f92672">.</span>split()))
+</span></span><span style="display:flex;"><span>    d <span style="color:#f92672">=</span> defaultdict(int)
+</span></span><span style="display:flex;"><span>    ans <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">30</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>):
+</span></span><span style="display:flex;"><span>        temp <span style="color:#f92672">=</span> ans <span style="color:#f92672">|</span> (<span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;&lt;</span> i)
+</span></span><span style="display:flex;"><span>        d<span style="color:#f92672">.</span>clear()
+</span></span><span style="display:flex;"><span>        ok <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(n):
+</span></span><span style="display:flex;"><span>            d[a[j] <span style="color:#f92672">&amp;</span> temp] <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>            d[<span style="color:#f92672">~</span>b[j] <span style="color:#f92672">&amp;</span> temp] <span style="color:#f92672">-=</span> <span style="color:#ae81ff">1</span>  <span style="color:#75715e"># 判断是否异或为1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> d<span style="color:#f92672">.</span>values():
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> j <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>:
+</span></span><span style="display:flex;"><span>                ok <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">break</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> ok <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>: <span style="color:#75715e"># 如果能取到才用或运算加上值</span>
+</span></span><span style="display:flex;"><span>            ans <span style="color:#f92672">=</span> temp
+</span></span><span style="display:flex;"><span>    print(ans)
+</span></span></code></pre></div>
 </section>
 
 
@@ -485,11 +471,9 @@
     
     <section class="article-tags">
         
-            <a href="/tags/linux/">Linux</a>
+            <a href="/tags/codeforces%E4%B8%93%E9%A2%98/">Codeforces专题</a>
         
-            <a href="/tags/ubuntu/">Ubuntu</a>
-        
-            <a href="/tags/os/">os</a>
+            <a href="/tags/cfedu/">cfedu</a>
         
     </section>
 
@@ -516,7 +500,7 @@
 
 
         <span>
-            最后更新于 Oct 20, 2022 19:49 CST
+            最后更新于 Oct 25, 2022 21:51 CST
         </span>
     </section></footer>
 
@@ -550,34 +534,6 @@
     
 
     
-
-<aside class="related-content--wrapper">
-    <h2 class="section-title">Related content</h2>
-    <div class="related-content">
-        <div class="flex article-list--tile">
-            
-                
-<article class="has-image">
-    <a href="/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="https://s1.ax1x.com/2022/05/26/XECXcR.jpg" loading="lazy" data-key="" data-hash="https://s1.ax1x.com/2022/05/26/XECXcR.jpg"/>
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">从零开始的Ubuntu安装（实机篇）</h2>
-        </div>
-    </a>
-</article>
-
-            
-        </div>
-    </div>
-</aside>
 
      
     
@@ -705,7 +661,11 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ul>
-    <li><a href="#安装步骤">安装步骤</a></li>
+    <li><a href="#educational-codeforces-round-138">Educational Codeforces Round 138</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#educational-codeforces-round-134">Educational Codeforces Round 134</a></li>
   </ul>
 </nav>
         </div>

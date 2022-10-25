@@ -6,13 +6,14 @@
         <description>Recent content in Posts on Inari&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Thu, 20 Oct 2022 09:56:46 +0000</lastBuildDate><atom:link href="https://inariindream.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 21 Oct 2022 09:56:46 +0000</lastBuildDate><atom:link href="https://inariindream.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>CodeforcesEdu补题合集</title>
-        <link>https://inariindream.github.io/blog/2022/10/20/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/</link>
-        <pubDate>Thu, 20 Oct 2022 09:56:46 +0000</pubDate>
+        <link>https://inariindream.github.io/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/</link>
+        <pubDate>Fri, 21 Oct 2022 09:56:46 +0000</pubDate>
         
-        <guid>https://inariindream.github.io/blog/2022/10/20/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/</guid>
-        <description>&lt;img src="https://inariindream.github.io/blog/2022/10/20/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/222.png" alt="Featured image of post CodeforcesEdu补题合集" /&gt;&lt;h2 id=&#34;educational-codeforces-round-138&#34;&gt;Educational Codeforces Round 138&lt;/h2&gt;
+        <guid>https://inariindream.github.io/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/</guid>
+        <description>&lt;img src="https://inariindream.github.io/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/222.png" alt="Featured image of post CodeforcesEdu补题合集" /&gt;&lt;p&gt;&lt;em&gt;此纪录从2022-10-21 09:56:46始&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;educational-codeforces-round-138&#34;&gt;Educational Codeforces Round 138&lt;/h2&gt;
 &lt;h1 id=&#34;c-number-gamehttpscodeforcescomcontest1749problemc&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://codeforces.com/contest/1749/problem/C&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;C Number Game&lt;/a&gt;&lt;/h1&gt;
 &lt;h1 id=&#34;题意&#34;&gt;题意:&lt;/h1&gt;
@@ -85,16 +86,16 @@
 &lt;h1 id=&#34;d-maximum-andhttpscodeforcescomcontest1721problemd&#34;&gt;D. &lt;a class=&#34;link&#34; href=&#34;https://codeforces.com/contest/1721/problem/D&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Maximum AND&lt;/a&gt;&lt;/h1&gt;
 &lt;h1 id=&#34;题意-1&#34;&gt;题意&lt;/h1&gt;
-&lt;p&gt;给定两个数列$a$, $b$, 令$c_i = a_i \bigoplus b_i$， 定义价值为$c_1 &amp;amp; c_2 &amp;amp; c_3&amp;amp; &amp;hellip; c_n$, 求价值的最大值&lt;/p&gt;
+&lt;p&gt;给定两个数列$a$, $b$, 令$c_i = a_i \bigoplus b_i$， 定义价值为 $c_1$ &amp;amp; $c_2$ &amp;amp; $c_3$&amp;amp; &amp;hellip; $c_n$ 求价值的最大值&lt;/p&gt;
 &lt;p&gt;$(1≤n≤10^5)$
 $(0≤a_i, b_i&amp;lt;2^{30})$&lt;/p&gt;
 &lt;h1 id=&#34;思路-1&#34;&gt;思路&lt;/h1&gt;
 &lt;p&gt;注意到c在某一位为1时只能是当所有的$c_i$在这一位都为1才能取到，进而需要所有匹配的$a_i$ 和 $b_i$在这一位的异或都为1。&lt;/p&gt;
 &lt;p&gt;那么如何找这样满足条件的匹配呢，看题解发现有一种很妙的方法可以实现。$c$贪心地从最高位为$1$开始往下取，然后先假设$c$这一位为1，通过map计数check是否所有的$a_i, b_i$都能满足条件，而并不需要排列来对每个$i$进行匹配。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.github.io/blog/2022/10/20/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2022-10-21-20-49-42.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.github.io/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2022-10-21-20-49-42.png&#34;
 	width=&#34;500&#34;
 	height=&#34;297&#34;
-	srcset=&#34;https://inariindream.github.io/blog/2022/10/20/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2022-10-21-20-49-42_hu565b2ba7ee54d6d263cc0577b92ec968_21437_480x0_resize_box_3.png 480w, https://inariindream.github.io/blog/2022/10/20/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2022-10-21-20-49-42_hu565b2ba7ee54d6d263cc0577b92ec968_21437_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.github.io/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2022-10-21-20-49-42_hu565b2ba7ee54d6d263cc0577b92ec968_21437_480x0_resize_box_3.png 480w, https://inariindream.github.io/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2022-10-21-20-49-42_hu565b2ba7ee54d6d263cc0577b92ec968_21437_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
