@@ -126,6 +126,34 @@ $(0≤a_i, b_i&amp;lt;2^{30})$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; ok &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;: &lt;span style=&#34;color:#75715e&#34;&gt;# 如果能取到才用或运算加上值&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            ans &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; temp
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    print(ans)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;educational-codeforces-round-112&#34;&gt;Educational Codeforces Round 112&lt;/h2&gt;
+&lt;h1 id=&#34;d-say-no-to-palindromeshttpscodeforcescomcontest1555problemddp&#34;&gt;D. &lt;a class=&#34;link&#34; href=&#34;https://codeforces.com/contest/1555/problem/D&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Say No to Palindromes&lt;/a&gt;（DP）&lt;/h1&gt;
+&lt;h1 id=&#34;题意-2&#34;&gt;题意&lt;/h1&gt;
+&lt;p&gt;给定一个由a,b,c组成字符串，定义一个字符串是美丽的当且仅当它的字串中没有回文。&lt;/p&gt;
+&lt;p&gt;$m$次询问，每次给定左右端点$l, r$，如果此字符串不美丽，则每修改一个字符cost+=1，问使将这一段字符串修改成美丽字符串的最小花费是多少。&lt;/p&gt;
+&lt;p&gt;$(1≤n,m≤2⋅10^5)$&lt;/p&gt;
+&lt;h1 id=&#34;思路-2&#34;&gt;思路&lt;/h1&gt;
+&lt;p&gt;注意到对于每个$s_i$, $s_i \neq s_{i - 1}$并且$s_i \neq s_{i - 2}$才能不形成回文，由于一共只有三种字母，所以$s_i$一定等于$s_{i - 3}$，因此，修改后的整个字符串一定是&amp;quot;abcabcabc&amp;hellip;&amp;quot; 或&amp;quot;bacbacba&amp;hellip;&amp;quot; 等共六种排列情况的串。&lt;/p&gt;
+&lt;p&gt;然后在询问前把6种字符串修改情况的操作次数前缀和一下，s[i]代表字符串修改到$i$时的修改次数，在每次询问时用&lt;code&gt;s[r] - s[l - 1]&lt;/code&gt;就是这种排列情况时的需要修改的次数（不用关心具体修改了哪些），然后取6个情况中的最小值即可，查询复杂度为$O(1)$&lt;/p&gt;
+&lt;p&gt;因为一共就三种字符，所以6种情况一定可以覆盖完全&lt;/p&gt;
+&lt;h1 id=&#34;代码-1&#34;&gt;代码&lt;/h1&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;solve&lt;/span&gt;():
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    n, m &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; map(int, input()&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;split())
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    s &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; input()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    lis &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;abc&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;acb&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;bca&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;bac&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;cab&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;cba&amp;#39;&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    dp &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; (n &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;) &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; i &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; range(&lt;span style=&#34;color:#ae81ff&#34;&gt;6&lt;/span&gt;)]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; i &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; range(&lt;span style=&#34;color:#ae81ff&#34;&gt;6&lt;/span&gt;):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; j &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; range(n):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            dp[i][j &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; dp[i][j]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; s[j] &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; lis[i][j &lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;]:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                dp[i][j &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;+=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; _ &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; range(m):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        x, y &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; map(int, input()&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;split())
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        ans &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;114514114514&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; i &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; range(&lt;span style=&#34;color:#ae81ff&#34;&gt;6&lt;/span&gt;):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            ans &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; min(ans, dp[i][y] &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; dp[i][x &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;])
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        print(ans)
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
         </item>
         
