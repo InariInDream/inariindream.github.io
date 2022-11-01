@@ -234,8 +234,8 @@ sudo apt install gnome-tweaks-extension
 &lt;h2 id=&#34;安装步骤&#34;&gt;安装步骤&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;确保系统是 Windows 10 专业版/企业版/教育版，且必须是64位操作系统才支持。&lt;/strong&gt;
-&lt;img src=&#34;https://inariindream.github.io/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-20-20.png&#34;
+&lt;p&gt;&lt;strong&gt;确保系统是 Windows 10 专业版/企业版/教育版，且必须是64位操作系统才支持。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.github.io/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-20-20.png&#34;
 	width=&#34;429&#34;
 	height=&#34;186&#34;
 	srcset=&#34;https://inariindream.github.io/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-20-20_hu3608472083983163e375086ce110c098_8099_480x0_resize_box_3.png 480w, https://inariindream.github.io/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-20-20_hu3608472083983163e375086ce110c098_8099_1024x0_resize_box_3.png 1024w&#34;
@@ -246,8 +246,8 @@ sudo apt install gnome-tweaks-extension
 		data-flex-grow=&#34;230&#34;
 		data-flex-basis=&#34;553px&#34;
 	
-&gt;
-如果不是那可以退出了，&lt;strong&gt;Win10家庭版不支持hyper-v。&lt;/strong&gt;&lt;/p&gt;
+&gt;&lt;/p&gt;
+&lt;p&gt;如果不是那可以退出了，&lt;strong&gt;Win10家庭版不支持hyper-v。&lt;/strong&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;打开&lt;code&gt;启动或关闭Windows功能&lt;/code&gt;&lt;/p&gt;
@@ -377,8 +377,8 @@ sudo apt install gnome-tweaks-extension
 		data-flex-grow=&#34;355&#34;
 		data-flex-basis=&#34;853px&#34;
 	
-&gt;
-&lt;img src=&#34;https://inariindream.github.io/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-27-54.png&#34;
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.github.io/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-27-54.png&#34;
 	width=&#34;653&#34;
 	height=&#34;453&#34;
 	srcset=&#34;https://inariindream.github.io/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-27-54_huec3e2f5296c688cc4c7ce1b10fc38d9a_12795_480x0_resize_box_3.png 480w, https://inariindream.github.io/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-27-54_huec3e2f5296c688cc4c7ce1b10fc38d9a_12795_1024x0_resize_box_3.png 1024w&#34;
@@ -389,8 +389,8 @@ sudo apt install gnome-tweaks-extension
 		data-flex-grow=&#34;144&#34;
 		data-flex-basis=&#34;345px&#34;
 	
-&gt;
-选中最新版下载&lt;/p&gt;
+&gt;&lt;/p&gt;
+&lt;p&gt;选中最新版下载&lt;/p&gt;
 &lt;p&gt;注意一般浏览器下载目录默认在C盘的Downloads下，Ubuntu的镜像文件较大，下载前注意查看C盘剩余空间&lt;/p&gt;
 &lt;p&gt;然后下好之后就可以开始烧录在U盘里了&lt;/p&gt;
 &lt;p&gt;烧录之前一定注意U盘里原来的东西是否已备份，烧录过程会将U盘清空&lt;/p&gt;
@@ -408,8 +408,8 @@ sudo apt install gnome-tweaks-extension
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;分区类型的话老电脑一般选择GPT，比较新一点的可以选择MBR &lt;del&gt;到时候发现不对回来重新烧一遍吧&lt;/del&gt;&lt;/p&gt;
-&lt;p&gt;然后就开始等待烧录，时间根据U盘性能不同而不同
-&lt;img src=&#34;https://inariindream.github.io/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-34-13.png&#34;
+&lt;p&gt;然后就开始等待烧录，时间根据U盘性能不同而不同&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.github.io/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-34-13.png&#34;
 	width=&#34;337&#34;
 	height=&#34;523&#34;
 	srcset=&#34;https://inariindream.github.io/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-34-13_huec2c386f53d4ca35646d555bd54b5c18_99997_480x0_resize_box_3.png 480w, https://inariindream.github.io/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-34-13_huec2c386f53d4ca35646d555bd54b5c18_99997_1024x0_resize_box_3.png 1024w&#34;
@@ -425,8 +425,9 @@ sudo apt install gnome-tweaks-extension
 &lt;h2 id=&#34;安装步骤&#34;&gt;安装步骤&lt;/h2&gt;
 &lt;p&gt;打开需要安装的电脑，在开机时候进入bios界面。不同品牌的电脑进入方式各不相同，例如微星的电脑普遍是狂按&lt;code&gt;del&lt;/code&gt;进入，华硕的电脑是&lt;code&gt;F2&lt;/code&gt;（同一品牌不同型号的电脑也可能会有一定差异，建议百度一下自己的电脑型号）&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;在Security里面将 Secure Boot改为disabled
-&lt;img src=&#34;https://inariindream.github.io/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-38-44.png&#34;
+&lt;li&gt;
+&lt;p&gt;在Security里面将 Secure Boot改为disabled&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.github.io/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-38-44.png&#34;
 	width=&#34;899&#34;
 	height=&#34;468&#34;
 	srcset=&#34;https://inariindream.github.io/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-38-44_huf168084576237dc4749e973954ea390c_330006_480x0_resize_box_3.png 480w, https://inariindream.github.io/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-38-44_huf168084576237dc4749e973954ea390c_330006_1024x0_resize_box_3.png 1024w&#34;
@@ -437,9 +438,11 @@ sudo apt install gnome-tweaks-extension
 		data-flex-grow=&#34;192&#34;
 		data-flex-basis=&#34;461px&#34;
 	
-&gt;&lt;/li&gt;
-&lt;li&gt;在boot里面将Boot Mode改为 UEFI
-&lt;img src=&#34;https://inariindream.github.io/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-40-35.png&#34;
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在boot里面将Boot Mode改为 UEFI&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.github.io/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-40-35.png&#34;
 	width=&#34;920&#34;
 	height=&#34;472&#34;
 	srcset=&#34;https://inariindream.github.io/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-40-35_hu075028d8e81feb6f9f821ae3d4ed70cf_422230_480x0_resize_box_3.png 480w, https://inariindream.github.io/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-40-35_hu075028d8e81feb6f9f821ae3d4ed70cf_422230_1024x0_resize_box_3.png 1024w&#34;
@@ -450,7 +453,8 @@ sudo apt install gnome-tweaks-extension
 		data-flex-grow=&#34;194&#34;
 		data-flex-basis=&#34;467px&#34;
 	
-&gt;&lt;/li&gt;
+&gt;&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;（我的华硕笔记本当时好像只用把UEFI Boot的选项改为True就行了，不是按这两步来的）&lt;/p&gt;
 &lt;p&gt;之后保存并退出。&lt;/p&gt;
@@ -471,8 +475,8 @@ sudo apt install gnome-tweaks-extension
 		data-flex-basis=&#34;341px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;如果原来电脑上有Win10系统的话，可以选择Install Ubuntu alongside Win10，之后只用在开机的时候选择想进的系统即可。
-&lt;img src=&#34;https://inariindream.github.io/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-50-33.png&#34;
+&lt;p&gt;如果原来电脑上有Win10系统的话，可以选择Install Ubuntu alongside Win10，之后只用在开机的时候选择想进的系统即可。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.github.io/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-50-33.png&#34;
 	width=&#34;800&#34;
 	height=&#34;485&#34;
 	srcset=&#34;https://inariindream.github.io/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-50-33_hu705509282023955ea398043953f55f95_291840_480x0_resize_box_3.png 480w, https://inariindream.github.io/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-50-33_hu705509282023955ea398043953f55f95_291840_1024x0_resize_box_3.png 1024w&#34;
@@ -483,9 +487,9 @@ sudo apt install gnome-tweaks-extension
 		data-flex-grow=&#34;164&#34;
 		data-flex-basis=&#34;395px&#34;
 	
-&gt;
-选择时区
-&lt;img src=&#34;https://inariindream.github.io/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-51-42.png&#34;
+&gt;&lt;/p&gt;
+&lt;p&gt;选择时区&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.github.io/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-51-42.png&#34;
 	width=&#34;676&#34;
 	height=&#34;653&#34;
 	srcset=&#34;https://inariindream.github.io/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-51-42_huced93fe2c6126c6d6eb3d6b35a32bcef_462857_480x0_resize_box_3.png 480w, https://inariindream.github.io/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-51-42_huced93fe2c6126c6d6eb3d6b35a32bcef_462857_1024x0_resize_box_3.png 1024w&#34;
@@ -496,9 +500,9 @@ sudo apt install gnome-tweaks-extension
 		data-flex-grow=&#34;103&#34;
 		data-flex-basis=&#34;248px&#34;
 	
-&gt;
-设置账户名和密码
-&lt;img src=&#34;https://inariindream.github.io/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-52-20.png&#34;
+&gt;&lt;/p&gt;
+&lt;p&gt;设置账户名和密码&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.github.io/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-52-20.png&#34;
 	width=&#34;800&#34;
 	height=&#34;483&#34;
 	srcset=&#34;https://inariindream.github.io/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-52-20_hu0fa738551b0b6de5b9aa7cc1b4c7b95b_282386_480x0_resize_box_3.png 480w, https://inariindream.github.io/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-52-20_hu0fa738551b0b6de5b9aa7cc1b4c7b95b_282386_1024x0_resize_box_3.png 1024w&#34;
@@ -509,11 +513,11 @@ sudo apt install gnome-tweaks-extension
 		data-flex-grow=&#34;165&#34;
 		data-flex-basis=&#34;397px&#34;
 	
-&gt;
-开始安装即可&lt;/p&gt;
+&gt;&lt;/p&gt;
+&lt;p&gt;开始安装即可&lt;/p&gt;
 &lt;h2 id=&#34;大功告成&#34;&gt;大功告成&lt;/h2&gt;
-&lt;p&gt;安装完成之后重启即可
-&lt;img src=&#34;https://inariindream.github.io/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-54-55.png&#34;
+&lt;p&gt;安装完成之后重启即可&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.github.io/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-54-55.png&#34;
 	width=&#34;797&#34;
 	height=&#34;247&#34;
 	srcset=&#34;https://inariindream.github.io/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-54-55_huec5d10a1641eb8b75e0a8f2e506979ae_97123_480x0_resize_box_3.png 480w, https://inariindream.github.io/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-54-55_huec5d10a1641eb8b75e0a8f2e506979ae_97123_1024x0_resize_box_3.png 1024w&#34;
