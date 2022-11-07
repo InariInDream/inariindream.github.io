@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Pages on Inari&#39;s Blog</title>
-        <link>https://inariindream.github.io/page/</link>
+        <link>https://inariindream.fun/page/</link>
         <description>Recent content in Pages on Inari&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Tue, 28 May 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://inariindream.github.io/page/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 28 May 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://inariindream.fun/page/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>归档</title>
-        <link>https://inariindream.github.io/page/archives/</link>
+        <link>https://inariindream.fun/page/archives/</link>
         <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://inariindream.github.io/page/archives/</guid>
+        <guid>https://inariindream.fun/page/archives/</guid>
         <description></description>
         </item>
         <item>
         <title>关于</title>
-        <link>https://inariindream.github.io/page/about/</link>
+        <link>https://inariindream.fun/page/about/</link>
         <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://inariindream.github.io/page/about/</guid>
+        <guid>https://inariindream.fun/page/about/</guid>
         <description>&lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://git.io/typing-svg&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;&lt;img src=&#34;https://readme-typing-svg.herokuapp.com?font=Fira&amp;#43;Code&amp;amp;size=25&amp;amp;duration=3000&amp;amp;pause=700&amp;amp;color=1D27F7&amp;amp;width=435&amp;amp;lines=I%27m&amp;#43;InariInDream&amp;#43;%F0%9F%91%8B;Invictus&amp;#43;maneo;Be&amp;#43;awesome&#34;
@@ -79,10 +79,10 @@
         </item>
         <item>
         <title>友人</title>
-        <link>https://inariindream.github.io/page/friend/</link>
+        <link>https://inariindream.fun/page/friend/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://inariindream.github.io/page/friend/</guid>
+        <guid>https://inariindream.fun/page/friend/</guid>
         <description>&lt;p&gt;你也许还能从他们的主页中找到想要的东西 🥳&lt;/p&gt;
 &lt;p&gt;欢迎添加友链！&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
@@ -91,10 +91,10 @@
         </item>
         <item>
         <title>搜索</title>
-        <link>https://inariindream.github.io/page/search/</link>
+        <link>https://inariindream.fun/page/search/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://inariindream.github.io/page/search/</guid>
+        <guid>https://inariindream.fun/page/search/</guid>
         <description></description>
         </item>
         

@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>RSS on Inari&#39;s Blog</title>
-        <link>https://inariindream.github.io/tags/rss/</link>
+        <link>https://inariindream.fun/tags/rss/</link>
         <description>Recent content in RSS on Inari&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Thu, 26 May 2022 10:16:47 +0000</lastBuildDate><atom:link href="https://inariindream.github.io/tags/rss/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 26 May 2022 10:16:47 +0000</lastBuildDate><atom:link href="https://inariindream.fun/tags/rss/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>RSS备用源</title>
-        <link>https://inariindream.github.io/blog/2022/05/26/rss%E5%A4%87%E7%94%A8%E6%BA%90/</link>
+        <link>https://inariindream.fun/blog/2022/05/26/rss%E5%A4%87%E7%94%A8%E6%BA%90/</link>
         <pubDate>Thu, 26 May 2022 10:16:47 +0000</pubDate>
         
-        <guid>https://inariindream.github.io/blog/2022/05/26/rss%E5%A4%87%E7%94%A8%E6%BA%90/</guid>
+        <guid>https://inariindream.fun/blog/2022/05/26/rss%E5%A4%87%E7%94%A8%E6%BA%90/</guid>
         <description>&lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;一些备用的rss源&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;http://rsshub.sksren.com/

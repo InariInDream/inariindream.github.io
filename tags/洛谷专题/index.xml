@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>洛谷专题 on Inari&#39;s Blog</title>
-        <link>https://inariindream.github.io/tags/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98/</link>
+        <link>https://inariindream.fun/tags/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98/</link>
         <description>Recent content in 洛谷专题 on Inari&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Thu, 04 Aug 2022 11:31:31 +0000</lastBuildDate><atom:link href="https://inariindream.github.io/tags/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 04 Aug 2022 11:31:31 +0000</lastBuildDate><atom:link href="https://inariindream.fun/tags/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>洛谷专题记录（优先队列）</title>
-        <link>https://inariindream.github.io/blog/2022/08/04/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98%E8%AE%B0%E5%BD%95%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/</link>
+        <link>https://inariindream.fun/blog/2022/08/04/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98%E8%AE%B0%E5%BD%95%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/</link>
         <pubDate>Thu, 04 Aug 2022 11:31:31 +0000</pubDate>
         
-        <guid>https://inariindream.github.io/blog/2022/08/04/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98%E8%AE%B0%E5%BD%95%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/</guid>
+        <guid>https://inariindream.fun/blog/2022/08/04/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98%E8%AE%B0%E5%BD%95%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/</guid>
         <description>&lt;img src="https://s1.ax1x.com/2022/04/30/LzHLHf.jpg" alt="Featured image of post 洛谷专题记录（优先队列）" /&gt;&lt;!-- raw HTML omitted --&gt;
 &lt;h1 id=&#34;扫描httpswwwluogucomcnproblemp2032&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.luogu.com.cn/problem/P2032&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;扫描&lt;/a&gt;&lt;/h1&gt;
@@ -88,10 +88,10 @@
         </item>
         <item>
         <title>洛谷专题记录（前缀和与差分）</title>
-        <link>https://inariindream.github.io/blog/2022/04/30/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98%E8%AE%B0%E5%BD%95%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/</link>
+        <link>https://inariindream.fun/blog/2022/04/30/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98%E8%AE%B0%E5%BD%95%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/</link>
         <pubDate>Sat, 30 Apr 2022 13:15:13 +0000</pubDate>
         
-        <guid>https://inariindream.github.io/blog/2022/04/30/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98%E8%AE%B0%E5%BD%95%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/</guid>
+        <guid>https://inariindream.fun/blog/2022/04/30/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98%E8%AE%B0%E5%BD%95%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/</guid>
         <description>&lt;img src="https://s1.ax1x.com/2022/04/30/LzHLHf.jpg" alt="Featured image of post 洛谷专题记录（前缀和与差分）" /&gt;&lt;h1 id=&#34;最大子段和httpswwwluogucomcnproblemp1115&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.luogu.com.cn/problem/P1115&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;最大子段和&lt;/a&gt;&lt;/h1&gt;
 &lt;h2 id=&#34;题目描述&#34;&gt;题目描述&lt;/h2&gt;
@@ -312,10 +312,10 @@ $$f[k][l] - f[k][j - 1] - f[i - 1][l] + f[i - 1][j - 1]$$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   cout &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; ans &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; endl;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这是前一种方法的速度
-&lt;img src=&#34;https://inariindream.github.io/blog/2022/04/30/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98%E8%AE%B0%E5%BD%95%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/2022-07-08-14-25-03.png&#34;
+&lt;img src=&#34;https://inariindream.fun/blog/2022/04/30/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98%E8%AE%B0%E5%BD%95%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/2022-07-08-14-25-03.png&#34;
 	width=&#34;825&#34;
 	height=&#34;320&#34;
-	srcset=&#34;https://inariindream.github.io/blog/2022/04/30/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98%E8%AE%B0%E5%BD%95%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/2022-07-08-14-25-03_hude383ecce3397b878934e30e8bb44b5d_15691_480x0_resize_box_3.png 480w, https://inariindream.github.io/blog/2022/04/30/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98%E8%AE%B0%E5%BD%95%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/2022-07-08-14-25-03_hude383ecce3397b878934e30e8bb44b5d_15691_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.fun/blog/2022/04/30/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98%E8%AE%B0%E5%BD%95%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/2022-07-08-14-25-03_hude383ecce3397b878934e30e8bb44b5d_15691_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/04/30/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98%E8%AE%B0%E5%BD%95%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/2022-07-08-14-25-03_hude383ecce3397b878934e30e8bb44b5d_15691_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -325,10 +325,10 @@ $$f[k][l] - f[k][j - 1] - f[i - 1][l] + f[i - 1][j - 1]$$&lt;/p&gt;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;这是后一种的
-&lt;img src=&#34;https://inariindream.github.io/blog/2022/04/30/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98%E8%AE%B0%E5%BD%95%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/2022-07-08-14-25-42.png&#34;
+&lt;img src=&#34;https://inariindream.fun/blog/2022/04/30/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98%E8%AE%B0%E5%BD%95%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/2022-07-08-14-25-42.png&#34;
 	width=&#34;810&#34;
 	height=&#34;306&#34;
-	srcset=&#34;https://inariindream.github.io/blog/2022/04/30/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98%E8%AE%B0%E5%BD%95%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/2022-07-08-14-25-42_hubb1685245320096da27bc2128cf84b41_15384_480x0_resize_box_3.png 480w, https://inariindream.github.io/blog/2022/04/30/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98%E8%AE%B0%E5%BD%95%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/2022-07-08-14-25-42_hubb1685245320096da27bc2128cf84b41_15384_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.fun/blog/2022/04/30/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98%E8%AE%B0%E5%BD%95%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/2022-07-08-14-25-42_hubb1685245320096da27bc2128cf84b41_15384_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/04/30/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98%E8%AE%B0%E5%BD%95%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/2022-07-08-14-25-42_hubb1685245320096da27bc2128cf84b41_15384_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
