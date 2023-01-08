@@ -82,6 +82,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        solve()
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;贴一个&lt;a class=&#34;link&#34; href=&#34;https://codeforces.com/contest/1771/problem/C&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;前一天的C&lt;/a&gt;，是相似的题，一起补了&lt;/p&gt;
+&lt;h1 id=&#34;题意-1&#34;&gt;题意&lt;/h1&gt;
+&lt;p&gt;给定一个数列$a$，问是否存在$i, j$使得$gcd(a_i, a_j) \neq 1$&lt;/p&gt;
+&lt;h1 id=&#34;思路-1&#34;&gt;思路&lt;/h1&gt;
+&lt;p&gt;思路差不多，主要也是考察的筛&lt;/p&gt;
 &lt;p&gt;不过数据范围是$1e9$，直接根号筛的话用py过不去，因为C++都跑了1100ms&lt;/p&gt;
 &lt;p&gt;看了下别人的py代码没太看懂，也许需要更高级的筛法，比如用随机化筛，能变成$O(M^{\dfrac{1}{4}})$, 但没存py的板子也没必要存，就直接换C++用$O(\sqrt{M})$的筛法莽过去了&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; N &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;33333&lt;/span&gt;;
@@ -140,10 +144,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;educational-codeforces-round-138&#34;&gt;Educational Codeforces Round 138&lt;/h2&gt;
 &lt;h1 id=&#34;c-number-gamehttpscodeforcescomcontest1749problemc&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://codeforces.com/contest/1749/problem/C&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;C Number Game&lt;/a&gt;&lt;/h1&gt;
-&lt;h1 id=&#34;题意-1&#34;&gt;题意:&lt;/h1&gt;
+&lt;h1 id=&#34;题意-2&#34;&gt;题意:&lt;/h1&gt;
 &lt;p&gt;给定一个长度为$n$的整数数组$a$, Alice和Bob玩游戏.对于一个$k$, 游戏进行$k$轮, 第$i$轮,Alice选择从a中删除一个小于等于$k - i + 1$的数, Bob选择一个数加上$k - i + 1$.如果某一轮Alice没有数字可以选择,则Bob赢,否则Alice赢.问使得Alice赢的最大的k是多少?&lt;/p&gt;
 &lt;p&gt;$(n &amp;lt;= 100)$&lt;/p&gt;
-&lt;h1 id=&#34;思路-1&#34;&gt;思路&lt;/h1&gt;
+&lt;h1 id=&#34;思路-2&#34;&gt;思路&lt;/h1&gt;
 &lt;p&gt;最开始以为是二分答案，但注意到n比较小，所以可以直接写模拟，Bob的策略应该是每回合将Alice当前的$k - i + 1$加到当前数列的最小项上面，这样能最大化减少Alice能删掉的数量。Alice的策略则是趁$k - i + 1$减小之前每次尽可能删掉能删掉的最大数。&lt;/p&gt;
 &lt;p&gt;其实这个思路很好想，昨晚在看题十分钟后就想到了，但写模拟代码写了一万年还调错了，典中典之脑子会了手没会。&lt;/p&gt;
 &lt;p&gt;今早想清楚模拟过程之后10分钟1A了&lt;/p&gt;
@@ -209,11 +213,11 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;educational-codeforces-round-134&#34;&gt;Educational Codeforces Round 134&lt;/h2&gt;
 &lt;h1 id=&#34;d-maximum-andhttpscodeforcescomcontest1721problemd&#34;&gt;D. &lt;a class=&#34;link&#34; href=&#34;https://codeforces.com/contest/1721/problem/D&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Maximum AND&lt;/a&gt;&lt;/h1&gt;
-&lt;h1 id=&#34;题意-2&#34;&gt;题意&lt;/h1&gt;
+&lt;h1 id=&#34;题意-3&#34;&gt;题意&lt;/h1&gt;
 &lt;p&gt;给定两个数列$a$, $b$, 令$c_i = a_i \bigoplus b_i$， 定义价值为 $c_1$ &amp;amp; $c_2$ &amp;amp; $c_3$&amp;amp; &amp;hellip; $c_n$ 求价值的最大值&lt;/p&gt;
 &lt;p&gt;$(1≤n≤10^5)$
 $(0≤a_i, b_i&amp;lt;2^{30})$&lt;/p&gt;
-&lt;h1 id=&#34;思路-2&#34;&gt;思路&lt;/h1&gt;
+&lt;h1 id=&#34;思路-3&#34;&gt;思路&lt;/h1&gt;
 &lt;p&gt;注意到c在某一位为1时只能是当所有的$c_i$在这一位都为1才能取到，进而需要所有匹配的$a_i$ 和 $b_i$在这一位的异或都为1。&lt;/p&gt;
 &lt;p&gt;那么如何找这样满足条件的匹配呢，看题解发现有一种很妙的方法可以实现。$c$贪心地从最高位为$1$开始往下取，然后先假设$c$这一位为1，通过map计数check是否所有的$a_i, b_i$都能满足条件，而并不需要排列来对每个$i$进行匹配。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2022-10-21-20-49-42.png&#34;
@@ -253,11 +257,11 @@ $(0≤a_i, b_i&amp;lt;2^{30})$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;educational-codeforces-round-112&#34;&gt;Educational Codeforces Round 112&lt;/h2&gt;
 &lt;h1 id=&#34;d-say-no-to-palindromeshttpscodeforcescomcontest1555problemddp&#34;&gt;D. &lt;a class=&#34;link&#34; href=&#34;https://codeforces.com/contest/1555/problem/D&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Say No to Palindromes&lt;/a&gt;（DP）&lt;/h1&gt;
-&lt;h1 id=&#34;题意-3&#34;&gt;题意&lt;/h1&gt;
+&lt;h1 id=&#34;题意-4&#34;&gt;题意&lt;/h1&gt;
 &lt;p&gt;给定一个由a,b,c组成字符串，定义一个字符串是美丽的当且仅当它的字串中没有回文。&lt;/p&gt;
 &lt;p&gt;$m$次询问，每次给定左右端点$l, r$，如果此字符串不美丽，则每修改一个字符cost+=1，问使将这一段字符串修改成美丽字符串的最小花费是多少。&lt;/p&gt;
 &lt;p&gt;$(1≤n,m≤2⋅10^5)$&lt;/p&gt;
-&lt;h1 id=&#34;思路-3&#34;&gt;思路&lt;/h1&gt;
+&lt;h1 id=&#34;思路-4&#34;&gt;思路&lt;/h1&gt;
 &lt;p&gt;注意到对于每个$s_i$, $s_i \neq s_{i - 1}$并且$s_i \neq s_{i - 2}$才能不形成回文，由于一共只有三种字母，所以$s_i$一定等于$s_{i - 3}$，因此，修改后的整个字符串一定是&amp;quot;abcabcabc&amp;hellip;&amp;quot; 或&amp;quot;bacbacba&amp;hellip;&amp;quot; 等共六种排列情况的串。&lt;/p&gt;
 &lt;p&gt;然后在询问前把6种字符串修改情况的操作次数前缀和一下，s[i]代表字符串修改到$i$时的修改次数，在每次询问时用&lt;code&gt;s[r] - s[l - 1]&lt;/code&gt;就是这种排列情况时的需要修改的次数（不用关心具体修改了哪些），然后取6个情况中的最小值即可，查询复杂度为$O(1)$&lt;/p&gt;
 &lt;p&gt;因为一共就三种字符，所以6种情况一定可以覆盖完全&lt;/p&gt;
