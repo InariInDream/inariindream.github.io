@@ -247,8 +247,8 @@
 &lt;p&gt;假设 $a$ 是更小的那个数，我们根据gcd的性质推导一下： $gcd(a, b) == gcd(a, b - a)$ 因此 $gcd(a + k, b + k) == gcd(a + k, b - a)$ 。&lt;/p&gt;
 &lt;p&gt;$b - a$是一个定值，因此问题转化成对于每一个$ b - a $的质因数$p$（刚开始还想了半天为什么找质因数，菜死了），$(a + k) % p == 0$ 时$k$的最小值，式子可转化为求$a - a%p$ 的最值。&lt;/p&gt;
 &lt;p&gt;一种更快的办法是直接找每个数的最小质因子，然后对$p$进行除的操作来找到其下一个质因数，这样就不用处理所有的质数&lt;/p&gt;
-&lt;p&gt;前者复杂度为$O(nsqrt(n))$，因为需筛出所有的质数
-后者为$O(nlog(n))$&lt;/p&gt;
+&lt;p&gt;前者复杂度为$O(nsqrt(n))$，因为需筛出所有的质数&lt;/p&gt;
+&lt;p&gt;后者为$O(nlog(n))$&lt;/p&gt;
 &lt;h1 id=&#34;代码&#34;&gt;代码&lt;/h1&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;primes &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;**&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;7&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
