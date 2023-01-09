@@ -9,7 +9,7 @@
 <meta property='og:description' content='Edu补完计划'>
 <meta property='og:url' content='https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/'>
 <meta property='og:site_name' content='Inari&#39;s Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Codeforces专题' /><meta property='article:tag' content='cfedu' /><meta property='article:published_time' content='2022-10-21T09:56:46&#43;00:00'/><meta property='article:modified_time' content='2023-01-08T19:43:03&#43;08:00'/><meta property='og:image' content='https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/222.png' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Codeforces专题' /><meta property='article:tag' content='cfedu' /><meta property='article:published_time' content='2022-10-21T09:56:46&#43;00:00'/><meta property='article:modified_time' content='2023-01-09T20:08:04&#43;08:00'/><meta property='og:image' content='https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/222.png' />
 <meta name="twitter:site" content="@inariindream">
     <meta name="twitter:creator" content="@inariindream"><meta name="twitter:title" content="CodeforcesEdu补题合集">
 <meta name="twitter:description" content="Edu补完计划"><meta name="twitter:card" content="summary_large_image">
@@ -811,7 +811,7 @@ ODoyMSswMDowMEEubXoAAAAASUVORK5CYII=" />
 
 
                 <time class="article-time--reading">
-                    4 minute read
+                    7 minute read
                 </time>
             </div>
         
@@ -826,6 +826,125 @@ ODoyMSswMDowMEEubXoAAAAASUVORK5CYII=" />
     
     
     <p><em>此纪录从2022-10-21 09:56:46始</em></p>
+<h2 id="educational-codeforces-round-141">Educational Codeforces Round 141</h2>
+<p>这场是真的狠狠被教育了&hellip;B的构造手玩半天没玩出来，有思路之后写蛇形矩阵的实现写了一万年&hellip;真的叫基础不牢地动山摇</p>
+<h1 id="c-yet-another-tournamenthttpscodeforcescomcontest1783problemc"><a class="link" href="https://codeforces.com/contest/1783/problem/C"  target="_blank" rel="noopener"
+    >C. Yet Another Tournament</a></h1>
+<h2 id="题意">题意</h2>
+<p>有$n$名玩家，战力分别为$[1, n]$。我们也是一名玩家，一共有 $n+1$ 名玩家。对于 $n$ 名玩家来说， $i$ 能击杀 $j$ 当且仅当 $i &gt; j$ 。对于每一位玩家我们都有一个准备值 $a_i$ ，我们想要击败该名玩家需要花费 $a_i$ 的时间去准备。刚开始我们拥有的时间为 $m$ ，每名玩家都和其余所有玩家进行一轮对局，最终按照胜场数量对所有玩家进行排名，求我们合理分配时间会获得的最高排名。</p>
+<h2 id="思路">思路</h2>
+<p>经典读错题，看到题里面的 <em>Calculate the minimum possible place (lower is better)</em> ，以为名次要越低越好&hellip;</p>
+<p>可以二分/贪心，感觉贪心好想一点，其实二者本质上是一样的。</p>
+<p>策略是选择尽量多的选手，因此先将选手排序。</p>
+<p>然后关键在于自己最后赢的一个人，<strong>要找和自己名次相同的那个人</strong>（别人的名次是可以计算的），因为如果能放弃自己为前一个人（自己准备时间的最尾端）准备的时间来准备跟与自己相同名次的人比赛，如果时间充足，即可胜利，排名上升一名。反之排名不变，也没损失。</p>
+<p>因为在最后一次的决定中，放弃与前一个人的准备时间并不会让自己的排名下降。如果前一个人的排名比自己低，那结果是两人都上升一名，若等于或高于自己的排名，则不会发生变化。</p>
+<p>如果时间不够就不用放弃</p>
+<h2 id="代码">代码</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">solve</span>():
+</span></span><span style="display:flex;"><span>    n, m <span style="color:#f92672">=</span> map(int, input()<span style="color:#f92672">.</span>split())
+</span></span><span style="display:flex;"><span>    a <span style="color:#f92672">=</span> list(map(int, input()<span style="color:#f92672">.</span>split()))
+</span></span><span style="display:flex;"><span>    b <span style="color:#f92672">=</span> a<span style="color:#f92672">.</span>copy()
+</span></span><span style="display:flex;"><span>    b<span style="color:#f92672">.</span>sort()
+</span></span><span style="display:flex;"><span>    win <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> win <span style="color:#f92672">&lt;</span> n <span style="color:#f92672">and</span> b[win] <span style="color:#f92672">&lt;=</span> m:
+</span></span><span style="display:flex;"><span>        m <span style="color:#f92672">-=</span> b[win]
+</span></span><span style="display:flex;"><span>        win <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> win <span style="color:#f92672">==</span> n:
+</span></span><span style="display:flex;"><span>        print(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> win <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+</span></span><span style="display:flex;"><span>        print(n <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> m <span style="color:#f92672">+</span> b[win <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">-</span> a[win] <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span>:
+</span></span><span style="display:flex;"><span>        print(n <span style="color:#f92672">-</span> win)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>        print(n <span style="color:#f92672">-</span> win <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)
+</span></span></code></pre></div><h1 id="d-different-arrayshttpscodeforcescomcontest1783problemd"><a class="link" href="https://codeforces.com/contest/1783/problem/D"  target="_blank" rel="noopener"
+    >D. Different Arrays</a></h1>
+<h2 id="题意-1">题意</h2>
+<p>给定一个长度为n的数组，必须进行$n ― 2$次操作，对$[2, n 一1]$范围内的数按顺序进行一次操作，一次操作为让左边和右边的两个数一个加上$a_i$一个减去$a_i$; ($a_i$指的是当前值)，求操作后可能获得的数组的数量。</p>
+<p>$$0≤a_i≤300, 1≤n ≤300$$</p>
+<h2 id="思路-1">思路</h2>
+<p>看典哥题解写的&hellip;一开始还以为py用二维会炸（事实上也在炸的边缘），后来发现是自己太相信py的高精度了，被狠狠教育了</p>
+<blockquote>
+<p>如果把结果放在最后才%MOD，可能会TLE或MLE</p>
+</blockquote>
+<p>dp，看值域考虑dp，所有数最终能够变成的值域是$[-300 * 300, 300 * 300]$</p>
+<p><strong>二维版本</strong></p>
+<p>$f[i][j]$ 表示前$i$个数中，最终凑成的值$j$的方案数</p>
+<p>每次先循环位置，再枚举当前位置最终变成的数</p>
+<p>转移方程：</p>
+<p>$$f[i + 1][a[i + 1] + j] += f[i][j]$$</p>
+<p>$$f[i + 1][a[i + 1] - j] += f[i][j]$$</p>
+<p>坑点：如果j = 0的话就只需要转移一次，要特判一下</p>
+<p><strong>一维版本</strong></p>
+<p>其实思路一样，不过是类似滚动数组，每遍历到一个$a_i$的新位置，用一个新数组存，然后覆盖老数组，就可以去掉$i$的维度。这样写居然不会MLE我也觉得很神奇</p>
+<h2 id="代码-1">代码</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">solve</span>():
+</span></span><span style="display:flex;"><span>    N <span style="color:#f92672">=</span> <span style="color:#ae81ff">310</span>
+</span></span><span style="display:flex;"><span>    n <span style="color:#f92672">=</span> int(input())
+</span></span><span style="display:flex;"><span>    a <span style="color:#f92672">=</span> list(map(int, input()<span style="color:#f92672">.</span>split()))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># f[i][j] = 前i个数中，最终变成的数为j 的方案数</span>
+</span></span><span style="display:flex;"><span>    f <span style="color:#f92672">=</span> [[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">*</span> <span style="color:#ae81ff">90250</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span> <span style="color:#66d9ef">for</span> _ <span style="color:#f92672">in</span> range(N)]
+</span></span><span style="display:flex;"><span>    p <span style="color:#f92672">=</span> <span style="color:#ae81ff">90000</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 初始化，最开始只有位置2，值域也只能到a[2]</span>
+</span></span><span style="display:flex;"><span>    f[<span style="color:#ae81ff">1</span>][a[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> p] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, n <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>):
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># 对于每个a_i，试探所有可能值（若在a_i前面的值使f[i][j]不为空，说明前i个数能够到达j这个值）</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(<span style="color:#f92672">-</span>p <span style="color:#f92672">+</span> <span style="color:#ae81ff">300</span>, p <span style="color:#f92672">-</span> <span style="color:#ae81ff">300</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>):
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> f[i][j <span style="color:#f92672">+</span> p] <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">and</span> j <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>:
+</span></span><span style="display:flex;"><span>                f[i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>][a[i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">-</span> j <span style="color:#f92672">+</span> p] <span style="color:#f92672">+=</span> f[i][j <span style="color:#f92672">+</span> p]
+</span></span><span style="display:flex;"><span>                f[i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>][a[i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">-</span> j <span style="color:#f92672">+</span> p] <span style="color:#f92672">%=</span> <span style="color:#ae81ff">998244353</span>
+</span></span><span style="display:flex;"><span>                f[i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>][a[i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> j <span style="color:#f92672">+</span> p] <span style="color:#f92672">+=</span> f[i][j <span style="color:#f92672">+</span> p]
+</span></span><span style="display:flex;"><span>                f[i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>][a[i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> j <span style="color:#f92672">+</span> p] <span style="color:#f92672">%=</span> <span style="color:#ae81ff">998244353</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">elif</span> f[i][j <span style="color:#f92672">+</span> p] <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>:
+</span></span><span style="display:flex;"><span>                f[i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>][a[i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> p] <span style="color:#f92672">+=</span> f[i][j <span style="color:#f92672">+</span> p]
+</span></span><span style="display:flex;"><span>                f[i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>][a[i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> p] <span style="color:#f92672">%=</span> <span style="color:#ae81ff">998244353</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    ans <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#f92672">-</span>p, p):
+</span></span><span style="display:flex;"><span>        ans <span style="color:#f92672">+=</span> f[n <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>][i <span style="color:#f92672">+</span> p]
+</span></span><span style="display:flex;"><span>        ans <span style="color:#f92672">%=</span> <span style="color:#ae81ff">998244353</span>
+</span></span><span style="display:flex;"><span>    print(ans)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 一维版本</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">solve2</span>():
+</span></span><span style="display:flex;"><span>    n <span style="color:#f92672">=</span> int(input())
+</span></span><span style="display:flex;"><span>    a <span style="color:#f92672">=</span> list(map(int, input()<span style="color:#f92672">.</span>split()))
+</span></span><span style="display:flex;"><span>    MOD <span style="color:#f92672">=</span> <span style="color:#ae81ff">998244353</span>
+</span></span><span style="display:flex;"><span>    p <span style="color:#f92672">=</span> <span style="color:#ae81ff">90005</span>
+</span></span><span style="display:flex;"><span>    ans <span style="color:#f92672">=</span> [<span style="color:#ae81ff">0</span>] <span style="color:#f92672">*</span> (<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> p <span style="color:#f92672">+</span> <span style="color:#ae81ff">500</span>)
+</span></span><span style="display:flex;"><span>    ans[a[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> p] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(n <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span>):
+</span></span><span style="display:flex;"><span>        dp <span style="color:#f92672">=</span> [<span style="color:#ae81ff">0</span>] <span style="color:#f92672">*</span> (<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> p <span style="color:#f92672">+</span> <span style="color:#ae81ff">500</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(<span style="color:#f92672">-</span>p, p <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>):
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> ans[j <span style="color:#f92672">+</span> p] <span style="color:#f92672">and</span> j <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>:
+</span></span><span style="display:flex;"><span>                dp[a[i <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span>] <span style="color:#f92672">+</span> j <span style="color:#f92672">+</span> p] <span style="color:#f92672">+=</span> ans[j <span style="color:#f92672">+</span> p]
+</span></span><span style="display:flex;"><span>                dp[a[i <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span>] <span style="color:#f92672">+</span> j <span style="color:#f92672">+</span> p] <span style="color:#f92672">%=</span> MOD
+</span></span><span style="display:flex;"><span>                dp[a[i <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span>] <span style="color:#f92672">-</span> j <span style="color:#f92672">+</span> p] <span style="color:#f92672">+=</span> ans[j <span style="color:#f92672">+</span> p]
+</span></span><span style="display:flex;"><span>                dp[a[i <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span>] <span style="color:#f92672">-</span> j <span style="color:#f92672">+</span> p] <span style="color:#f92672">%=</span> MOD
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">elif</span> ans[j <span style="color:#f92672">+</span> p]:
+</span></span><span style="display:flex;"><span>                dp[a[i <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span>] <span style="color:#f92672">+</span> p] <span style="color:#f92672">+=</span> ans[j <span style="color:#f92672">+</span> p]
+</span></span><span style="display:flex;"><span>                dp[a[i <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span>] <span style="color:#f92672">+</span> p] <span style="color:#f92672">%=</span> MOD
+</span></span><span style="display:flex;"><span>        ans <span style="color:#f92672">=</span> dp
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    print(sum(ans) <span style="color:#f92672">%</span> MOD)
+</span></span></code></pre></div><p>这题的教训就是一定记得计算需要的数组长度（济南的签到好像也是这样栽了半天），和ans不要留到最后才模</p>
+<p><img src="/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-09-20-07-18.png"
+	width="565"
+	height="987"
+	srcset="/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-09-20-07-18_hu5c78d0e1826940ee1ca1d2ec21eafd82_81064_480x0_resize_box_3.png 480w, /blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-09-20-07-18_hu5c78d0e1826940ee1ca1d2ec21eafd82_81064_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="试错史，后来发现二维其实能过"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="57"
+		data-flex-basis="137px"
+	
+></p>
 <h2 id="educational-codeforces-round-140">Educational Codeforces Round 140</h2>
 <h1 id="c-count-binary-stringshttpscodeforcescomcontest1767problemc"><a class="link" href="https://codeforces.com/contest/1767/problem/C"  target="_blank" rel="noopener"
     >C. Count Binary Strings</a></h1>
@@ -833,11 +952,11 @@ ODoyMSswMDowMEEubXoAAAAASUVORK5CYII=" />
 <h2 id="educational-codeforces-round-139">Educational Codeforces Round 139</h2>
 <h1 id="d-lucky-chainshttpscodeforcescomcontest1766problemd"><a class="link" href="https://codeforces.com/contest/1766/problem/D"  target="_blank" rel="noopener"
     >D. Lucky Chains</a></h1>
-<h1 id="题意">题意</h1>
+<h1 id="题意-2">题意</h1>
 <p>给定两个数$a, b(1 \leq a, b \leq 1e7)$，执行如下语句：</p>
 <p><code>while(gcd(a, b) == 1) a++, b++, cnt++ ;</code></p>
 <p>求cnt的值</p>
-<h1 id="思路">思路</h1>
+<h1 id="思路-2">思路</h1>
 <p>数学苦手，看典哥题解都理解了好一会</p>
 <p>一个gcd的性质</p>
 <blockquote>
@@ -848,7 +967,7 @@ ODoyMSswMDowMEEubXoAAAAASUVORK5CYII=" />
 <p>一种更快的办法是直接找每个数的最小质因子，然后对$p$进行除的操作来找到其下一个质因数，这样就不用处理所有的质数</p>
 <p>前者复杂度为$O(nsqrt(n))$，因为需筛出所有的质数</p>
 <p>后者为$O(nlog(n))$</p>
-<h1 id="代码">代码</h1>
+<h1 id="代码-2">代码</h1>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>primes <span style="color:#f92672">=</span> [<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">*</span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">**</span> <span style="color:#ae81ff">7</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
@@ -887,9 +1006,9 @@ ODoyMSswMDowMEEubXoAAAAASUVORK5CYII=" />
 </span></span><span style="display:flex;"><span>        solve()
 </span></span></code></pre></div><p>贴一个<a class="link" href="https://codeforces.com/contest/1771/problem/C"  target="_blank" rel="noopener"
     >前一天的C</a>，是相似的题，一起补了</p>
-<h1 id="题意-1">题意</h1>
+<h1 id="题意-3">题意</h1>
 <p>给定一个数列$a$，问是否存在$i, j$使得$gcd(a_i, a_j) \neq 1$</p>
-<h1 id="思路-1">思路</h1>
+<h1 id="思路-3">思路</h1>
 <p>思路差不多，主要也是考察的筛</p>
 <p>不过数据范围是$1e9$，直接根号筛的话用py过不去，因为C++都跑了1100ms</p>
 <p>看了下别人的py代码没太看懂，也许需要更高级的筛法，比如用随机化筛，能变成$O(M^{\dfrac{1}{4}})$, 但没存py的板子也没必要存，就直接换C++用$O(\sqrt{M})$的筛法莽过去了</p>
@@ -949,14 +1068,14 @@ ODoyMSswMDowMEEubXoAAAAASUVORK5CYII=" />
 </span></span></code></pre></div><h2 id="educational-codeforces-round-138">Educational Codeforces Round 138</h2>
 <h1 id="c-number-gamehttpscodeforcescomcontest1749problemc"><a class="link" href="https://codeforces.com/contest/1749/problem/C"  target="_blank" rel="noopener"
     >C Number Game</a></h1>
-<h1 id="题意-2">题意:</h1>
+<h1 id="题意-4">题意:</h1>
 <p>给定一个长度为$n$的整数数组$a$, Alice和Bob玩游戏.对于一个$k$, 游戏进行$k$轮, 第$i$轮,Alice选择从a中删除一个小于等于$k - i + 1$的数, Bob选择一个数加上$k - i + 1$.如果某一轮Alice没有数字可以选择,则Bob赢,否则Alice赢.问使得Alice赢的最大的k是多少?</p>
 <p>$(n &lt;= 100)$</p>
-<h1 id="思路-2">思路</h1>
+<h1 id="思路-4">思路</h1>
 <p>最开始以为是二分答案，但注意到n比较小，所以可以直接写模拟，Bob的策略应该是每回合将Alice当前的$k - i + 1$加到当前数列的最小项上面，这样能最大化减少Alice能删掉的数量。Alice的策略则是趁$k - i + 1$减小之前每次尽可能删掉能删掉的最大数。</p>
 <p>其实这个思路很好想，昨晚在看题十分钟后就想到了，但写模拟代码写了一万年还调错了，典中典之脑子会了手没会。</p>
 <p>今早想清楚模拟过程之后10分钟1A了</p>
-<h1 id="代码-1">代码</h1>
+<h1 id="代码-3">代码</h1>
 <p>$O(n^3)$</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">solve</span>():
 </span></span><span style="display:flex;"><span>    n <span style="color:#f92672">=</span> int(input())
@@ -1018,11 +1137,11 @@ ODoyMSswMDowMEEubXoAAAAASUVORK5CYII=" />
 </span></span></code></pre></div><h2 id="educational-codeforces-round-134">Educational Codeforces Round 134</h2>
 <h1 id="d-maximum-andhttpscodeforcescomcontest1721problemd">D. <a class="link" href="https://codeforces.com/contest/1721/problem/D"  target="_blank" rel="noopener"
     >Maximum AND</a></h1>
-<h1 id="题意-3">题意</h1>
+<h1 id="题意-5">题意</h1>
 <p>给定两个数列$a$, $b$, 令$c_i = a_i \bigoplus b_i$， 定义价值为 $c_1$ &amp; $c_2$ &amp; $c_3$&amp; &hellip; $c_n$ 求价值的最大值</p>
 <p>$(1≤n≤10^5)$
 $(0≤a_i, b_i&lt;2^{30})$</p>
-<h1 id="思路-3">思路</h1>
+<h1 id="思路-5">思路</h1>
 <p>注意到c在某一位为1时只能是当所有的$c_i$在这一位都为1才能取到，进而需要所有匹配的$a_i$ 和 $b_i$在这一位的异或都为1。</p>
 <p>那么如何找这样满足条件的匹配呢，看题解发现有一种很妙的方法可以实现。$c$贪心地从最高位为$1$开始往下取，然后先假设$c$这一位为1，通过map计数check是否所有的$a_i, b_i$都能满足条件，而并不需要排列来对每个$i$进行匹配。</p>
 <p><img src="/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2022-10-21-20-49-42.png"
@@ -1062,15 +1181,15 @@ $(0≤a_i, b_i&lt;2^{30})$</p>
 </span></span></code></pre></div><h2 id="educational-codeforces-round-112">Educational Codeforces Round 112</h2>
 <h1 id="d-say-no-to-palindromeshttpscodeforcescomcontest1555problemddp">D. <a class="link" href="https://codeforces.com/contest/1555/problem/D"  target="_blank" rel="noopener"
     >Say No to Palindromes</a>（DP）</h1>
-<h1 id="题意-4">题意</h1>
+<h1 id="题意-6">题意</h1>
 <p>给定一个由a,b,c组成字符串，定义一个字符串是美丽的当且仅当它的字串中没有回文。</p>
 <p>$m$次询问，每次给定左右端点$l, r$，如果此字符串不美丽，则每修改一个字符cost+=1，问使将这一段字符串修改成美丽字符串的最小花费是多少。</p>
 <p>$(1≤n,m≤2⋅10^5)$</p>
-<h1 id="思路-4">思路</h1>
+<h1 id="思路-6">思路</h1>
 <p>注意到对于每个$s_i$, $s_i \neq s_{i - 1}$并且$s_i \neq s_{i - 2}$才能不形成回文，由于一共只有三种字母，所以$s_i$一定等于$s_{i - 3}$，因此，修改后的整个字符串一定是&quot;abcabcabc&hellip;&quot; 或&quot;bacbacba&hellip;&quot; 等共六种排列情况的串。</p>
 <p>然后在询问前把6种字符串修改情况的操作次数前缀和一下，s[i]代表字符串修改到$i$时的修改次数，在每次询问时用<code>s[r] - s[l - 1]</code>就是这种排列情况时的需要修改的次数（不用关心具体修改了哪些），然后取6个情况中的最小值即可，查询复杂度为$O(1)$</p>
 <p>因为一共就三种字符，所以6种情况一定可以覆盖完全</p>
-<h1 id="代码-2">代码</h1>
+<h1 id="代码-4">代码</h1>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">solve</span>():
 </span></span><span style="display:flex;"><span>    n, m <span style="color:#f92672">=</span> map(int, input()<span style="color:#f92672">.</span>split())
 </span></span><span style="display:flex;"><span>    s <span style="color:#f92672">=</span> input()
@@ -1124,7 +1243,7 @@ $(0≤a_i, b_i&lt;2^{30})$</p>
 
 
         <span>
-            最后更新于 Jan 08, 2023 19:43 CST
+            最后更新于 Jan 09, 2023 20:08 CST
         </span>
     </section></footer>
 
@@ -1287,6 +1406,19 @@ $(0≤a_i, b_i&lt;2^{30})$</p>
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ul>
+    <li><a href="#educational-codeforces-round-141">Educational Codeforces Round 141</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#题意">题意</a></li>
+    <li><a href="#思路">思路</a></li>
+    <li><a href="#代码">代码</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#题意-1">题意</a></li>
+    <li><a href="#思路-1">思路</a></li>
+    <li><a href="#代码-1">代码</a></li>
     <li><a href="#educational-codeforces-round-140">Educational Codeforces Round 140</a></li>
   </ul>
 
