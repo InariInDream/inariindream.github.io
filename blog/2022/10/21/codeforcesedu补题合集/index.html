@@ -9,7 +9,7 @@
 <meta property='og:description' content='Edu补完计划'>
 <meta property='og:url' content='https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/'>
 <meta property='og:site_name' content='Inari&#39;s Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Codeforces专题' /><meta property='article:tag' content='cfedu' /><meta property='article:published_time' content='2022-10-21T09:56:46&#43;00:00'/><meta property='article:modified_time' content='2023-01-09T20:08:04&#43;08:00'/><meta property='og:image' content='https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/222.png' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Codeforces专题' /><meta property='article:tag' content='cfedu' /><meta property='article:published_time' content='2022-10-21T09:56:46&#43;00:00'/><meta property='article:modified_time' content='2023-01-09T20:09:59&#43;08:00'/><meta property='og:image' content='https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/222.png' />
 <meta name="twitter:site" content="@inariindream">
     <meta name="twitter:creator" content="@inariindream"><meta name="twitter:title" content="CodeforcesEdu补题合集">
 <meta name="twitter:description" content="Edu补完计划"><meta name="twitter:card" content="summary_large_image">
@@ -830,16 +830,16 @@ ODoyMSswMDowMEEubXoAAAAASUVORK5CYII=" />
 <p>这场是真的狠狠被教育了&hellip;B的构造手玩半天没玩出来，有思路之后写蛇形矩阵的实现写了一万年&hellip;真的叫基础不牢地动山摇</p>
 <h1 id="c-yet-another-tournamenthttpscodeforcescomcontest1783problemc"><a class="link" href="https://codeforces.com/contest/1783/problem/C"  target="_blank" rel="noopener"
     >C. Yet Another Tournament</a></h1>
-<h2 id="题意">题意</h2>
+<h1 id="题意">题意</h1>
 <p>有$n$名玩家，战力分别为$[1, n]$。我们也是一名玩家，一共有 $n+1$ 名玩家。对于 $n$ 名玩家来说， $i$ 能击杀 $j$ 当且仅当 $i &gt; j$ 。对于每一位玩家我们都有一个准备值 $a_i$ ，我们想要击败该名玩家需要花费 $a_i$ 的时间去准备。刚开始我们拥有的时间为 $m$ ，每名玩家都和其余所有玩家进行一轮对局，最终按照胜场数量对所有玩家进行排名，求我们合理分配时间会获得的最高排名。</p>
-<h2 id="思路">思路</h2>
+<h1 id="思路">思路</h1>
 <p>经典读错题，看到题里面的 <em>Calculate the minimum possible place (lower is better)</em> ，以为名次要越低越好&hellip;</p>
 <p>可以二分/贪心，感觉贪心好想一点，其实二者本质上是一样的。</p>
 <p>策略是选择尽量多的选手，因此先将选手排序。</p>
 <p>然后关键在于自己最后赢的一个人，<strong>要找和自己名次相同的那个人</strong>（别人的名次是可以计算的），因为如果能放弃自己为前一个人（自己准备时间的最尾端）准备的时间来准备跟与自己相同名次的人比赛，如果时间充足，即可胜利，排名上升一名。反之排名不变，也没损失。</p>
 <p>因为在最后一次的决定中，放弃与前一个人的准备时间并不会让自己的排名下降。如果前一个人的排名比自己低，那结果是两人都上升一名，若等于或高于自己的排名，则不会发生变化。</p>
 <p>如果时间不够就不用放弃</p>
-<h2 id="代码">代码</h2>
+<h1 id="代码">代码</h1>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">solve</span>():
 </span></span><span style="display:flex;"><span>    n, m <span style="color:#f92672">=</span> map(int, input()<span style="color:#f92672">.</span>split())
 </span></span><span style="display:flex;"><span>    a <span style="color:#f92672">=</span> list(map(int, input()<span style="color:#f92672">.</span>split()))
@@ -861,10 +861,10 @@ ODoyMSswMDowMEEubXoAAAAASUVORK5CYII=" />
 </span></span><span style="display:flex;"><span>        print(n <span style="color:#f92672">-</span> win <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)
 </span></span></code></pre></div><h1 id="d-different-arrayshttpscodeforcescomcontest1783problemd"><a class="link" href="https://codeforces.com/contest/1783/problem/D"  target="_blank" rel="noopener"
     >D. Different Arrays</a></h1>
-<h2 id="题意-1">题意</h2>
+<h1 id="题意-1">题意</h1>
 <p>给定一个长度为n的数组，必须进行$n ― 2$次操作，对$[2, n 一1]$范围内的数按顺序进行一次操作，一次操作为让左边和右边的两个数一个加上$a_i$一个减去$a_i$; ($a_i$指的是当前值)，求操作后可能获得的数组的数量。</p>
 <p>$$0≤a_i≤300, 1≤n ≤300$$</p>
-<h2 id="思路-1">思路</h2>
+<h1 id="思路-1">思路</h1>
 <p>看典哥题解写的&hellip;一开始还以为py用二维会炸（事实上也在炸的边缘），后来发现是自己太相信py的高精度了，被狠狠教育了</p>
 <blockquote>
 <p>如果把结果放在最后才%MOD，可能会TLE或MLE</p>
@@ -879,7 +879,7 @@ ODoyMSswMDowMEEubXoAAAAASUVORK5CYII=" />
 <p>坑点：如果j = 0的话就只需要转移一次，要特判一下</p>
 <p><strong>一维版本</strong></p>
 <p>其实思路一样，不过是类似滚动数组，每遍历到一个$a_i$的新位置，用一个新数组存，然后覆盖老数组，就可以去掉$i$的维度。这样写居然不会MLE我也觉得很神奇</p>
-<h2 id="代码-1">代码</h2>
+<h1 id="代码-1">代码</h1>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">solve</span>():
 </span></span><span style="display:flex;"><span>    N <span style="color:#f92672">=</span> <span style="color:#ae81ff">310</span>
 </span></span><span style="display:flex;"><span>    n <span style="color:#f92672">=</span> int(input())
@@ -1243,7 +1243,7 @@ $(0≤a_i, b_i&lt;2^{30})$</p>
 
 
         <span>
-            最后更新于 Jan 09, 2023 20:08 CST
+            最后更新于 Jan 09, 2023 20:09 CST
         </span>
     </section></footer>
 
@@ -1410,15 +1410,6 @@ $(0≤a_i, b_i&lt;2^{30})$</p>
   </ul>
 
   <ul>
-    <li><a href="#题意">题意</a></li>
-    <li><a href="#思路">思路</a></li>
-    <li><a href="#代码">代码</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#题意-1">题意</a></li>
-    <li><a href="#思路-1">思路</a></li>
-    <li><a href="#代码-1">代码</a></li>
     <li><a href="#educational-codeforces-round-140">Educational Codeforces Round 140</a></li>
   </ul>
 

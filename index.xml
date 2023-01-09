@@ -231,16 +231,16 @@
 &lt;p&gt;这场是真的狠狠被教育了&amp;hellip;B的构造手玩半天没玩出来，有思路之后写蛇形矩阵的实现写了一万年&amp;hellip;真的叫基础不牢地动山摇&lt;/p&gt;
 &lt;h1 id=&#34;c-yet-another-tournamenthttpscodeforcescomcontest1783problemc&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://codeforces.com/contest/1783/problem/C&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;C. Yet Another Tournament&lt;/a&gt;&lt;/h1&gt;
-&lt;h2 id=&#34;题意&#34;&gt;题意&lt;/h2&gt;
+&lt;h1 id=&#34;题意&#34;&gt;题意&lt;/h1&gt;
 &lt;p&gt;有$n$名玩家，战力分别为$[1, n]$。我们也是一名玩家，一共有 $n+1$ 名玩家。对于 $n$ 名玩家来说， $i$ 能击杀 $j$ 当且仅当 $i &amp;gt; j$ 。对于每一位玩家我们都有一个准备值 $a_i$ ，我们想要击败该名玩家需要花费 $a_i$ 的时间去准备。刚开始我们拥有的时间为 $m$ ，每名玩家都和其余所有玩家进行一轮对局，最终按照胜场数量对所有玩家进行排名，求我们合理分配时间会获得的最高排名。&lt;/p&gt;
-&lt;h2 id=&#34;思路&#34;&gt;思路&lt;/h2&gt;
+&lt;h1 id=&#34;思路&#34;&gt;思路&lt;/h1&gt;
 &lt;p&gt;经典读错题，看到题里面的 &lt;em&gt;Calculate the minimum possible place (lower is better)&lt;/em&gt; ，以为名次要越低越好&amp;hellip;&lt;/p&gt;
 &lt;p&gt;可以二分/贪心，感觉贪心好想一点，其实二者本质上是一样的。&lt;/p&gt;
 &lt;p&gt;策略是选择尽量多的选手，因此先将选手排序。&lt;/p&gt;
 &lt;p&gt;然后关键在于自己最后赢的一个人，&lt;strong&gt;要找和自己名次相同的那个人&lt;/strong&gt;（别人的名次是可以计算的），因为如果能放弃自己为前一个人（自己准备时间的最尾端）准备的时间来准备跟与自己相同名次的人比赛，如果时间充足，即可胜利，排名上升一名。反之排名不变，也没损失。&lt;/p&gt;
 &lt;p&gt;因为在最后一次的决定中，放弃与前一个人的准备时间并不会让自己的排名下降。如果前一个人的排名比自己低，那结果是两人都上升一名，若等于或高于自己的排名，则不会发生变化。&lt;/p&gt;
 &lt;p&gt;如果时间不够就不用放弃&lt;/p&gt;
-&lt;h2 id=&#34;代码&#34;&gt;代码&lt;/h2&gt;
+&lt;h1 id=&#34;代码&#34;&gt;代码&lt;/h1&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;solve&lt;/span&gt;():
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    n, m &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; map(int, input()&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;split())
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    a &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; list(map(int, input()&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;split()))
@@ -262,10 +262,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        print(n &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; win &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;d-different-arrayshttpscodeforcescomcontest1783problemd&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://codeforces.com/contest/1783/problem/D&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;D. Different Arrays&lt;/a&gt;&lt;/h1&gt;
-&lt;h2 id=&#34;题意-1&#34;&gt;题意&lt;/h2&gt;
+&lt;h1 id=&#34;题意-1&#34;&gt;题意&lt;/h1&gt;
 &lt;p&gt;给定一个长度为n的数组，必须进行$n ― 2$次操作，对$[2, n 一1]$范围内的数按顺序进行一次操作，一次操作为让左边和右边的两个数一个加上$a_i$一个减去$a_i$; ($a_i$指的是当前值)，求操作后可能获得的数组的数量。&lt;/p&gt;
 &lt;p&gt;$$0≤a_i≤300, 1≤n ≤300$$&lt;/p&gt;
-&lt;h2 id=&#34;思路-1&#34;&gt;思路&lt;/h2&gt;
+&lt;h1 id=&#34;思路-1&#34;&gt;思路&lt;/h1&gt;
 &lt;p&gt;看典哥题解写的&amp;hellip;一开始还以为py用二维会炸（事实上也在炸的边缘），后来发现是自己太相信py的高精度了，被狠狠教育了&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;如果把结果放在最后才%MOD，可能会TLE或MLE&lt;/p&gt;
@@ -280,7 +280,7 @@
 &lt;p&gt;坑点：如果j = 0的话就只需要转移一次，要特判一下&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;一维版本&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;其实思路一样，不过是类似滚动数组，每遍历到一个$a_i$的新位置，用一个新数组存，然后覆盖老数组，就可以去掉$i$的维度。这样写居然不会MLE我也觉得很神奇&lt;/p&gt;
-&lt;h2 id=&#34;代码-1&#34;&gt;代码&lt;/h2&gt;
+&lt;h1 id=&#34;代码-1&#34;&gt;代码&lt;/h1&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;solve&lt;/span&gt;():
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    N &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;310&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    n &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; int(input())
