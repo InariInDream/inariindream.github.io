@@ -9,7 +9,7 @@
 <meta property='og:description' content='重生之我是DP高手'>
 <meta property='og:url' content='https://inariindream.fun/blog/2023/01/09/dynamic-programming/'>
 <meta property='og:site_name' content='Inari&#39;s Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='ATC专题' /><meta property='article:tag' content='Codeforces专题' /><meta property='article:published_time' content='2023-01-09T16:45:31&#43;00:00'/><meta property='article:modified_time' content='2023-01-13T11:33:16&#43;08:00'/><meta property='og:image' content='https://inariindream.fun/blog/2023/01/09/dynamic-programming/111.jpg' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='ATC专题' /><meta property='article:tag' content='Codeforces专题' /><meta property='article:published_time' content='2023-01-09T16:45:31&#43;00:00'/><meta property='article:modified_time' content='2023-01-13T11:36:00&#43;08:00'/><meta property='og:image' content='https://inariindream.fun/blog/2023/01/09/dynamic-programming/111.jpg' />
 <meta name="twitter:site" content="@inariindream">
     <meta name="twitter:creator" content="@inariindream"><meta name="twitter:title" content="Dynamic Programming">
 <meta name="twitter:description" content="重生之我是DP高手"><meta name="twitter:card" content="summary_large_image">
@@ -907,8 +907,8 @@ ODoyMSswMDowMEEubXoAAAAASUVORK5CYII=" />
 <p>令$dp[i][j]$表示在前i个位置中，分界点为$j$的方案数（即，$j$以前为$2$，$j$及以后为$1$），答案为在位置$n$时的所有分界线位置方案之和，即
 $$\sum_{i = 1}^{n}dp[n][i]$$</p>
 <p>转移：从$dp[i][j]$开始，如果向后摆放的是和上一位相同的数，则j不变，转移到$dp[i + 1][j]$。若向后摆放的是和上一位不同的数，则$j$直接跳到$i + 1$，转移到了$dp[i + 1][i + 1]$。转移方程：</p>
-<p>$dp[i + 1][j] += dp[i][j]$
-$dp[i + 1][i + 1] += dp[i][j]$</p>
+<p>$dp[i + 1][j] += dp[i][j]$</p>
+<p>$dp[i + 1][i + 1] += dp[i][j]$</p>
 <p>注意这题还需要一个判断合法条件的操作，因为如果在$[1，j - 1]$区间有不该出现的$1$或在$[j, n]$区间有不该出现的$2$，则说明$j$在这个位置分割的方案是不可达到的，需要将该位置的$dp[i][j]$置$0$。</p>
 <h1 id="代码-1">代码</h1>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">solve</span>():
@@ -979,7 +979,7 @@ $dp[i + 1][i + 1] += dp[i][j]$</p>
 
 
         <span>
-            最后更新于 Jan 13, 2023 11:33 CST
+            最后更新于 Jan 13, 2023 11:36 CST
         </span>
     </section></footer>
 
