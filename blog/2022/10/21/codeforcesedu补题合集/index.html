@@ -9,7 +9,7 @@
 <meta property='og:description' content='Edu补完计划'>
 <meta property='og:url' content='https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/'>
 <meta property='og:site_name' content='Inari&#39;s Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Codeforces专题' /><meta property='article:tag' content='cfedu' /><meta property='article:published_time' content='2022-10-21T09:56:46&#43;00:00'/><meta property='article:modified_time' content='2023-01-13T11:35:54&#43;08:00'/><meta property='og:image' content='https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/222.png' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Codeforces专题' /><meta property='article:tag' content='cfedu' /><meta property='article:published_time' content='2022-10-21T09:56:46&#43;00:00'/><meta property='article:modified_time' content='2023-01-15T15:46:35&#43;08:00'/><meta property='og:image' content='https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/222.png' />
 <meta name="twitter:site" content="@inariindream">
     <meta name="twitter:creator" content="@inariindream"><meta name="twitter:title" content="CodeforcesEdu补题合集">
 <meta name="twitter:description" content="Edu补完计划"><meta name="twitter:card" content="summary_large_image">
@@ -811,7 +811,7 @@ ODoyMSswMDowMEEubXoAAAAASUVORK5CYII=" />
 
 
                 <time class="article-time--reading">
-                    8 minute read
+                    9 minute read
                 </time>
             </div>
         
@@ -1227,8 +1227,8 @@ $$\sum_{i = 1}^{n}dp[n][i]$$</p>
 </span></span><span style="display:flex;"><span>        __sum <span style="color:#f92672">%=</span> MOD
 </span></span><span style="display:flex;"><span>    print((__sum <span style="color:#f92672">-</span> ans) <span style="color:#f92672">%</span> MOD)
 </span></span></code></pre></div><h2 id="educational-codeforces-round-134">Educational Codeforces Round 134</h2>
-<h1 id="d-maximum-andhttpscodeforcescomcontest1721problemd">D. <a class="link" href="https://codeforces.com/contest/1721/problem/D"  target="_blank" rel="noopener"
-    >Maximum AND</a></h1>
+<h1 id="d-maximum-andhttpscodeforcescomcontest1721problemd"><a class="link" href="https://codeforces.com/contest/1721/problem/D"  target="_blank" rel="noopener"
+    >D. Maximum AND</a></h1>
 <h1 id="题意-7">题意</h1>
 <p>给定两个数列$a$, $b$, 令$c_i = a_i \bigoplus b_i$， 定义价值为 $c_1$ &amp; $c_2$ &amp; $c_3$&amp; &hellip; $c_n$ 求价值的最大值</p>
 <p>$(1≤n≤10^5)$
@@ -1298,6 +1298,49 @@ $(0≤a_i, b_i&lt;2^{30})$</p>
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">6</span>):
 </span></span><span style="display:flex;"><span>            ans <span style="color:#f92672">=</span> min(ans, dp[i][y] <span style="color:#f92672">-</span> dp[i][x <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>])
 </span></span><span style="display:flex;"><span>        print(ans)
+</span></span></code></pre></div><h2 id="educational-codeforces-round-110">Educational Codeforces Round 110</h2>
+<h1 id="c-unstable-stringhttpscodeforcescomcontest1535problemc"><a class="link" href="https://codeforces.com/contest/1535/problem/C"  target="_blank" rel="noopener"
+    >C. Unstable String</a></h1>
+<h1 id="题意-9">题意</h1>
+<p>给一个字符串，其含有$0,1,?$. 其中，$?$可以看成$1$，也可以看成$0$。如果一个字符串可以是0和1交替出现的，就称这个字符串是$beautiful$。问现在这个字符串有多少$beautiful$的子串？</p>
+<p>例如，</p>
+<p>字符串$1,10$是beautiful的；</p>
+<p>字符串$1???1$也是beautiful的，因为通过问号可以转化为10101；</p>
+<p>但字符串$1???1$不是beautiful的，因为通过问号不管怎么变，都不可能使得01交替出现。</p>
+<h1 id="思路-9">思路</h1>
+<p>最开始拿到手感觉很容易想到用奇偶去做，但是想不出来，找题解用dp做了</p>
+<p>由于需要统计子串的数量，考虑统计每一位的贡献去做。</p>
+<p>今天稍微又理解了一下贡献的概念，比如长度为$1$有$1$个子串，增加到$2$时新增了$dp[i] + 1 = 2$条子串，那长度为$2$的字符串一共就有$dp[1] + dp[2] = 3$ 条子串（$dp[i]$代表新增到第$i$个时对答案的贡献）</p>
+<p>用$dp[i][0]$和$dp[i][1]$分别表示以第$i$个数结尾，$s[i]$选$0$和选$1$的<strong>集合</strong>。<strong>属性</strong>是：<strong>新增摆放$s[i]$后，新增的合法子串数目（也即对答案的贡献）</strong></p>
+<p>转移分两种情况：</p>
+<p>1、如果$a[i] = ?$，则$dp[i - 1]$的两种情况都能转移</p>
+<p>$$dp[i][1] = dp[i - 1][0] + 1$$</p>
+<p>$$dp[i][0] = dp[i - 1][1] + 1$$</p>
+<p>2、如果为0或者1，则只转移一种，以 $1$ 为例，上一项为 $1$ 这一项为 $0$ 的构造是不可能的，因此，令当前项为0的构造方案也就不存在了，要重新置零开始。</p>
+<p>$$dp[i][1] = dp[i - 1][0] + 1$$</p>
+<p>$$dp[i][0] = 0$$</p>
+<p>注意每次转移时需要取一个$max(dp[i][1], dp[i][0])$加在$ans$上。</p>
+<h1 id="代码-7">代码</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">solve</span>():
+</span></span><span style="display:flex;"><span>    s <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;.&#39;</span> <span style="color:#f92672">+</span> input()
+</span></span><span style="display:flex;"><span>    n <span style="color:#f92672">=</span> len(s)
+</span></span><span style="display:flex;"><span>    dp <span style="color:#f92672">=</span> [[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span> <span style="color:#66d9ef">for</span> _ <span style="color:#f92672">in</span> range(n <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    dp[<span style="color:#ae81ff">1</span>][<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">if</span> s[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;1&#39;</span> <span style="color:#66d9ef">else</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    dp[<span style="color:#ae81ff">1</span>][<span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">if</span> s[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;0&#39;</span> <span style="color:#66d9ef">else</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># print(s[1], dp[1][0])</span>
+</span></span><span style="display:flex;"><span>    ans <span style="color:#f92672">=</span> max(dp[<span style="color:#ae81ff">1</span>][<span style="color:#ae81ff">0</span>], dp[<span style="color:#ae81ff">1</span>][<span style="color:#ae81ff">1</span>])
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">2</span>, n):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> s[i] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;?&#39;</span>:
+</span></span><span style="display:flex;"><span>            dp[i][<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> dp[i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>][<span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>            dp[i][<span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> dp[i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>][<span style="color:#ae81ff">0</span>] <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">elif</span> s[i] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;0&#39;</span>:
+</span></span><span style="display:flex;"><span>            dp[i][<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> dp[i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>][<span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">elif</span> s[i] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;1&#39;</span>:
+</span></span><span style="display:flex;"><span>            dp[i][<span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> dp[i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>][<span style="color:#ae81ff">0</span>] <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        ans <span style="color:#f92672">+=</span> max(dp[i][<span style="color:#ae81ff">1</span>], dp[i][<span style="color:#ae81ff">0</span>])
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># print(dp)</span>
+</span></span><span style="display:flex;"><span>    print(ans)
 </span></span></code></pre></div>
 </section>
 
@@ -1335,7 +1378,7 @@ $(0≤a_i, b_i&lt;2^{30})$</p>
 
 
         <span>
-            最后更新于 Jan 13, 2023 11:35 CST
+            最后更新于 Jan 15, 2023 15:46 CST
         </span>
     </section></footer>
 
@@ -1519,6 +1562,10 @@ $(0≤a_i, b_i&lt;2^{30})$</p>
 
   <ul>
     <li><a href="#educational-codeforces-round-112">Educational Codeforces Round 112</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#educational-codeforces-round-110">Educational Codeforces Round 110</a></li>
   </ul>
 </nav>
         </div>
