@@ -988,7 +988,11 @@ $(0≤a_i, b_i&amp;lt;2^{30})$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        ans &lt;span style=&#34;color:#f92672&#34;&gt;+=&lt;/span&gt; max(dp[i][&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;], dp[i][&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;])
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# print(dp)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    print(ans)
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;educational-codeforces-round-106-rated-for-div-2&#34;&gt;Educational Codeforces Round 106 (Rated for Div. 2)&lt;/h2&gt;
+&lt;h1 id=&#34;c-minimum-grid-pathhttpscodeforcescomcontest1499problemc&#34;&gt;C. &lt;a class=&#34;link&#34; href=&#34;https://codeforces.com/contest/1499/problem/C&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Minimum Grid Path&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;待补&lt;/p&gt;
+</description>
         </item>
         <item>
         <title>《Cyberpunk·Edgerunner》被扳机社唤回活力的夜之城</title>
