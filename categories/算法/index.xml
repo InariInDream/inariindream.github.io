@@ -749,14 +749,67 @@ $(0≤a_i, b_i&amp;lt;2^{30})$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; ok &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;: &lt;span style=&#34;color:#75715e&#34;&gt;# 如果能取到才用或运算加上值&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            ans &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; temp
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    print(ans)
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;educational-codeforces-round-112&#34;&gt;Educational Codeforces Round 112&lt;/h2&gt;
-&lt;h1 id=&#34;d-say-no-to-palindromeshttpscodeforcescomcontest1555problemddp&#34;&gt;D. &lt;a class=&#34;link&#34; href=&#34;https://codeforces.com/contest/1555/problem/D&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Say No to Palindromes&lt;/a&gt;（DP）&lt;/h1&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;educational-codeforces-round-124-rated-for-div-2&#34;&gt;Educational Codeforces Round 124 (Rated for Div. 2)&lt;/h2&gt;
+&lt;h1 id=&#34;d-nearest-excluded-pointshttpscodeforcescomcontest1651problemd&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://codeforces.com/contest/1651/problem/D&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;D. Nearest Excluded Points&lt;/a&gt;&lt;/h1&gt;
 &lt;h1 id=&#34;题意-8&#34;&gt;题意&lt;/h1&gt;
+&lt;p&gt;给定$n$个两两不同的整点坐标，对于每个整点$p$，求：不包含在这 $n$ 个点内的其他整点中，与点 $p$ 距离最近的那个。&lt;/p&gt;
+&lt;h1 id=&#34;思路-8&#34;&gt;思路&lt;/h1&gt;
+&lt;p&gt;答案肯定不能搜寻整个平面，通过观察得，答案只可能在$n$个点组成的图形的“边缘”处&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-23-15-35-45.png&#34;
+	width=&#34;646&#34;
+	height=&#34;488&#34;
+	srcset=&#34;https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-23-15-35-45_hu15ff192b96ea28882d15cef4f5681b37_22208_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-23-15-35-45_hu15ff192b96ea28882d15cef4f5681b37_22208_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;132&#34;
+		data-flex-basis=&#34;317px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;使用多源bfs来进行搜索，先将图形边缘的所有点加入队列中然后再依次进行广搜。注意，因为有较内层的点，因此就算搜到了在给定的$n$个点内的坐标也要加入队列，然后依次传递答案（更近的点一定更快传递到中心）&lt;/p&gt;
+&lt;p&gt;不是很懂为什么是&lt;!-- raw HTML omitted --&gt;1900&lt;!-- raw HTML omitted --&gt;的题，可能赛时大家都没想到从边缘开始搜（？&lt;/p&gt;
+&lt;p&gt;更多细节见代码&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; collections &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; defaultdict, deque
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;solve&lt;/span&gt;():
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    n &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; int(input())
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    dir &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [(&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;), (&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;), (&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;), (&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    points &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; []
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    res &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; dict()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; i &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; range(n):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        x, y &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; map(int, input()&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;split())
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        points&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;append((x, y))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        res[points[&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;]] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;None&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    q &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; deque()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; x, y &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; points:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; dx, dy &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; dir:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            nx, ny &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; x &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; dx, y &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; dy
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (nx, ny) &lt;span style=&#34;color:#f92672&#34;&gt;not&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; res:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                q&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;append((nx, ny))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                res[(nx, ny)] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; (nx, ny)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt; q:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        x, y &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; u &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; q&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;popleft()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; dx, dy &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; dir:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            v &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; x &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; dx, y &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; dy
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; v &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; res &lt;span style=&#34;color:#f92672&#34;&gt;and&lt;/span&gt; res[v] &lt;span style=&#34;color:#f92672&#34;&gt;is&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;None&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#75715e&#34;&gt;# print(v, u, res[v], res[u])&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                q&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;append(v)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                res[v] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; res[u]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; x &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; points:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        print(&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;res[x])
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;educational-codeforces-round-112&#34;&gt;Educational Codeforces Round 112&lt;/h2&gt;
+&lt;h1 id=&#34;d-say-no-to-palindromeshttpscodeforcescomcontest1555problemddp&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://codeforces.com/contest/1555/problem/D&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;D. Say No to Palindromes&lt;/a&gt;（DP）&lt;/h1&gt;
+&lt;h1 id=&#34;题意-9&#34;&gt;题意&lt;/h1&gt;
 &lt;p&gt;给定一个由a,b,c组成字符串，定义一个字符串是美丽的当且仅当它的字串中没有回文。&lt;/p&gt;
 &lt;p&gt;$m$次询问，每次给定左右端点$l, r$，如果此字符串不美丽，则每修改一个字符cost+=1，问使将这一段字符串修改成美丽字符串的最小花费是多少。&lt;/p&gt;
 &lt;p&gt;$(1≤n,m≤2⋅10^5)$&lt;/p&gt;
-&lt;h1 id=&#34;思路-8&#34;&gt;思路&lt;/h1&gt;
+&lt;h1 id=&#34;思路-9&#34;&gt;思路&lt;/h1&gt;
 &lt;p&gt;注意到对于每个$s_i$, $s_i \neq s_{i - 1}$并且$s_i \neq s_{i - 2}$才能不形成回文，由于一共只有三种字母，所以$s_i$一定等于$s_{i - 3}$，因此，修改后的整个字符串一定是&amp;quot;abcabcabc&amp;hellip;&amp;quot; 或&amp;quot;bacbacba&amp;hellip;&amp;quot; 等共六种排列情况的串。&lt;/p&gt;
 &lt;p&gt;然后在询问前把6种字符串修改情况的操作次数前缀和一下，s[i]代表字符串修改到$i$时的修改次数，在每次询问时用&lt;code&gt;s[r] - s[l - 1]&lt;/code&gt;就是这种排列情况时的需要修改的次数（不用关心具体修改了哪些），然后取6个情况中的最小值即可，查询复杂度为$O(1)$&lt;/p&gt;
 &lt;p&gt;因为一共就三种字符，所以6种情况一定可以覆盖完全&lt;/p&gt;
@@ -780,13 +833,13 @@ $(0≤a_i, b_i&amp;lt;2^{30})$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;educational-codeforces-round-110&#34;&gt;Educational Codeforces Round 110&lt;/h2&gt;
 &lt;h1 id=&#34;c-unstable-stringhttpscodeforcescomcontest1535problemc&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://codeforces.com/contest/1535/problem/C&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;C. Unstable String&lt;/a&gt;&lt;/h1&gt;
-&lt;h1 id=&#34;题意-9&#34;&gt;题意&lt;/h1&gt;
+&lt;h1 id=&#34;题意-10&#34;&gt;题意&lt;/h1&gt;
 &lt;p&gt;给一个字符串，其含有$0,1,?$. 其中，$?$可以看成$1$，也可以看成$0$。如果一个字符串可以是0和1交替出现的，就称这个字符串是$beautiful$。问现在这个字符串有多少$beautiful$的子串？&lt;/p&gt;
 &lt;p&gt;例如，&lt;/p&gt;
 &lt;p&gt;字符串$1,10$是beautiful的；&lt;/p&gt;
 &lt;p&gt;字符串$1???1$也是beautiful的，因为通过问号可以转化为10101；&lt;/p&gt;
 &lt;p&gt;但字符串$1???1$不是beautiful的，因为通过问号不管怎么变，都不可能使得01交替出现。&lt;/p&gt;
-&lt;h1 id=&#34;思路-9&#34;&gt;思路&lt;/h1&gt;
+&lt;h1 id=&#34;思路-10&#34;&gt;思路&lt;/h1&gt;
 &lt;p&gt;最开始拿到手感觉很容易想到用奇偶去做，但是想不出来，找题解用dp做了&lt;/p&gt;
 &lt;p&gt;由于需要统计子串的数量，考虑统计每一位的贡献去做。&lt;/p&gt;
 &lt;p&gt;今天稍微又理解了一下贡献的概念，比如长度为$1$有$1$个子串，增加到$2$时新增了$dp[i] + 1 = 2$条子串，那长度为$2$的字符串一共就有$dp[1] + dp[2] = 3$ 条子串（$dp[i]$代表新增到第$i$个时对答案的贡献）&lt;/p&gt;
@@ -820,9 +873,9 @@ $(0≤a_i, b_i&amp;lt;2^{30})$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        ans &lt;span style=&#34;color:#f92672&#34;&gt;+=&lt;/span&gt; max(dp[i][&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;], dp[i][&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;])
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# print(dp)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    print(ans)
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;educational-codeforces-round-106-rated-for-div-2&#34;&gt;Educational Codeforces Round 106 (Rated for Div. 2)&lt;/h2&gt;
-&lt;h1 id=&#34;c-minimum-grid-pathhttpscodeforcescomcontest1499problemc&#34;&gt;C. &lt;a class=&#34;link&#34; href=&#34;https://codeforces.com/contest/1499/problem/C&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Minimum Grid Path&lt;/a&gt;&lt;/h1&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;educational-codeforces-round-106&#34;&gt;Educational Codeforces Round 106&lt;/h2&gt;
+&lt;h1 id=&#34;c-minimum-grid-pathhttpscodeforcescomcontest1499problemc&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://codeforces.com/contest/1499/problem/C&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;C. Minimum Grid Path&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;待补&lt;/p&gt;
 </description>
         </item>
