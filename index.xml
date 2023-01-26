@@ -518,20 +518,169 @@ $$\sum_{i = 1}^{n}dp[n][i]$$&lt;/p&gt;
         
         <guid>https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/</guid>
         <description>&lt;img src="https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/222.png" alt="Featured image of post CodeforcesEdu补题合集" /&gt;&lt;p&gt;&lt;em&gt;此纪录从2022-10-21 09:56:46始&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;educational-codeforces-round-142&#34;&gt;Educational Codeforces Round 142&lt;/h2&gt;
+&lt;h1 id=&#34;c-min-max-sorthttpscodeforcescomcontest1792problemc&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://codeforces.com/contest/1792/problem/C&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;C. Min Max Sort&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id=&#34;题意&#34;&gt;题意&lt;/h1&gt;
+&lt;p&gt;给定一个排列，选择两个值，将其中较小的值移到排列首部，较大的值移到排列尾部。求将排列排序为严格递增序的最小操作次数。&lt;/p&gt;
+&lt;h1 id=&#34;思路&#34;&gt;思路&lt;/h1&gt;
+&lt;p&gt;这题本来是在vp的时候用双指针分情况讨论做的，然后发现戴老师的dp做法很炫酷，所以还是补一下&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;双指针做法&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;首先最终的有序序列中，$(1, n), (2, n - 1)$这种成对的数字一定是关于数组的中心点对称的，因此在操作的时候也要选这对数字来分别插入到两边才能实现目标。&lt;/p&gt;
+&lt;p&gt;对于任意一个排列，最多操作$\lfloor \frac{n}{2} \rfloor$次。做法就是先记录排列中每个数字在原数组中的位置，然后从中间数据的位置开始往两边扫，如果符合要求，则说明这对数字不用动，$ans -= 1$&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;DP做法&lt;/strong&gt;（待补）
+最长上升子序列&lt;/p&gt;
+&lt;h1 id=&#34;代码&#34;&gt;代码&lt;/h1&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;双指针做法
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;solve&lt;/span&gt;():
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    n &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; int(input())
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    a &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; list(map(int, input()&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;split()))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    p &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; (n &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; i &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; range(n):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        p[a[i]] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; i &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; a &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; sorted(a):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        print(&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ans &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; n &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;# print(p)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        ans &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; n &lt;span style=&#34;color:#f92672&#34;&gt;//&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        l &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; n &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        r &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; i &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; range(n &lt;span style=&#34;color:#f92672&#34;&gt;//&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            ll &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; n &lt;span style=&#34;color:#f92672&#34;&gt;//&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; i
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            rr &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; n &lt;span style=&#34;color:#f92672&#34;&gt;//&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; i &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; p[ll] &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; p[rr] &lt;span style=&#34;color:#f92672&#34;&gt;and&lt;/span&gt; p[ll] &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; l &lt;span style=&#34;color:#f92672&#34;&gt;and&lt;/span&gt; p[rr] &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; r:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                l &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; p[ll]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                r &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; p[rr]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                ans &lt;span style=&#34;color:#f92672&#34;&gt;-=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#66d9ef&#34;&gt;break&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        ans &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; n &lt;span style=&#34;color:#f92672&#34;&gt;//&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        l &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; r &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; p[n &lt;span style=&#34;color:#f92672&#34;&gt;//&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; i &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; range(&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;, n &lt;span style=&#34;color:#f92672&#34;&gt;//&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            ll &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; n &lt;span style=&#34;color:#f92672&#34;&gt;//&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; i
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            rr &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; n &lt;span style=&#34;color:#f92672&#34;&gt;//&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; i
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; p[ll] &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; p[rr] &lt;span style=&#34;color:#f92672&#34;&gt;and&lt;/span&gt; p[ll] &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; l &lt;span style=&#34;color:#f92672&#34;&gt;and&lt;/span&gt; p[rr] &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; r:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                l &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; p[ll]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                r &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; p[rr]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                ans &lt;span style=&#34;color:#f92672&#34;&gt;-=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#66d9ef&#34;&gt;break&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    print(ans)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;d-fixed-prefix-permutationshttpscodeforcescomcontest1792problemd&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://codeforces.com/contest/1792/problem/D&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;D. Fixed Prefix Permutations&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id=&#34;题意-1&#34;&gt;题意&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-29-08.png&#34;
+	width=&#34;661&#34;
+	height=&#34;898&#34;
+	srcset=&#34;https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-29-08_hu29698a67afa7137f282745da0bf9b5b0_40943_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-29-08_hu29698a67afa7137f282745da0bf9b5b0_40943_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;73&#34;
+		data-flex-basis=&#34;176px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h1 id=&#34;思路-1&#34;&gt;思路&lt;/h1&gt;
+&lt;p&gt;字典树，看的ygg题解qwq&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-30-42.png&#34;
+	width=&#34;468&#34;
+	height=&#34;324&#34;
+	srcset=&#34;https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-30-42_hue75a626e37f0ec8d84ae042f110f53e0_15326_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-30-42_hue75a626e37f0ec8d84ae042f110f53e0_15326_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;144&#34;
+		data-flex-basis=&#34;346px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-32-08.png&#34;
+	width=&#34;640&#34;
+	height=&#34;445&#34;
+	srcset=&#34;https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-32-08_hued734f37cb7300b99d1c7edd8ea2a107_28863_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-32-08_hued734f37cb7300b99d1c7edd8ea2a107_28863_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;143&#34;
+		data-flex-basis=&#34;345px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;在字典树的&lt;code&gt;insert()&lt;/code&gt;操作时，将当前列表的pos数组给插入进去，这样，在查询操作时，就能查询整个字典树中能和自己匹配的最大前缀数量。&lt;/p&gt;
+&lt;h1 id=&#34;代码-1&#34;&gt;代码&lt;/h1&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;idx &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;solve&lt;/span&gt;():
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    n, m &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; map(int, input()&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;split())
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    trie &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;11&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; _ &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; range(&lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; n)]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;global&lt;/span&gt; idx
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    idx &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;insert&lt;/span&gt;(s):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;global&lt;/span&gt; idx
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        p &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; c &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; range(&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;, m &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; trie[p][pos[c]] &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                idx &lt;span style=&#34;color:#f92672&#34;&gt;+=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                trie[p][pos[c]] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; idx
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            p &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; trie[p][pos[c]]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;query&lt;/span&gt;(s):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        p &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        cnt &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; c &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; s:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; trie[p][c] &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                p &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; trie[p][c]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                cnt &lt;span style=&#34;color:#f92672&#34;&gt;+=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#66d9ef&#34;&gt;break&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; cnt
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    a &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; []
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; i &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; range(n):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        pos &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;11&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        a&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;append(list(map(int, input()&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;split())))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; j, x &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; enumerate(a[i]):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            pos[x] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; j &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        insert(a[i])
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; x &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; a:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        print(query(x), end&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34; &amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    print()
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;另外需要注意的一点就是Trie的数组大小，当前来看第一位开$10 * n$不会越界，但最开始在每个solve里面开$1e5$又会T（acwing的板题都没有多组数据= =&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-36-42.png&#34;
+	width=&#34;506&#34;
+	height=&#34;318&#34;
+	srcset=&#34;https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-36-42_hu738c61a32fd8e4caaa6bbce479cc5bde_37223_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-36-42_hu738c61a32fd8e4caaa6bbce479cc5bde_37223_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;159&#34;
+		data-flex-basis=&#34;381px&#34;
+	
+&gt;&lt;/p&gt;
 &lt;h2 id=&#34;educational-codeforces-round-141&#34;&gt;Educational Codeforces Round 141&lt;/h2&gt;
 &lt;p&gt;这场是真的狠狠被教育了&amp;hellip;B的构造手玩半天没玩出来，有思路之后写蛇形矩阵的实现写了一万年&amp;hellip;真的叫基础不牢地动山摇&lt;/p&gt;
 &lt;h1 id=&#34;c-yet-another-tournamenthttpscodeforcescomcontest1783problemc&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://codeforces.com/contest/1783/problem/C&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;C. Yet Another Tournament&lt;/a&gt;&lt;/h1&gt;
-&lt;h1 id=&#34;题意&#34;&gt;题意&lt;/h1&gt;
+&lt;h1 id=&#34;题意-2&#34;&gt;题意&lt;/h1&gt;
 &lt;p&gt;有$n$名玩家，战力分别为$[1, n]$。我们也是一名玩家，一共有 $n+1$ 名玩家。对于 $n$ 名玩家来说， $i$ 能击杀 $j$ 当且仅当 $i &amp;gt; j$ 。对于每一位玩家我们都有一个准备值 $a_i$ ，我们想要击败该名玩家需要花费 $a_i$ 的时间去准备。刚开始我们拥有的时间为 $m$ ，每名玩家都和其余所有玩家进行一轮对局，最终按照胜场数量对所有玩家进行排名，求我们合理分配时间会获得的最高排名。&lt;/p&gt;
-&lt;h1 id=&#34;思路&#34;&gt;思路&lt;/h1&gt;
+&lt;h1 id=&#34;思路-2&#34;&gt;思路&lt;/h1&gt;
 &lt;p&gt;经典读错题，看到题里面的 &lt;em&gt;Calculate the minimum possible place (lower is better)&lt;/em&gt; ，以为名次要越低越好&amp;hellip;&lt;/p&gt;
 &lt;p&gt;可以二分/贪心，感觉贪心好想一点，其实二者本质上是一样的。&lt;/p&gt;
 &lt;p&gt;策略是选择尽量多的选手，因此先将选手排序。&lt;/p&gt;
 &lt;p&gt;然后关键在于自己最后赢的一个人，&lt;strong&gt;要找和自己名次相同的那个人&lt;/strong&gt;（别人的名次是可以计算的），因为如果能放弃自己为前一个人（自己准备时间的最尾端）准备的时间来准备跟与自己相同名次的人比赛，如果时间充足，即可胜利，排名上升一名。反之排名不变，也没损失。&lt;/p&gt;
 &lt;p&gt;因为在最后一次的决定中，放弃与前一个人的准备时间并不会让自己的排名下降。如果前一个人的排名比自己低，那结果是两人都上升一名，若等于或高于自己的排名，则不会发生变化。&lt;/p&gt;
 &lt;p&gt;如果时间不够就不用放弃&lt;/p&gt;
-&lt;h1 id=&#34;代码&#34;&gt;代码&lt;/h1&gt;
+&lt;h1 id=&#34;代码-2&#34;&gt;代码&lt;/h1&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;solve&lt;/span&gt;():
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    n, m &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; map(int, input()&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;split())
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    a &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; list(map(int, input()&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;split()))
@@ -553,10 +702,10 @@ $$\sum_{i = 1}^{n}dp[n][i]$$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        print(n &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; win &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;d-different-arrayshttpscodeforcescomcontest1783problemd&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://codeforces.com/contest/1783/problem/D&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;D. Different Arrays&lt;/a&gt;&lt;/h1&gt;
-&lt;h1 id=&#34;题意-1&#34;&gt;题意&lt;/h1&gt;
+&lt;h1 id=&#34;题意-3&#34;&gt;题意&lt;/h1&gt;
 &lt;p&gt;给定一个长度为n的数组，必须进行$n ― 2$次操作，对$[2, n 一1]$范围内的数按顺序进行一次操作，一次操作为让左边和右边的两个数一个加上$a_i$一个减去$a_i$; ($a_i$指的是当前值)，求操作后可能获得的数组的数量。&lt;/p&gt;
 &lt;p&gt;$$0≤a_i≤300, 1≤n ≤300$$&lt;/p&gt;
-&lt;h1 id=&#34;思路-1&#34;&gt;思路&lt;/h1&gt;
+&lt;h1 id=&#34;思路-3&#34;&gt;思路&lt;/h1&gt;
 &lt;p&gt;看典哥题解写的&amp;hellip;一开始还以为py用二维会炸（事实上也在炸的边缘），后来发现是自己太相信py的高精度了，被狠狠教育了&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;如果把结果放在最后才%MOD，可能会TLE或MLE&lt;/p&gt;
@@ -571,7 +720,7 @@ $$\sum_{i = 1}^{n}dp[n][i]$$&lt;/p&gt;
 &lt;p&gt;坑点：如果j = 0的话就只需要转移一次，要特判一下&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;一维版本&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;其实思路一样，不过是类似滚动数组，每遍历到一个$a_i$的新位置，用一个新数组存，然后覆盖老数组，就可以去掉$i$的维度。这样写居然不会MLE我也觉得很神奇&lt;/p&gt;
-&lt;h1 id=&#34;代码-1&#34;&gt;代码&lt;/h1&gt;
+&lt;h1 id=&#34;代码-3&#34;&gt;代码&lt;/h1&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;solve&lt;/span&gt;():
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    N &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;310&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    n &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; int(input())
@@ -640,9 +789,9 @@ $$\sum_{i = 1}^{n}dp[n][i]$$&lt;/p&gt;
 &lt;h2 id=&#34;educational-codeforces-round-140&#34;&gt;Educational Codeforces Round 140&lt;/h2&gt;
 &lt;h1 id=&#34;c-count-binary-stringshttpscodeforcescomcontest1767problemc&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://codeforces.com/contest/1767/problem/C&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;C. Count Binary Strings&lt;/a&gt;&lt;/h1&gt;
-&lt;h1 id=&#34;题意-2&#34;&gt;题意&lt;/h1&gt;
+&lt;h1 id=&#34;题意-4&#34;&gt;题意&lt;/h1&gt;
 &lt;p&gt;给定一个01串，给定每一个区间范围内的限制。其中 g[i][j]表示对于区间[i, j]的限制。若g[i][j] = 1，说明这个区间内只能出现一种数;若g[i][j] = 2，说明这个区间内必须同时出现两种数;若g[i][j] =0，说明这个区间没有限制。求合法01串的数量。&lt;/p&gt;
-&lt;h1 id=&#34;思路-2&#34;&gt;思路&lt;/h1&gt;
+&lt;h1 id=&#34;思路-4&#34;&gt;思路&lt;/h1&gt;
 &lt;p&gt;DP，观察发现若为合法01串，对于指定的右端点r，一定有:$a[1][r], a[2][r]&amp;hellip;a[r][r]$呈现$2222&amp;hellip;111..1$的特征。因为从后往前考虑，如果r - 1的位置与r的位置相同，则$a[r - 1][r] = 1$，否则为2。而一旦有某个位置为2了，这个位置往前的所有位置都会是2。&lt;/p&gt;
 &lt;p&gt;令$dp[i][j]$表示在前i个位置中，分界点为$j$的方案数（即，$j$以前为$2$，$j$及以后为$1$），答案为在位置$n$时的所有分界线位置方案之和，即
 $$\sum_{i = 1}^{n}dp[n][i]$$&lt;/p&gt;
@@ -650,7 +799,7 @@ $$\sum_{i = 1}^{n}dp[n][i]$$&lt;/p&gt;
 &lt;p&gt;$dp[i + 1][j] += dp[i][j]$&lt;/p&gt;
 &lt;p&gt;$dp[i + 1][i + 1] += dp[i][j]$&lt;/p&gt;
 &lt;p&gt;注意这题还需要一个判断合法条件的操作，因为如果在$[1，j - 1]$区间有不该出现的$1$或在$[j, n]$区间有不该出现的$2$，则说明$j$在这个位置分割的方案是不可达到的，需要将该位置的$dp[i][j]$置$0$。&lt;/p&gt;
-&lt;h1 id=&#34;代码-2&#34;&gt;代码&lt;/h1&gt;
+&lt;h1 id=&#34;代码-4&#34;&gt;代码&lt;/h1&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;solve&lt;/span&gt;():
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    n &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; int(input())
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    a &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;]]
@@ -685,11 +834,11 @@ $$\sum_{i = 1}^{n}dp[n][i]$$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;educational-codeforces-round-139&#34;&gt;Educational Codeforces Round 139&lt;/h2&gt;
 &lt;h1 id=&#34;d-lucky-chainshttpscodeforcescomcontest1766problemd&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://codeforces.com/contest/1766/problem/D&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;D. Lucky Chains&lt;/a&gt;&lt;/h1&gt;
-&lt;h1 id=&#34;题意-3&#34;&gt;题意&lt;/h1&gt;
+&lt;h1 id=&#34;题意-5&#34;&gt;题意&lt;/h1&gt;
 &lt;p&gt;给定两个数$a, b(1 \leq a, b \leq 1e7)$，执行如下语句：&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;while(gcd(a, b) == 1) a++, b++, cnt++ ;&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;求cnt的值&lt;/p&gt;
-&lt;h1 id=&#34;思路-3&#34;&gt;思路&lt;/h1&gt;
+&lt;h1 id=&#34;思路-5&#34;&gt;思路&lt;/h1&gt;
 &lt;p&gt;数学苦手，看典哥题解都理解了好一会&lt;/p&gt;
 &lt;p&gt;一个gcd的性质&lt;/p&gt;
 &lt;blockquote&gt;
@@ -700,7 +849,7 @@ $$\sum_{i = 1}^{n}dp[n][i]$$&lt;/p&gt;
 &lt;p&gt;一种更快的办法是直接找每个数的最小质因子，然后对$p$进行除的操作来找到其下一个质因数，这样就不用处理所有的质数&lt;/p&gt;
 &lt;p&gt;前者复杂度为$O(nsqrt(n))$，因为需筛出所有的质数&lt;/p&gt;
 &lt;p&gt;后者为$O(nlog(n))$&lt;/p&gt;
-&lt;h1 id=&#34;代码-3&#34;&gt;代码&lt;/h1&gt;
+&lt;h1 id=&#34;代码-5&#34;&gt;代码&lt;/h1&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;primes &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;**&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;7&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
@@ -739,9 +888,9 @@ $$\sum_{i = 1}^{n}dp[n][i]$$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        solve()
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;贴一个&lt;a class=&#34;link&#34; href=&#34;https://codeforces.com/contest/1771/problem/C&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;前一天的C&lt;/a&gt;，是相似的题，一起补了&lt;/p&gt;
-&lt;h1 id=&#34;题意-4&#34;&gt;题意&lt;/h1&gt;
+&lt;h1 id=&#34;题意-6&#34;&gt;题意&lt;/h1&gt;
 &lt;p&gt;给定一个数列$a$，问是否存在$i, j$使得$gcd(a_i, a_j) \neq 1$&lt;/p&gt;
-&lt;h1 id=&#34;思路-4&#34;&gt;思路&lt;/h1&gt;
+&lt;h1 id=&#34;思路-6&#34;&gt;思路&lt;/h1&gt;
 &lt;p&gt;思路差不多，主要也是考察的筛&lt;/p&gt;
 &lt;p&gt;不过数据范围是$1e9$，直接根号筛的话用py过不去，因为C++都跑了1100ms&lt;/p&gt;
 &lt;p&gt;看了下别人的py代码没太看懂，也许需要更高级的筛法，比如用随机化筛，能变成$O(M^{\dfrac{1}{4}})$, 但没存py的板子也没必要存，就直接换C++用$O(\sqrt{M})$的筛法莽过去了&lt;/p&gt;
@@ -801,14 +950,14 @@ $$\sum_{i = 1}^{n}dp[n][i]$$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;educational-codeforces-round-138&#34;&gt;Educational Codeforces Round 138&lt;/h2&gt;
 &lt;h1 id=&#34;c-number-gamehttpscodeforcescomcontest1749problemc&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://codeforces.com/contest/1749/problem/C&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;C Number Game&lt;/a&gt;&lt;/h1&gt;
-&lt;h1 id=&#34;题意-5&#34;&gt;题意:&lt;/h1&gt;
+&lt;h1 id=&#34;题意-7&#34;&gt;题意:&lt;/h1&gt;
 &lt;p&gt;给定一个长度为$n$的整数数组$a$, Alice和Bob玩游戏.对于一个$k$, 游戏进行$k$轮, 第$i$轮,Alice选择从a中删除一个小于等于$k - i + 1$的数, Bob选择一个数加上$k - i + 1$.如果某一轮Alice没有数字可以选择,则Bob赢,否则Alice赢.问使得Alice赢的最大的k是多少?&lt;/p&gt;
 &lt;p&gt;$(n &amp;lt;= 100)$&lt;/p&gt;
-&lt;h1 id=&#34;思路-5&#34;&gt;思路&lt;/h1&gt;
+&lt;h1 id=&#34;思路-7&#34;&gt;思路&lt;/h1&gt;
 &lt;p&gt;最开始以为是二分答案，但注意到n比较小，所以可以直接写模拟，Bob的策略应该是每回合将Alice当前的$k - i + 1$加到当前数列的最小项上面，这样能最大化减少Alice能删掉的数量。Alice的策略则是趁$k - i + 1$减小之前每次尽可能删掉能删掉的最大数。&lt;/p&gt;
 &lt;p&gt;其实这个思路很好想，昨晚在看题十分钟后就想到了，但写模拟代码写了一万年还调错了，典中典之脑子会了手没会。&lt;/p&gt;
 &lt;p&gt;今早想清楚模拟过程之后10分钟1A了&lt;/p&gt;
-&lt;h1 id=&#34;代码-4&#34;&gt;代码&lt;/h1&gt;
+&lt;h1 id=&#34;代码-6&#34;&gt;代码&lt;/h1&gt;
 &lt;p&gt;$O(n^3)$&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;solve&lt;/span&gt;():
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    n &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; int(input())
@@ -870,15 +1019,15 @@ $$\sum_{i = 1}^{n}dp[n][i]$$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;d-counting-arrayshttpscodeforcescomcontest1749problemd&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://codeforces.com/contest/1749/problem/D&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;D. Counting Arrays&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;在problemset里面看到一道1k9的dp，想做做&amp;hellip;结果发现是数学&amp;hellip;线筛的一个地方抄错了找了2h&amp;hellip;相似&lt;/p&gt;
-&lt;h1 id=&#34;题意-6&#34;&gt;题意&lt;/h1&gt;
+&lt;h1 id=&#34;题意-8&#34;&gt;题意&lt;/h1&gt;
 &lt;p&gt;给定一个 n 和 m ，构造出一个长度为n，每一个元素的范围是[1, m]的数组，求有多少个数组是模棱两可的。一个模棱两可的数组的定义是其删除数组b不唯一，（$b_i$是第i次操作时的删除数）一个元素a[i]可以被删除当且仅当$gcd(a[i], i) == 1$。&lt;/p&gt;
-&lt;h1 id=&#34;思路-6&#34;&gt;思路&lt;/h1&gt;
+&lt;h1 id=&#34;思路-8&#34;&gt;思路&lt;/h1&gt;
 &lt;p&gt;正难则反，一共只有模棱两可和删除数组唯一两种情况。&lt;strong&gt;而删除数组唯一时，b数列一定全为1&lt;/strong&gt;。说明在删除数组唯一的情况下，$a_i$去模范围$[2, n]$内的所有质数一定不为1。（都不互质）&lt;/p&gt;
 &lt;p&gt;进而推得$a_i$ 的值域一定是$[2, n]$内的所有质数的质数积及其倍数&lt;/p&gt;
 &lt;p&gt;设枚举到$i$时的质数积为$temp$，则个数为$\left \lfloor \frac{m}{temp} \right \rfloor$&lt;/p&gt;
 &lt;p&gt;然后利用乘法原理统计即可。最后的答案是总方案数减去删除数组唯一的数量。&lt;/p&gt;
 &lt;p&gt;注意题目求的是长度为$[1, n]$区间所有长度的a的模棱两可数量，因此在每算一次就要加到ans上，而不是最后用n长度时的sum-cnt（sb题面）&lt;/p&gt;
-&lt;h1 id=&#34;代码-5&#34;&gt;代码&lt;/h1&gt;
+&lt;h1 id=&#34;代码-7&#34;&gt;代码&lt;/h1&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;maxn &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;**&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;isPrime &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; maxn
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;primes &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; maxn
@@ -921,11 +1070,11 @@ $$\sum_{i = 1}^{n}dp[n][i]$$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;educational-codeforces-round-134&#34;&gt;Educational Codeforces Round 134&lt;/h2&gt;
 &lt;h1 id=&#34;d-maximum-andhttpscodeforcescomcontest1721problemd&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://codeforces.com/contest/1721/problem/D&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;D. Maximum AND&lt;/a&gt;&lt;/h1&gt;
-&lt;h1 id=&#34;题意-7&#34;&gt;题意&lt;/h1&gt;
+&lt;h1 id=&#34;题意-9&#34;&gt;题意&lt;/h1&gt;
 &lt;p&gt;给定两个数列$a$, $b$, 令$c_i = a_i \bigoplus b_i$， 定义价值为 $c_1$ &amp;amp; $c_2$ &amp;amp; $c_3$&amp;amp; &amp;hellip; $c_n$ 求价值的最大值&lt;/p&gt;
 &lt;p&gt;$(1≤n≤10^5)$
 $(0≤a_i, b_i&amp;lt;2^{30})$&lt;/p&gt;
-&lt;h1 id=&#34;思路-7&#34;&gt;思路&lt;/h1&gt;
+&lt;h1 id=&#34;思路-9&#34;&gt;思路&lt;/h1&gt;
 &lt;p&gt;注意到c在某一位为1时只能是当所有的$c_i$在这一位都为1才能取到，进而需要所有匹配的$a_i$ 和 $b_i$在这一位的异或都为1。&lt;/p&gt;
 &lt;p&gt;那么如何找这样满足条件的匹配呢，看题解发现有一种很妙的方法可以实现。$c$贪心地从最高位为$1$开始往下取，然后先假设$c$这一位为1，通过map计数check是否所有的$a_i, b_i$都能满足条件，而并不需要排列来对每个$i$进行匹配。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2022-10-21-20-49-42.png&#34;
@@ -962,12 +1111,12 @@ $(0≤a_i, b_i&amp;lt;2^{30})$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; ok &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;: &lt;span style=&#34;color:#75715e&#34;&gt;# 如果能取到才用或运算加上值&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            ans &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; temp
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    print(ans)
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;educational-codeforces-round-124-rated-for-div-2&#34;&gt;Educational Codeforces Round 124 (Rated for Div. 2)&lt;/h2&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;educational-codeforces-round-124&#34;&gt;Educational Codeforces Round 124&lt;/h2&gt;
 &lt;h1 id=&#34;d-nearest-excluded-pointshttpscodeforcescomcontest1651problemd&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://codeforces.com/contest/1651/problem/D&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;D. Nearest Excluded Points&lt;/a&gt;&lt;/h1&gt;
-&lt;h1 id=&#34;题意-8&#34;&gt;题意&lt;/h1&gt;
+&lt;h1 id=&#34;题意-10&#34;&gt;题意&lt;/h1&gt;
 &lt;p&gt;给定$n$个两两不同的整点坐标，对于每个整点$p$，求：不包含在这 $n$ 个点内的其他整点中，与点 $p$ 距离最近的那个。&lt;/p&gt;
-&lt;h1 id=&#34;思路-8&#34;&gt;思路&lt;/h1&gt;
+&lt;h1 id=&#34;思路-10&#34;&gt;思路&lt;/h1&gt;
 &lt;p&gt;答案肯定不能搜寻整个平面，通过观察得，答案只可能在$n$个点组成的图形的“边缘”处&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-23-15-35-45.png&#34;
 	width=&#34;646&#34;
@@ -1018,15 +1167,15 @@ $(0≤a_i, b_i&amp;lt;2^{30})$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;educational-codeforces-round-112&#34;&gt;Educational Codeforces Round 112&lt;/h2&gt;
 &lt;h1 id=&#34;d-say-no-to-palindromeshttpscodeforcescomcontest1555problemddp&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://codeforces.com/contest/1555/problem/D&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;D. Say No to Palindromes&lt;/a&gt;（DP）&lt;/h1&gt;
-&lt;h1 id=&#34;题意-9&#34;&gt;题意&lt;/h1&gt;
+&lt;h1 id=&#34;题意-11&#34;&gt;题意&lt;/h1&gt;
 &lt;p&gt;给定一个由a,b,c组成字符串，定义一个字符串是美丽的当且仅当它的字串中没有回文。&lt;/p&gt;
 &lt;p&gt;$m$次询问，每次给定左右端点$l, r$，如果此字符串不美丽，则每修改一个字符cost+=1，问使将这一段字符串修改成美丽字符串的最小花费是多少。&lt;/p&gt;
 &lt;p&gt;$(1≤n,m≤2⋅10^5)$&lt;/p&gt;
-&lt;h1 id=&#34;思路-9&#34;&gt;思路&lt;/h1&gt;
+&lt;h1 id=&#34;思路-11&#34;&gt;思路&lt;/h1&gt;
 &lt;p&gt;注意到对于每个$s_i$, $s_i \neq s_{i - 1}$并且$s_i \neq s_{i - 2}$才能不形成回文，由于一共只有三种字母，所以$s_i$一定等于$s_{i - 3}$，因此，修改后的整个字符串一定是&amp;quot;abcabcabc&amp;hellip;&amp;quot; 或&amp;quot;bacbacba&amp;hellip;&amp;quot; 等共六种排列情况的串。&lt;/p&gt;
 &lt;p&gt;然后在询问前把6种字符串修改情况的操作次数前缀和一下，s[i]代表字符串修改到$i$时的修改次数，在每次询问时用&lt;code&gt;s[r] - s[l - 1]&lt;/code&gt;就是这种排列情况时的需要修改的次数（不用关心具体修改了哪些），然后取6个情况中的最小值即可，查询复杂度为$O(1)$&lt;/p&gt;
 &lt;p&gt;因为一共就三种字符，所以6种情况一定可以覆盖完全&lt;/p&gt;
-&lt;h1 id=&#34;代码-6&#34;&gt;代码&lt;/h1&gt;
+&lt;h1 id=&#34;代码-8&#34;&gt;代码&lt;/h1&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;solve&lt;/span&gt;():
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    n, m &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; map(int, input()&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;split())
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    s &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; input()
@@ -1046,13 +1195,13 @@ $(0≤a_i, b_i&amp;lt;2^{30})$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;educational-codeforces-round-110&#34;&gt;Educational Codeforces Round 110&lt;/h2&gt;
 &lt;h1 id=&#34;c-unstable-stringhttpscodeforcescomcontest1535problemc&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://codeforces.com/contest/1535/problem/C&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;C. Unstable String&lt;/a&gt;&lt;/h1&gt;
-&lt;h1 id=&#34;题意-10&#34;&gt;题意&lt;/h1&gt;
+&lt;h1 id=&#34;题意-12&#34;&gt;题意&lt;/h1&gt;
 &lt;p&gt;给一个字符串，其含有$0,1,?$. 其中，$?$可以看成$1$，也可以看成$0$。如果一个字符串可以是0和1交替出现的，就称这个字符串是$beautiful$。问现在这个字符串有多少$beautiful$的子串？&lt;/p&gt;
 &lt;p&gt;例如，&lt;/p&gt;
 &lt;p&gt;字符串$1,10$是beautiful的；&lt;/p&gt;
 &lt;p&gt;字符串$1???1$也是beautiful的，因为通过问号可以转化为10101；&lt;/p&gt;
 &lt;p&gt;但字符串$1???1$不是beautiful的，因为通过问号不管怎么变，都不可能使得01交替出现。&lt;/p&gt;
-&lt;h1 id=&#34;思路-10&#34;&gt;思路&lt;/h1&gt;
+&lt;h1 id=&#34;思路-12&#34;&gt;思路&lt;/h1&gt;
 &lt;p&gt;最开始拿到手感觉很容易想到用奇偶去做，但是想不出来，找题解用dp做了&lt;/p&gt;
 &lt;p&gt;由于需要统计子串的数量，考虑统计每一位的贡献去做。&lt;/p&gt;
 &lt;p&gt;今天稍微又理解了一下贡献的概念，比如长度为$1$有$1$个子串，增加到$2$时新增了$dp[i] + 1 = 2$条子串，那长度为$2$的字符串一共就有$dp[1] + dp[2] = 3$ 条子串（$dp[i]$代表新增到第$i$个时对答案的贡献）&lt;/p&gt;
@@ -1065,7 +1214,7 @@ $(0≤a_i, b_i&amp;lt;2^{30})$&lt;/p&gt;
 &lt;p&gt;$$dp[i][1] = dp[i - 1][0] + 1$$&lt;/p&gt;
 &lt;p&gt;$$dp[i][0] = 0$$&lt;/p&gt;
 &lt;p&gt;注意每次转移时需要取一个$max(dp[i][1], dp[i][0])$加在$ans$上。&lt;/p&gt;
-&lt;h1 id=&#34;代码-7&#34;&gt;代码&lt;/h1&gt;
+&lt;h1 id=&#34;代码-9&#34;&gt;代码&lt;/h1&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;solve&lt;/span&gt;():
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    s &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;.&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; input()
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    n &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; len(s)
