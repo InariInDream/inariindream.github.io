@@ -9,7 +9,7 @@
 <meta property='og:description' content='一个被推荐了很多次的atc上的DP题单'>
 <meta property='og:url' content='https://inariindream.fun/blog/2023/01/11/atcoder-educational-dp-contest/'>
 <meta property='og:site_name' content='Inari&#39;s Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='ATC专题' /><meta property='article:published_time' content='2023-01-11T16:45:31&#43;00:00'/><meta property='article:modified_time' content='2023-01-14T22:33:58&#43;08:00'/><meta property='og:image' content='https://inariindream.fun/blog/2023/01/11/atcoder-educational-dp-contest/111.jpg' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='ATC专题' /><meta property='article:published_time' content='2023-01-11T16:45:31&#43;00:00'/><meta property='article:modified_time' content='2023-02-09T20:52:04&#43;08:00'/><meta property='og:image' content='https://inariindream.fun/blog/2023/01/11/atcoder-educational-dp-contest/111.jpg' />
 <meta name="twitter:site" content="@inariindream">
     <meta name="twitter:creator" content="@inariindream"><meta name="twitter:title" content="Atcoder Educational DP Contest">
 <meta name="twitter:description" content="一个被推荐了很多次的atc上的DP题单"><meta name="twitter:card" content="summary_large_image">
@@ -811,7 +811,7 @@ ODoyMSswMDowMEEubXoAAAAASUVORK5CYII=" />
 
 
                 <time class="article-time--reading">
-                    1 minute read
+                    2 minute read
                 </time>
             </div>
         
@@ -825,8 +825,10 @@ ODoyMSswMDowMEEubXoAAAAASUVORK5CYII=" />
     <section class="article-content">
     
     
-    <h1 id="题单链接httpsatcoderjpcontestsdp">题单链接：https://atcoder.jp/contests/dp</h1>
-<h1 id="a">A</h1>
+    <h1 id="题单链接httpsatcoderjpcontestsdphttpsatcoderjpcontestsdp"><a class="link" href="https://atcoder.jp/contests/dp"  target="_blank" rel="noopener"
+    >题单链接</a>：https://atcoder.jp/contests/dp</h1>
+<h1 id="ahttpsatcoderjpcontestsdptasksdp_a"><a class="link" href="https://atcoder.jp/contests/dp/tasks/dp_a"  target="_blank" rel="noopener"
+    >A</a></h1>
 <p>入门题，直接放代码了</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">solve</span>():
 </span></span><span style="display:flex;"><span>    n <span style="color:#f92672">=</span> int(input())
@@ -837,7 +839,8 @@ ODoyMSswMDowMEEubXoAAAAASUVORK5CYII=" />
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">3</span>, n <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>):
 </span></span><span style="display:flex;"><span>        f[i] <span style="color:#f92672">=</span> min(f[i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> abs(a[i] <span style="color:#f92672">-</span> a[i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>]), f[i <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span>] <span style="color:#f92672">+</span> abs(a[i] <span style="color:#f92672">-</span> a[i <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span>]))
 </span></span><span style="display:flex;"><span>    print(f[n])
-</span></span></code></pre></div><h1 id="b">B</h1>
+</span></span></code></pre></div><h1 id="bhttpsatcoderjpcontestsdptasksdp_b"><a class="link" href="https://atcoder.jp/contests/dp/tasks/dp_b"  target="_blank" rel="noopener"
+    >B</a></h1>
 <p>A的加强版，多一个for</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">solve</span>():
 </span></span><span style="display:flex;"><span>    n, k <span style="color:#f92672">=</span> map(int, input()<span style="color:#f92672">.</span>split())
@@ -853,7 +856,61 @@ ODoyMSswMDowMEEubXoAAAAASUVORK5CYII=" />
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">#     f[i] = min(f[i - 1] + abs(a[i] - a[i - 1]), f[i - 2] + abs(a[i] - a[i - 2]))</span>
 </span></span><span style="display:flex;"><span>    print(f[n])
 </span></span></code></pre></div><p>初始化不能乱设114514 😥，原来的<code>f = [114514111145141] * (n + 1)</code>会T</p>
-
+<h1 id="chttpsatcoderjpcontestsdptasksdp_c"><a class="link" href="https://atcoder.jp/contests/dp/tasks/dp_c"  target="_blank" rel="noopener"
+    >C</a></h1>
+<p>朴素转移</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">solvec</span>():
+</span></span><span style="display:flex;"><span>    n <span style="color:#f92672">=</span> int(input())
+</span></span><span style="display:flex;"><span>    f <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> _ <span style="color:#f92672">in</span> range(n):
+</span></span><span style="display:flex;"><span>        a, b, c <span style="color:#f92672">=</span> map(int, input()<span style="color:#f92672">.</span>split())
+</span></span><span style="display:flex;"><span>        f<span style="color:#f92672">.</span>append([a, b, c])
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, n):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">3</span>):
+</span></span><span style="display:flex;"><span>            f[i][j] <span style="color:#f92672">+=</span> max(f[i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>][(j <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span>) <span style="color:#f92672">%</span> <span style="color:#ae81ff">3</span>], f[i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>][(j <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">%</span> <span style="color:#ae81ff">3</span>])
+</span></span><span style="display:flex;"><span>    print(max(f[n <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>]))
+</span></span></code></pre></div><h1 id="dhttpsatcoderjpcontestsdptasksdp_d"><a class="link" href="https://atcoder.jp/contests/dp/tasks/dp_d"  target="_blank" rel="noopener"
+    >D</a></h1>
+<p>01背包模板题
+（妈的想起来去年这个时候自己也在听wls讲01背包</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">solved</span>():
+</span></span><span style="display:flex;"><span>    n, m <span style="color:#f92672">=</span> map(int, input()<span style="color:#f92672">.</span>split())
+</span></span><span style="display:flex;"><span>    w <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>    v <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>    f <span style="color:#f92672">=</span> [<span style="color:#ae81ff">0</span>] <span style="color:#f92672">*</span> (m <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(n):
+</span></span><span style="display:flex;"><span>        x, y <span style="color:#f92672">=</span> map(int, input()<span style="color:#f92672">.</span>split())
+</span></span><span style="display:flex;"><span>        w<span style="color:#f92672">.</span>append(x)
+</span></span><span style="display:flex;"><span>        v<span style="color:#f92672">.</span>append(y)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(n):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(m, w[i] <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>):
+</span></span><span style="display:flex;"><span>            f[j] <span style="color:#f92672">=</span> max(f[j], f[j <span style="color:#f92672">-</span> w[i]] <span style="color:#f92672">+</span> v[i])
+</span></span><span style="display:flex;"><span>    print(f[m])
+</span></span></code></pre></div><h1 id="ehttpsatcoderjpcontestsdptasksdp_e"><a class="link" href="https://atcoder.jp/contests/dp/tasks/dp_e"  target="_blank" rel="noopener"
+    >E</a></h1>
+<p>与上题相同，只不过$m$和$w_i$范围变到了$10^9$，就不能用相同的转移方程了
+用$dp_i$表示价值到$i$所需的最小重量</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">solvee</span>():
+</span></span><span style="display:flex;"><span>    n, m <span style="color:#f92672">=</span> map(int, input()<span style="color:#f92672">.</span>split())
+</span></span><span style="display:flex;"><span>    w <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>    v <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> _ <span style="color:#f92672">in</span> range(n):
+</span></span><span style="display:flex;"><span>        x, y <span style="color:#f92672">=</span> map(int, input()<span style="color:#f92672">.</span>split())
+</span></span><span style="display:flex;"><span>        w<span style="color:#f92672">.</span>append(x)
+</span></span><span style="display:flex;"><span>        v<span style="color:#f92672">.</span>append(y)
+</span></span><span style="display:flex;"><span>    tot <span style="color:#f92672">=</span> sum(v)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 这里的dp[i]表示到达价值为i所需的最小质量</span>
+</span></span><span style="display:flex;"><span>    dp <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#ae81ff">31</span>] <span style="color:#f92672">*</span> (<span style="color:#ae81ff">10</span> <span style="color:#f92672">**</span> <span style="color:#ae81ff">5</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">5</span>)
+</span></span><span style="display:flex;"><span>    dp[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(n):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(tot, v[i] <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>):
+</span></span><span style="display:flex;"><span>            dp[j] <span style="color:#f92672">=</span> min(dp[j], dp[j <span style="color:#f92672">-</span> v[i]] <span style="color:#f92672">+</span> w[i])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(tot, <span style="color:#ae81ff">0</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> dp[i] <span style="color:#f92672">&lt;=</span> m:
+</span></span><span style="display:flex;"><span>            print(i)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span>
+</span></span></code></pre></div>
 </section>
 
 
@@ -888,7 +945,7 @@ ODoyMSswMDowMEEubXoAAAAASUVORK5CYII=" />
 
 
         <span>
-            最后更新于 Jan 14, 2023 22:33 CST
+            最后更新于 Feb 09, 2023 20:52 CST
         </span>
     </section></footer>
 
