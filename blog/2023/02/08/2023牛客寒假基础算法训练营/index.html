@@ -9,7 +9,7 @@
 <meta property='og:description' content='6场还算不错的比赛'>
 <meta property='og:url' content='https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/'>
 <meta property='og:site_name' content='Inari&#39;s Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='牛客专题' /><meta property='article:published_time' content='2023-02-08T12:35:46&#43;00:00'/><meta property='article:modified_time' content='2023-02-09T21:07:57&#43;08:00'/><meta property='og:image' content='https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/111.jpg' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='牛客专题' /><meta property='article:published_time' content='2023-02-08T12:35:46&#43;00:00'/><meta property='article:modified_time' content='2023-02-17T11:29:27&#43;08:00'/><meta property='og:image' content='https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/111.jpg' />
 <meta name="twitter:site" content="@inariindream">
     <meta name="twitter:creator" content="@inariindream"><meta name="twitter:title" content="2023牛客寒假基础算法训练营">
 <meta name="twitter:description" content="6场还算不错的比赛"><meta name="twitter:card" content="summary_large_image">
@@ -811,7 +811,7 @@ ODoyMSswMDowMEEubXoAAAAASUVORK5CYII=" />
 
 
                 <time class="article-time--reading">
-                    1 minute read
+                    4 minute read
                 </time>
             </div>
         
@@ -841,6 +841,221 @@ ODoyMSswMDowMEEubXoAAAAASUVORK5CYII=" />
 	
 >
 第一场的时候还没报名，之后要找机会vp一场</p>
+<p>从后往前补</p>
+<h2 id="2023牛客寒假算法基础集训营6">2023牛客寒假算法基础集训营6</h2>
+<h1 id="e-阿宁的生成树httpsacnowcodercomacmproblem247877"><a class="link" href="https://ac.nowcoder.com/acm/problem/247877"  target="_blank" rel="noopener"
+    >E 阿宁的生成树</a></h1>
+<h1 id="题意">题意</h1>
+<p><img src="/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-05-47.png"
+	width="896"
+	height="944"
+	srcset="/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-05-47_huad81d37b6f8d9bb53f3f2a2cbd2f5f24_49241_480x0_resize_box_3.png 480w, /blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-05-47_huad81d37b6f8d9bb53f3f2a2cbd2f5f24_49241_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="94"
+		data-flex-basis="227px"
+	
+></p>
+<h1 id="分析">分析</h1>
+<p>实际上算是个脑筋急转弯，只要了解生成树的概念再想到一个小trick即可</p>
+<p>由于素数间的间距最大也就100左右，所以暴力枚举找素数是完全可行的来使$gcd(i, j) == 1$是完全可行的</p>
+<p>连线策略：</p>
+<p><img src="/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-13-46.png"
+	width="707"
+	height="365"
+	srcset="/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-13-46_hue491b35aecc41c19f848a5a5538d3ce6_120111_480x0_resize_box_3.png 480w, /blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-13-46_hue491b35aecc41c19f848a5a5538d3ce6_120111_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="193"
+		data-flex-basis="464px"
+	
+></p>
+<h1 id="代码">代码</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">solvee</span>():
+</span></span><span style="display:flex;"><span>    n, k <span style="color:#f92672">=</span> map(int, input()<span style="color:#f92672">.</span>split())
+</span></span><span style="display:flex;"><span>    ans <span style="color:#f92672">=</span> max(<span style="color:#ae81ff">0</span>, n <span style="color:#f92672">-</span> k <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">2</span>, min(n, k <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>):
+</span></span><span style="display:flex;"><span>        temp <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#ae81ff">31</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(k <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> i, n <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>):
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> math<span style="color:#f92672">.</span>gcd(i, j) <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>:
+</span></span><span style="display:flex;"><span>                temp <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">break</span>
+</span></span><span style="display:flex;"><span>            temp <span style="color:#f92672">=</span> min(math<span style="color:#f92672">.</span>gcd(i, j), temp)
+</span></span><span style="display:flex;"><span>        mi <span style="color:#f92672">=</span> min(temp, i)
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># print(mi)</span>
+</span></span><span style="display:flex;"><span>        ans <span style="color:#f92672">+=</span> mi
+</span></span><span style="display:flex;"><span>    print(ans)
+</span></span></code></pre></div><h1 id="l-阿宁睡大觉httpsacnowcodercomacmcontest46814l"><a class="link" href="https://ac.nowcoder.com/acm/contest/46814/L"  target="_blank" rel="noopener"
+    >L 阿宁睡大觉</a></h1>
+<h1 id="题意-1">题意</h1>
+<p><img src="/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-18-24.png"
+	width="889"
+	height="779"
+	srcset="/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-18-24_huc1fec036ee26e2d35d7dd70cdce74dd7_48976_480x0_resize_box_3.png 480w, /blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-18-24_huc1fec036ee26e2d35d7dd70cdce74dd7_48976_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="114"
+		data-flex-basis="273px"
+	
+></p>
+<p><img src="/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-18-36.png"
+	width="892"
+	height="558"
+	srcset="/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-18-36_hu1fc7921c6b4d7a2b47d1c6d4aa99e092_32947_480x0_resize_box_3.png 480w, /blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-18-36_hu1fc7921c6b4d7a2b47d1c6d4aa99e092_32947_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="159"
+		data-flex-basis="383px"
+	
+></p>
+<h1 id="思路">思路</h1>
+<p>容斥原理 + 逆元求组合数取模 + dp</p>
+<p>半理解半抄代码补完的&hellip;还是有点难理解，有时间一定要自己完整地写一遍</p>
+<h1 id="代码-1">代码</h1>
+<p>这份代码的组合数取模板子似乎有点慢，跑了1600ms</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">solvel</span>():
+</span></span><span style="display:flex;"><span>    N <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">**</span> <span style="color:#ae81ff">5</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>    MOD <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">**</span> <span style="color:#ae81ff">9</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">7</span>
+</span></span><span style="display:flex;"><span>    pow2 <span style="color:#f92672">=</span> [<span style="color:#ae81ff">0</span>] <span style="color:#f92672">*</span> (N <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    b <span style="color:#f92672">=</span> [(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">for</span> _ <span style="color:#f92672">in</span> range(N)]
+</span></span><span style="display:flex;"><span>    fact <span style="color:#f92672">=</span> [<span style="color:#ae81ff">0</span>] <span style="color:#f92672">*</span> N
+</span></span><span style="display:flex;"><span>    infact <span style="color:#f92672">=</span> [<span style="color:#ae81ff">0</span>] <span style="color:#f92672">*</span> N
+</span></span><span style="display:flex;"><span>    fact[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    infact[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, N):
+</span></span><span style="display:flex;"><span>        fact[i] <span style="color:#f92672">=</span> fact[i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">*</span> i <span style="color:#f92672">%</span> MOD
+</span></span><span style="display:flex;"><span>        infact[i] <span style="color:#f92672">=</span> infact[i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">*</span> pow(i, MOD <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span>, MOD) <span style="color:#f92672">%</span> MOD
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">C</span>(a, b, MOD):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> fact[a] <span style="color:#f92672">*</span> infact[b] <span style="color:#f92672">*</span> infact[a <span style="color:#f92672">-</span> b] <span style="color:#f92672">%</span> MOD
+</span></span><span style="display:flex;"><span>    n, m <span style="color:#f92672">=</span> map(int, input()<span style="color:#f92672">.</span>split())
+</span></span><span style="display:flex;"><span>    a <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> _ <span style="color:#f92672">in</span> range(m):
+</span></span><span style="display:flex;"><span>        x, y <span style="color:#f92672">=</span> map(int, input()<span style="color:#f92672">.</span>split())
+</span></span><span style="display:flex;"><span>        a<span style="color:#f92672">.</span>append((x, y))
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>    pow2[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, n <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>):
+</span></span><span style="display:flex;"><span>        pow2[i] <span style="color:#f92672">=</span> pow2[i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">%</span> MOD
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 没有噩梦格子的总方案数</span>
+</span></span><span style="display:flex;"><span>    ans <span style="color:#f92672">=</span> pow2[n <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;&lt;</span> m):
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># 状压枚举</span>
+</span></span><span style="display:flex;"><span>        t <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>        t <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># 先放入起点</span>
+</span></span><span style="display:flex;"><span>        b[t] <span style="color:#f92672">=</span> (<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># 格子为奇数时ok=1，偶数为-1（容斥原理）</span>
+</span></span><span style="display:flex;"><span>        ok <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(m):
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> i <span style="color:#f92672">&gt;&gt;</span> j <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">1</span>:
+</span></span><span style="display:flex;"><span>                t <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>                b[t] <span style="color:#f92672">=</span> a[j]
+</span></span><span style="display:flex;"><span>                ok <span style="color:#f92672">*=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># 对x进行排序来一次判断是否会出现左下右上的情况</span>
+</span></span><span style="display:flex;"><span>        b[<span style="color:#ae81ff">1</span>:t <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> sorted(b[<span style="color:#ae81ff">1</span>:t <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>])
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># 最后一个格子到终点的路径数</span>
+</span></span><span style="display:flex;"><span>        temp <span style="color:#f92672">=</span> pow2[n <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">-</span> (b[t][<span style="color:#ae81ff">0</span>] <span style="color:#f92672">+</span> b[t][<span style="color:#ae81ff">1</span>] <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span>)]
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">2</span>, t <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>):
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> b[j <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>][<span style="color:#ae81ff">0</span>] <span style="color:#f92672">&lt;=</span> b[j][<span style="color:#ae81ff">0</span>] <span style="color:#f92672">and</span> b[j <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>][<span style="color:#ae81ff">1</span>] <span style="color:#f92672">&lt;=</span> b[j][<span style="color:#ae81ff">1</span>]:
+</span></span><span style="display:flex;"><span>                x <span style="color:#f92672">=</span> b[j][<span style="color:#ae81ff">0</span>] <span style="color:#f92672">-</span> b[j <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>][<span style="color:#ae81ff">0</span>] <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>                y <span style="color:#f92672">=</span> b[j][<span style="color:#ae81ff">1</span>] <span style="color:#f92672">-</span> b[j <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>][<span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e"># 乘法原理，将路径数乘起来</span>
+</span></span><span style="display:flex;"><span>                temp <span style="color:#f92672">=</span> temp <span style="color:#f92672">*</span> C(x <span style="color:#f92672">+</span> y <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span>, x <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>, MOD) <span style="color:#f92672">%</span> MOD
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>                temp <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">break</span>
+</span></span><span style="display:flex;"><span>        ans <span style="color:#f92672">=</span> (ans <span style="color:#f92672">+</span> ok <span style="color:#f92672">*</span> temp) <span style="color:#f92672">%</span> MOD
+</span></span><span style="display:flex;"><span>    ans <span style="color:#f92672">=</span> (ans <span style="color:#f92672">+</span> MOD) <span style="color:#f92672">%</span> MOD
+</span></span><span style="display:flex;"><span>    print(ans)
+</span></span></code></pre></div><p>这份比较快，只跑了400ms</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">solvel</span>():
+</span></span><span style="display:flex;"><span>    N <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">**</span> <span style="color:#ae81ff">5</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>    MOD <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">**</span> <span style="color:#ae81ff">9</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">7</span>
+</span></span><span style="display:flex;"><span>    inv <span style="color:#f92672">=</span> [<span style="color:#ae81ff">0</span>] <span style="color:#f92672">*</span> N; fac <span style="color:#f92672">=</span> inv<span style="color:#f92672">.</span>copy(); facinv <span style="color:#f92672">=</span> inv<span style="color:#f92672">.</span>copy(); pow2 <span style="color:#f92672">=</span> inv<span style="color:#f92672">.</span>copy()
+</span></span><span style="display:flex;"><span>    b <span style="color:#f92672">=</span> [(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">for</span> _ <span style="color:#f92672">in</span> range(N)]
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">C</span>(n, m):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> fac[n] <span style="color:#f92672">*</span> facinv[m] <span style="color:#f92672">%</span> MOD <span style="color:#f92672">*</span> facinv[n <span style="color:#f92672">-</span> m] <span style="color:#f92672">%</span> MOD
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>    n, m <span style="color:#f92672">=</span> map(int, input()<span style="color:#f92672">.</span>split())
+</span></span><span style="display:flex;"><span>    a <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> _ <span style="color:#f92672">in</span> range(m):
+</span></span><span style="display:flex;"><span>        x, y <span style="color:#f92672">=</span> map(int, input()<span style="color:#f92672">.</span>split())
+</span></span><span style="display:flex;"><span>        a<span style="color:#f92672">.</span>append((x, y))
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 线性预处理组合数</span>
+</span></span><span style="display:flex;"><span>    inv[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> fac[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> fac[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> facinv[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> facinv[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">2</span>, N):
+</span></span><span style="display:flex;"><span>        inv[i] <span style="color:#f92672">=</span> (MOD <span style="color:#f92672">-</span> MOD <span style="color:#f92672">//</span> i) <span style="color:#f92672">*</span> inv[MOD <span style="color:#f92672">%</span> i] <span style="color:#f92672">%</span> MOD
+</span></span><span style="display:flex;"><span>        fac[i] <span style="color:#f92672">=</span> fac[i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">*</span> i <span style="color:#f92672">%</span> MOD
+</span></span><span style="display:flex;"><span>        facinv[i] <span style="color:#f92672">=</span> facinv[i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">*</span> inv[i] <span style="color:#f92672">%</span> MOD
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>    pow2[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, n <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>):
+</span></span><span style="display:flex;"><span>        pow2[i] <span style="color:#f92672">=</span> pow2[i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">%</span> MOD
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 没有噩梦格子的总方案数</span>
+</span></span><span style="display:flex;"><span>    ans <span style="color:#f92672">=</span> pow2[n <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;&lt;</span> m):
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># 状压枚举</span>
+</span></span><span style="display:flex;"><span>        t <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>        t <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># 先放入起点</span>
+</span></span><span style="display:flex;"><span>        b[t] <span style="color:#f92672">=</span> (<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># 格子为奇数时ok=1，偶数为-1（容斥原理）</span>
+</span></span><span style="display:flex;"><span>        ok <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(m):
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> i <span style="color:#f92672">&gt;&gt;</span> j <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">1</span>:
+</span></span><span style="display:flex;"><span>                t <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>                b[t] <span style="color:#f92672">=</span> a[j]
+</span></span><span style="display:flex;"><span>                ok <span style="color:#f92672">*=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># 对x进行排序来一次判断是否会出现左下右上的情况</span>
+</span></span><span style="display:flex;"><span>        b[<span style="color:#ae81ff">1</span>:t <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> sorted(b[<span style="color:#ae81ff">1</span>:t <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>])
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># 最后一个格子到终点的路径数</span>
+</span></span><span style="display:flex;"><span>        temp <span style="color:#f92672">=</span> pow2[n <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">-</span> (b[t][<span style="color:#ae81ff">0</span>] <span style="color:#f92672">+</span> b[t][<span style="color:#ae81ff">1</span>] <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span>)]
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">2</span>, t <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>):
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> b[j <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>][<span style="color:#ae81ff">0</span>] <span style="color:#f92672">&lt;=</span> b[j][<span style="color:#ae81ff">0</span>] <span style="color:#f92672">and</span> b[j <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>][<span style="color:#ae81ff">1</span>] <span style="color:#f92672">&lt;=</span> b[j][<span style="color:#ae81ff">1</span>]:
+</span></span><span style="display:flex;"><span>                x <span style="color:#f92672">=</span> b[j][<span style="color:#ae81ff">0</span>] <span style="color:#f92672">-</span> b[j <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>][<span style="color:#ae81ff">0</span>] <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>                y <span style="color:#f92672">=</span> b[j][<span style="color:#ae81ff">1</span>] <span style="color:#f92672">-</span> b[j <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>][<span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e"># 乘法原理，将路径数乘起来</span>
+</span></span><span style="display:flex;"><span>                temp <span style="color:#f92672">=</span> temp <span style="color:#f92672">*</span> C(x <span style="color:#f92672">+</span> y <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span>, x <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">%</span> MOD
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>                temp <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">break</span>
+</span></span><span style="display:flex;"><span>        ans <span style="color:#f92672">=</span> (ans <span style="color:#f92672">+</span> ok <span style="color:#f92672">*</span> temp) <span style="color:#f92672">%</span> MOD
+</span></span><span style="display:flex;"><span>    ans <span style="color:#f92672">=</span> (ans <span style="color:#f92672">+</span> MOD) <span style="color:#f92672">%</span> MOD
+</span></span><span style="display:flex;"><span>    print(ans)
+</span></span></code></pre></div><h2 id="2023牛客寒假算法基础集训营5">2023牛客寒假算法基础集训营5</h2>
+<h1 id="c-小沙の不懂httpsacnowcodercomacmcontest46813c"><a class="link" href="https://ac.nowcoder.com/acm/contest/46813/C"  target="_blank" rel="noopener"
+    >C 小沙の不懂</a></h1>
+<h1 id="题目描述">题目描述</h1>
+<p><img src="/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-28-32.png"
+	width="912"
+	height="764"
+	srcset="/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-28-32_hu751f0e32fef5033f9f1c2a8c30e82ed6_42344_480x0_resize_box_3.png 480w, /blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-28-32_hu751f0e32fef5033f9f1c2a8c30e82ed6_42344_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="119"
+		data-flex-basis="286px"
+	
+></p>
 
 </section>
 
@@ -876,7 +1091,7 @@ ODoyMSswMDowMEEubXoAAAAASUVORK5CYII=" />
 
 
         <span>
-            最后更新于 Feb 09, 2023 21:07 CST
+            最后更新于 Feb 17, 2023 11:29 CST
         </span>
     </section></footer>
 
@@ -1021,6 +1236,34 @@ ODoyMSswMDowMEEubXoAAAAASUVORK5CYII=" />
         
             
                 
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title"> </h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#2023牛客寒假算法基础集训营6">2023牛客寒假算法基础集训营6</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#2023牛客寒假算法基础集训营5">2023牛客寒假算法基础集训营5</a></li>
+  </ul>
+</nav>
+        </div>
+    </section>
+
             
         
             
