@@ -242,7 +242,69 @@
 		data-flex-basis=&#34;286px&#34;
 	
 &gt;&lt;/p&gt;
-</description>
+&lt;p&gt;沙姐姐的题面太难顶了，用炸鸡块哥哥的话翻译下题意：&lt;/p&gt;
+&lt;p&gt;$p$相当于是一个映射，将原来$a, b$中的数字映射成现在的输入，题目问你是否不管这个映射$p$怎么变，是否能确定原来$a, b$之间的关系，如果能就输出大小等于，不能则输出！&lt;/p&gt;
+&lt;h1 id=&#34;思路-1&#34;&gt;思路&lt;/h1&gt;
+&lt;p&gt;在打这场的时候就看群友说这题十分的阅读理解，~~gkjj差这题就ak。~~于是果断选择跳过去做其他题&lt;/p&gt;
+&lt;p&gt;直接贴结论吧&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-20-26-03.png&#34;
+	width=&#34;811&#34;
+	height=&#34;48&#34;
+	srcset=&#34;https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-20-26-03_hu5cb39f9b13ecb94be6b0d9ffc72841e0_34631_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-20-26-03_hu5cb39f9b13ecb94be6b0d9ffc72841e0_34631_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;1689&#34;
+		data-flex-basis=&#34;4055px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;长度不一样的时候，如果要让长的不一定大于短的，只有一种可能。贪心地想，肯定是要将长的那个多长的一截给去掉，即变0，如果不能去掉则长的一定大于小的。&lt;/p&gt;
+&lt;p&gt;一长一短的情况只有两种情况：长的大于小的或不能确定，不能确定的情况比较好找，有两种：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;剩下的$a, b$完全相同。此时由于前面截掉部分的不确定性，有大于和等于两种可能。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;从前往后找，若找到一个不同，如果不同且$b[i]$不等于之前截掉部分的数（即不能变0），说明长的失去了最后的一定大于短的机会，也是不确定。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;剩下的情况，长的一定总是大于短的&lt;/p&gt;
+&lt;h1 id=&#34;代码-2&#34;&gt;代码&lt;/h1&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;solvec&lt;/span&gt;():
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    a, b &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; input()&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;split()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; a &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; b:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        print(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;=&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; len(a) &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; len(b):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        print(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;!&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    res &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; len(a) &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; len(b):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        a, b &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; b, a
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        res &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;lt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    n &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; len(a)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    m &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; len(b)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ok &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; a[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; i &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; range(n &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; m):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; a[i] &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; ok:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            print(res)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    a &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; a[n &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; m:]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; a &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; b:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        print(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;!&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; i &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; range(m):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; a[i] &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; b[i]:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; b[i] &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; ok:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                print(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;!&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;break&lt;/span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;# 这个位置一定记得break，只比较一次&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    print(res)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
         </item>
         <item>
         <title>Atcoder Educational DP Contest</title>
