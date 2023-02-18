@@ -305,6 +305,45 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;break&lt;/span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;# 这个位置一定记得break，只比较一次&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    print(res)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;f-小沙的串串httpsacnowcodercomacmcontest46813f&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://ac.nowcoder.com/acm/contest/46813/F&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;F 小沙的串串&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id=&#34;题意-2&#34;&gt;题意&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-18-16-44-41.png&#34;
+	width=&#34;920&#34;
+	height=&#34;636&#34;
+	srcset=&#34;https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-18-16-44-41_hu55664caca997397cbf19d0d7a762f17c_26196_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-18-16-44-41_hu55664caca997397cbf19d0d7a762f17c_26196_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;144&#34;
+		data-flex-basis=&#34;347px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h1 id=&#34;思路-2&#34;&gt;思路&lt;/h1&gt;
+&lt;p&gt;这题赛时过的人很少，最后1h才逼近100，但群友说是典中典。&lt;del&gt;看来确实做少了&lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;大体的思路就是用单调栈模拟，由于每次操作可以使得更大的数字往前移动，所以可以采用单调栈来维护一个单调递减的数字串。单调栈里面的一定是一个单调递减的字符串，并且栈底是操作后字符串的首位（能达到的最大值）&lt;/p&gt;
+&lt;p&gt;关键点来了，如果对整个串维护完之后，如果存在多余的操作没有使用，则可以&lt;strong&gt;选择最后几个最小的数字将其放在后面&lt;/strong&gt;，使得前面曾被移动的到后面的数字更加靠前。&lt;/p&gt;
+&lt;p&gt;随后将所有被移动后的字符排序之后，接在最后面即可，因为我们的操作其实是&lt;strong&gt;不分先后顺序的&lt;/strong&gt;，没有规定一定要挨着删。因此我们可以先将需要删除的最大的字符进行删除，使得最后他尽可能的靠前。来达到排序后的效果。&lt;/p&gt;
+&lt;h1 id=&#34;代码-3&#34;&gt;代码&lt;/h1&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;solvef&lt;/span&gt;():
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    n, k &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; map(int, input()&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;split())
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    s &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; input()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ans &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; deque()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    res &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; c &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; s:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt; k &lt;span style=&#34;color:#f92672&#34;&gt;and&lt;/span&gt; len(ans) &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;and&lt;/span&gt; ans[&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; c:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            k &lt;span style=&#34;color:#f92672&#34;&gt;-=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            res &lt;span style=&#34;color:#f92672&#34;&gt;+=&lt;/span&gt; ans&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;pop()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        ans&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;append(c)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt; k &lt;span style=&#34;color:#f92672&#34;&gt;and&lt;/span&gt; len(ans) &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        k &lt;span style=&#34;color:#f92672&#34;&gt;-=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        res &lt;span style=&#34;color:#f92672&#34;&gt;+=&lt;/span&gt; ans&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;pop()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    res &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; sorted(res, reverse&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;True&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    temp &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [c &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; c &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; ans]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    temp&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;extend(res)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    print(&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;temp, sep&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
         </item>
         <item>
