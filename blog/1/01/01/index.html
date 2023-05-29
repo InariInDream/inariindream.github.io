@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='转移部署教程 1.安装Anaconda 下载安装包 由于是aarch64架构，所以官方没有提供编译好的conda，要从其他渠道安装。
+按ctrl &#43; alt &#43; T打开bash命令行，输入以下命令
+wget https://github.com/Archiconda/build-tools/releases/download/0.2.3/Archiconda3-0.2.3-Linux-aarch64.sh 即可下载安装包到当前目录（如果不清楚当前目录在哪，可输入pwd查看）
+安装 输入
+./Archiconda3-0.2.3-Linux-aarch64.sh 即可执行安装命令
+路径配置 conda应该会被安装至/opt/conda下面，将其全部文件迁移到/home/nvidia/.conda下
+若当前目录在home，使用下列命令来新建文件夹并修改权限：
+sudo mkdir nvidia cd nvidia sudo mkdir .conda cd .. chmod -R 777 nvidia 然后分别打开/home/jetson(这里是用户名，自行修改)/.bashrc和/etc/profile，如果没有权限就使用vim进行编辑
+sudo vim xxx(文件路径) 打开编辑，按a进入输入状态，按:wq保存并退出
+在文件里加入如下几行
+注意检查路径是否和当前的conda位置符合
+注意不要加在文件末尾，可以找文件中有相似格式的位置添加。
+然后执行
+source /etc/profile 来应用更改
+测试 输入conda -V查看是否配置成功
+2.配置环境 移动文件 将U盘里的文件先转移到任意位置
+移植python36环境 找到conda文件夹，将U盘里的python36文件夹下移至envs文件夹下，即python36文件夹应处于/home/nvidia/.conda/envs/python36
+可以输入
+conda env list 来验证此环境是否移植成功
+然后使用以下命令激活环境
+conda activate python36 显式声明环境变量 打开前文提到的.bashrc
+在刚刚添加的语句后，新添一行
+export LD_PRELOAD=$LD_PRELOAD:/home/nvidia/conda/envs/python3.6/lib/python3.6/site-packages/scikit_learn.libs/libgomp-d22c30c5.so.1.0.0 否则在引入时会报错（平台bug）
+注意查看路径是否符合
+（可选）删除本地的包 如果在系统的这个位置不为空'><title></title>
+
+<link rel='canonical' href='https://inariindream.fun/blog/1/01/01/'>
+
+<link rel="stylesheet" href="/scss/style.min.dabe5a3caa768ceba518e17d6f219cfe25b185d1e71692088025722b0f6fbc5c.css"><meta property='og:title' content=''>
+<meta property='og:description' content='转移部署教程 1.安装Anaconda 下载安装包 由于是aarch64架构，所以官方没有提供编译好的conda，要从其他渠道安装。
+按ctrl &#43; alt &#43; T打开bash命令行，输入以下命令
+wget https://github.com/Archiconda/build-tools/releases/download/0.2.3/Archiconda3-0.2.3-Linux-aarch64.sh 即可下载安装包到当前目录（如果不清楚当前目录在哪，可输入pwd查看）
+安装 输入
+./Archiconda3-0.2.3-Linux-aarch64.sh 即可执行安装命令
+路径配置 conda应该会被安装至/opt/conda下面，将其全部文件迁移到/home/nvidia/.conda下
+若当前目录在home，使用下列命令来新建文件夹并修改权限：
+sudo mkdir nvidia cd nvidia sudo mkdir .conda cd .. chmod -R 777 nvidia 然后分别打开/home/jetson(这里是用户名，自行修改)/.bashrc和/etc/profile，如果没有权限就使用vim进行编辑
+sudo vim xxx(文件路径) 打开编辑，按a进入输入状态，按:wq保存并退出
+在文件里加入如下几行
+注意检查路径是否和当前的conda位置符合
+注意不要加在文件末尾，可以找文件中有相似格式的位置添加。
+然后执行
+source /etc/profile 来应用更改
+测试 输入conda -V查看是否配置成功
+2.配置环境 移动文件 将U盘里的文件先转移到任意位置
+移植python36环境 找到conda文件夹，将U盘里的python36文件夹下移至envs文件夹下，即python36文件夹应处于/home/nvidia/.conda/envs/python36
+可以输入
+conda env list 来验证此环境是否移植成功
+然后使用以下命令激活环境
+conda activate python36 显式声明环境变量 打开前文提到的.bashrc
+在刚刚添加的语句后，新添一行
+export LD_PRELOAD=$LD_PRELOAD:/home/nvidia/conda/envs/python3.6/lib/python3.6/site-packages/scikit_learn.libs/libgomp-d22c30c5.so.1.0.0 否则在引入时会报错（平台bug）
+注意查看路径是否符合
+（可选）删除本地的包 如果在系统的这个位置不为空'>
+<meta property='og:url' content='https://inariindream.fun/blog/1/01/01/'>
+<meta property='og:site_name' content='Inari&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:modified_time' content='2023-05-29T18:03:50&#43;08:00'/>
+<meta name="twitter:site" content="@inariindream">
+    <meta name="twitter:creator" content="@inariindream"><meta name="twitter:title" content="">
+<meta name="twitter:description" content="转移部署教程 1.安装Anaconda 下载安装包 由于是aarch64架构，所以官方没有提供编译好的conda，要从其他渠道安装。
+按ctrl &#43; alt &#43; T打开bash命令行，输入以下命令
+wget https://github.com/Archiconda/build-tools/releases/download/0.2.3/Archiconda3-0.2.3-Linux-aarch64.sh 即可下载安装包到当前目录（如果不清楚当前目录在哪，可输入pwd查看）
+安装 输入
+./Archiconda3-0.2.3-Linux-aarch64.sh 即可执行安装命令
+路径配置 conda应该会被安装至/opt/conda下面，将其全部文件迁移到/home/nvidia/.conda下
+若当前目录在home，使用下列命令来新建文件夹并修改权限：
+sudo mkdir nvidia cd nvidia sudo mkdir .conda cd .. chmod -R 777 nvidia 然后分别打开/home/jetson(这里是用户名，自行修改)/.bashrc和/etc/profile，如果没有权限就使用vim进行编辑
+sudo vim xxx(文件路径) 打开编辑，按a进入输入状态，按:wq保存并退出
+在文件里加入如下几行
+注意检查路径是否和当前的conda位置符合
+注意不要加在文件末尾，可以找文件中有相似格式的位置添加。
+然后执行
+source /etc/profile 来应用更改
+测试 输入conda -V查看是否配置成功
+2.配置环境 移动文件 将U盘里的文件先转移到任意位置
+移植python36环境 找到conda文件夹，将U盘里的python36文件夹下移至envs文件夹下，即python36文件夹应处于/home/nvidia/.conda/envs/python36
+可以输入
+conda env list 来验证此环境是否移植成功
+然后使用以下命令激活环境
+conda activate python36 显式声明环境变量 打开前文提到的.bashrc
+在刚刚添加的语句后，新添一行
+export LD_PRELOAD=$LD_PRELOAD:/home/nvidia/conda/envs/python3.6/lib/python3.6/site-packages/scikit_learn.libs/libgomp-d22c30c5.so.1.0.0 否则在引入时会报错（平台bug）
+注意查看路径是否符合
+（可选）删除本地的包 如果在系统的这个位置不为空">
+    <link rel="shortcut icon" href="https://s1.ax1x.com/2022/04/27/Lb5QhD.jpg" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/8DA6E1AE84965801DC21BA4241186685_hua14f9623c7513cf592015cff443be951_606586_300x0_resize_q75_box.jpg" width="300"
+                            height="308" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🌴</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Inari&#39;s Blog</a></h1>
+            <h2 class="site-description">狂风呼啸，你充满了决心。</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/InariInDream'
+                        target="_blank"
+                        title="GitHub"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://steamcommunity.com/profiles/76561198813007792/'
+                        target="_blank"
+                        title="steam"
+                    >
+                        
+                        
+                            <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="412px" height="414px" viewBox="0 0 412 414" enable-background="new 0 0 412 414" xml:space="preserve">  <image id="image0" width="412" height="414" x="0" y="0"
+    href="data:image/png;base64,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
+ODoyMSswMDowMEEubXoAAAAASUVORK5CYII=" />
+</svg>
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com/InariInDream'
+                        target="_blank"
+                        title="Twitter"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://inariindream.fun/index.xml'
+                        target="_blank"
+                        title="zh-rss"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="5" cy="19" r="1" />
+  <path d="M4 4a16 16 0 0 1 16 16" />
+  <path d="M4 11a9 9 0 0 1 9 9" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/page/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/page/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/page/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/page/friend/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友人</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span> </span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/blog/1/01/01/"></a>
+        </h2>
+    
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    1 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="转移部署教程">转移部署教程</h1>
+<h2 id="1安装anaconda">1.安装Anaconda</h2>
+<h3 id="下载安装包">下载安装包</h3>
+<p>由于是aarch64架构，所以官方没有提供编译好的conda，要从其他渠道安装。</p>
+<p>按ctrl + alt + T打开bash命令行，输入以下命令</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>wget https://github.com/Archiconda/build-tools/releases/download/0.2.3/Archiconda3-0.2.3-Linux-aarch64.sh
+</span></span></code></pre></div><p>即可下载安装包到当前目录（如果不清楚当前目录在哪，可输入<code>pwd</code>查看）</p>
+<h3 id="安装">安装</h3>
+<p>输入</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./Archiconda3-0.2.3-Linux-aarch64.sh
+</span></span></code></pre></div><p>即可执行安装命令</p>
+<h3 id="路径配置">路径配置</h3>
+<p>conda应该会被安装至<code>/opt/conda</code>下面，将其全部文件迁移到<code>/home/nvidia/.conda</code>下</p>
+<p><strong>若当前目录在home</strong>，使用下列命令来新建文件夹并修改权限：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo mkdir nvidia
+</span></span><span style="display:flex;"><span>cd nvidia
+</span></span><span style="display:flex;"><span>sudo mkdir .conda
+</span></span><span style="display:flex;"><span>cd ..
+</span></span><span style="display:flex;"><span>chmod -R <span style="color:#ae81ff">777</span> nvidia
+</span></span></code></pre></div><p>然后分别打开<code>/home/jetson(这里是用户名，自行修改)/.bashrc</code>和<code>/etc/profile</code>，如果没有权限就使用vim进行编辑</p>
+<p><img src="/2023-05-29-17-31-35.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo vim xxx<span style="color:#f92672">(</span>文件路径<span style="color:#f92672">)</span>
+</span></span></code></pre></div><p>打开编辑，按<code>a</code>进入输入状态，按<code>:wq</code>保存并退出</p>
+<p>在文件里加入如下几行</p>
+<p><img src="/2023-05-29-17-27-19.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p><strong>注意检查路径是否和当前的conda位置符合</strong></p>
+<p>注意不要加在文件末尾，可以找文件中有相似格式的位置添加。</p>
+<p>然后执行</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>source /etc/profile
+</span></span></code></pre></div><p>来应用更改</p>
+<h3 id="测试">测试</h3>
+<p>输入<code>conda -V</code>查看是否配置成功</p>
+<h2 id="2配置环境">2.配置环境</h2>
+<h3 id="移动文件">移动文件</h3>
+<p>将U盘里的文件先转移到任意位置</p>
+<h3 id="移植python36环境">移植python36环境</h3>
+<p>找到conda文件夹，将U盘里的python36文件夹下移至envs文件夹下，即python36文件夹应处于<code>/home/nvidia/.conda/envs/python36</code></p>
+<p>可以输入</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>conda env list 
+</span></span></code></pre></div><p>来验证此环境是否移植成功</p>
+<p>然后使用以下命令激活环境</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>conda activate python36
+</span></span></code></pre></div><h3 id="显式声明环境变量">显式声明环境变量</h3>
+<p>打开前文提到的<code>.bashrc</code></p>
+<p>在刚刚添加的语句后，新添一行</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>export LD_PRELOAD<span style="color:#f92672">=</span>$LD_PRELOAD:/home/nvidia/conda/envs/python3.6/lib/python3.6/site-packages/scikit_learn.libs/libgomp-d22c30c5.so.1.0.0
+</span></span></code></pre></div><p>否则在引入时会报错（平台bug）</p>
+<p>注意查看路径是否符合</p>
+<h3 id="可选删除本地的包">（可选）删除本地的包</h3>
+<p>如果在系统的这个位置不为空</p>
+<p><img src="/2023-05-29-17-36-25.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>需要将<code>site-packages</code>里面的文件/文件夹删除，这样conda才能找到我们刚刚移植的环境里的包</p>
+<h3 id="配置torch和torchvision重要"><strong>配置torch和torchvision（重要）</strong></h3>
+<p><strong>注意，必须在激活python36环境下执行，即命令行最左边有&rsquo;(python36)&lsquo;字样</strong></p>
+<p>首先，使用如下命令来删除现有的<code>torch</code>和<code>torchvision</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip uninstall torch
+</span></span><span style="display:flex;"><span>pip uninstall torchvision
+</span></span></code></pre></div><p>如果出现带<code>y/n</code>字样的提示，输入y然后回车即可</p>
+<p>然后使用<code>cd</code>命令将命令行转到有这两个文件的文件夹位置（从U盘中转移出来时的位置），也可直接在目标文件夹右键空白处然后点击<code>open terminal</code></p>
+<p><img src="/2023-05-29-17-49-35.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p><img src="/2023-05-29-17-49-45.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>然后使用下列命令安装<code>whl</code>文件即可。 <em>(文件名不用输全，可以输几个字母然后按<code>Tab</code>键进行自动补全)</em></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip install torch-1.10.0-cp36-cp36m-linux_aarch64.whl
+</span></span><span style="display:flex;"><span>pip install torchvision-0.11.0a0+fa347eb-cp36-cp36m-linux_aarch64.whl
+</span></span></code></pre></div><h2 id="3运行程序">3.运行程序</h2>
+<p>在控制台里面使用<code>cd</code>命令转移到U盘里deploy所转移到的的文件夹并<code>cd deploy</code>（即当前控制台的最右边显示是&rsquo;deploy&rsquo;）</p>
+<p>或直接打开deploy文件夹再右键空白处点击<code>open terminal</code></p>
+<p>在执行过</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>conda activate python36
+</span></span></code></pre></div><p>的情况下，直接输入</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>python new01.py
+</span></span></code></pre></div><p>即可运行程序</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            最后更新于 May 29, 2023 18:03 CST
+        </span>
+    </section></footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css"integrity="sha256-J&#43;iAE0sgH8QSz9hpcDxXIftnj65JEZgNhGcgReTTK9s="crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js"integrity="sha256-InsNdER1b2xUewP&#43;pKCUJpkhiqwHgqiPXDlIk7GzBu4="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js"integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI="crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2022 - 
+        
+        2023 Inari&#39;s Blog
+    </section>
+    
+    <section class="powerby">
+        
+
+
+
+
+
+
+
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title"> </h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1安装anaconda">1.安装Anaconda</a>
+      <ul>
+        <li><a href="#下载安装包">下载安装包</a></li>
+        <li><a href="#安装">安装</a></li>
+        <li><a href="#路径配置">路径配置</a></li>
+        <li><a href="#测试">测试</a></li>
+      </ul>
+    </li>
+    <li><a href="#2配置环境">2.配置环境</a>
+      <ul>
+        <li><a href="#移动文件">移动文件</a></li>
+        <li><a href="#移植python36环境">移植python36环境</a></li>
+        <li><a href="#显式声明环境变量">显式声明环境变量</a></li>
+        <li><a href="#可选删除本地的包">（可选）删除本地的包</a></li>
+        <li><a href="#配置torch和torchvision重要"><strong>配置torch和torchvision（重要）</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#3运行程序">3.运行程序</a></li>
+  </ul>
+</nav>
+        </div>
+    </section>
+
+            
+        
+            
+                <form action="/page/search/" class="search-form widget" >
+        <p>
+            <label> </label>
+            <input name="keyword" required placeholder=" " />
+        
+            <button title=" ">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+            </button>
+        </p>
+    </form>
+            
+        
+    </aside>
+
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

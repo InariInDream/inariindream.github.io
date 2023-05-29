@@ -6,7 +6,23 @@
         <description>Recent content in Tags on Inari&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Thu, 11 May 2023 23:13:56 +0000</lastBuildDate><atom:link href="https://inariindream.fun/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 27 May 2023 18:32:14 +0000</lastBuildDate><atom:link href="https://inariindream.fun/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>目标检测</title>
+        <link>https://inariindream.fun/tags/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/</link>
+        <pubDate>Sat, 27 May 2023 18:32:14 +0000</pubDate>
+        
+        <guid>https://inariindream.fun/tags/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>计算机视觉</title>
+        <link>https://inariindream.fun/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/</link>
+        <pubDate>Sat, 27 May 2023 18:32:14 +0000</pubDate>
+        
+        <guid>https://inariindream.fun/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>动画</title>
         <link>https://inariindream.fun/tags/%E5%8A%A8%E7%94%BB/</link>
         <pubDate>Thu, 11 May 2023 23:13:56 +0000</pubDate>
@@ -36,22 +52,6 @@
         <pubDate>Mon, 09 Jan 2023 16:45:31 +0000</pubDate>
         
         <guid>https://inariindream.fun/tags/codeforces%E4%B8%93%E9%A2%98/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>目标检测</title>
-        <link>https://inariindream.fun/tags/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/</link>
-        <pubDate>Sat, 17 Dec 2022 10:24:08 +0000</pubDate>
-        
-        <guid>https://inariindream.fun/tags/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>计算机视觉</title>
-        <link>https://inariindream.fun/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/</link>
-        <pubDate>Sat, 17 Dec 2022 10:24:08 +0000</pubDate>
-        
-        <guid>https://inariindream.fun/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/</guid>
         <description></description>
         </item>
         <item>

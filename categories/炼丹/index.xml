@@ -6,6 +6,141 @@
         <description>Recent content in 炼丹 on Inari&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language><atom:link href="https://inariindream.fun/categories/%E7%82%BC%E4%B8%B9/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Nvidia Jetson 部署教程</title>
+        <link>https://inariindream.fun/blog/2023/05/27/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/</link>
+        <pubDate>Sat, 27 May 2023 18:32:14 +0000</pubDate>
+        
+        <guid>https://inariindream.fun/blog/2023/05/27/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/</guid>
+        <description>&lt;img src="https://inariindream.fun/blog/2023/05/27/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/111.png" alt="Featured image of post Nvidia Jetson 部署教程" /&gt;&lt;h1 id=&#34;转移部署教程&#34;&gt;转移部署教程&lt;/h1&gt;
+&lt;h2 id=&#34;1安装anaconda&#34;&gt;1.安装Anaconda&lt;/h2&gt;
+&lt;h3 id=&#34;下载安装包&#34;&gt;下载安装包&lt;/h3&gt;
+&lt;p&gt;由于是aarch64架构，所以官方没有提供编译好的conda，要从其他渠道安装。&lt;/p&gt;
+&lt;p&gt;按ctrl + alt + T打开bash命令行，输入以下命令&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;wget https://github.com/Archiconda/build-tools/releases/download/0.2.3/Archiconda3-0.2.3-Linux-aarch64.sh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;即可下载安装包到当前目录（如果不清楚当前目录在哪，可输入&lt;code&gt;pwd&lt;/code&gt;查看）&lt;/p&gt;
+&lt;h3 id=&#34;安装&#34;&gt;安装&lt;/h3&gt;
+&lt;p&gt;输入&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;./Archiconda3-0.2.3-Linux-aarch64.sh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;即可执行安装命令&lt;/p&gt;
+&lt;h3 id=&#34;路径配置&#34;&gt;路径配置&lt;/h3&gt;
+&lt;p&gt;conda应该会被安装至&lt;code&gt;/opt/conda&lt;/code&gt;下面，将其全部文件迁移到&lt;code&gt;/home/nvidia/.conda&lt;/code&gt;下&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;若当前目录在home&lt;/strong&gt;，使用下列命令来新建文件夹并修改权限：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo mkdir nvidia
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cd nvidia
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo mkdir .conda
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cd ..
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;chmod -R &lt;span style=&#34;color:#ae81ff&#34;&gt;777&lt;/span&gt; nvidia
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后分别打开&lt;code&gt;/home/jetson(这里是用户名，自行修改)/.bashrc&lt;/code&gt;和&lt;code&gt;/etc/profile&lt;/code&gt;，如果没有权限就使用vim进行编辑&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2023/05/27/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-31-35.png&#34;
+	width=&#34;853&#34;
+	height=&#34;581&#34;
+	srcset=&#34;https://inariindream.fun/blog/2023/05/27/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-31-35_hue5f90cceefbe5d897d8c61e802a15046_216246_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2023/05/27/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-31-35_hue5f90cceefbe5d897d8c61e802a15046_216246_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;146&#34;
+		data-flex-basis=&#34;352px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo vim xxx&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;文件路径&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;打开编辑，按&lt;code&gt;a&lt;/code&gt;进入输入状态，按&lt;code&gt;:wq&lt;/code&gt;保存并退出&lt;/p&gt;
+&lt;p&gt;在文件里加入如下几行&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2023/05/27/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-27-19.png&#34;
+	width=&#34;1285&#34;
+	height=&#34;737&#34;
+	srcset=&#34;https://inariindream.fun/blog/2023/05/27/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-27-19_hu0b9ef5710ea3afaac4b686785cee9936_271156_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2023/05/27/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-27-19_hu0b9ef5710ea3afaac4b686785cee9936_271156_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;174&#34;
+		data-flex-basis=&#34;418px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;注意检查路径是否和当前的conda位置符合&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;注意不要加在文件末尾，可以找文件中有相似格式的位置添加。&lt;/p&gt;
+&lt;p&gt;然后执行&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;source /etc/profile
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;来应用更改&lt;/p&gt;
+&lt;h3 id=&#34;测试&#34;&gt;测试&lt;/h3&gt;
+&lt;p&gt;输入&lt;code&gt;conda -V&lt;/code&gt;查看是否配置成功&lt;/p&gt;
+&lt;h2 id=&#34;2配置环境&#34;&gt;2.配置环境&lt;/h2&gt;
+&lt;h3 id=&#34;移动文件&#34;&gt;移动文件&lt;/h3&gt;
+&lt;p&gt;将U盘里的文件先转移到任意位置&lt;/p&gt;
+&lt;h3 id=&#34;移植python36环境&#34;&gt;移植python36环境&lt;/h3&gt;
+&lt;p&gt;找到conda文件夹，将U盘里的python36文件夹下移至envs文件夹下，即python36文件夹应处于&lt;code&gt;/home/nvidia/.conda/envs/python36&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;可以输入&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;conda env list 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;来验证此环境是否移植成功&lt;/p&gt;
+&lt;p&gt;然后使用以下命令激活环境&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;conda activate python36
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;显式声明环境变量&#34;&gt;显式声明环境变量&lt;/h3&gt;
+&lt;p&gt;打开前文提到的&lt;code&gt;.bashrc&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;在刚刚添加的语句后，新添一行&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;export LD_PRELOAD&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;$LD_PRELOAD:/home/nvidia/conda/envs/python3.6/lib/python3.6/site-packages/scikit_learn.libs/libgomp-d22c30c5.so.1.0.0
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;否则在引入时会报错（平台bug）&lt;/p&gt;
+&lt;p&gt;注意查看路径是否符合&lt;/p&gt;
+&lt;h3 id=&#34;可选删除本地的包&#34;&gt;（可选）删除本地的包&lt;/h3&gt;
+&lt;p&gt;如果在系统的这个位置不为空&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2023/05/27/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-36-25.png&#34;
+	width=&#34;406&#34;
+	height=&#34;41&#34;
+	srcset=&#34;https://inariindream.fun/blog/2023/05/27/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-36-25_hu59b7084fe77b13ba51db21c9e56cb951_8611_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2023/05/27/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-36-25_hu59b7084fe77b13ba51db21c9e56cb951_8611_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;990&#34;
+		data-flex-basis=&#34;2376px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;需要将&lt;code&gt;site-packages&lt;/code&gt;里面的文件/文件夹删除，这样conda才能找到我们刚刚移植的环境里的包&lt;/p&gt;
+&lt;h3 id=&#34;配置torch和torchvision重要&#34;&gt;&lt;strong&gt;配置torch和torchvision（重要）&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;注意，必须在激活python36环境下执行，即命令行最左边有&amp;rsquo;(python36)&amp;lsquo;字样&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;首先，使用如下命令来删除现有的&lt;code&gt;torch&lt;/code&gt;和&lt;code&gt;torchvision&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pip uninstall torch
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pip uninstall torchvision
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果出现带&lt;code&gt;y/n&lt;/code&gt;字样的提示，输入y然后回车即可&lt;/p&gt;
+&lt;p&gt;然后使用&lt;code&gt;cd&lt;/code&gt;命令将命令行转到有这两个文件的文件夹位置（从U盘中转移出来时的位置），也可直接在目标文件夹右键空白处然后点击&lt;code&gt;open terminal&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2023/05/27/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-49-35.png&#34;
+	width=&#34;551&#34;
+	height=&#34;377&#34;
+	srcset=&#34;https://inariindream.fun/blog/2023/05/27/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-49-35_hua2bdeaa581acfe828c6b1c34817d3b62_26354_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2023/05/27/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-49-35_hua2bdeaa581acfe828c6b1c34817d3b62_26354_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;146&#34;
+		data-flex-basis=&#34;350px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2023/05/27/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-49-45.png&#34;
+	width=&#34;677&#34;
+	height=&#34;423&#34;
+	srcset=&#34;https://inariindream.fun/blog/2023/05/27/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-49-45_hu8fa04028b39728cf31a591886b5ae56d_43986_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2023/05/27/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-49-45_hu8fa04028b39728cf31a591886b5ae56d_43986_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;160&#34;
+		data-flex-basis=&#34;384px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;然后使用下列命令安装&lt;code&gt;whl&lt;/code&gt;文件即可。 &lt;em&gt;(文件名不用输全，可以输几个字母然后按&lt;code&gt;Tab&lt;/code&gt;键进行自动补全)&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pip install torch-1.10.0-cp36-cp36m-linux_aarch64.whl
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pip install torchvision-0.11.0a0+fa347eb-cp36-cp36m-linux_aarch64.whl
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;3运行程序&#34;&gt;3.运行程序&lt;/h2&gt;
+&lt;p&gt;在控制台里面使用&lt;code&gt;cd&lt;/code&gt;命令转移到U盘里deploy所转移到的的文件夹并&lt;code&gt;cd deploy&lt;/code&gt;（即当前控制台的最右边显示是&amp;rsquo;deploy&amp;rsquo;）&lt;/p&gt;
+&lt;p&gt;或直接打开deploy文件夹再右键空白处点击&lt;code&gt;open terminal&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;在执行过&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;conda activate python36
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;的情况下，直接输入&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;python new01.py
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;即可运行程序&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>炼丹问题实录</title>
         <link>https://inariindream.fun/blog/2022/12/17/%E7%82%BC%E4%B8%B9%E9%97%AE%E9%A2%98%E5%AE%9E%E5%BD%95/</link>
         <pubDate>Sat, 17 Dec 2022 10:24:08 +0000</pubDate>
