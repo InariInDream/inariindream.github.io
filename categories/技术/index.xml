@@ -7,11 +7,11 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language><atom:link href="https://inariindream.fun/categories/%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Nvidia Jetson 部署教程</title>
-        <link>https://inariindream.fun/blog/2023/05/27/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/</link>
-        <pubDate>Sat, 27 May 2023 18:32:14 +0000</pubDate>
+        <link>https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/</link>
+        <pubDate>Sun, 28 May 2023 18:32:14 +0000</pubDate>
         
-        <guid>https://inariindream.fun/blog/2023/05/27/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/</guid>
-        <description>&lt;img src="https://inariindream.fun/blog/2023/05/27/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/111.png" alt="Featured image of post Nvidia Jetson 部署教程" /&gt;&lt;h1 id=&#34;转移部署教程&#34;&gt;转移部署教程&lt;/h1&gt;
+        <guid>https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/</guid>
+        <description>&lt;img src="https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/111.png" alt="Featured image of post Nvidia Jetson 部署教程" /&gt;&lt;h1 id=&#34;转移部署教程&#34;&gt;转移部署教程&lt;/h1&gt;
 &lt;h2 id=&#34;1安装anaconda&#34;&gt;1.安装Anaconda&lt;/h2&gt;
 &lt;h3 id=&#34;下载安装包&#34;&gt;下载安装包&lt;/h3&gt;
 &lt;p&gt;由于是aarch64架构，所以官方没有提供编译好的conda，要从其他渠道安装。&lt;/p&gt;
@@ -31,10 +31,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cd ..
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;chmod -R &lt;span style=&#34;color:#ae81ff&#34;&gt;777&lt;/span&gt; nvidia
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后分别打开&lt;code&gt;/home/jetson(这里是用户名，自行修改)/.bashrc&lt;/code&gt;和&lt;code&gt;/etc/profile&lt;/code&gt;，如果没有权限就使用vim进行编辑&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2023/05/27/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-31-35.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-31-35.png&#34;
 	width=&#34;853&#34;
 	height=&#34;581&#34;
-	srcset=&#34;https://inariindream.fun/blog/2023/05/27/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-31-35_hue5f90cceefbe5d897d8c61e802a15046_216246_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2023/05/27/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-31-35_hue5f90cceefbe5d897d8c61e802a15046_216246_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-31-35_hue5f90cceefbe5d897d8c61e802a15046_216246_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-31-35_hue5f90cceefbe5d897d8c61e802a15046_216246_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -46,10 +46,10 @@
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo vim xxx&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;文件路径&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;打开编辑，按&lt;code&gt;a&lt;/code&gt;进入输入状态，按&lt;code&gt;:wq&lt;/code&gt;保存并退出&lt;/p&gt;
 &lt;p&gt;在文件里加入如下几行&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2023/05/27/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-27-19.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-27-19.png&#34;
 	width=&#34;1285&#34;
 	height=&#34;737&#34;
-	srcset=&#34;https://inariindream.fun/blog/2023/05/27/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-27-19_hu0b9ef5710ea3afaac4b686785cee9936_271156_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2023/05/27/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-27-19_hu0b9ef5710ea3afaac4b686785cee9936_271156_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-27-19_hu0b9ef5710ea3afaac4b686785cee9936_271156_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-27-19_hu0b9ef5710ea3afaac4b686785cee9936_271156_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -69,7 +69,9 @@
 &lt;h3 id=&#34;移动文件&#34;&gt;移动文件&lt;/h3&gt;
 &lt;p&gt;将U盘里的文件先转移到任意位置&lt;/p&gt;
 &lt;h3 id=&#34;移植python36环境&#34;&gt;移植python36环境&lt;/h3&gt;
-&lt;p&gt;找到conda文件夹，将U盘里的python36文件夹下移至envs文件夹下，即python36文件夹应处于&lt;code&gt;/home/nvidia/.conda/envs/python36&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;找到conda文件夹，将U盘里的python36文件夹下移至envs文件夹下并解压，解压命令：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;unzip python36.zip
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;即python36文件夹应处于&lt;code&gt;/home/nvidia/.conda/envs/python36&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;可以输入&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;conda env list 
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;来验证此环境是否移植成功&lt;/p&gt;
@@ -83,10 +85,10 @@
 &lt;p&gt;注意查看路径是否符合&lt;/p&gt;
 &lt;h3 id=&#34;可选删除本地的包&#34;&gt;（可选）删除本地的包&lt;/h3&gt;
 &lt;p&gt;如果在系统的这个位置不为空&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2023/05/27/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-36-25.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-36-25.png&#34;
 	width=&#34;406&#34;
 	height=&#34;41&#34;
-	srcset=&#34;https://inariindream.fun/blog/2023/05/27/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-36-25_hu59b7084fe77b13ba51db21c9e56cb951_8611_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2023/05/27/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-36-25_hu59b7084fe77b13ba51db21c9e56cb951_8611_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-36-25_hu59b7084fe77b13ba51db21c9e56cb951_8611_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-36-25_hu59b7084fe77b13ba51db21c9e56cb951_8611_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -98,15 +100,11 @@
 &lt;p&gt;需要将&lt;code&gt;site-packages&lt;/code&gt;里面的文件/文件夹删除，这样conda才能找到我们刚刚移植的环境里的包&lt;/p&gt;
 &lt;h3 id=&#34;配置torch和torchvision重要&#34;&gt;&lt;strong&gt;配置torch和torchvision（重要）&lt;/strong&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;注意，必须在激活python36环境下执行，即命令行最左边有&amp;rsquo;(python36)&amp;lsquo;字样&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;首先，使用如下命令来删除现有的&lt;code&gt;torch&lt;/code&gt;和&lt;code&gt;torchvision&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pip uninstall torch
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pip uninstall torchvision
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果出现带&lt;code&gt;y/n&lt;/code&gt;字样的提示，输入y然后回车即可&lt;/p&gt;
-&lt;p&gt;然后使用&lt;code&gt;cd&lt;/code&gt;命令将命令行转到有这两个文件的文件夹位置（从U盘中转移出来时的位置），也可直接在目标文件夹右键空白处然后点击&lt;code&gt;open terminal&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2023/05/27/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-49-35.png&#34;
+&lt;p&gt;使用&lt;code&gt;cd&lt;/code&gt;命令将命令行转到有这两个文件的文件夹位置（从U盘中转移出来时的位置），也可直接在目标文件夹右键空白处然后点击&lt;code&gt;open terminal&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-49-35.png&#34;
 	width=&#34;551&#34;
 	height=&#34;377&#34;
-	srcset=&#34;https://inariindream.fun/blog/2023/05/27/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-49-35_hua2bdeaa581acfe828c6b1c34817d3b62_26354_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2023/05/27/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-49-35_hua2bdeaa581acfe828c6b1c34817d3b62_26354_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-49-35_hua2bdeaa581acfe828c6b1c34817d3b62_26354_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-49-35_hua2bdeaa581acfe828c6b1c34817d3b62_26354_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -115,10 +113,10 @@
 		data-flex-basis=&#34;350px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2023/05/27/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-49-45.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-49-45.png&#34;
 	width=&#34;677&#34;
 	height=&#34;423&#34;
-	srcset=&#34;https://inariindream.fun/blog/2023/05/27/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-49-45_hu8fa04028b39728cf31a591886b5ae56d_43986_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2023/05/27/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-49-45_hu8fa04028b39728cf31a591886b5ae56d_43986_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-49-45_hu8fa04028b39728cf31a591886b5ae56d_43986_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-49-45_hu8fa04028b39728cf31a591886b5ae56d_43986_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -138,6 +136,69 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;的情况下，直接输入&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;python new01.py
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;即可运行程序&lt;/p&gt;
+&lt;h2 id=&#34;4-设置开机自启动&#34;&gt;4. 设置开机自启动&lt;/h2&gt;
+&lt;p&gt;在终端输入&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;gnome-session-properties
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;或直接在搜索栏输入start即可打开Startup Applications&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-31-16-35-25.png&#34;
+	width=&#34;583&#34;
+	height=&#34;472&#34;
+	srcset=&#34;https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-31-16-35-25_huc616566243fe7fa54c264021bda541c1_21628_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-31-16-35-25_huc616566243fe7fa54c264021bda541c1_21628_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;123&#34;
+		data-flex-basis=&#34;296px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;然后点击Add即可添加开机时自动运行的指令了&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-31-16-35-56.png&#34;
+	width=&#34;369&#34;
+	height=&#34;241&#34;
+	srcset=&#34;https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-31-16-35-56_hub20bf8fb6acff3bc3789bf10dab50fa5_16257_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-31-16-35-56_hub20bf8fb6acff3bc3789bf10dab50fa5_16257_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;153&#34;
+		data-flex-basis=&#34;367px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Name随便填，Comment可不填，在Command栏填写&lt;code&gt;gnome-terminal&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;然后打开前文提到的.bashrc文件，在文件的&lt;strong&gt;末尾&lt;/strong&gt;输入以下语句：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;conda activate python36
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sleep &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cd deploy
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;python new01.py
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;可能遇到的问题&#34;&gt;可能遇到的问题&lt;/h2&gt;
+&lt;p&gt;Q：使用pip或者conda命令时出现&lt;code&gt;bad interpreter: No such file or directory:&lt;/code&gt;的错误&lt;/p&gt;
+&lt;p&gt;A: 打开python36和.conda目录下的&lt;code&gt;bin&lt;/code&gt;文件夹，查看&lt;code&gt;pip&lt;/code&gt;文件和&lt;code&gt;conda&lt;/code&gt;文件的第一行&lt;code&gt;#！&lt;/code&gt;后面的解释器路径配置是否正确&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-31-18-10-09.png&#34;
+	width=&#34;804&#34;
+	height=&#34;464&#34;
+	srcset=&#34;https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-31-18-10-09_hu1f869a38b531761d924b0299424ab151_357793_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-31-18-10-09_hu1f869a38b531761d924b0299424ab151_357793_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;173&#34;
+		data-flex-basis=&#34;415px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-31-18-10-53.png&#34;
+	width=&#34;1221&#34;
+	height=&#34;556&#34;
+	srcset=&#34;https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-31-18-10-53_hu808c6a114d5fad9bf249c46a3adc6cbf_766246_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-31-18-10-53_hu808c6a114d5fad9bf249c46a3adc6cbf_766246_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;219&#34;
+		data-flex-basis=&#34;527px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;若与当前目录不符，修改即可。若没权限(文件只读)则可使用&lt;code&gt;sudo vim&lt;/code&gt;命令编辑文件&lt;/p&gt;
 </description>
         </item>
         <item>
