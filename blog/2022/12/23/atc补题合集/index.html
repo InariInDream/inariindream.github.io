@@ -9,7 +9,7 @@
 <meta property='og:description' content='Edu正统在atc'>
 <meta property='og:url' content='https://inariindream.fun/blog/2022/12/23/atc%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/'>
 <meta property='og:site_name' content='Inari&#39;s Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='ATC专题' /><meta property='article:published_time' content='2022-12-23T11:06:32&#43;00:00'/><meta property='article:modified_time' content='2022-12-28T14:20:05&#43;08:00'/><meta property='og:image' content='https://inariindream.fun/blog/2022/12/23/atc%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/222.jpg' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='ATC专题' /><meta property='article:published_time' content='2022-12-23T11:06:32&#43;00:00'/><meta property='article:modified_time' content='2023-06-01T16:57:51&#43;08:00'/><meta property='og:image' content='https://inariindream.fun/blog/2022/12/23/atc%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/222.jpg' />
 <meta name="twitter:site" content="@inariindream">
     <meta name="twitter:creator" content="@inariindream"><meta name="twitter:title" content="ATC补题合集">
 <meta name="twitter:description" content="Edu正统在atc"><meta name="twitter:card" content="summary_large_image">
@@ -811,7 +811,7 @@ ODoyMSswMDowMEEubXoAAAAASUVORK5CYII=" />
 
 
                 <time class="article-time--reading">
-                    1 minute read
+                    2 minute read
                 </time>
             </div>
         
@@ -825,8 +825,111 @@ ODoyMSswMDowMEEubXoAAAAASUVORK5CYII=" />
     <section class="article-content">
     
     
-    <p>开新坑</p>
-
+    <h2 id="abc287httpsatcoderjpcontestsabc287tasks"><a class="link" href="https://atcoder.jp/contests/abc287/tasks"  target="_blank" rel="noopener"
+    >ABC287</a></h2>
+<h1 id="d---match-or-not">D - Match or Not</h1>
+<h1 id="题意">题意</h1>
+<p>给定两个由小写字母和<code>？</code>字符串$S，T$, 问$S&rsquo;$和$T$是否匹配，其中，$S′$由 $S$串的前 $x$个字符和后 $|T|−x$个字符组成。</p>
+<p>两个字符串匹配，当且仅当将其中的 <code>?</code>替换成英文字母后，两个字符串相同或他们本身就相同。</p>
+<h1 id="思路">思路</h1>
+<p>两个字符串匹配，当且仅当每一位要么是相同字母，要么至少有一个<code>?</code>。于是我们可以储存所有不满足这些条件的位置。当且仅当该位置的数量为0时，两个字符串匹配。</p>
+<p>注意到当$x$递增的时候，前后两个 $S′$
+仅有一个位置不同，因此我们可以继承上一个状态，仅判断变化的位置能否匹配即可。</p>
+<p>答案一定呈现NO YES &hellip; YES YES YES &hellip;NO NO NO 或 YES YES YES &hellip; NO NO NO 这样的分布，即第一次由YES变成NO之后不可能回到YES</p>
+<h1 id="代码">代码</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">solved</span>():
+</span></span><span style="display:flex;"><span>    s <span style="color:#f92672">=</span> input()
+</span></span><span style="display:flex;"><span>    t <span style="color:#f92672">=</span> input()
+</span></span><span style="display:flex;"><span>    n <span style="color:#f92672">=</span> len(s)
+</span></span><span style="display:flex;"><span>    m <span style="color:#f92672">=</span> len(t)
+</span></span><span style="display:flex;"><span>    se <span style="color:#f92672">=</span> set()
+</span></span><span style="display:flex;"><span>    now <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(n <span style="color:#f92672">-</span> m, n):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> s[i] <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#34;?&#34;</span> <span style="color:#f92672">and</span> t[now] <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#34;?&#34;</span> <span style="color:#f92672">and</span> s[i] <span style="color:#f92672">!=</span> t[now]:
+</span></span><span style="display:flex;"><span>            se<span style="color:#f92672">.</span>add(now)
+</span></span><span style="display:flex;"><span>        now <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Yes&#34;</span> <span style="color:#66d9ef">if</span> len(se) <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">else</span> <span style="color:#e6db74">&#34;No&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(m):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>            se<span style="color:#f92672">.</span>remove(i)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">except</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">pass</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> s[i] <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#34;?&#34;</span> <span style="color:#f92672">and</span> t[i] <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#34;?&#34;</span> <span style="color:#f92672">and</span> s[i] <span style="color:#f92672">!=</span> t[i]:
+</span></span><span style="display:flex;"><span>            se<span style="color:#f92672">.</span>add(i)
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;Yes&#34;</span> <span style="color:#66d9ef">if</span> len(se) <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">else</span> <span style="color:#e6db74">&#34;No&#34;</span>)
+</span></span></code></pre></div><h1 id="e---karuta">E - Karuta</h1>
+<h1 id="题意-1">题意</h1>
+<p>给定$n$个字符串，对于每个字符串 $s_i$，问 $maxLCP(si,sj)_{i≠j}$，其中$LCP$是最长公共前缀。</p>
+<h1 id="思路-1">思路</h1>
+<p>其实只需要排序一次，最长公共前缀一定能出现在字典序上的邻居两个字符串之间。</p>
+<h1 id="代码-1">代码</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">solvee</span>():
+</span></span><span style="display:flex;"><span>    n <span style="color:#f92672">=</span> int(input())
+</span></span><span style="display:flex;"><span>    s <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(n):
+</span></span><span style="display:flex;"><span>        s<span style="color:#f92672">.</span>append([input(), i])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    s<span style="color:#f92672">.</span>sort()
+</span></span><span style="display:flex;"><span>    ans <span style="color:#f92672">=</span> [<span style="color:#ae81ff">0</span>] <span style="color:#f92672">*</span> n
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">check</span>(a, b):
+</span></span><span style="display:flex;"><span>        now <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>        l <span style="color:#f92672">=</span> min(len(a), len(b))
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> now <span style="color:#f92672">&lt;</span> l <span style="color:#f92672">and</span> a[now] <span style="color:#f92672">==</span> b[now]:
+</span></span><span style="display:flex;"><span>            now <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> now
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(n):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> i <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+</span></span><span style="display:flex;"><span>            ans[s[i][<span style="color:#ae81ff">1</span>]] <span style="color:#f92672">=</span> check(s[i][<span style="color:#ae81ff">0</span>], s[i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>][<span style="color:#ae81ff">0</span>])
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">continue</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> i <span style="color:#f92672">==</span> n <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>:
+</span></span><span style="display:flex;"><span>            ans[s[i][<span style="color:#ae81ff">1</span>]] <span style="color:#f92672">=</span> check(s[i][<span style="color:#ae81ff">0</span>], s[i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>][<span style="color:#ae81ff">0</span>])
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">continue</span>
+</span></span><span style="display:flex;"><span>        ans[s[i][<span style="color:#ae81ff">1</span>]] <span style="color:#f92672">=</span> max(check(s[i][<span style="color:#ae81ff">0</span>], s[i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>][<span style="color:#ae81ff">0</span>]), check(s[i][<span style="color:#ae81ff">0</span>], s[i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>][<span style="color:#ae81ff">0</span>]))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    print(<span style="color:#f92672">*</span>ans, sep<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
+</span></span></code></pre></div><h2 id="abc295httpsatcoderjpcontestsabc295"><a class="link" href="https://atcoder.jp/contests/abc295"  target="_blank" rel="noopener"
+    >ABC295</a></h2>
+<h1 id="d---three-days-ago">D - Three Days Ago</h1>
+<h1 id="题意-2">题意</h1>
+<p>给定一个字符串$S$，找出区间$[L, R]$的个数，使$S_LS_{L + 1}&hellip;S_R$中每个数字出现的次数为偶数</p>
+<h1 id="思路-2">思路</h1>
+<p>开始的思路想的是用前缀和记录下次数，然后乱搞搞，但是想想觉得会写的很答辩。就直接逃跑看题解了&hellip;</p>
+<p>有篇题解写的特别简洁，偷了贴出来</p>
+<blockquote>
+<p>我们只关注出现的奇偶性所以显然可以只维护这个前缀里每个字母出现奇数还是偶数次，也就是直接状压，设状态为 S，则只有前面的状态 S才可以与当前的状态 S相匹配形成一个符合条件的区间，所以直接扫一遍维护一下就好了。</p>
+</blockquote>
+<p>说人话就是，可以用十位二进制数存到目前位置的数字出现情况，每次回到这样的出现次数状态就说明异或为0(或者1, 与初值有关)了，记录回到这样状态的次数（即某些数字出现了偶数次了且其他数字出现情况（前缀）都相同），累加一下，就能做到只扫一遍就把所有情况都统计完了。</p>
+<p>例(v的变化情况)：<img src="/blog/2022/12/23/atc%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-06-01-16-56-11.png"
+	width="88"
+	height="123"
+	srcset="/blog/2022/12/23/atc%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-06-01-16-56-11_huedff28d885ec616498820010792af256_1843_480x0_resize_box_3.png 480w, /blog/2022/12/23/atc%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-06-01-16-56-11_huedff28d885ec616498820010792af256_1843_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="71"
+		data-flex-basis="171px"
+	
+></p>
+<h1 id="代码-2">代码</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">solved</span>():
+</span></span><span style="display:flex;"><span>    s <span style="color:#f92672">=</span> input()
+</span></span><span style="display:flex;"><span>    v <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    cnt <span style="color:#f92672">=</span> [<span style="color:#ae81ff">0</span>] <span style="color:#f92672">*</span> (<span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#ae81ff">11</span>)
+</span></span><span style="display:flex;"><span>    n <span style="color:#f92672">=</span> len(s)
+</span></span><span style="display:flex;"><span>    ans <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    cnt[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(n):
+</span></span><span style="display:flex;"><span>        v <span style="color:#f92672">^=</span> (<span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;&lt;</span> int(s[i]))
+</span></span><span style="display:flex;"><span>        print(v)
+</span></span><span style="display:flex;"><span>        ans <span style="color:#f92672">+=</span> cnt[v]
+</span></span><span style="display:flex;"><span>        cnt[v] <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    print(ans)
+</span></span></code></pre></div>
 </section>
 
 
@@ -861,7 +964,7 @@ ODoyMSswMDowMEEubXoAAAAASUVORK5CYII=" />
 
 
         <span>
-            最后更新于 Dec 28, 2022 14:20 CST
+            最后更新于 Jun 01, 2023 16:57 CST
         </span>
     </section></footer>
 
@@ -1006,6 +1109,34 @@ ODoyMSswMDowMEEubXoAAAAASUVORK5CYII=" />
         
             
                 
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title"> </h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#abc287httpsatcoderjpcontestsabc287tasks"><a href="https://atcoder.jp/contests/abc287/tasks">ABC287</a></a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#abc295httpsatcoderjpcontestsabc295"><a href="https://atcoder.jp/contests/abc295">ABC295</a></a></li>
+  </ul>
+</nav>
+        </div>
+    </section>
+
             
         
             
