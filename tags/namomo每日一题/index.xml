@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Namomo每日一题 on Inari&#39;s Blog</title>
-        <link>https://inariindream.fun/tags/namomo%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/</link>
+        <link>https://inariindream.cn/tags/namomo%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/</link>
         <description>Recent content in Namomo每日一题 on Inari&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Sat, 23 Apr 2022 11:56:46 +0000</lastBuildDate><atom:link href="https://inariindream.fun/tags/namomo%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 23 Apr 2022 11:56:46 +0000</lastBuildDate><atom:link href="https://inariindream.cn/tags/namomo%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>NamomoCamp每日一题（div2）</title>
-        <link>https://inariindream.fun/blog/2022/04/23/namomocamp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98div2/</link>
+        <link>https://inariindream.cn/blog/2022/04/23/namomocamp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98div2/</link>
         <pubDate>Sat, 23 Apr 2022 11:56:46 +0000</pubDate>
         
-        <guid>https://inariindream.fun/blog/2022/04/23/namomocamp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98div2/</guid>
+        <guid>https://inariindream.cn/blog/2022/04/23/namomocamp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98div2/</guid>
         <description>&lt;img src="https://s1.ax1x.com/2022/04/27/Lqf2o8.png" alt="Featured image of post NamomoCamp每日一题（div2）" /&gt;&lt;h2 id=&#34;422&#34;&gt;4.22&lt;/h2&gt;
 &lt;h1 id=&#34;待补&#34;&gt;（待补）&lt;/h1&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://oj.daimayuan.top/course/11/problem/814&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -673,10 +673,10 @@ $$x = \dfrac{k \times y}{y - k}$$&lt;/p&gt;
 &lt;p&gt;对于一个数，要么只在左边有比他大的，要么只在右边有比他大的&lt;/p&gt;
 &lt;p&gt;而只有一类图满足这种情况&lt;/p&gt;
 &lt;p&gt;说人话就是找以最大值为顶点的单峰的图有多少个&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/04/23/namomocamp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98div2/222.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2022/04/23/namomocamp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98div2/222.png&#34;
 	width=&#34;1920&#34;
 	height=&#34;1080&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/04/23/namomocamp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98div2/222_hu663c7a285d393188fb4c42d06ebde89b_503518_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/04/23/namomocamp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98div2/222_hu663c7a285d393188fb4c42d06ebde89b_503518_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/04/23/namomocamp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98div2/222_hu663c7a285d393188fb4c42d06ebde89b_503518_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2022/04/23/namomocamp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98div2/222_hu663c7a285d393188fb4c42d06ebde89b_503518_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;P2&#34;
@@ -688,10 +688,10 @@ $$x = \dfrac{k \times y}{y - k}$$&lt;/p&gt;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;把这种情况去掉的情况就是含环的情况了&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/04/23/namomocamp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98div2/DCVLMJ%28RNSYO9GRC1%2906J36.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2022/04/23/namomocamp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98div2/DCVLMJ%28RNSYO9GRC1%2906J36.png&#34;
 	width=&#34;1920&#34;
 	height=&#34;1080&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/04/23/namomocamp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98div2/DCVLMJ%28RNSYO9GRC1%2906J36_huf8be709131565c22d367ccb3e9ec78bc_506296_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/04/23/namomocamp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98div2/DCVLMJ%28RNSYO9GRC1%2906J36_huf8be709131565c22d367ccb3e9ec78bc_506296_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/04/23/namomocamp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98div2/DCVLMJ%28RNSYO9GRC1%2906J36_huf8be709131565c22d367ccb3e9ec78bc_506296_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2022/04/23/namomocamp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98div2/DCVLMJ%28RNSYO9GRC1%2906J36_huf8be709131565c22d367ccb3e9ec78bc_506296_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;P1&#34;

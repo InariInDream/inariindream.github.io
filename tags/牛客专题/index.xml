@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>牛客专题 on Inari&#39;s Blog</title>
-        <link>https://inariindream.fun/tags/%E7%89%9B%E5%AE%A2%E4%B8%93%E9%A2%98/</link>
+        <link>https://inariindream.cn/tags/%E7%89%9B%E5%AE%A2%E4%B8%93%E9%A2%98/</link>
         <description>Recent content in 牛客专题 on Inari&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Wed, 08 Feb 2023 12:35:46 +0000</lastBuildDate><atom:link href="https://inariindream.fun/tags/%E7%89%9B%E5%AE%A2%E4%B8%93%E9%A2%98/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 08 Feb 2023 12:35:46 +0000</lastBuildDate><atom:link href="https://inariindream.cn/tags/%E7%89%9B%E5%AE%A2%E4%B8%93%E9%A2%98/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>2023牛客寒假基础算法训练营</title>
-        <link>https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/</link>
+        <link>https://inariindream.cn/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/</link>
         <pubDate>Wed, 08 Feb 2023 12:35:46 +0000</pubDate>
         
-        <guid>https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/</guid>
-        <description>&lt;img src="https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/111.jpg" alt="Featured image of post 2023牛客寒假基础算法训练营" /&gt;&lt;p&gt;开新坑，先贴一下打的情况
-&lt;img src=&#34;https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-09-21-04-43.png&#34;
+        <guid>https://inariindream.cn/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/</guid>
+        <description>&lt;img src="https://inariindream.cn/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/111.jpg" alt="Featured image of post 2023牛客寒假基础算法训练营" /&gt;&lt;p&gt;开新坑，先贴一下打的情况
+&lt;img src=&#34;https://inariindream.cn/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-09-21-04-43.png&#34;
 	width=&#34;1038&#34;
 	height=&#34;739&#34;
-	srcset=&#34;https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-09-21-04-43_hue8d49591c9bbc05dce4b507127170599_58638_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-09-21-04-43_hue8d49591c9bbc05dce4b507127170599_58638_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-09-21-04-43_hue8d49591c9bbc05dce4b507127170599_58638_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-09-21-04-43_hue8d49591c9bbc05dce4b507127170599_58638_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;还算是有进步 吧？&#34;
@@ -33,10 +33,10 @@
 &lt;h1 id=&#34;e-阿宁的生成树httpsacnowcodercomacmproblem247877&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://ac.nowcoder.com/acm/problem/247877&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;E 阿宁的生成树&lt;/a&gt;&lt;/h1&gt;
 &lt;h1 id=&#34;题意&#34;&gt;题意&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-05-47.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-05-47.png&#34;
 	width=&#34;896&#34;
 	height=&#34;944&#34;
-	srcset=&#34;https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-05-47_huad81d37b6f8d9bb53f3f2a2cbd2f5f24_49241_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-05-47_huad81d37b6f8d9bb53f3f2a2cbd2f5f24_49241_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-05-47_huad81d37b6f8d9bb53f3f2a2cbd2f5f24_49241_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-05-47_huad81d37b6f8d9bb53f3f2a2cbd2f5f24_49241_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -49,10 +49,10 @@
 &lt;p&gt;实际上算是个脑筋急转弯，只要了解生成树的概念再想到一个小trick即可&lt;/p&gt;
 &lt;p&gt;由于素数间的间距最大也就100左右，所以暴力枚举找素数是完全可行的来使$gcd(i, j) == 1$是完全可行的&lt;/p&gt;
 &lt;p&gt;连线策略：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-13-46.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-13-46.png&#34;
 	width=&#34;707&#34;
 	height=&#34;365&#34;
-	srcset=&#34;https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-13-46_hue491b35aecc41c19f848a5a5538d3ce6_120111_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-13-46_hue491b35aecc41c19f848a5a5538d3ce6_120111_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-13-46_hue491b35aecc41c19f848a5a5538d3ce6_120111_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-13-46_hue491b35aecc41c19f848a5a5538d3ce6_120111_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -79,10 +79,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;l-阿宁睡大觉httpsacnowcodercomacmcontest46814l&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://ac.nowcoder.com/acm/contest/46814/L&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;L 阿宁睡大觉&lt;/a&gt;&lt;/h1&gt;
 &lt;h1 id=&#34;题意-1&#34;&gt;题意&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-18-24.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-18-24.png&#34;
 	width=&#34;889&#34;
 	height=&#34;779&#34;
-	srcset=&#34;https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-18-24_huc1fec036ee26e2d35d7dd70cdce74dd7_48976_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-18-24_huc1fec036ee26e2d35d7dd70cdce74dd7_48976_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-18-24_huc1fec036ee26e2d35d7dd70cdce74dd7_48976_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-18-24_huc1fec036ee26e2d35d7dd70cdce74dd7_48976_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -91,10 +91,10 @@
 		data-flex-basis=&#34;273px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-18-36.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-18-36.png&#34;
 	width=&#34;892&#34;
 	height=&#34;558&#34;
-	srcset=&#34;https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-18-36_hu1fc7921c6b4d7a2b47d1c6d4aa99e092_32947_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-18-36_hu1fc7921c6b4d7a2b47d1c6d4aa99e092_32947_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-18-36_hu1fc7921c6b4d7a2b47d1c6d4aa99e092_32947_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-18-36_hu1fc7921c6b4d7a2b47d1c6d4aa99e092_32947_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -231,10 +231,10 @@
 &lt;h1 id=&#34;c-小沙の不懂httpsacnowcodercomacmcontest46813c&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://ac.nowcoder.com/acm/contest/46813/C&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;C 小沙の不懂&lt;/a&gt;&lt;/h1&gt;
 &lt;h1 id=&#34;题目描述&#34;&gt;题目描述&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-28-32.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-28-32.png&#34;
 	width=&#34;912&#34;
 	height=&#34;764&#34;
-	srcset=&#34;https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-28-32_hu751f0e32fef5033f9f1c2a8c30e82ed6_42344_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-28-32_hu751f0e32fef5033f9f1c2a8c30e82ed6_42344_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-28-32_hu751f0e32fef5033f9f1c2a8c30e82ed6_42344_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-28-32_hu751f0e32fef5033f9f1c2a8c30e82ed6_42344_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -248,10 +248,10 @@
 &lt;h1 id=&#34;思路-1&#34;&gt;思路&lt;/h1&gt;
 &lt;p&gt;在打这场的时候就看群友说这题十分的阅读理解，~~gkjj差这题就ak。~~于是果断选择跳过去做其他题&lt;/p&gt;
 &lt;p&gt;直接贴结论吧&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-20-26-03.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-20-26-03.png&#34;
 	width=&#34;811&#34;
 	height=&#34;48&#34;
-	srcset=&#34;https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-20-26-03_hu5cb39f9b13ecb94be6b0d9ffc72841e0_34631_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-20-26-03_hu5cb39f9b13ecb94be6b0d9ffc72841e0_34631_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-20-26-03_hu5cb39f9b13ecb94be6b0d9ffc72841e0_34631_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-20-26-03_hu5cb39f9b13ecb94be6b0d9ffc72841e0_34631_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -308,10 +308,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;f-小沙的串串httpsacnowcodercomacmcontest46813f&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://ac.nowcoder.com/acm/contest/46813/F&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;F 小沙的串串&lt;/a&gt;&lt;/h1&gt;
 &lt;h1 id=&#34;题意-2&#34;&gt;题意&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-18-16-44-41.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-18-16-44-41.png&#34;
 	width=&#34;920&#34;
 	height=&#34;636&#34;
-	srcset=&#34;https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-18-16-44-41_hu55664caca997397cbf19d0d7a762f17c_26196_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-18-16-44-41_hu55664caca997397cbf19d0d7a762f17c_26196_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-18-16-44-41_hu55664caca997397cbf19d0d7a762f17c_26196_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-18-16-44-41_hu55664caca997397cbf19d0d7a762f17c_26196_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	

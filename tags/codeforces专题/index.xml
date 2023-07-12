@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Codeforces专题 on Inari&#39;s Blog</title>
-        <link>https://inariindream.fun/tags/codeforces%E4%B8%93%E9%A2%98/</link>
+        <link>https://inariindream.cn/tags/codeforces%E4%B8%93%E9%A2%98/</link>
         <description>Recent content in Codeforces专题 on Inari&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Mon, 09 Jan 2023 16:45:31 +0000</lastBuildDate><atom:link href="https://inariindream.fun/tags/codeforces%E4%B8%93%E9%A2%98/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 09 Jan 2023 16:45:31 +0000</lastBuildDate><atom:link href="https://inariindream.cn/tags/codeforces%E4%B8%93%E9%A2%98/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Dynamic Programming</title>
-        <link>https://inariindream.fun/blog/2023/01/09/dynamic-programming/</link>
+        <link>https://inariindream.cn/blog/2023/01/09/dynamic-programming/</link>
         <pubDate>Mon, 09 Jan 2023 16:45:31 +0000</pubDate>
         
-        <guid>https://inariindream.fun/blog/2023/01/09/dynamic-programming/</guid>
-        <description>&lt;img src="https://inariindream.fun/blog/2023/01/09/dynamic-programming/111.jpg" alt="Featured image of post Dynamic Programming" /&gt;&lt;p&gt;记录我的DP训练&lt;/p&gt;
+        <guid>https://inariindream.cn/blog/2023/01/09/dynamic-programming/</guid>
+        <description>&lt;img src="https://inariindream.cn/blog/2023/01/09/dynamic-programming/111.jpg" alt="Featured image of post Dynamic Programming" /&gt;&lt;p&gt;记录我的DP训练&lt;/p&gt;
 &lt;h2 id=&#34;d-different-arrayshttpscodeforcescomcontest1783problemd&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://codeforces.com/contest/1783/problem/D&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;D. Different Arrays&lt;/a&gt;&lt;/h2&gt;
 &lt;h1 id=&#34;题意&#34;&gt;题意&lt;/h1&gt;
@@ -134,10 +134,10 @@ $$\sum_{i = 1}^{n}dp[n][i]$$&lt;/p&gt;
 &lt;p&gt;设有 $N(N \le 300)$ 堆石子排成一排，其编号为 $1,2,3,\cdots,N$。每堆石子有一定的质量 $m_i(m_i \le 1000)$。现在要将这 $N$ 堆石子合并成为一堆。每次只能合并相邻的两堆，合并的代价为这两堆石子的质量之和，合并后与这两堆石子相邻的石子将和新堆相邻。合并时由于选择的顺序不同，合并的总代价也不相同。试找出一种合理的方法，使总的代价最小，并输出最小代价。&lt;/p&gt;
 &lt;h1 id=&#34;思路-2&#34;&gt;思路&lt;/h1&gt;
 &lt;p&gt;区间DP，学了一手区间DP的常见套路。详见代码&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2023/01/09/dynamic-programming/2023-01-14-21-05-31.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2023/01/09/dynamic-programming/2023-01-14-21-05-31.png&#34;
 	width=&#34;1890&#34;
 	height=&#34;936&#34;
-	srcset=&#34;https://inariindream.fun/blog/2023/01/09/dynamic-programming/2023-01-14-21-05-31_hu1970801b156cdc29bbb01bbf08b566e0_705772_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2023/01/09/dynamic-programming/2023-01-14-21-05-31_hu1970801b156cdc29bbb01bbf08b566e0_705772_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2023/01/09/dynamic-programming/2023-01-14-21-05-31_hu1970801b156cdc29bbb01bbf08b566e0_705772_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2023/01/09/dynamic-programming/2023-01-14-21-05-31_hu1970801b156cdc29bbb01bbf08b566e0_705772_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -256,11 +256,11 @@ $$\sum_{i = 1}^{n}dp[n][i]$$&lt;/p&gt;
         </item>
         <item>
         <title>CodeforcesEdu补题合集</title>
-        <link>https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/</link>
+        <link>https://inariindream.cn/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/</link>
         <pubDate>Fri, 21 Oct 2022 09:56:46 +0000</pubDate>
         
-        <guid>https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/</guid>
-        <description>&lt;img src="https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/222.png" alt="Featured image of post CodeforcesEdu补题合集" /&gt;&lt;p&gt;&lt;em&gt;此纪录从2022-10-21 09:56:46始&lt;/em&gt;&lt;/p&gt;
+        <guid>https://inariindream.cn/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/</guid>
+        <description>&lt;img src="https://inariindream.cn/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/222.png" alt="Featured image of post CodeforcesEdu补题合集" /&gt;&lt;p&gt;&lt;em&gt;此纪录从2022-10-21 09:56:46始&lt;/em&gt;&lt;/p&gt;
 &lt;h2 id=&#34;educational-codeforces-round-142&#34;&gt;Educational Codeforces Round 142&lt;/h2&gt;
 &lt;h1 id=&#34;c-min-max-sorthttpscodeforcescomcontest1792problemc&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://codeforces.com/contest/1792/problem/C&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;C. Min Max Sort&lt;/a&gt;&lt;/h1&gt;
@@ -318,10 +318,10 @@ $$\sum_{i = 1}^{n}dp[n][i]$$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;d-fixed-prefix-permutationshttpscodeforcescomcontest1792problemd&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://codeforces.com/contest/1792/problem/D&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;D. Fixed Prefix Permutations&lt;/a&gt;&lt;/h1&gt;
 &lt;h1 id=&#34;题意-1&#34;&gt;题意&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-29-08.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-29-08.png&#34;
 	width=&#34;661&#34;
 	height=&#34;898&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-29-08_hu29698a67afa7137f282745da0bf9b5b0_40943_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-29-08_hu29698a67afa7137f282745da0bf9b5b0_40943_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-29-08_hu29698a67afa7137f282745da0bf9b5b0_40943_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-29-08_hu29698a67afa7137f282745da0bf9b5b0_40943_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -332,10 +332,10 @@ $$\sum_{i = 1}^{n}dp[n][i]$$&lt;/p&gt;
 &gt;&lt;/p&gt;
 &lt;h1 id=&#34;思路-1&#34;&gt;思路&lt;/h1&gt;
 &lt;p&gt;字典树，看的ygg题解qwq&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-30-42.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-30-42.png&#34;
 	width=&#34;468&#34;
 	height=&#34;324&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-30-42_hue75a626e37f0ec8d84ae042f110f53e0_15326_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-30-42_hue75a626e37f0ec8d84ae042f110f53e0_15326_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-30-42_hue75a626e37f0ec8d84ae042f110f53e0_15326_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-30-42_hue75a626e37f0ec8d84ae042f110f53e0_15326_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -344,10 +344,10 @@ $$\sum_{i = 1}^{n}dp[n][i]$$&lt;/p&gt;
 		data-flex-basis=&#34;346px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-32-08.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-32-08.png&#34;
 	width=&#34;640&#34;
 	height=&#34;445&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-32-08_hued734f37cb7300b99d1c7edd8ea2a107_28863_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-32-08_hued734f37cb7300b99d1c7edd8ea2a107_28863_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-32-08_hued734f37cb7300b99d1c7edd8ea2a107_28863_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-32-08_hued734f37cb7300b99d1c7edd8ea2a107_28863_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -401,10 +401,10 @@ $$\sum_{i = 1}^{n}dp[n][i]$$&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;1.28注：Trie的数组第一维一般是开$n * d$（d是最大可能深度）&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-36-42.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-36-42.png&#34;
 	width=&#34;506&#34;
 	height=&#34;318&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-36-42_hu738c61a32fd8e4caaa6bbce479cc5bde_37223_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-36-42_hu738c61a32fd8e4caaa6bbce479cc5bde_37223_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-36-42_hu738c61a32fd8e4caaa6bbce479cc5bde_37223_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-36-42_hu738c61a32fd8e4caaa6bbce479cc5bde_37223_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -518,10 +518,10 @@ $$\sum_{i = 1}^{n}dp[n][i]$$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    print(sum(ans) &lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; MOD)
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这题的教训就是一定记得计算需要的数组长度（济南的签到好像也是这样栽了半天），和ans不要留到最后才模&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-09-20-07-18.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-09-20-07-18.png&#34;
 	width=&#34;565&#34;
 	height=&#34;987&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-09-20-07-18_hu5c78d0e1826940ee1ca1d2ec21eafd82_81064_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-09-20-07-18_hu5c78d0e1826940ee1ca1d2ec21eafd82_81064_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-09-20-07-18_hu5c78d0e1826940ee1ca1d2ec21eafd82_81064_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-09-20-07-18_hu5c78d0e1826940ee1ca1d2ec21eafd82_81064_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;试错史，后来发现二维其实能过&#34;
@@ -823,10 +823,10 @@ $(0≤a_i, b_i&amp;lt;2^{30})$&lt;/p&gt;
 &lt;h1 id=&#34;思路-9&#34;&gt;思路&lt;/h1&gt;
 &lt;p&gt;注意到c在某一位为1时只能是当所有的$c_i$在这一位都为1才能取到，进而需要所有匹配的$a_i$ 和 $b_i$在这一位的异或都为1。&lt;/p&gt;
 &lt;p&gt;那么如何找这样满足条件的匹配呢，看题解发现有一种很妙的方法可以实现。$c$贪心地从最高位为$1$开始往下取，然后先假设$c$这一位为1，通过map计数check是否所有的$a_i, b_i$都能满足条件，而并不需要排列来对每个$i$进行匹配。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2022-10-21-20-49-42.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2022-10-21-20-49-42.png&#34;
 	width=&#34;500&#34;
 	height=&#34;297&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2022-10-21-20-49-42_hu565b2ba7ee54d6d263cc0577b92ec968_21437_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2022-10-21-20-49-42_hu565b2ba7ee54d6d263cc0577b92ec968_21437_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2022-10-21-20-49-42_hu565b2ba7ee54d6d263cc0577b92ec968_21437_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2022-10-21-20-49-42_hu565b2ba7ee54d6d263cc0577b92ec968_21437_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -868,10 +868,10 @@ $(0≤a_i, b_i&amp;lt;2^{30})$&lt;/p&gt;
 &lt;p&gt;给定$n$个两两不同的整点坐标，对于每个整点$p$，求：不包含在这 $n$ 个点内的其他整点中，与点 $p$ 距离最近的那个。&lt;/p&gt;
 &lt;h1 id=&#34;思路-10&#34;&gt;思路&lt;/h1&gt;
 &lt;p&gt;答案肯定不能搜寻整个平面，通过观察得，答案只可能在$n$个点组成的图形的“边缘”处&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-23-15-35-45.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-23-15-35-45.png&#34;
 	width=&#34;646&#34;
 	height=&#34;488&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-23-15-35-45_hu15ff192b96ea28882d15cef4f5681b37_22208_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-23-15-35-45_hu15ff192b96ea28882d15cef4f5681b37_22208_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-23-15-35-45_hu15ff192b96ea28882d15cef4f5681b37_22208_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-23-15-35-45_hu15ff192b96ea28882d15cef4f5681b37_22208_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	

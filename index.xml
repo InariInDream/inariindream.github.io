@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Inari&#39;s Blog</title>
-        <link>https://inariindream.fun/</link>
+        <link>https://inariindream.cn/</link>
         <description>Recent content on Inari&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
-        <language>zh-cn</language><atom:link href="https://inariindream.fun/index.xml" rel="self" type="application/rss+xml" /><item>
+        <language>zh-cn</language><atom:link href="https://inariindream.cn/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Nvidia Jetson 部署教程</title>
-        <link>https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/</link>
+        <link>https://inariindream.cn/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/</link>
         <pubDate>Sun, 28 May 2023 18:32:14 +0000</pubDate>
         
-        <guid>https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/</guid>
-        <description>&lt;img src="https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/111.png" alt="Featured image of post Nvidia Jetson 部署教程" /&gt;&lt;h1 id=&#34;转移部署教程&#34;&gt;转移部署教程&lt;/h1&gt;
+        <guid>https://inariindream.cn/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/</guid>
+        <description>&lt;img src="https://inariindream.cn/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/111.png" alt="Featured image of post Nvidia Jetson 部署教程" /&gt;&lt;h1 id=&#34;转移部署教程&#34;&gt;转移部署教程&lt;/h1&gt;
 &lt;h2 id=&#34;1安装anaconda&#34;&gt;1.安装Anaconda&lt;/h2&gt;
 &lt;h3 id=&#34;下载安装包&#34;&gt;下载安装包&lt;/h3&gt;
 &lt;p&gt;由于是aarch64架构，所以官方没有提供编译好的conda，要从其他渠道安装。&lt;/p&gt;
@@ -31,10 +31,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cd ..
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;chmod -R &lt;span style=&#34;color:#ae81ff&#34;&gt;777&lt;/span&gt; nvidia
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后分别打开&lt;code&gt;/home/jetson(这里是用户名，自行修改)/.bashrc&lt;/code&gt;和&lt;code&gt;/etc/profile&lt;/code&gt;，如果没有权限就使用vim进行编辑&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-31-35.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-31-35.png&#34;
 	width=&#34;853&#34;
 	height=&#34;581&#34;
-	srcset=&#34;https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-31-35_hue5f90cceefbe5d897d8c61e802a15046_216246_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-31-35_hue5f90cceefbe5d897d8c61e802a15046_216246_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-31-35_hue5f90cceefbe5d897d8c61e802a15046_216246_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-31-35_hue5f90cceefbe5d897d8c61e802a15046_216246_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -46,10 +46,10 @@
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo vim xxx&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;文件路径&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;打开编辑，按&lt;code&gt;a&lt;/code&gt;进入输入状态，按&lt;code&gt;:wq&lt;/code&gt;保存并退出&lt;/p&gt;
 &lt;p&gt;在文件里加入如下几行&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-27-19.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-27-19.png&#34;
 	width=&#34;1285&#34;
 	height=&#34;737&#34;
-	srcset=&#34;https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-27-19_hu0b9ef5710ea3afaac4b686785cee9936_271156_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-27-19_hu0b9ef5710ea3afaac4b686785cee9936_271156_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-27-19_hu0b9ef5710ea3afaac4b686785cee9936_271156_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-27-19_hu0b9ef5710ea3afaac4b686785cee9936_271156_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -85,10 +85,10 @@
 &lt;p&gt;注意查看路径是否符合&lt;/p&gt;
 &lt;h3 id=&#34;可选删除本地的包&#34;&gt;（可选）删除本地的包&lt;/h3&gt;
 &lt;p&gt;如果在系统的这个位置不为空&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-36-25.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-36-25.png&#34;
 	width=&#34;406&#34;
 	height=&#34;41&#34;
-	srcset=&#34;https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-36-25_hu59b7084fe77b13ba51db21c9e56cb951_8611_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-36-25_hu59b7084fe77b13ba51db21c9e56cb951_8611_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-36-25_hu59b7084fe77b13ba51db21c9e56cb951_8611_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-36-25_hu59b7084fe77b13ba51db21c9e56cb951_8611_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -101,10 +101,10 @@
 &lt;h3 id=&#34;配置torch和torchvision重要&#34;&gt;&lt;strong&gt;配置torch和torchvision（重要）&lt;/strong&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;注意，必须在激活python36环境下执行，即命令行最左边有&amp;rsquo;(python36)&amp;lsquo;字样&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;使用&lt;code&gt;cd&lt;/code&gt;命令将命令行转到有这两个文件的文件夹位置（从U盘中转移出来时的位置），也可直接在目标文件夹右键空白处然后点击&lt;code&gt;open terminal&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-49-35.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-49-35.png&#34;
 	width=&#34;551&#34;
 	height=&#34;377&#34;
-	srcset=&#34;https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-49-35_hua2bdeaa581acfe828c6b1c34817d3b62_26354_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-49-35_hua2bdeaa581acfe828c6b1c34817d3b62_26354_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-49-35_hua2bdeaa581acfe828c6b1c34817d3b62_26354_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-49-35_hua2bdeaa581acfe828c6b1c34817d3b62_26354_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -113,10 +113,10 @@
 		data-flex-basis=&#34;350px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-49-45.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-49-45.png&#34;
 	width=&#34;677&#34;
 	height=&#34;423&#34;
-	srcset=&#34;https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-49-45_hu8fa04028b39728cf31a591886b5ae56d_43986_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-49-45_hu8fa04028b39728cf31a591886b5ae56d_43986_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-49-45_hu8fa04028b39728cf31a591886b5ae56d_43986_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-49-45_hu8fa04028b39728cf31a591886b5ae56d_43986_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -140,10 +140,10 @@
 &lt;p&gt;在终端输入&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;gnome-session-properties
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;或直接在搜索栏输入start即可打开Startup Applications&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-31-16-35-25.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-31-16-35-25.png&#34;
 	width=&#34;583&#34;
 	height=&#34;472&#34;
-	srcset=&#34;https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-31-16-35-25_huc616566243fe7fa54c264021bda541c1_21628_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-31-16-35-25_huc616566243fe7fa54c264021bda541c1_21628_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-31-16-35-25_huc616566243fe7fa54c264021bda541c1_21628_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-31-16-35-25_huc616566243fe7fa54c264021bda541c1_21628_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -153,10 +153,10 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;然后点击Add即可添加开机时自动运行的指令了&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-31-16-35-56.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-31-16-35-56.png&#34;
 	width=&#34;369&#34;
 	height=&#34;241&#34;
-	srcset=&#34;https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-31-16-35-56_hub20bf8fb6acff3bc3789bf10dab50fa5_16257_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-31-16-35-56_hub20bf8fb6acff3bc3789bf10dab50fa5_16257_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-31-16-35-56_hub20bf8fb6acff3bc3789bf10dab50fa5_16257_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-31-16-35-56_hub20bf8fb6acff3bc3789bf10dab50fa5_16257_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -174,10 +174,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;可能遇到的问题&#34;&gt;可能遇到的问题&lt;/h2&gt;
 &lt;p&gt;Q：使用pip或者conda命令时出现&lt;code&gt;bad interpreter: No such file or directory:&lt;/code&gt;的错误&lt;/p&gt;
 &lt;p&gt;A: 打开python36和.conda目录下的&lt;code&gt;bin&lt;/code&gt;文件夹，查看&lt;code&gt;pip&lt;/code&gt;文件和&lt;code&gt;conda&lt;/code&gt;文件的第一行&lt;code&gt;#！&lt;/code&gt;后面的解释器路径配置是否正确&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-31-18-10-09.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-31-18-10-09.png&#34;
 	width=&#34;804&#34;
 	height=&#34;464&#34;
-	srcset=&#34;https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-31-18-10-09_hu1f869a38b531761d924b0299424ab151_357793_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-31-18-10-09_hu1f869a38b531761d924b0299424ab151_357793_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-31-18-10-09_hu1f869a38b531761d924b0299424ab151_357793_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-31-18-10-09_hu1f869a38b531761d924b0299424ab151_357793_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -186,10 +186,10 @@
 		data-flex-basis=&#34;415px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-31-18-10-53.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-31-18-10-53.png&#34;
 	width=&#34;1221&#34;
 	height=&#34;556&#34;
-	srcset=&#34;https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-31-18-10-53_hu808c6a114d5fad9bf249c46a3adc6cbf_766246_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-31-18-10-53_hu808c6a114d5fad9bf249c46a3adc6cbf_766246_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-31-18-10-53_hu808c6a114d5fad9bf249c46a3adc6cbf_766246_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-31-18-10-53_hu808c6a114d5fad9bf249c46a3adc6cbf_766246_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -203,23 +203,23 @@
         </item>
         <item>
         <title>星际牛仔：穿行在群星间的浪漫诗篇</title>
-        <link>https://inariindream.fun/blog/2023/05/11/%E6%98%9F%E9%99%85%E7%89%9B%E4%BB%94%E7%A9%BF%E8%A1%8C%E5%9C%A8%E7%BE%A4%E6%98%9F%E9%97%B4%E7%9A%84%E6%B5%AA%E6%BC%AB%E8%AF%97%E7%AF%87/</link>
+        <link>https://inariindream.cn/blog/2023/05/11/%E6%98%9F%E9%99%85%E7%89%9B%E4%BB%94%E7%A9%BF%E8%A1%8C%E5%9C%A8%E7%BE%A4%E6%98%9F%E9%97%B4%E7%9A%84%E6%B5%AA%E6%BC%AB%E8%AF%97%E7%AF%87/</link>
         <pubDate>Thu, 11 May 2023 23:13:56 +0000</pubDate>
         
-        <guid>https://inariindream.fun/blog/2023/05/11/%E6%98%9F%E9%99%85%E7%89%9B%E4%BB%94%E7%A9%BF%E8%A1%8C%E5%9C%A8%E7%BE%A4%E6%98%9F%E9%97%B4%E7%9A%84%E6%B5%AA%E6%BC%AB%E8%AF%97%E7%AF%87/</guid>
-        <description>&lt;img src="https://inariindream.fun/blog/2023/05/11/%E6%98%9F%E9%99%85%E7%89%9B%E4%BB%94%E7%A9%BF%E8%A1%8C%E5%9C%A8%E7%BE%A4%E6%98%9F%E9%97%B4%E7%9A%84%E6%B5%AA%E6%BC%AB%E8%AF%97%E7%AF%87/111.png" alt="Featured image of post 星际牛仔：穿行在群星间的浪漫诗篇" /&gt;</description>
+        <guid>https://inariindream.cn/blog/2023/05/11/%E6%98%9F%E9%99%85%E7%89%9B%E4%BB%94%E7%A9%BF%E8%A1%8C%E5%9C%A8%E7%BE%A4%E6%98%9F%E9%97%B4%E7%9A%84%E6%B5%AA%E6%BC%AB%E8%AF%97%E7%AF%87/</guid>
+        <description>&lt;img src="https://inariindream.cn/blog/2023/05/11/%E6%98%9F%E9%99%85%E7%89%9B%E4%BB%94%E7%A9%BF%E8%A1%8C%E5%9C%A8%E7%BE%A4%E6%98%9F%E9%97%B4%E7%9A%84%E6%B5%AA%E6%BC%AB%E8%AF%97%E7%AF%87/111.png" alt="Featured image of post 星际牛仔：穿行在群星间的浪漫诗篇" /&gt;</description>
         </item>
         <item>
         <title>2023牛客寒假基础算法训练营</title>
-        <link>https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/</link>
+        <link>https://inariindream.cn/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/</link>
         <pubDate>Wed, 08 Feb 2023 12:35:46 +0000</pubDate>
         
-        <guid>https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/</guid>
-        <description>&lt;img src="https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/111.jpg" alt="Featured image of post 2023牛客寒假基础算法训练营" /&gt;&lt;p&gt;开新坑，先贴一下打的情况
-&lt;img src=&#34;https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-09-21-04-43.png&#34;
+        <guid>https://inariindream.cn/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/</guid>
+        <description>&lt;img src="https://inariindream.cn/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/111.jpg" alt="Featured image of post 2023牛客寒假基础算法训练营" /&gt;&lt;p&gt;开新坑，先贴一下打的情况
+&lt;img src=&#34;https://inariindream.cn/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-09-21-04-43.png&#34;
 	width=&#34;1038&#34;
 	height=&#34;739&#34;
-	srcset=&#34;https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-09-21-04-43_hue8d49591c9bbc05dce4b507127170599_58638_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-09-21-04-43_hue8d49591c9bbc05dce4b507127170599_58638_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-09-21-04-43_hue8d49591c9bbc05dce4b507127170599_58638_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-09-21-04-43_hue8d49591c9bbc05dce4b507127170599_58638_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;还算是有进步 吧？&#34;
@@ -236,10 +236,10 @@
 &lt;h1 id=&#34;e-阿宁的生成树httpsacnowcodercomacmproblem247877&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://ac.nowcoder.com/acm/problem/247877&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;E 阿宁的生成树&lt;/a&gt;&lt;/h1&gt;
 &lt;h1 id=&#34;题意&#34;&gt;题意&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-05-47.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-05-47.png&#34;
 	width=&#34;896&#34;
 	height=&#34;944&#34;
-	srcset=&#34;https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-05-47_huad81d37b6f8d9bb53f3f2a2cbd2f5f24_49241_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-05-47_huad81d37b6f8d9bb53f3f2a2cbd2f5f24_49241_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-05-47_huad81d37b6f8d9bb53f3f2a2cbd2f5f24_49241_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-05-47_huad81d37b6f8d9bb53f3f2a2cbd2f5f24_49241_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -252,10 +252,10 @@
 &lt;p&gt;实际上算是个脑筋急转弯，只要了解生成树的概念再想到一个小trick即可&lt;/p&gt;
 &lt;p&gt;由于素数间的间距最大也就100左右，所以暴力枚举找素数是完全可行的来使$gcd(i, j) == 1$是完全可行的&lt;/p&gt;
 &lt;p&gt;连线策略：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-13-46.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-13-46.png&#34;
 	width=&#34;707&#34;
 	height=&#34;365&#34;
-	srcset=&#34;https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-13-46_hue491b35aecc41c19f848a5a5538d3ce6_120111_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-13-46_hue491b35aecc41c19f848a5a5538d3ce6_120111_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-13-46_hue491b35aecc41c19f848a5a5538d3ce6_120111_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-13-46_hue491b35aecc41c19f848a5a5538d3ce6_120111_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -282,10 +282,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;l-阿宁睡大觉httpsacnowcodercomacmcontest46814l&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://ac.nowcoder.com/acm/contest/46814/L&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;L 阿宁睡大觉&lt;/a&gt;&lt;/h1&gt;
 &lt;h1 id=&#34;题意-1&#34;&gt;题意&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-18-24.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-18-24.png&#34;
 	width=&#34;889&#34;
 	height=&#34;779&#34;
-	srcset=&#34;https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-18-24_huc1fec036ee26e2d35d7dd70cdce74dd7_48976_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-18-24_huc1fec036ee26e2d35d7dd70cdce74dd7_48976_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-18-24_huc1fec036ee26e2d35d7dd70cdce74dd7_48976_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-18-24_huc1fec036ee26e2d35d7dd70cdce74dd7_48976_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -294,10 +294,10 @@
 		data-flex-basis=&#34;273px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-18-36.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-18-36.png&#34;
 	width=&#34;892&#34;
 	height=&#34;558&#34;
-	srcset=&#34;https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-18-36_hu1fc7921c6b4d7a2b47d1c6d4aa99e092_32947_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-18-36_hu1fc7921c6b4d7a2b47d1c6d4aa99e092_32947_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-18-36_hu1fc7921c6b4d7a2b47d1c6d4aa99e092_32947_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-18-36_hu1fc7921c6b4d7a2b47d1c6d4aa99e092_32947_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -434,10 +434,10 @@
 &lt;h1 id=&#34;c-小沙の不懂httpsacnowcodercomacmcontest46813c&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://ac.nowcoder.com/acm/contest/46813/C&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;C 小沙の不懂&lt;/a&gt;&lt;/h1&gt;
 &lt;h1 id=&#34;题目描述&#34;&gt;题目描述&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-28-32.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-28-32.png&#34;
 	width=&#34;912&#34;
 	height=&#34;764&#34;
-	srcset=&#34;https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-28-32_hu751f0e32fef5033f9f1c2a8c30e82ed6_42344_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-28-32_hu751f0e32fef5033f9f1c2a8c30e82ed6_42344_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-28-32_hu751f0e32fef5033f9f1c2a8c30e82ed6_42344_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-11-28-32_hu751f0e32fef5033f9f1c2a8c30e82ed6_42344_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -451,10 +451,10 @@
 &lt;h1 id=&#34;思路-1&#34;&gt;思路&lt;/h1&gt;
 &lt;p&gt;在打这场的时候就看群友说这题十分的阅读理解，~~gkjj差这题就ak。~~于是果断选择跳过去做其他题&lt;/p&gt;
 &lt;p&gt;直接贴结论吧&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-20-26-03.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-20-26-03.png&#34;
 	width=&#34;811&#34;
 	height=&#34;48&#34;
-	srcset=&#34;https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-20-26-03_hu5cb39f9b13ecb94be6b0d9ffc72841e0_34631_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-20-26-03_hu5cb39f9b13ecb94be6b0d9ffc72841e0_34631_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-20-26-03_hu5cb39f9b13ecb94be6b0d9ffc72841e0_34631_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-17-20-26-03_hu5cb39f9b13ecb94be6b0d9ffc72841e0_34631_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -511,10 +511,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;f-小沙的串串httpsacnowcodercomacmcontest46813f&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://ac.nowcoder.com/acm/contest/46813/F&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;F 小沙的串串&lt;/a&gt;&lt;/h1&gt;
 &lt;h1 id=&#34;题意-2&#34;&gt;题意&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-18-16-44-41.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-18-16-44-41.png&#34;
 	width=&#34;920&#34;
 	height=&#34;636&#34;
-	srcset=&#34;https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-18-16-44-41_hu55664caca997397cbf19d0d7a762f17c_26196_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-18-16-44-41_hu55664caca997397cbf19d0d7a762f17c_26196_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-18-16-44-41_hu55664caca997397cbf19d0d7a762f17c_26196_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2023/02/08/2023%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E8%90%A5/2023-02-18-16-44-41_hu55664caca997397cbf19d0d7a762f17c_26196_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -551,11 +551,11 @@
         </item>
         <item>
         <title>Atcoder Educational DP Contest</title>
-        <link>https://inariindream.fun/blog/2023/01/11/atcoder-educational-dp-contest/</link>
+        <link>https://inariindream.cn/blog/2023/01/11/atcoder-educational-dp-contest/</link>
         <pubDate>Wed, 11 Jan 2023 16:45:31 +0000</pubDate>
         
-        <guid>https://inariindream.fun/blog/2023/01/11/atcoder-educational-dp-contest/</guid>
-        <description>&lt;img src="https://inariindream.fun/blog/2023/01/11/atcoder-educational-dp-contest/111.jpg" alt="Featured image of post Atcoder Educational DP Contest" /&gt;&lt;h1 id=&#34;题单链接httpsatcoderjpcontestsdphttpsatcoderjpcontestsdp&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://atcoder.jp/contests/dp&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+        <guid>https://inariindream.cn/blog/2023/01/11/atcoder-educational-dp-contest/</guid>
+        <description>&lt;img src="https://inariindream.cn/blog/2023/01/11/atcoder-educational-dp-contest/111.jpg" alt="Featured image of post Atcoder Educational DP Contest" /&gt;&lt;h1 id=&#34;题单链接httpsatcoderjpcontestsdphttpsatcoderjpcontestsdp&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://atcoder.jp/contests/dp&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;题单链接&lt;/a&gt;：https://atcoder.jp/contests/dp&lt;/h1&gt;
 &lt;h1 id=&#34;ahttpsatcoderjpcontestsdptasksdp_a&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://atcoder.jp/contests/dp/tasks/dp_a&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;A&lt;/a&gt;&lt;/h1&gt;
@@ -644,11 +644,11 @@
         </item>
         <item>
         <title>Dynamic Programming</title>
-        <link>https://inariindream.fun/blog/2023/01/09/dynamic-programming/</link>
+        <link>https://inariindream.cn/blog/2023/01/09/dynamic-programming/</link>
         <pubDate>Mon, 09 Jan 2023 16:45:31 +0000</pubDate>
         
-        <guid>https://inariindream.fun/blog/2023/01/09/dynamic-programming/</guid>
-        <description>&lt;img src="https://inariindream.fun/blog/2023/01/09/dynamic-programming/111.jpg" alt="Featured image of post Dynamic Programming" /&gt;&lt;p&gt;记录我的DP训练&lt;/p&gt;
+        <guid>https://inariindream.cn/blog/2023/01/09/dynamic-programming/</guid>
+        <description>&lt;img src="https://inariindream.cn/blog/2023/01/09/dynamic-programming/111.jpg" alt="Featured image of post Dynamic Programming" /&gt;&lt;p&gt;记录我的DP训练&lt;/p&gt;
 &lt;h2 id=&#34;d-different-arrayshttpscodeforcescomcontest1783problemd&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://codeforces.com/contest/1783/problem/D&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;D. Different Arrays&lt;/a&gt;&lt;/h2&gt;
 &lt;h1 id=&#34;题意&#34;&gt;题意&lt;/h1&gt;
@@ -770,10 +770,10 @@ $$\sum_{i = 1}^{n}dp[n][i]$$&lt;/p&gt;
 &lt;p&gt;设有 $N(N \le 300)$ 堆石子排成一排，其编号为 $1,2,3,\cdots,N$。每堆石子有一定的质量 $m_i(m_i \le 1000)$。现在要将这 $N$ 堆石子合并成为一堆。每次只能合并相邻的两堆，合并的代价为这两堆石子的质量之和，合并后与这两堆石子相邻的石子将和新堆相邻。合并时由于选择的顺序不同，合并的总代价也不相同。试找出一种合理的方法，使总的代价最小，并输出最小代价。&lt;/p&gt;
 &lt;h1 id=&#34;思路-2&#34;&gt;思路&lt;/h1&gt;
 &lt;p&gt;区间DP，学了一手区间DP的常见套路。详见代码&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2023/01/09/dynamic-programming/2023-01-14-21-05-31.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2023/01/09/dynamic-programming/2023-01-14-21-05-31.png&#34;
 	width=&#34;1890&#34;
 	height=&#34;936&#34;
-	srcset=&#34;https://inariindream.fun/blog/2023/01/09/dynamic-programming/2023-01-14-21-05-31_hu1970801b156cdc29bbb01bbf08b566e0_705772_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2023/01/09/dynamic-programming/2023-01-14-21-05-31_hu1970801b156cdc29bbb01bbf08b566e0_705772_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2023/01/09/dynamic-programming/2023-01-14-21-05-31_hu1970801b156cdc29bbb01bbf08b566e0_705772_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2023/01/09/dynamic-programming/2023-01-14-21-05-31_hu1970801b156cdc29bbb01bbf08b566e0_705772_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -892,11 +892,11 @@ $$\sum_{i = 1}^{n}dp[n][i]$$&lt;/p&gt;
         </item>
         <item>
         <title>2022年终总结</title>
-        <link>https://inariindream.fun/blog/2022/12/29/2022%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</link>
+        <link>https://inariindream.cn/blog/2022/12/29/2022%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</link>
         <pubDate>Thu, 29 Dec 2022 10:39:43 +0000</pubDate>
         
-        <guid>https://inariindream.fun/blog/2022/12/29/2022%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</guid>
-        <description>&lt;img src="https://inariindream.fun/blog/2022/12/29/2022%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/333.jpg" alt="Featured image of post 2022年终总结" /&gt;&lt;p&gt;历法是人们为了在辽阔的时空中不迷茫走散，所开创制定的参考系；而在本质上，每一天都是平等的。地球公转的寒暑枯荣，确定了今天是公历年的最后一天，同时也更是平凡的一天。&lt;/p&gt;
+        <guid>https://inariindream.cn/blog/2022/12/29/2022%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</guid>
+        <description>&lt;img src="https://inariindream.cn/blog/2022/12/29/2022%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/333.jpg" alt="Featured image of post 2022年终总结" /&gt;&lt;p&gt;历法是人们为了在辽阔的时空中不迷茫走散，所开创制定的参考系；而在本质上，每一天都是平等的。地球公转的寒暑枯荣，确定了今天是公历年的最后一天，同时也更是平凡的一天。&lt;/p&gt;
 &lt;p&gt;但我在每个岁聿其莫之际，仍都会回望这一段。&lt;/p&gt;
 &lt;p&gt;今年是我写年终总结的第三年。&lt;/p&gt;
 &lt;p&gt;写下这句话的时候，我也意识到我的大学生活好像也步入了后半程。那现在似乎是一个好的时机，对我前一半时间的感想做一个回应。&lt;/p&gt;
@@ -911,10 +911,10 @@ $$\sum_{i = 1}^{n}dp[n][i]$$&lt;/p&gt;
 &lt;p&gt;梦想是廉价的，失败者的言论总是微不足道。平时做简单题摸鱼嘻嘻哈哈，到真正比赛才知道刻苦训练的重要性。也许无牌退役这件事，真的会成为我很长一段时间内的遗憾吧。&lt;/p&gt;
 &lt;p&gt;借用一句之前看到的一个回答：&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;“acm也许是我介于中二期与成熟期之间过渡时期的梦想，闪闪发光的梦想，恐怕以后不会再有这样追逐梦想的机会了。我成熟了，长大了，要学会权衡利弊了，要学会选择性价比高的事物了。”&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/12/29/2022%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/111.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2022/12/29/2022%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/111.png&#34;
 	width=&#34;1000&#34;
 	height=&#34;569&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/12/29/2022%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/111_hu5e4520b58a412c3c38545a32d4e41fa1_469712_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/12/29/2022%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/111_hu5e4520b58a412c3c38545a32d4e41fa1_469712_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/12/29/2022%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/111_hu5e4520b58a412c3c38545a32d4e41fa1_469712_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2022/12/29/2022%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/111_hu5e4520b58a412c3c38545a32d4e41fa1_469712_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;失败总是贯穿人生的始终，这就是人生。&#34;
@@ -931,10 +931,10 @@ $$\sum_{i = 1}^{n}dp[n][i]$$&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;关于其他&#34;&gt;关于其他&lt;/h2&gt;
 &lt;p&gt;其实今年我的收获还是很多，大量的网课时间让我得以有空闲探索自己喜欢的领域，我做了个好玩的qq机器人，学会了服务器的基本功能和使用，找导师参与到了几个AI项目，写了个小插件并获得了很多star等等。年初的我，一定想不到在这一年里我能学到这么多东西，遇到这么多厉害的人。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/12/29/2022%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/2023-01-01-10-28-25.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2022/12/29/2022%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/2023-01-01-10-28-25.png&#34;
 	width=&#34;357&#34;
 	height=&#34;287&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/12/29/2022%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/2023-01-01-10-28-25_hu7bd61006893ebb320521e4e5de637b82_68479_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/12/29/2022%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/2023-01-01-10-28-25_hu7bd61006893ebb320521e4e5de637b82_68479_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/12/29/2022%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/2023-01-01-10-28-25_hu7bd61006893ebb320521e4e5de637b82_68479_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2022/12/29/2022%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/2023-01-01-10-28-25_hu7bd61006893ebb320521e4e5de637b82_68479_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Starstruck&#34;
@@ -954,10 +954,10 @@ $$\sum_{i = 1}^{n}dp[n][i]$$&lt;/p&gt;
 &lt;p&gt;太阳系的一颗蓝色岩质行星又公转了一周，寒暑枯荣确立了年复一年的旋回。我们能轻易挖掘到千百年前的历史，却难以想象五年后的未来，即使它近在咫尺。&lt;/p&gt;
 &lt;p&gt;在这一年，“改变”的争先恐后和纷至沓来让我们不安，也许变化已经成为一种常态，我们如何接纳变化，将决定我们的道路通向何方。&lt;/p&gt;
 &lt;p&gt;但或许这正是文明，能以每个人的微小力量，努力摆脱由自然界周期完全决定的命运；也能在无数的未知和随机涨落的沉浮间，依旧矢志前行。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/12/29/2022%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/2023-01-01-11-41-56.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2022/12/29/2022%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/2023-01-01-11-41-56.png&#34;
 	width=&#34;928&#34;
 	height=&#34;566&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/12/29/2022%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/2023-01-01-11-41-56_hu54facafa2432d48e3645594c658b37dc_630763_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/12/29/2022%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/2023-01-01-11-41-56_hu54facafa2432d48e3645594c658b37dc_630763_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/12/29/2022%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/2023-01-01-11-41-56_hu54facafa2432d48e3645594c658b37dc_630763_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2022/12/29/2022%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/2023-01-01-11-41-56_hu54facafa2432d48e3645594c658b37dc_630763_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;《老友记》S1E1&#34;
@@ -974,11 +974,11 @@ $$\sum_{i = 1}^{n}dp[n][i]$$&lt;/p&gt;
         </item>
         <item>
         <title>ATC补题合集</title>
-        <link>https://inariindream.fun/blog/2022/12/23/atc%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/</link>
+        <link>https://inariindream.cn/blog/2022/12/23/atc%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/</link>
         <pubDate>Fri, 23 Dec 2022 11:06:32 +0000</pubDate>
         
-        <guid>https://inariindream.fun/blog/2022/12/23/atc%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/</guid>
-        <description>&lt;img src="https://inariindream.fun/blog/2022/12/23/atc%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/222.jpg" alt="Featured image of post ATC补题合集" /&gt;&lt;h2 id=&#34;abc287httpsatcoderjpcontestsabc287tasks&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://atcoder.jp/contests/abc287/tasks&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+        <guid>https://inariindream.cn/blog/2022/12/23/atc%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/</guid>
+        <description>&lt;img src="https://inariindream.cn/blog/2022/12/23/atc%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/222.jpg" alt="Featured image of post ATC补题合集" /&gt;&lt;h2 id=&#34;abc287httpsatcoderjpcontestsabc287tasks&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://atcoder.jp/contests/abc287/tasks&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;ABC287&lt;/a&gt;&lt;/h2&gt;
 &lt;h1 id=&#34;d---match-or-not&#34;&gt;D - Match or Not&lt;/h1&gt;
 &lt;h1 id=&#34;题意&#34;&gt;题意&lt;/h1&gt;
@@ -1056,10 +1056,10 @@ $$\sum_{i = 1}^{n}dp[n][i]$$&lt;/p&gt;
 &lt;p&gt;我们只关注出现的奇偶性所以显然可以只维护这个前缀里每个字母出现奇数还是偶数次，也就是直接状压，设状态为 S，则只有前面的状态 S才可以与当前的状态 S相匹配形成一个符合条件的区间，所以直接扫一遍维护一下就好了。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;说人话就是，可以用十位二进制数存到目前位置的数字出现情况，每次回到这样的出现次数状态就说明异或为0(或者1, 与初值有关)了，记录回到这样状态的次数（即某些数字出现了偶数次了且其他数字出现情况（前缀）都相同），累加一下，就能做到只扫一遍就把所有情况都统计完了。&lt;/p&gt;
-&lt;p&gt;例(v的变化情况)：&lt;img src=&#34;https://inariindream.fun/blog/2022/12/23/atc%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-06-01-16-56-11.png&#34;
+&lt;p&gt;例(v的变化情况)：&lt;img src=&#34;https://inariindream.cn/blog/2022/12/23/atc%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-06-01-16-56-11.png&#34;
 	width=&#34;88&#34;
 	height=&#34;123&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/12/23/atc%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-06-01-16-56-11_huedff28d885ec616498820010792af256_1843_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/12/23/atc%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-06-01-16-56-11_huedff28d885ec616498820010792af256_1843_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/12/23/atc%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-06-01-16-56-11_huedff28d885ec616498820010792af256_1843_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2022/12/23/atc%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-06-01-16-56-11_huedff28d885ec616498820010792af256_1843_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -1086,11 +1086,11 @@ $$\sum_{i = 1}^{n}dp[n][i]$$&lt;/p&gt;
         </item>
         <item>
         <title>炼丹问题实录</title>
-        <link>https://inariindream.fun/blog/2022/12/17/%E7%82%BC%E4%B8%B9%E9%97%AE%E9%A2%98%E5%AE%9E%E5%BD%95/</link>
+        <link>https://inariindream.cn/blog/2022/12/17/%E7%82%BC%E4%B8%B9%E9%97%AE%E9%A2%98%E5%AE%9E%E5%BD%95/</link>
         <pubDate>Sat, 17 Dec 2022 10:24:08 +0000</pubDate>
         
-        <guid>https://inariindream.fun/blog/2022/12/17/%E7%82%BC%E4%B8%B9%E9%97%AE%E9%A2%98%E5%AE%9E%E5%BD%95/</guid>
-        <description>&lt;img src="https://inariindream.fun/blog/2022/12/17/%E7%82%BC%E4%B8%B9%E9%97%AE%E9%A2%98%E5%AE%9E%E5%BD%95/111.png" alt="Featured image of post 炼丹问题实录" /&gt;&lt;p&gt;本文用于记录在炼丹时踩过的坑，以及解决方案。&lt;/p&gt;
+        <guid>https://inariindream.cn/blog/2022/12/17/%E7%82%BC%E4%B8%B9%E9%97%AE%E9%A2%98%E5%AE%9E%E5%BD%95/</guid>
+        <description>&lt;img src="https://inariindream.cn/blog/2022/12/17/%E7%82%BC%E4%B8%B9%E9%97%AE%E9%A2%98%E5%AE%9E%E5%BD%95/111.png" alt="Featured image of post 炼丹问题实录" /&gt;&lt;p&gt;本文用于记录在炼丹时踩过的坑，以及解决方案。&lt;/p&gt;
 &lt;p&gt;之前在AutoDL训的时候很多都忘记录了&amp;hellip;只记得基本每训一次之前得改5 6个bug&lt;/p&gt;
 &lt;p&gt;所以现在从padddleX开始记录。&lt;/p&gt;
 &lt;h2 id=&#34;typeerror-argument-bb-has-incorrect-type-expected-numpyndarray-got-list&#34;&gt;TypeError: Argument &amp;lsquo;bb&amp;rsquo; has incorrect type (expected numpy.ndarray, got list)&lt;/h2&gt;
@@ -1217,11 +1217,11 @@ $$\sum_{i = 1}^{n}dp[n][i]$$&lt;/p&gt;
         </item>
         <item>
         <title>CodeforcesEdu补题合集</title>
-        <link>https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/</link>
+        <link>https://inariindream.cn/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/</link>
         <pubDate>Fri, 21 Oct 2022 09:56:46 +0000</pubDate>
         
-        <guid>https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/</guid>
-        <description>&lt;img src="https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/222.png" alt="Featured image of post CodeforcesEdu补题合集" /&gt;&lt;p&gt;&lt;em&gt;此纪录从2022-10-21 09:56:46始&lt;/em&gt;&lt;/p&gt;
+        <guid>https://inariindream.cn/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/</guid>
+        <description>&lt;img src="https://inariindream.cn/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/222.png" alt="Featured image of post CodeforcesEdu补题合集" /&gt;&lt;p&gt;&lt;em&gt;此纪录从2022-10-21 09:56:46始&lt;/em&gt;&lt;/p&gt;
 &lt;h2 id=&#34;educational-codeforces-round-142&#34;&gt;Educational Codeforces Round 142&lt;/h2&gt;
 &lt;h1 id=&#34;c-min-max-sorthttpscodeforcescomcontest1792problemc&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://codeforces.com/contest/1792/problem/C&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;C. Min Max Sort&lt;/a&gt;&lt;/h1&gt;
@@ -1279,10 +1279,10 @@ $$\sum_{i = 1}^{n}dp[n][i]$$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;d-fixed-prefix-permutationshttpscodeforcescomcontest1792problemd&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://codeforces.com/contest/1792/problem/D&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;D. Fixed Prefix Permutations&lt;/a&gt;&lt;/h1&gt;
 &lt;h1 id=&#34;题意-1&#34;&gt;题意&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-29-08.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-29-08.png&#34;
 	width=&#34;661&#34;
 	height=&#34;898&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-29-08_hu29698a67afa7137f282745da0bf9b5b0_40943_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-29-08_hu29698a67afa7137f282745da0bf9b5b0_40943_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-29-08_hu29698a67afa7137f282745da0bf9b5b0_40943_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-29-08_hu29698a67afa7137f282745da0bf9b5b0_40943_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -1293,10 +1293,10 @@ $$\sum_{i = 1}^{n}dp[n][i]$$&lt;/p&gt;
 &gt;&lt;/p&gt;
 &lt;h1 id=&#34;思路-1&#34;&gt;思路&lt;/h1&gt;
 &lt;p&gt;字典树，看的ygg题解qwq&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-30-42.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-30-42.png&#34;
 	width=&#34;468&#34;
 	height=&#34;324&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-30-42_hue75a626e37f0ec8d84ae042f110f53e0_15326_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-30-42_hue75a626e37f0ec8d84ae042f110f53e0_15326_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-30-42_hue75a626e37f0ec8d84ae042f110f53e0_15326_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-30-42_hue75a626e37f0ec8d84ae042f110f53e0_15326_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -1305,10 +1305,10 @@ $$\sum_{i = 1}^{n}dp[n][i]$$&lt;/p&gt;
 		data-flex-basis=&#34;346px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-32-08.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-32-08.png&#34;
 	width=&#34;640&#34;
 	height=&#34;445&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-32-08_hued734f37cb7300b99d1c7edd8ea2a107_28863_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-32-08_hued734f37cb7300b99d1c7edd8ea2a107_28863_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-32-08_hued734f37cb7300b99d1c7edd8ea2a107_28863_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-32-08_hued734f37cb7300b99d1c7edd8ea2a107_28863_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -1362,10 +1362,10 @@ $$\sum_{i = 1}^{n}dp[n][i]$$&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;1.28注：Trie的数组第一维一般是开$n * d$（d是最大可能深度）&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-36-42.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-36-42.png&#34;
 	width=&#34;506&#34;
 	height=&#34;318&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-36-42_hu738c61a32fd8e4caaa6bbce479cc5bde_37223_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-36-42_hu738c61a32fd8e4caaa6bbce479cc5bde_37223_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-36-42_hu738c61a32fd8e4caaa6bbce479cc5bde_37223_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-26-19-36-42_hu738c61a32fd8e4caaa6bbce479cc5bde_37223_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -1479,10 +1479,10 @@ $$\sum_{i = 1}^{n}dp[n][i]$$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    print(sum(ans) &lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; MOD)
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这题的教训就是一定记得计算需要的数组长度（济南的签到好像也是这样栽了半天），和ans不要留到最后才模&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-09-20-07-18.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-09-20-07-18.png&#34;
 	width=&#34;565&#34;
 	height=&#34;987&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-09-20-07-18_hu5c78d0e1826940ee1ca1d2ec21eafd82_81064_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-09-20-07-18_hu5c78d0e1826940ee1ca1d2ec21eafd82_81064_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-09-20-07-18_hu5c78d0e1826940ee1ca1d2ec21eafd82_81064_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-09-20-07-18_hu5c78d0e1826940ee1ca1d2ec21eafd82_81064_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;试错史，后来发现二维其实能过&#34;
@@ -1784,10 +1784,10 @@ $(0≤a_i, b_i&amp;lt;2^{30})$&lt;/p&gt;
 &lt;h1 id=&#34;思路-9&#34;&gt;思路&lt;/h1&gt;
 &lt;p&gt;注意到c在某一位为1时只能是当所有的$c_i$在这一位都为1才能取到，进而需要所有匹配的$a_i$ 和 $b_i$在这一位的异或都为1。&lt;/p&gt;
 &lt;p&gt;那么如何找这样满足条件的匹配呢，看题解发现有一种很妙的方法可以实现。$c$贪心地从最高位为$1$开始往下取，然后先假设$c$这一位为1，通过map计数check是否所有的$a_i, b_i$都能满足条件，而并不需要排列来对每个$i$进行匹配。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2022-10-21-20-49-42.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2022-10-21-20-49-42.png&#34;
 	width=&#34;500&#34;
 	height=&#34;297&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2022-10-21-20-49-42_hu565b2ba7ee54d6d263cc0577b92ec968_21437_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2022-10-21-20-49-42_hu565b2ba7ee54d6d263cc0577b92ec968_21437_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2022-10-21-20-49-42_hu565b2ba7ee54d6d263cc0577b92ec968_21437_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2022-10-21-20-49-42_hu565b2ba7ee54d6d263cc0577b92ec968_21437_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -1829,10 +1829,10 @@ $(0≤a_i, b_i&amp;lt;2^{30})$&lt;/p&gt;
 &lt;p&gt;给定$n$个两两不同的整点坐标，对于每个整点$p$，求：不包含在这 $n$ 个点内的其他整点中，与点 $p$ 距离最近的那个。&lt;/p&gt;
 &lt;h1 id=&#34;思路-10&#34;&gt;思路&lt;/h1&gt;
 &lt;p&gt;答案肯定不能搜寻整个平面，通过观察得，答案只可能在$n$个点组成的图形的“边缘”处&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-23-15-35-45.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-23-15-35-45.png&#34;
 	width=&#34;646&#34;
 	height=&#34;488&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-23-15-35-45_hu15ff192b96ea28882d15cef4f5681b37_22208_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-23-15-35-45_hu15ff192b96ea28882d15cef4f5681b37_22208_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-23-15-35-45_hu15ff192b96ea28882d15cef4f5681b37_22208_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2022/10/21/codeforcesedu%E8%A1%A5%E9%A2%98%E5%90%88%E9%9B%86/2023-01-23-15-35-45_hu15ff192b96ea28882d15cef4f5681b37_22208_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -1954,10 +1954,10 @@ $(0≤a_i, b_i&amp;lt;2^{30})$&lt;/p&gt;
         </item>
         <item>
         <title>《Cyberpunk·Edgerunner》被扳机社唤回活力的夜之城</title>
-        <link>https://inariindream.fun/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/</link>
+        <link>https://inariindream.cn/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/</link>
         <pubDate>Mon, 10 Oct 2022 10:04:36 +0000</pubDate>
         
-        <guid>https://inariindream.fun/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/</guid>
+        <guid>https://inariindream.cn/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/</guid>
         <description>&lt;img src="https://s1.ax1x.com/2022/10/10/xYgx5F.png" alt="Featured image of post 《Cyberpunk·Edgerunner》被扳机社唤回活力的夜之城" /&gt;&lt;h3 id=&#34;前言&#34;&gt;前言&lt;/h3&gt;
 &lt;p&gt;最早知道这部动画是在7月份，大概知道近期会有一个基于2077世界观的动画会出，但知道有CDPR的参与后，有着2077的前车之鉴，最开始我是不太看好这部动画的。跟很多人一样，我一边追着蒜吻一边看着蒜吻大战，不亦乐乎。直到9月 《边缘行者》的出现，以一己之力停止了两部竞争胶着的动画的纷争，成为了今年原创动画的唯一真神。&lt;/p&gt;
 &lt;p&gt;看第一集是在考六级刷分的前一天，考前不想复习的时候打开微博刷了刷，发现这部动画的讨论度超过了我原先的预期，并且评价也都十分不错，于是我将信将疑地打开了第一集。看完第一集的时候我就知道这部番十分对我胃口，无论是动画中还原的游戏设定还是美术风格。前思后想，在看完第三集之后，我还是强迫自己去睡觉了，第二天六级考完后，回到62号隔离楼，我的第一件事就是打开电脑把剩下的集数看完。&lt;/p&gt;
@@ -1974,10 +1974,10 @@ $(0≤a_i, b_i&amp;lt;2^{30})$&lt;/p&gt;
 &lt;p&gt;我是在难过什么呢？瑞贝卡哥哥死的时候，我不觉得难过，我觉得那是场意外，我玩过游戏，所以深知这样的事情在夜之城只能叫做家常便饭 &lt;del&gt;（死人大乐透）&lt;/del&gt;。并且他的死亡也使大卫成熟了许多。大哥曼恩死的时候，我虽然被那集的表现手法给震撼住了，对大哥的死感觉有点遗憾，但其实大哥的死也是有伏笔的，我只是遗憾大哥没能克服过去。瑞贝卡的死也差不多，在我的感觉里她在战斗里一直都有一点不要命的打法，哪天真寄了也不奇怪。&lt;/p&gt;
 &lt;p&gt;那么我为什么会对大卫的死感到这么难过呢？照例说，有着那么多flag，我应该会觉得理所应当的才对。&lt;/p&gt;
 &lt;p&gt;后来看了泛式的杂谈回才明白过来，其实是Lucy这个“未亡人”的设定，如果最后大卫和Lucy双双赴死，并且最后两人牵手看着月光，这样的话对我来说悲剧的氛围就会减弱，因为我会觉得这是某种意义上的“Wish Granted”，但事实上并没有。两个人的心愿在最后都没有达成。大卫做到了保护Lucy，也用最后一次任务的金钱让Lucy上了月球，但是他在第4集赏月时许诺的“我会带你到月球去”却是实实在在地落空了&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/2022-10-10-11-04-45.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/2022-10-10-11-04-45.jpg&#34;
 	width=&#34;1920&#34;
 	height=&#34;1080&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/2022-10-10-11-04-45_hu5695df8de65407c34e90dcfbbf16a547_1288599_480x0_resize_q75_box.jpg 480w, https://inariindream.fun/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/2022-10-10-11-04-45_hu5695df8de65407c34e90dcfbbf16a547_1288599_1024x0_resize_q75_box.jpg 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/2022-10-10-11-04-45_hu5695df8de65407c34e90dcfbbf16a547_1288599_480x0_resize_q75_box.jpg 480w, https://inariindream.cn/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/2022-10-10-11-04-45_hu5695df8de65407c34e90dcfbbf16a547_1288599_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -1988,10 +1988,10 @@ $(0≤a_i, b_i&amp;lt;2^{30})$&lt;/p&gt;
 &gt;&lt;/p&gt;
 &lt;p&gt;Lucy想去月球的愿望其实是源自于怕被荒坂找到的恐惧，所以在遇见大卫之前会想去一个远离所有纷争的，平静的地方。但在遇见大卫之后，一些事情改变了，她有了对她来说十分重要的人，并不是像以前那样无牵无挂。她的愿望也逐渐成“去月球”变成了“和大卫一起去月球”。&lt;/p&gt;
 &lt;p&gt;而最后，两人的愿望都落空了，我个人认为，正是这份落差是让很多人意难平，感到后劲很大的主要原因&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/2022-10-10-11-12-41.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/2022-10-10-11-12-41.png&#34;
 	width=&#34;679&#34;
 	height=&#34;977&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/2022-10-10-11-12-41_hu65558c4b02df870dcc558b8d32f93e7c_644071_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/2022-10-10-11-12-41_hu65558c4b02df870dcc558b8d32f93e7c_644071_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/2022-10-10-11-12-41_hu65558c4b02df870dcc558b8d32f93e7c_644071_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/2022-10-10-11-12-41_hu65558c4b02df870dcc558b8d32f93e7c_644071_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -2005,10 +2005,10 @@ $(0≤a_i, b_i&amp;lt;2^{30})$&lt;/p&gt;
 &lt;p&gt;CyberPunk这个词在动画里被描述成了一群人的身份名称，在秩序边缘游走，也在精神边缘游走，在无情的社会中努力反抗，苟活的一群人，叫做CyberPunk。&lt;/p&gt;
 &lt;p&gt;因此 EdgeRunner 就是在跟这些赛跑。整个标题，都可以算作是第六集神回的伏笔。&lt;/p&gt;
 &lt;p&gt;在第六集里，过量的义体压垮了曼恩，行动失败，团队分离崩析，暴恐机动队突入的瞬间，在被Sanevistan压缩的时间里，大卫以痛苦的慢放目睹了大哥的死相，在母亲死后跟着团队行动堆叠起来的安全感跟着大哥的精神一起倒塌，配乐则选取了游戏中FM96.1广播中出现的《Zurawie》，歌曲中的嘶吼仿佛代替了大卫发出疯狂和绝望的嘶吼&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/2022-10-10-11-37-35.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/2022-10-10-11-37-35.png&#34;
 	width=&#34;1920&#34;
 	height=&#34;1080&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/2022-10-10-11-37-35_hue57230320133c44bc787bfc0164abad6_1742108_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/2022-10-10-11-37-35_hue57230320133c44bc787bfc0164abad6_1742108_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/2022-10-10-11-37-35_hue57230320133c44bc787bfc0164abad6_1742108_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/2022-10-10-11-37-35_hue57230320133c44bc787bfc0164abad6_1742108_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -2023,10 +2023,10 @@ $(0≤a_i, b_i&amp;lt;2^{30})$&lt;/p&gt;
 &lt;h3 id=&#34;关于lucy&#34;&gt;关于Lucy&lt;/h3&gt;
 &lt;p&gt;Lucy应该算是近几年的动画作品中我最喜欢的女主了，不仅仅是因为她是那种 &lt;em&gt;“看着坏坏的，能带你摆脱无聊日常”&lt;/em&gt; 的女孩，还因为她在动画里体现出来的聪慧与机警，扳机社是真的将这个人物塑造的很好。&lt;/p&gt;
 &lt;p&gt;很少有这么强大、聪明、理性、浪漫，美丽的女主角。精致的脸，高挑的身材。低饱和度的粉色&amp;amp;冰蓝色拼接短发，霓虹瞳色。下眼睑和下嘴唇的纹印，将它和诸多动漫中脸型类似的漂亮女主区别开来。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/2022-10-10-13-14-58.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/2022-10-10-13-14-58.png&#34;
 	width=&#34;847&#34;
 	height=&#34;779&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/2022-10-10-13-14-58_hu5a156e059d3e0a4a8d5766897b9bde9d_340389_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/2022-10-10-13-14-58_hu5a156e059d3e0a4a8d5766897b9bde9d_340389_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/2022-10-10-13-14-58_hu5a156e059d3e0a4a8d5766897b9bde9d_340389_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/2022-10-10-13-14-58_hu5a156e059d3e0a4a8d5766897b9bde9d_340389_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -2040,10 +2040,10 @@ $(0≤a_i, b_i&amp;lt;2^{30})$&lt;/p&gt;
 &lt;p&gt;她抓着男孩的病床在川流不息的马路上驰骋，那一刻，男孩眼里闪过了霓虹灯光。&lt;/p&gt;
 &lt;p&gt;她将男孩带入自己的月球，她将自己的哀愁自己的防备留在夜之城的夜晚，而在月球上露出她内心毫不掩饰的喜悦。&lt;/p&gt;
 &lt;p&gt;她摆在身后的手做出可爱的手势，她抓住男孩的手一起在月球上飞跃。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/2022-10-10-13-10-35.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/2022-10-10-13-10-35.png&#34;
 	width=&#34;1016&#34;
 	height=&#34;489&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/2022-10-10-13-10-35_hua47489e1ddb1ec7a81c362c0fff1f714_267485_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/2022-10-10-13-10-35_hua47489e1ddb1ec7a81c362c0fff1f714_267485_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/2022-10-10-13-10-35_hua47489e1ddb1ec7a81c362c0fff1f714_267485_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/2022-10-10-13-10-35_hua47489e1ddb1ec7a81c362c0fff1f714_267485_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -2054,10 +2054,10 @@ $(0≤a_i, b_i&amp;lt;2^{30})$&lt;/p&gt;
 &gt;&lt;/p&gt;
 &lt;p&gt;Lucy前期的这种撩人大姐姐型、似乎能把你的一切都能看透的神秘人设我觉得是十分吸引人的。&lt;/p&gt;
 &lt;p&gt;很多人说Lucy后期变成了恋爱脑妹妹，但我的观点与之相左。我认为Lucy至始至终都是一个独立自强的女性，前期做任务时，她能用高分子线救队友于水火，能在任务里发挥自己的贡献。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/2022-10-10-13-28-15.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/2022-10-10-13-28-15.png&#34;
 	width=&#34;1734&#34;
 	height=&#34;967&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/2022-10-10-13-28-15_hu7370a7c76be95bf363ec036eaef4469e_1453846_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/2022-10-10-13-28-15_hu7370a7c76be95bf363ec036eaef4469e_1453846_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/2022-10-10-13-28-15_hu7370a7c76be95bf363ec036eaef4469e_1453846_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/2022-10-10-13-28-15_hu7370a7c76be95bf363ec036eaef4469e_1453846_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -2068,10 +2068,10 @@ $(0≤a_i, b_i&amp;lt;2^{30})$&lt;/p&gt;
 &gt;&lt;/p&gt;
 &lt;p&gt;即使在很多人说的“呜呜大卫”的后期，Lucy也是凭自己的力量把觊觎大卫的人给清除的，是因为这个时候大卫对她而言十分重要，将为心爱之人毅然做出行动的行为也单纯地归入“恋爱脑妹妹”的评价，我个人是认为不太准确的。&lt;/p&gt;
 &lt;p&gt;Lucy的人设至始至终应该都没有崩的，她不同于传统的“塔斯给得”，“多西哟”型女主，她始终都会以行动来达成自己的目标，她的成熟，聪慧，帅气还带一点可爱的内在是比好看的身材更加吸引我的地方。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/2022-10-10-13-40-08.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/2022-10-10-13-40-08.png&#34;
 	width=&#34;966&#34;
 	height=&#34;965&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/2022-10-10-13-40-08_hubbb46650ecf59ecbdd1cd6c143cea782_758506_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/2022-10-10-13-40-08_hubbb46650ecf59ecbdd1cd6c143cea782_758506_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/2022-10-10-13-40-08_hubbb46650ecf59ecbdd1cd6c143cea782_758506_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/2022-10-10-13-40-08_hubbb46650ecf59ecbdd1cd6c143cea782_758506_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -2086,10 +2086,10 @@ $(0≤a_i, b_i&amp;lt;2^{30})$&lt;/p&gt;
 &lt;p&gt;不管2077的游戏多么残缺，其世界观和美术设定及任务安排仍是一流的水准，我很庆幸我是先玩过游戏再看的动画，它让我看懂这部动画中一些游戏彩蛋，也对这部作品的内核有了更深的理解。&lt;/p&gt;
 &lt;p&gt;论设定，我觉得不如初看巨人前三季时带给我的震撼；论内核，我觉得比不上《来自深渊》；论原创，我觉得也许能刚好与去年的《奇巧计程车》打个平手（指表现力与讨论度等）。但为什么我单独在看完这部作品以后，会想着为其写一篇感想呢？&lt;/p&gt;
 &lt;p&gt;我想，也许在因为学业压力而被迫暂时放弃游戏的现在，我的内心深处，仍然是那个Player吧。因此，会对游改动画有着一种别样的情感，也还会去圣地巡礼。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/2022-10-10-14-02-36.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/2022-10-10-14-02-36.png&#34;
 	width=&#34;861&#34;
 	height=&#34;968&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/2022-10-10-14-02-36_hu909f06387ca062cd5e00875add7bbf50_917228_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/2022-10-10-14-02-36_hu909f06387ca062cd5e00875add7bbf50_917228_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/2022-10-10-14-02-36_hu909f06387ca062cd5e00875add7bbf50_917228_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/2022-10-10-14-02-36_hu909f06387ca062cd5e00875add7bbf50_917228_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -2104,10 +2104,10 @@ $(0≤a_i, b_i&amp;lt;2^{30})$&lt;/p&gt;
 &lt;p&gt;不同于《来自深渊》带给我的“温暖的黑暗”，《边缘行者》的故事更像是漆黑郊外夜景下突然出现的霓虹灯，美得有些不合时宜。&lt;/p&gt;
 &lt;p&gt;因此，在美好破碎时，会让人感到疼痛。&lt;/p&gt;
 &lt;p&gt;曼恩变成赛博精神病的时候见到自己在荒原上奔跑，之后是大卫，他跑的更快，跑的更远，现在轮到了Lucy。在这片一无所有又无穷无尽的荒原，到处都是路，亦或是到处都没有路，唯有死神，令一切化为乌有的死神，正在黑暗中以不可知的速度行进着，日日夜夜向这荒原中心的人奔来。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/2022-10-10-14-04-51.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/2022-10-10-14-04-51.png&#34;
 	width=&#34;786&#34;
 	height=&#34;782&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/2022-10-10-14-04-51_hufad9d02ebe4f109acc19be5f79b7ca63_27948_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/2022-10-10-14-04-51_hufad9d02ebe4f109acc19be5f79b7ca63_27948_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/2022-10-10-14-04-51_hufad9d02ebe4f109acc19be5f79b7ca63_27948_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2022/10/10/cyberpunkedgerunner%E8%A2%AB%E6%89%B3%E6%9C%BA%E7%A4%BE%E5%94%A4%E5%9B%9E%E6%B4%BB%E5%8A%9B%E7%9A%84%E5%A4%9C%E4%B9%8B%E5%9F%8E/2022-10-10-14-04-51_hufad9d02ebe4f109acc19be5f79b7ca63_27948_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -2121,10 +2121,10 @@ $(0≤a_i, b_i&amp;lt;2^{30})$&lt;/p&gt;
         </item>
         <item>
         <title>洛谷专题记录（优先队列）</title>
-        <link>https://inariindream.fun/blog/2022/08/04/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98%E8%AE%B0%E5%BD%95%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/</link>
+        <link>https://inariindream.cn/blog/2022/08/04/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98%E8%AE%B0%E5%BD%95%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/</link>
         <pubDate>Thu, 04 Aug 2022 11:31:31 +0000</pubDate>
         
-        <guid>https://inariindream.fun/blog/2022/08/04/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98%E8%AE%B0%E5%BD%95%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/</guid>
+        <guid>https://inariindream.cn/blog/2022/08/04/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98%E8%AE%B0%E5%BD%95%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/</guid>
         <description>&lt;img src="https://s1.ax1x.com/2022/04/30/LzHLHf.jpg" alt="Featured image of post 洛谷专题记录（优先队列）" /&gt;&lt;!-- raw HTML omitted --&gt;
 &lt;h1 id=&#34;扫描httpswwwluogucomcnproblemp2032&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.luogu.com.cn/problem/P2032&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;扫描&lt;/a&gt;&lt;/h1&gt;
@@ -2201,10 +2201,10 @@ $(0≤a_i, b_i&amp;lt;2^{30})$&lt;/p&gt;
         </item>
         <item>
         <title>RSS备用源</title>
-        <link>https://inariindream.fun/blog/2022/05/26/rss%E5%A4%87%E7%94%A8%E6%BA%90/</link>
+        <link>https://inariindream.cn/blog/2022/05/26/rss%E5%A4%87%E7%94%A8%E6%BA%90/</link>
         <pubDate>Thu, 26 May 2022 10:16:47 +0000</pubDate>
         
-        <guid>https://inariindream.fun/blog/2022/05/26/rss%E5%A4%87%E7%94%A8%E6%BA%90/</guid>
+        <guid>https://inariindream.cn/blog/2022/05/26/rss%E5%A4%87%E7%94%A8%E6%BA%90/</guid>
         <description>&lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;一些备用的rss源&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;http://rsshub.sksren.com/
@@ -2244,10 +2244,10 @@ rsshub.rssforever.com
         </item>
         <item>
         <title>保姆级的Ubuntu20.04美化</title>
-        <link>https://inariindream.fun/blog/2022/05/18/%E4%BF%9D%E5%A7%86%E7%BA%A7%E7%9A%84ubuntu20.04%E7%BE%8E%E5%8C%96/</link>
+        <link>https://inariindream.cn/blog/2022/05/18/%E4%BF%9D%E5%A7%86%E7%BA%A7%E7%9A%84ubuntu20.04%E7%BE%8E%E5%8C%96/</link>
         <pubDate>Wed, 18 May 2022 22:04:44 +0000</pubDate>
         
-        <guid>https://inariindream.fun/blog/2022/05/18/%E4%BF%9D%E5%A7%86%E7%BA%A7%E7%9A%84ubuntu20.04%E7%BE%8E%E5%8C%96/</guid>
+        <guid>https://inariindream.cn/blog/2022/05/18/%E4%BF%9D%E5%A7%86%E7%BA%A7%E7%9A%84ubuntu20.04%E7%BE%8E%E5%8C%96/</guid>
         <description>&lt;img src="https://s1.ax1x.com/2022/05/18/O7Q4JO.jpg" alt="Featured image of post 保姆级的Ubuntu20.04美化" /&gt;&lt;!-- raw HTML omitted --&gt;
 &lt;h1 id=&#34;ubuntu2004美化篇&#34;&gt;Ubuntu20.04美化篇&lt;/h1&gt;
 &lt;p&gt;像之前说过的，用Linux的起因是看到了很炫酷的桌面，在问了之后发现Ubuntu也能用deepin的dde桌面，甚至还找到了&lt;a class=&#34;link&#34; href=&#34;https://blog.csdn.net/wp3524/article/details/122789110&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -2263,10 +2263,10 @@ sudo apt install chrome-gnome-shell //这条非常重要
 sudo apt install gnome-tweaks-extension
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这个时候打开应用能搜索到&lt;em&gt;Tweaks&lt;/em&gt;了（中文版应该叫优化）&lt;/p&gt;
 &lt;p&gt;但打开后会发现是这样的（版本号不同可能大同小异）&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/05/18/%E4%BF%9D%E5%A7%86%E7%BA%A7%E7%9A%84ubuntu20.04%E7%BE%8E%E5%8C%96/2022-05-18-22-33-38.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2022/05/18/%E4%BF%9D%E5%A7%86%E7%BA%A7%E7%9A%84ubuntu20.04%E7%BE%8E%E5%8C%96/2022-05-18-22-33-38.png&#34;
 	width=&#34;941&#34;
 	height=&#34;513&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/05/18/%E4%BF%9D%E5%A7%86%E7%BA%A7%E7%9A%84ubuntu20.04%E7%BE%8E%E5%8C%96/2022-05-18-22-33-38_hufc63dec9e65e1bfb740115dc6f378515_49850_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/05/18/%E4%BF%9D%E5%A7%86%E7%BA%A7%E7%9A%84ubuntu20.04%E7%BE%8E%E5%8C%96/2022-05-18-22-33-38_hufc63dec9e65e1bfb740115dc6f378515_49850_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/05/18/%E4%BF%9D%E5%A7%86%E7%BA%A7%E7%9A%84ubuntu20.04%E7%BE%8E%E5%8C%96/2022-05-18-22-33-38_hufc63dec9e65e1bfb740115dc6f378515_49850_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2022/05/18/%E4%BF%9D%E5%A7%86%E7%BA%A7%E7%9A%84ubuntu20.04%E7%BE%8E%E5%8C%96/2022-05-18-22-33-38_hufc63dec9e65e1bfb740115dc6f378515_49850_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -2278,10 +2278,10 @@ sudo apt install gnome-tweaks-extension
 &lt;p&gt;重点是&lt;code&gt;Shell&lt;/code&gt;前面有个三角形，而我们换主题主要依赖的就是这个选项，因此这个时候需要登陆插件网站下载插件来将这个三角形去掉。&lt;/p&gt;
 &lt;p&gt;打开gnome扩展网站：https://extensions.gnome.org/&lt;/p&gt;
 &lt;p&gt;刚打开就会看到这样的提示让你下载浏览器插件&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/05/18/%E4%BF%9D%E5%A7%86%E7%BA%A7%E7%9A%84ubuntu20.04%E7%BE%8E%E5%8C%96/2022-05-18-22-38-47.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2022/05/18/%E4%BF%9D%E5%A7%86%E7%BA%A7%E7%9A%84ubuntu20.04%E7%BE%8E%E5%8C%96/2022-05-18-22-38-47.png&#34;
 	width=&#34;1144&#34;
 	height=&#34;370&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/05/18/%E4%BF%9D%E5%A7%86%E7%BA%A7%E7%9A%84ubuntu20.04%E7%BE%8E%E5%8C%96/2022-05-18-22-38-47_huaf66ca6078a1223833fd3b4fa20a5289_160805_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/05/18/%E4%BF%9D%E5%A7%86%E7%BA%A7%E7%9A%84ubuntu20.04%E7%BE%8E%E5%8C%96/2022-05-18-22-38-47_huaf66ca6078a1223833fd3b4fa20a5289_160805_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/05/18/%E4%BF%9D%E5%A7%86%E7%BA%A7%E7%9A%84ubuntu20.04%E7%BE%8E%E5%8C%96/2022-05-18-22-38-47_huaf66ca6078a1223833fd3b4fa20a5289_160805_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2022/05/18/%E4%BF%9D%E5%A7%86%E7%BA%A7%E7%9A%84ubuntu20.04%E7%BE%8E%E5%8C%96/2022-05-18-22-38-47_huaf66ca6078a1223833fd3b4fa20a5289_160805_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -2297,10 +2297,10 @@ sudo apt install gnome-tweaks-extension
 &lt;p&gt;访问：https://extensions.gnome.org/extension/19/user-themes/&lt;/p&gt;
 &lt;p&gt;下载用户主题插件，或在上一步的页面搜索&lt;code&gt;user-themes&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;将按钮打开成&lt;code&gt;ON&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/05/18/%E4%BF%9D%E5%A7%86%E7%BA%A7%E7%9A%84ubuntu20.04%E7%BE%8E%E5%8C%96/2022-05-18-22-47-57.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2022/05/18/%E4%BF%9D%E5%A7%86%E7%BA%A7%E7%9A%84ubuntu20.04%E7%BE%8E%E5%8C%96/2022-05-18-22-47-57.png&#34;
 	width=&#34;1351&#34;
 	height=&#34;656&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/05/18/%E4%BF%9D%E5%A7%86%E7%BA%A7%E7%9A%84ubuntu20.04%E7%BE%8E%E5%8C%96/2022-05-18-22-47-57_hu07f9c8d1c1784742514380457e36c022_127646_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/05/18/%E4%BF%9D%E5%A7%86%E7%BA%A7%E7%9A%84ubuntu20.04%E7%BE%8E%E5%8C%96/2022-05-18-22-47-57_hu07f9c8d1c1784742514380457e36c022_127646_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/05/18/%E4%BF%9D%E5%A7%86%E7%BA%A7%E7%9A%84ubuntu20.04%E7%BE%8E%E5%8C%96/2022-05-18-22-47-57_hu07f9c8d1c1784742514380457e36c022_127646_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2022/05/18/%E4%BF%9D%E5%A7%86%E7%BA%A7%E7%9A%84ubuntu20.04%E7%BE%8E%E5%8C%96/2022-05-18-22-47-57_hu07f9c8d1c1784742514380457e36c022_127646_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -2313,10 +2313,10 @@ sudo apt install gnome-tweaks-extension
 &lt;h3 id=&#34;3-下载主题&#34;&gt;3. 下载主题&lt;/h3&gt;
 &lt;p&gt;访问gnome主题网站：https://www.gnome-look.org/&lt;/p&gt;
 &lt;p&gt;选择一个自己喜欢的主题&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/05/18/%E4%BF%9D%E5%A7%86%E7%BA%A7%E7%9A%84ubuntu20.04%E7%BE%8E%E5%8C%96/2022-05-18-22-52-22.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2022/05/18/%E4%BF%9D%E5%A7%86%E7%BA%A7%E7%9A%84ubuntu20.04%E7%BE%8E%E5%8C%96/2022-05-18-22-52-22.png&#34;
 	width=&#34;1598&#34;
 	height=&#34;736&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/05/18/%E4%BF%9D%E5%A7%86%E7%BA%A7%E7%9A%84ubuntu20.04%E7%BE%8E%E5%8C%96/2022-05-18-22-52-22_hu99294b91aef25e9aa1148b5aa5531641_302049_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/05/18/%E4%BF%9D%E5%A7%86%E7%BA%A7%E7%9A%84ubuntu20.04%E7%BE%8E%E5%8C%96/2022-05-18-22-52-22_hu99294b91aef25e9aa1148b5aa5531641_302049_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/05/18/%E4%BF%9D%E5%A7%86%E7%BA%A7%E7%9A%84ubuntu20.04%E7%BE%8E%E5%8C%96/2022-05-18-22-52-22_hu99294b91aef25e9aa1148b5aa5531641_302049_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2022/05/18/%E4%BF%9D%E5%A7%86%E7%BA%A7%E7%9A%84ubuntu20.04%E7%BE%8E%E5%8C%96/2022-05-18-22-52-22_hu99294b91aef25e9aa1148b5aa5531641_302049_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -2327,10 +2327,10 @@ sudo apt install gnome-tweaks-extension
 &gt;&lt;/p&gt;
 &lt;p&gt;这里以&lt;em&gt;WhiteSur Gtk&lt;/em&gt;为例&lt;/p&gt;
 &lt;p&gt;点第一个下载即可&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/05/18/%E4%BF%9D%E5%A7%86%E7%BA%A7%E7%9A%84ubuntu20.04%E7%BE%8E%E5%8C%96/2022-05-18-22-53-03.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2022/05/18/%E4%BF%9D%E5%A7%86%E7%BA%A7%E7%9A%84ubuntu20.04%E7%BE%8E%E5%8C%96/2022-05-18-22-53-03.png&#34;
 	width=&#34;1026&#34;
 	height=&#34;453&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/05/18/%E4%BF%9D%E5%A7%86%E7%BA%A7%E7%9A%84ubuntu20.04%E7%BE%8E%E5%8C%96/2022-05-18-22-53-03_hu3cf641250af1ff7237b08bbb0404686b_52032_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/05/18/%E4%BF%9D%E5%A7%86%E7%BA%A7%E7%9A%84ubuntu20.04%E7%BE%8E%E5%8C%96/2022-05-18-22-53-03_hu3cf641250af1ff7237b08bbb0404686b_52032_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/05/18/%E4%BF%9D%E5%A7%86%E7%BA%A7%E7%9A%84ubuntu20.04%E7%BE%8E%E5%8C%96/2022-05-18-22-53-03_hu3cf641250af1ff7237b08bbb0404686b_52032_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2022/05/18/%E4%BF%9D%E5%A7%86%E7%BA%A7%E7%9A%84ubuntu20.04%E7%BE%8E%E5%8C%96/2022-05-18-22-53-03_hu3cf641250af1ff7237b08bbb0404686b_52032_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -2340,10 +2340,10 @@ sudo apt install gnome-tweaks-extension
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;配套的图标下载在这里&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/05/18/%E4%BF%9D%E5%A7%86%E7%BA%A7%E7%9A%84ubuntu20.04%E7%BE%8E%E5%8C%96/2022-05-18-22-53-39.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2022/05/18/%E4%BF%9D%E5%A7%86%E7%BA%A7%E7%9A%84ubuntu20.04%E7%BE%8E%E5%8C%96/2022-05-18-22-53-39.png&#34;
 	width=&#34;778&#34;
 	height=&#34;425&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/05/18/%E4%BF%9D%E5%A7%86%E7%BA%A7%E7%9A%84ubuntu20.04%E7%BE%8E%E5%8C%96/2022-05-18-22-53-39_hu7e1446812ee11eab43fb451720f2c942_50973_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/05/18/%E4%BF%9D%E5%A7%86%E7%BA%A7%E7%9A%84ubuntu20.04%E7%BE%8E%E5%8C%96/2022-05-18-22-53-39_hu7e1446812ee11eab43fb451720f2c942_50973_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/05/18/%E4%BF%9D%E5%A7%86%E7%BA%A7%E7%9A%84ubuntu20.04%E7%BE%8E%E5%8C%96/2022-05-18-22-53-39_hu7e1446812ee11eab43fb451720f2c942_50973_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2022/05/18/%E4%BF%9D%E5%A7%86%E7%BA%A7%E7%9A%84ubuntu20.04%E7%BE%8E%E5%8C%96/2022-05-18-22-53-39_hu7e1446812ee11eab43fb451720f2c942_50973_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -2362,10 +2362,10 @@ sudo apt install gnome-tweaks-extension
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;或将解压后的文件&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo cp -r+“空格”+~/你要复制的文件的原目录/你要复制的文件+“空格”+/usr/目标目录
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;然后更改这两项即可&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/05/18/%E4%BF%9D%E5%A7%86%E7%BA%A7%E7%9A%84ubuntu20.04%E7%BE%8E%E5%8C%96/2022-05-18-22-59-58.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2022/05/18/%E4%BF%9D%E5%A7%86%E7%BA%A7%E7%9A%84ubuntu20.04%E7%BE%8E%E5%8C%96/2022-05-18-22-59-58.png&#34;
 	width=&#34;976&#34;
 	height=&#34;679&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/05/18/%E4%BF%9D%E5%A7%86%E7%BA%A7%E7%9A%84ubuntu20.04%E7%BE%8E%E5%8C%96/2022-05-18-22-59-58_hu800eb4b579c433897f13a00c54c0770c_91134_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/05/18/%E4%BF%9D%E5%A7%86%E7%BA%A7%E7%9A%84ubuntu20.04%E7%BE%8E%E5%8C%96/2022-05-18-22-59-58_hu800eb4b579c433897f13a00c54c0770c_91134_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/05/18/%E4%BF%9D%E5%A7%86%E7%BA%A7%E7%9A%84ubuntu20.04%E7%BE%8E%E5%8C%96/2022-05-18-22-59-58_hu800eb4b579c433897f13a00c54c0770c_91134_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2022/05/18/%E4%BF%9D%E5%A7%86%E7%BA%A7%E7%9A%84ubuntu20.04%E7%BE%8E%E5%8C%96/2022-05-18-22-59-58_hu800eb4b579c433897f13a00c54c0770c_91134_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -2417,10 +2417,10 @@ sudo apt install gnome-tweaks-extension
         </item>
         <item>
         <title>从零开始的Ubuntu安装（Hyper-V虚拟机篇）</title>
-        <link>https://inariindream.fun/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/</link>
+        <link>https://inariindream.cn/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/</link>
         <pubDate>Wed, 18 May 2022 13:15:21 +0000</pubDate>
         
-        <guid>https://inariindream.fun/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/</guid>
+        <guid>https://inariindream.cn/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/</guid>
         <description>&lt;img src="https://s1.ax1x.com/2022/05/17/O4vPHS.png" alt="Featured image of post 从零开始的Ubuntu安装（Hyper-V虚拟机篇）" /&gt;&lt;!-- raw HTML omitted --&gt;
 &lt;h1 id=&#34;从零开始的ubuntu安装hyper-v虚拟机篇&#34;&gt;从零开始的Ubuntu安装（Hyper-V虚拟机篇）&lt;/h1&gt;
 &lt;p&gt;[TOC]&lt;/p&gt;
@@ -2429,10 +2429,10 @@ sudo apt install gnome-tweaks-extension
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;确保系统是 Windows 10 专业版/企业版/教育版，且必须是64位操作系统才支持。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-20-20.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-20-20.png&#34;
 	width=&#34;429&#34;
 	height=&#34;186&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-20-20_hu3608472083983163e375086ce110c098_8099_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-20-20_hu3608472083983163e375086ce110c098_8099_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-20-20_hu3608472083983163e375086ce110c098_8099_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-20-20_hu3608472083983163e375086ce110c098_8099_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -2448,10 +2448,10 @@ sudo apt install gnome-tweaks-extension
 &lt;p&gt;将Hyper—V下属的两项都给勾上&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-29-05.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-29-05.png&#34;
 	width=&#34;429&#34;
 	height=&#34;425&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-29-05_hud97dd130b37176afc6528ab2640e349b_25707_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-29-05_hud97dd130b37176afc6528ab2640e349b_25707_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-29-05_hud97dd130b37176afc6528ab2640e349b_25707_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-29-05_hud97dd130b37176afc6528ab2640e349b_25707_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -2463,10 +2463,10 @@ sudo apt install gnome-tweaks-extension
 &lt;p&gt;若第二项勾选不上则需要重启进入bios界面，不同型号的电脑进入方式不同，微星是按&lt;code&gt;del&lt;/code&gt;，华硕是&lt;code&gt;F2&lt;/code&gt;（其他的没用过建议自行使用搜索引擎）
 进入bios后以微星主板amdcpu为例
 依次点击&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-35-01.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-35-01.png&#34;
 	width=&#34;650&#34;
 	height=&#34;487&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-35-01_huab51fe70794d358d40c07c0195a91965_202228_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-35-01_huab51fe70794d358d40c07c0195a91965_202228_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-35-01_huab51fe70794d358d40c07c0195a91965_202228_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-35-01_huab51fe70794d358d40c07c0195a91965_202228_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -2475,10 +2475,10 @@ sudo apt install gnome-tweaks-extension
 		data-flex-basis=&#34;320px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-35-08.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-35-08.png&#34;
 	width=&#34;650&#34;
 	height=&#34;486&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-35-08_hu5ef3904b4ae5cbd6ae26df309d311ca6_181560_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-35-08_hu5ef3904b4ae5cbd6ae26df309d311ca6_181560_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-35-08_hu5ef3904b4ae5cbd6ae26df309d311ca6_181560_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-35-08_hu5ef3904b4ae5cbd6ae26df309d311ca6_181560_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -2491,10 +2491,10 @@ sudo apt install gnome-tweaks-extension
 此时应该可以将两项都勾选上了。
 3. 完成后需要稍等一段时间，然后重启电脑；
 4. 重启之后，点击“开始”，“所有程序”，点击“windows管理工具”然后就可以看到“Hyper-V”&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-39-12.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-39-12.png&#34;
 	width=&#34;302&#34;
 	height=&#34;359&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-39-12_hu91b966cf1ce5742502b1b78aab3a2139_86365_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-39-12_hu91b966cf1ce5742502b1b78aab3a2139_86365_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-39-12_hu91b966cf1ce5742502b1b78aab3a2139_86365_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-39-12_hu91b966cf1ce5742502b1b78aab3a2139_86365_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -2506,10 +2506,10 @@ sudo apt install gnome-tweaks-extension
 &lt;ol start=&#34;5&#34;&gt;
 &lt;li&gt;
 &lt;p&gt;点击进入，便可根据自己的喜好一键装机了&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-40-48.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-40-48.png&#34;
 	width=&#34;326&#34;
 	height=&#34;105&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-40-48_hu8a97b1e4ba9b25c09f1d74bd3f8540ad_4245_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-40-48_hu8a97b1e4ba9b25c09f1d74bd3f8540ad_4245_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-40-48_hu8a97b1e4ba9b25c09f1d74bd3f8540ad_4245_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-40-48_hu8a97b1e4ba9b25c09f1d74bd3f8540ad_4245_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -2519,10 +2519,10 @@ sudo apt install gnome-tweaks-extension
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;（保姆级服务&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-41-10.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-41-10.png&#34;
 	width=&#34;826&#34;
 	height=&#34;489&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-41-10_hu037745857cabff452ea0a00bddd61438_81735_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-41-10_hu037745857cabff452ea0a00bddd61438_81735_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-41-10_hu037745857cabff452ea0a00bddd61438_81735_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2022/05/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AF%87/2022-05-18-13-41-10_hu037745857cabff452ea0a00bddd61438_81735_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -2537,10 +2537,10 @@ sudo apt install gnome-tweaks-extension
         </item>
         <item>
         <title>从零开始的Ubuntu安装（实机篇）</title>
-        <link>https://inariindream.fun/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/</link>
+        <link>https://inariindream.cn/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/</link>
         <pubDate>Tue, 17 May 2022 15:52:08 +0000</pubDate>
         
-        <guid>https://inariindream.fun/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/</guid>
+        <guid>https://inariindream.cn/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/</guid>
         <description>&lt;img src="https://s1.ax1x.com/2022/05/26/XECXcR.jpg" alt="Featured image of post 从零开始的Ubuntu安装（实机篇）" /&gt;&lt;!-- raw HTML omitted --&gt;
 &lt;h1 id=&#34;从零开始的ubuntu安装实机篇&#34;&gt;从零开始的Ubuntu安装（实机篇）&lt;/h1&gt;
 &lt;p&gt;[TOC]&lt;/p&gt;
@@ -2560,10 +2560,10 @@ sudo apt install gnome-tweaks-extension
     &gt;Rufus&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;镜像的下载可以在国内的&lt;a class=&#34;link&#34; href=&#34;https://mirrors.ustc.edu.cn/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;科大镜像站&lt;/a&gt;下载&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-27-21.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-27-21.png&#34;
 	width=&#34;910&#34;
 	height=&#34;256&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-27-21_hu9371db37e9897e5933ba054df5ab6247_33869_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-27-21_hu9371db37e9897e5933ba054df5ab6247_33869_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-27-21_hu9371db37e9897e5933ba054df5ab6247_33869_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-27-21_hu9371db37e9897e5933ba054df5ab6247_33869_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -2572,10 +2572,10 @@ sudo apt install gnome-tweaks-extension
 		data-flex-basis=&#34;853px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-27-54.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-27-54.png&#34;
 	width=&#34;653&#34;
 	height=&#34;453&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-27-54_huec3e2f5296c688cc4c7ce1b10fc38d9a_12795_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-27-54_huec3e2f5296c688cc4c7ce1b10fc38d9a_12795_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-27-54_huec3e2f5296c688cc4c7ce1b10fc38d9a_12795_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-27-54_huec3e2f5296c688cc4c7ce1b10fc38d9a_12795_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -2589,10 +2589,10 @@ sudo apt install gnome-tweaks-extension
 &lt;p&gt;然后下好之后就可以开始烧录在U盘里了&lt;/p&gt;
 &lt;p&gt;烧录之前一定注意U盘里原来的东西是否已备份，烧录过程会将U盘清空&lt;/p&gt;
 &lt;p&gt;引导类型选择镜像文件，然后选择刚刚下载好的镜像文件&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-31-13.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-31-13.png&#34;
 	width=&#34;417&#34;
 	height=&#34;611&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-31-13_hu3855ea8a69e080bfbb0b0911ab429b8b_128522_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-31-13_hu3855ea8a69e080bfbb0b0911ab429b8b_128522_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-31-13_hu3855ea8a69e080bfbb0b0911ab429b8b_128522_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-31-13_hu3855ea8a69e080bfbb0b0911ab429b8b_128522_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -2603,10 +2603,10 @@ sudo apt install gnome-tweaks-extension
 &gt;&lt;/p&gt;
 &lt;p&gt;分区类型的话老电脑一般选择GPT，比较新一点的可以选择MBR &lt;del&gt;到时候发现不对回来重新烧一遍吧&lt;/del&gt;&lt;/p&gt;
 &lt;p&gt;然后就开始等待烧录，时间根据U盘性能不同而不同&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-34-13.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-34-13.png&#34;
 	width=&#34;337&#34;
 	height=&#34;523&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-34-13_huec2c386f53d4ca35646d555bd54b5c18_99997_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-34-13_huec2c386f53d4ca35646d555bd54b5c18_99997_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-34-13_huec2c386f53d4ca35646d555bd54b5c18_99997_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-34-13_huec2c386f53d4ca35646d555bd54b5c18_99997_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -2621,10 +2621,10 @@ sudo apt install gnome-tweaks-extension
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;在Security里面将 Secure Boot改为disabled&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-38-44.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-38-44.png&#34;
 	width=&#34;899&#34;
 	height=&#34;468&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-38-44_huf168084576237dc4749e973954ea390c_330006_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-38-44_huf168084576237dc4749e973954ea390c_330006_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-38-44_huf168084576237dc4749e973954ea390c_330006_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-38-44_huf168084576237dc4749e973954ea390c_330006_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -2636,10 +2636,10 @@ sudo apt install gnome-tweaks-extension
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;在boot里面将Boot Mode改为 UEFI&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-40-35.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-40-35.png&#34;
 	width=&#34;920&#34;
 	height=&#34;472&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-40-35_hu075028d8e81feb6f9f821ae3d4ed70cf_422230_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-40-35_hu075028d8e81feb6f9f821ae3d4ed70cf_422230_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-40-35_hu075028d8e81feb6f9f821ae3d4ed70cf_422230_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-40-35_hu075028d8e81feb6f9f821ae3d4ed70cf_422230_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -2657,10 +2657,10 @@ sudo apt install gnome-tweaks-extension
 &lt;p&gt;然后稍等片刻即可进入安装&lt;/p&gt;
 &lt;p&gt;进入Ubuntu界面后选择Install Ubuntu&lt;/p&gt;
 &lt;p&gt;语言选择部分略过，按照自己的喜好来&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-48-07.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-48-07.png&#34;
 	width=&#34;684&#34;
 	height=&#34;481&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-48-07_huaf4eb32c57657245ee9c1a0becf9dfdb_366760_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-48-07_huaf4eb32c57657245ee9c1a0becf9dfdb_366760_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-48-07_huaf4eb32c57657245ee9c1a0becf9dfdb_366760_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-48-07_huaf4eb32c57657245ee9c1a0becf9dfdb_366760_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -2670,10 +2670,10 @@ sudo apt install gnome-tweaks-extension
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;如果原来电脑上有Win10系统的话，可以选择Install Ubuntu alongside Win10，之后只用在开机的时候选择想进的系统即可。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-50-33.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-50-33.png&#34;
 	width=&#34;800&#34;
 	height=&#34;485&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-50-33_hu705509282023955ea398043953f55f95_291840_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-50-33_hu705509282023955ea398043953f55f95_291840_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-50-33_hu705509282023955ea398043953f55f95_291840_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-50-33_hu705509282023955ea398043953f55f95_291840_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -2683,10 +2683,10 @@ sudo apt install gnome-tweaks-extension
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;选择时区&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-51-42.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-51-42.png&#34;
 	width=&#34;676&#34;
 	height=&#34;653&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-51-42_huced93fe2c6126c6d6eb3d6b35a32bcef_462857_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-51-42_huced93fe2c6126c6d6eb3d6b35a32bcef_462857_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-51-42_huced93fe2c6126c6d6eb3d6b35a32bcef_462857_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-51-42_huced93fe2c6126c6d6eb3d6b35a32bcef_462857_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -2696,10 +2696,10 @@ sudo apt install gnome-tweaks-extension
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;设置账户名和密码&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-52-20.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-52-20.png&#34;
 	width=&#34;800&#34;
 	height=&#34;483&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-52-20_hu0fa738551b0b6de5b9aa7cc1b4c7b95b_282386_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-52-20_hu0fa738551b0b6de5b9aa7cc1b4c7b95b_282386_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-52-20_hu0fa738551b0b6de5b9aa7cc1b4c7b95b_282386_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-52-20_hu0fa738551b0b6de5b9aa7cc1b4c7b95b_282386_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -2711,10 +2711,10 @@ sudo apt install gnome-tweaks-extension
 &lt;p&gt;开始安装即可&lt;/p&gt;
 &lt;h2 id=&#34;大功告成&#34;&gt;大功告成&lt;/h2&gt;
 &lt;p&gt;安装完成之后重启即可&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-54-55.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-54-55.png&#34;
 	width=&#34;797&#34;
 	height=&#34;247&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-54-55_huec5d10a1641eb8b75e0a8f2e506979ae_97123_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-54-55_huec5d10a1641eb8b75e0a8f2e506979ae_97123_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-54-55_huec5d10a1641eb8b75e0a8f2e506979ae_97123_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2022/05/17/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84ubuntu%E5%AE%89%E8%A3%85%E5%AE%9E%E6%9C%BA%E7%AF%87/2022-05-18-12-54-55_huec5d10a1641eb8b75e0a8f2e506979ae_97123_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -2728,10 +2728,10 @@ sudo apt install gnome-tweaks-extension
         </item>
         <item>
         <title>洛谷专题记录（前缀和与差分）</title>
-        <link>https://inariindream.fun/blog/2022/04/30/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98%E8%AE%B0%E5%BD%95%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/</link>
+        <link>https://inariindream.cn/blog/2022/04/30/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98%E8%AE%B0%E5%BD%95%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/</link>
         <pubDate>Sat, 30 Apr 2022 13:15:13 +0000</pubDate>
         
-        <guid>https://inariindream.fun/blog/2022/04/30/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98%E8%AE%B0%E5%BD%95%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/</guid>
+        <guid>https://inariindream.cn/blog/2022/04/30/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98%E8%AE%B0%E5%BD%95%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/</guid>
         <description>&lt;img src="https://s1.ax1x.com/2022/04/30/LzHLHf.jpg" alt="Featured image of post 洛谷专题记录（前缀和与差分）" /&gt;&lt;h1 id=&#34;最大子段和httpswwwluogucomcnproblemp1115&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.luogu.com.cn/problem/P1115&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;最大子段和&lt;/a&gt;&lt;/h1&gt;
 &lt;h2 id=&#34;题目描述&#34;&gt;题目描述&lt;/h2&gt;
@@ -2952,10 +2952,10 @@ $$f[k][l] - f[k][j - 1] - f[i - 1][l] + f[i - 1][j - 1]$$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   cout &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; ans &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; endl;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这是前一种方法的速度
-&lt;img src=&#34;https://inariindream.fun/blog/2022/04/30/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98%E8%AE%B0%E5%BD%95%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/2022-07-08-14-25-03.png&#34;
+&lt;img src=&#34;https://inariindream.cn/blog/2022/04/30/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98%E8%AE%B0%E5%BD%95%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/2022-07-08-14-25-03.png&#34;
 	width=&#34;825&#34;
 	height=&#34;320&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/04/30/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98%E8%AE%B0%E5%BD%95%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/2022-07-08-14-25-03_hude383ecce3397b878934e30e8bb44b5d_15691_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/04/30/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98%E8%AE%B0%E5%BD%95%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/2022-07-08-14-25-03_hude383ecce3397b878934e30e8bb44b5d_15691_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/04/30/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98%E8%AE%B0%E5%BD%95%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/2022-07-08-14-25-03_hude383ecce3397b878934e30e8bb44b5d_15691_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2022/04/30/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98%E8%AE%B0%E5%BD%95%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/2022-07-08-14-25-03_hude383ecce3397b878934e30e8bb44b5d_15691_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -2965,10 +2965,10 @@ $$f[k][l] - f[k][j - 1] - f[i - 1][l] + f[i - 1][j - 1]$$&lt;/p&gt;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;这是后一种的
-&lt;img src=&#34;https://inariindream.fun/blog/2022/04/30/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98%E8%AE%B0%E5%BD%95%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/2022-07-08-14-25-42.png&#34;
+&lt;img src=&#34;https://inariindream.cn/blog/2022/04/30/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98%E8%AE%B0%E5%BD%95%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/2022-07-08-14-25-42.png&#34;
 	width=&#34;810&#34;
 	height=&#34;306&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/04/30/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98%E8%AE%B0%E5%BD%95%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/2022-07-08-14-25-42_hubb1685245320096da27bc2128cf84b41_15384_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/04/30/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98%E8%AE%B0%E5%BD%95%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/2022-07-08-14-25-42_hubb1685245320096da27bc2128cf84b41_15384_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/04/30/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98%E8%AE%B0%E5%BD%95%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/2022-07-08-14-25-42_hubb1685245320096da27bc2128cf84b41_15384_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2022/04/30/%E6%B4%9B%E8%B0%B7%E4%B8%93%E9%A2%98%E8%AE%B0%E5%BD%95%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/2022-07-08-14-25-42_hubb1685245320096da27bc2128cf84b41_15384_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -3041,10 +3041,10 @@ $$f[k][l] - f[k][j - 1] - f[i - 1][l] + f[i - 1][j - 1]$$&lt;/p&gt;
         </item>
         <item>
         <title>NamomoCamp每日一题（div2）</title>
-        <link>https://inariindream.fun/blog/2022/04/23/namomocamp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98div2/</link>
+        <link>https://inariindream.cn/blog/2022/04/23/namomocamp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98div2/</link>
         <pubDate>Sat, 23 Apr 2022 11:56:46 +0000</pubDate>
         
-        <guid>https://inariindream.fun/blog/2022/04/23/namomocamp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98div2/</guid>
+        <guid>https://inariindream.cn/blog/2022/04/23/namomocamp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98div2/</guid>
         <description>&lt;img src="https://s1.ax1x.com/2022/04/27/Lqf2o8.png" alt="Featured image of post NamomoCamp每日一题（div2）" /&gt;&lt;h2 id=&#34;422&#34;&gt;4.22&lt;/h2&gt;
 &lt;h1 id=&#34;待补&#34;&gt;（待补）&lt;/h1&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://oj.daimayuan.top/course/11/problem/814&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -3706,10 +3706,10 @@ $$x = \dfrac{k \times y}{y - k}$$&lt;/p&gt;
 &lt;p&gt;对于一个数，要么只在左边有比他大的，要么只在右边有比他大的&lt;/p&gt;
 &lt;p&gt;而只有一类图满足这种情况&lt;/p&gt;
 &lt;p&gt;说人话就是找以最大值为顶点的单峰的图有多少个&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/04/23/namomocamp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98div2/222.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2022/04/23/namomocamp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98div2/222.png&#34;
 	width=&#34;1920&#34;
 	height=&#34;1080&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/04/23/namomocamp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98div2/222_hu663c7a285d393188fb4c42d06ebde89b_503518_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/04/23/namomocamp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98div2/222_hu663c7a285d393188fb4c42d06ebde89b_503518_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/04/23/namomocamp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98div2/222_hu663c7a285d393188fb4c42d06ebde89b_503518_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2022/04/23/namomocamp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98div2/222_hu663c7a285d393188fb4c42d06ebde89b_503518_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;P2&#34;
@@ -3721,10 +3721,10 @@ $$x = \dfrac{k \times y}{y - k}$$&lt;/p&gt;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;把这种情况去掉的情况就是含环的情况了&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.fun/blog/2022/04/23/namomocamp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98div2/DCVLMJ%28RNSYO9GRC1%2906J36.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2022/04/23/namomocamp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98div2/DCVLMJ%28RNSYO9GRC1%2906J36.png&#34;
 	width=&#34;1920&#34;
 	height=&#34;1080&#34;
-	srcset=&#34;https://inariindream.fun/blog/2022/04/23/namomocamp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98div2/DCVLMJ%28RNSYO9GRC1%2906J36_huf8be709131565c22d367ccb3e9ec78bc_506296_480x0_resize_box_3.png 480w, https://inariindream.fun/blog/2022/04/23/namomocamp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98div2/DCVLMJ%28RNSYO9GRC1%2906J36_huf8be709131565c22d367ccb3e9ec78bc_506296_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://inariindream.cn/blog/2022/04/23/namomocamp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98div2/DCVLMJ%28RNSYO9GRC1%2906J36_huf8be709131565c22d367ccb3e9ec78bc_506296_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2022/04/23/namomocamp%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98div2/DCVLMJ%28RNSYO9GRC1%2906J36_huf8be709131565c22d367ccb3e9ec78bc_506296_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;P1&#34;
@@ -4289,10 +4289,10 @@ $$n! - 2^{n - 1}$$&lt;/p&gt;
         </item>
         <item>
         <title>2021年终总结</title>
-        <link>https://inariindream.fun/blog/2022/01/29/2021%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</link>
+        <link>https://inariindream.cn/blog/2022/01/29/2021%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</link>
         <pubDate>Sat, 29 Jan 2022 09:39:43 +0000</pubDate>
         
-        <guid>https://inariindream.fun/blog/2022/01/29/2021%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</guid>
+        <guid>https://inariindream.cn/blog/2022/01/29/2021%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</guid>
         <description>&lt;img src="https://s1.ax1x.com/2022/04/29/Lx8ogU.jpg" alt="Featured image of post 2021年终总结" /&gt;&lt;p&gt;2021对我来说十分匆忙与短暂，以至于我在最后一天才有闲暇，来回望过去的这一年。&lt;/p&gt;
 &lt;p&gt;我想了很久，今年似乎很难用一句话或一个词来概括我过去十二个月的经历了。以五月底的插班生考试为分界线，我的2021的上下半年过得截然不同。&lt;/p&gt;
 &lt;p&gt;贯穿我上半年的两个词应该是犹豫与遗憾。年初犹豫着是否要正式进入一段感情，四月初犹豫着是否要把考插的路坚持走完，也在插班生和课内绩点之间犹豫不决。最终，这些犹豫都变成了遗憾。&lt;/p&gt;
@@ -4321,10 +4321,10 @@ $$n! - 2^{n - 1}$$&lt;/p&gt;
         </item>
         <item>
         <title>2020年终总结</title>
-        <link>https://inariindream.fun/blog/2021/01/01/2020%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</link>
+        <link>https://inariindream.cn/blog/2021/01/01/2020%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</link>
         <pubDate>Fri, 01 Jan 2021 09:36:43 +0000</pubDate>
         
-        <guid>https://inariindream.fun/blog/2021/01/01/2020%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</guid>
+        <guid>https://inariindream.cn/blog/2021/01/01/2020%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</guid>
         <description>&lt;img src="https://s1.ax1x.com/2022/04/27/LqhKmt.jpg" alt="Featured image of post 2020年终总结" /&gt;&lt;p&gt;用一句话总结我所经历的2020年&lt;/p&gt;
 &lt;p&gt;“在理想中死亡，在现实中重生。”&lt;/p&gt;
 &lt;p&gt;今年是无比艰难的一年，以至于每个人都在年末的时候对未来有着美好的祝愿。&lt;/p&gt;
@@ -4358,18 +4358,18 @@ $$n! - 2^{n - 1}$$&lt;/p&gt;
         </item>
         <item>
         <title>归档</title>
-        <link>https://inariindream.fun/page/archives/</link>
+        <link>https://inariindream.cn/page/archives/</link>
         <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://inariindream.fun/page/archives/</guid>
+        <guid>https://inariindream.cn/page/archives/</guid>
         <description></description>
         </item>
         <item>
         <title>关于</title>
-        <link>https://inariindream.fun/page/about/</link>
+        <link>https://inariindream.cn/page/about/</link>
         <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://inariindream.fun/page/about/</guid>
+        <guid>https://inariindream.cn/page/about/</guid>
         <description>&lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://git.io/typing-svg&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;&lt;img src=&#34;https://readme-typing-svg.herokuapp.com?font=Fira&amp;#43;Code&amp;amp;size=25&amp;amp;duration=3000&amp;amp;pause=700&amp;amp;color=1D27F7&amp;amp;width=435&amp;amp;lines=I%27m&amp;#43;InariInDream&amp;#43;%F0%9F%91%8B;Invictus&amp;#43;maneo;Be&amp;#43;awesome&#34;
@@ -4429,10 +4429,10 @@ $$n! - 2^{n - 1}$$&lt;/p&gt;
         </item>
         <item>
         <title>友人</title>
-        <link>https://inariindream.fun/page/friend/</link>
+        <link>https://inariindream.cn/page/friend/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://inariindream.fun/page/friend/</guid>
+        <guid>https://inariindream.cn/page/friend/</guid>
         <description>&lt;p&gt;你也许还能从他们的主页中找到想要的东西 🥳&lt;/p&gt;
 &lt;p&gt;欢迎添加友链！&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
@@ -4441,10 +4441,10 @@ $$n! - 2^{n - 1}$$&lt;/p&gt;
         </item>
         <item>
         <title>搜索</title>
-        <link>https://inariindream.fun/page/search/</link>
+        <link>https://inariindream.cn/page/search/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://inariindream.fun/page/search/</guid>
+        <guid>https://inariindream.cn/page/search/</guid>
         <description></description>
         </item>
         
