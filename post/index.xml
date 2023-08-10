@@ -6,7 +6,29 @@
         <description>Recent content in Posts on Inari&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Sun, 28 May 2023 18:32:14 +0000</lastBuildDate><atom:link href="https://inariindream.cn/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 09 Aug 2023 11:06:32 +0000</lastBuildDate><atom:link href="https://inariindream.cn/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>MIT 6.5840 分布式系统</title>
+        <link>https://inariindream.cn/blog/2023/08/09/mit-6.5840-%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/</link>
+        <pubDate>Wed, 09 Aug 2023 11:06:32 +0000</pubDate>
+        
+        <guid>https://inariindream.cn/blog/2023/08/09/mit-6.5840-%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/</guid>
+        <description>&lt;img src="https://inariindream.cn/blog/2023/08/09/mit-6.5840-%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/111.png" alt="Featured image of post MIT 6.5840 分布式系统" /&gt;&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;这是一门由MIT的Robert Morris主讲的分布式系统课程，课程主页&lt;a class=&#34;link&#34; href=&#34;https://pdos.csail.mit.edu/6.824/schedule.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;链接&lt;/a&gt;，课程视频&lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/watch?v=cQP8WApzIQQ&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;链接&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://mit-public-courses-cn-translatio.gitbook.io/mit6-824/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;翻译版&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;课程内容包括Golang的学习、分布式系统研究动机、一致性协议算法、著名分布式系统软件论文讲解和一致性算法 （Raft算法）的实现机制及实验。&lt;/p&gt;
+&lt;p&gt;是一门不可多得的实践性质比较强的课程。&lt;/p&gt;
+&lt;p&gt;本文主要记录自己做lab时候的一些心得体会，以及对课程的一些理解。&lt;/p&gt;
+&lt;h2 id=&#34;lab1mapreduce&#34;&gt;Lab1：MapReduce&lt;/h2&gt;
+&lt;p&gt;论文：&lt;a class=&#34;link&#34; href=&#34;https://pdos.csail.mit.edu/6.824/papers/mapreduce.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;MapReduce: Simplified Data Processing on Large Clusters&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Lab链接：&lt;a class=&#34;link&#34; href=&#34;https://pdos.csail.mit.edu/6.824/labs/lab-mr.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Lab1&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>Nvidia Jetson 部署教程</title>
         <link>https://inariindream.cn/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/</link>
         <pubDate>Sun, 28 May 2023 18:32:14 +0000</pubDate>
