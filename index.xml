@@ -25,6 +25,8 @@
     &gt;MapReduce: Simplified Data Processing on Large Clusters&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Lab链接：&lt;a class=&#34;link&#34; href=&#34;https://pdos.csail.mit.edu/6.824/labs/lab-mr.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Lab1&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;设计思路&#34;&gt;设计思路&lt;/h3&gt;
+&lt;p&gt;MapReduce是一个分布式计算框架，它的设计思路是将计算任务分为两个阶段：Map阶段和Reduce阶段。&lt;/p&gt;
 </description>
         </item>
         <item>
