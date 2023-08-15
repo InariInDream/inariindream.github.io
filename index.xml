@@ -27,7 +27,161 @@
     &gt;Lab1&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&#34;设计思路&#34;&gt;设计思路&lt;/h3&gt;
 &lt;p&gt;MapReduce是一个分布式计算框架，它的设计思路是将计算任务分为两个阶段：Map阶段和Reduce阶段。&lt;/p&gt;
-</description>
+&lt;p&gt;这是MapReduce的一个简单的示意图：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2023/08/09/mit-6.5840-%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/2023-08-15-13-55-33.png&#34;
+	width=&#34;720&#34;
+	height=&#34;485&#34;
+	srcset=&#34;https://inariindream.cn/blog/2023/08/09/mit-6.5840-%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/2023-08-15-13-55-33_hu6a811e26a9c4a80936bfccc2d742aaac_85058_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2023/08/09/mit-6.5840-%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/2023-08-15-13-55-33_hu6a811e26a9c4a80936bfccc2d742aaac_85058_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;工作流程示意图&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;148&#34;
+		data-flex-basis=&#34;356px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;这是论文中讲解MapReduce的流程图，基本上解释清楚了。&lt;/p&gt;
+&lt;p&gt;输入数据以文件形式进入系统。一些进程运行map任务，拆分了原任务，产生了一些中间体，这些中间体可能以键值对形式存在。一些进程运行了reduce任务，利用中间体产生最终输出。master进程用于分配任务，调整各个worker进程。&lt;/p&gt;
+&lt;p&gt;输入数据能够产生中间体，这&lt;strong&gt;说明原任务是可拆的&lt;/strong&gt;，也就才有了写成分布式的可能性。若原问题不是可拆的，MapReduce也就无从谈起。&lt;/p&gt;
+&lt;p&gt;中间体应均匀地分配给各个reduce任务，每个reduce任务整合这些中间体，令中间体个数减少，直至无法再减少，从中整合出最终结果。&lt;/p&gt;
+&lt;p&gt;输入数据以什么形式进入系统，原任务应&lt;strong&gt;如何拆分&lt;/strong&gt;，中间体&lt;strong&gt;如何保存和传输&lt;/strong&gt;，master和worker之间如何&lt;strong&gt;通信和调度&lt;/strong&gt;，中间体如何&lt;strong&gt;转化为最终输出&lt;/strong&gt;。这些都是设计的考量，没有一定之规。&lt;/p&gt;
+&lt;p&gt;Lab要求我们做一个对txt文件里的wordcount，那么输入数据就是txt文件，原任务就是对txt文件里的单词进行统计，中间体就是单词和对应的出现次数，最终输出就是单词和对应的出现次数。&lt;/p&gt;
+&lt;p&gt;示意图如下：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2023/08/09/mit-6.5840-%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/2023-08-15-13-58-13.png&#34;
+	width=&#34;720&#34;
+	height=&#34;368&#34;
+	srcset=&#34;https://inariindream.cn/blog/2023/08/09/mit-6.5840-%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/2023-08-15-13-58-13_hu1bd4f370bd08e1561519b592b5291f0e_68953_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2023/08/09/mit-6.5840-%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/2023-08-15-13-58-13_hu1bd4f370bd08e1561519b592b5291f0e_68953_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;MapReduce WordCount&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;195&#34;
+		data-flex-basis=&#34;469px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;实现细节&#34;&gt;实现细节&lt;/h3&gt;
+&lt;h4 id=&#34;queuego&#34;&gt;queue.go&lt;/h4&gt;
+&lt;p&gt;首先定义一堆结构体（其实也不是首先，在编写过程中会不断地修改和更新结构体，不过在实现一个功能之前必须理清对应的数据结构）：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// queue.go
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;listNode&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;data&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;interface&lt;/span&gt;{} &lt;span style=&#34;color:#75715e&#34;&gt;// data can be any type
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;next&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;listNode&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;prev&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;listNode&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;LinkedList&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;head&lt;/span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;listNode&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;count&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;BlockQueue&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;list&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;LinkedList&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;cond&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;sync&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Cond&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;由于篇幅限制这里暂时省略了对应的方法，不过重点也不是方法就是了&lt;/p&gt;
+&lt;p&gt;第一个结构体是链表的节点，第二个结构体是链表，第三个结构体是阻塞队列，阻塞队列是用链表实现的，链表的每个节点都是一个interface{}类型的数据，这样就可以存储任意类型的数据了。&lt;/p&gt;
+&lt;p&gt;同时阻塞队列还有一个条件变量，用于实现阻塞队列的阻塞功能。&lt;/p&gt;
+&lt;h4 id=&#34;mapsetgo&#34;&gt;mapset.go&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;MapSet&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;mapbool&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;map&lt;/span&gt;[&lt;span style=&#34;color:#66d9ef&#34;&gt;interface&lt;/span&gt;{}]&lt;span style=&#34;color:#66d9ef&#34;&gt;bool&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;count&lt;/span&gt;   &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这个结构体的作用是用于存储键值对，键值对的键是任意类型的，值是bool类型的，这样就可以实现set的功能了。&lt;/p&gt;
+&lt;h4 id=&#34;workergo&#34;&gt;&lt;strong&gt;worker.go&lt;/strong&gt;&lt;/h4&gt;
+&lt;p&gt;这部分就是重点了，我们这里先不直接抛出代码，先思考一下worker的工作流程。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;worker&lt;/code&gt;的工作流程如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;从master获取任务&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;执行任务&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;将任务执行结果发送给master&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;重复1-3&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;如果有空闲的worker，master会将任务分配给空闲的worker（才能体现多线程和分布式的优点）这一步暂时取名为Join吧&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;在获取任务之前，首先应该进行一些初始化，通过下面两个函数，worker能够确定自己在map阶段和reduce阶段的任务是什么，以及自己的id是多少。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ihash&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;key&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;) &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;h&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;fnv&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;New32a&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;h&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Write&lt;/span&gt;([]byte(&lt;span style=&#34;color:#a6e22e&#34;&gt;key&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; int(&lt;span style=&#34;color:#a6e22e&#34;&gt;h&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Sum32&lt;/span&gt;() &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0x7fffffff&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;keyReduceIndex&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;key&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;nReduce&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt;) &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;// use ihash(key) % NReduce to choose the reduce
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ihash&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;key&lt;/span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;nReduce&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后我们创造一个worker对象，我们接下来的操作都是对这个对象进行操作。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Aworker&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;// a struct for worker
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;mapf&lt;/span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;) []&lt;span style=&#34;color:#a6e22e&#34;&gt;KeyValue&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;reducef&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;, []&lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;) &lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;// true: Map
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;// false: Reduce
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;MapOrReduce&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;bool&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;//exit if true
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;DoneFlag&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;bool&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;WorkerId&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;初始化完成后，worker开始向coordinator发送请求，获取任务。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;worker&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;Aworker&lt;/span&gt;) &lt;span style=&#34;color:#a6e22e&#34;&gt;askMapTask&lt;/span&gt;() &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;MapTaskReply&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;/* ask for a map task then return the reply */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;args&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;MapTaskArgs&lt;/span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#a6e22e&#34;&gt;WorkerId&lt;/span&gt;: &lt;span style=&#34;color:#a6e22e&#34;&gt;worker&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;WorkerId&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;reply&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;MapTaskReply&lt;/span&gt;{}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;worker&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;logPrintf&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Asking for a map task...\n&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;call&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Coordinator.GiveMapTask&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;args&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;reply&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;// obtain a worker id
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;worker&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;WorkerId&lt;/span&gt; = &lt;span style=&#34;color:#a6e22e&#34;&gt;reply&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;WorkerId&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;worker&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;logPrintf&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Got a map task, filename: %s, fileId: %v&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;reply&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;FileName&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;reply&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;FileId&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;reply&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;FileId&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#75715e&#34;&gt;// refused to give a task
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;		&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;reply&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;DoneFlag&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			&lt;span style=&#34;color:#a6e22e&#34;&gt;worker&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;logPrintf&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;No more map tasks, switching to reduce tasks...\n&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		} &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			&lt;span style=&#34;color:#a6e22e&#34;&gt;worker&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;logPrintf&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;No map tasks available, waiting...\n&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;reply&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;worker&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;logPrintf&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;got a map task, filename: %s, fileId: %v\n&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;reply&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;FileName&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;reply&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;FileId&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;reply&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这个函数比较简单，就是向coordinator发送请求，获取任务，如果没有任务就等待，如果有任务就返回任务。没有什么特别需要注意的。&lt;/p&gt;
+&lt;p&gt;如果coordinator发现所有任务都在进行但是还有空闲的worker，那么就会将任务分配给空闲的worker，这个过程就是Join过程。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;worker&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;Aworker&lt;/span&gt;) &lt;span style=&#34;color:#a6e22e&#34;&gt;joinMapTask&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;fileId&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;// notify coordinator that map task is done, the worker can join another map task
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;args&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;MapTaskJoinArgs&lt;/span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#a6e22e&#34;&gt;FileId&lt;/span&gt;:   &lt;span style=&#34;color:#a6e22e&#34;&gt;fileId&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#a6e22e&#34;&gt;WorkerId&lt;/span&gt;: &lt;span style=&#34;color:#a6e22e&#34;&gt;worker&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;WorkerId&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;reply&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;MapTaskJoinReply&lt;/span&gt;{}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;worker&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;logPrintf&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Joining map task...\n&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;call&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Coordinator.JoinMapTask&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;args&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;reply&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;reply&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Accepted&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#a6e22e&#34;&gt;worker&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;logPrintf&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\033[33mAccepted\033[0m to join map task!\n&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	} &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#a6e22e&#34;&gt;worker&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;logPrintf&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Failed to join map task!\n&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
         </item>
         <item>
         <title>Nvidia Jetson 部署教程</title>
