@@ -10,7 +10,13 @@ visualization库是需要安装vtk的，很多教程基本忽略了这一点，�
 网上找了下解决方案，然后在某喜爱四迪恩论坛发现了如下的言论：
 (`ゥ´ )哥你要不再想想为什么要用Cmake GUI来执行Cmake呢
 总之，解决方案就是在Cmake的选项中将BUILD_visualization设置为ON，然后重新编译即可。
-这一点不知道为什么在pcl的Github Issue栏也没看到有人提，难道大家的default都是ON吗？'><title>安装PCL时候踩过的一些小坑</title>
+这一点不知道为什么在pcl的Github Issue栏也没看到有人提，难道大家的default都是ON吗？
+3. 编译时报错undefined reference to vtkDebugLeaksManager::vtkDebugLeaksManager() 鉴定为没好好看教程导致的，cmakelist.txt中没有添加find_package(VTK REQUIRED)，添加后重新编译即可。
+附上我的cmakelist.txt文件：
+cmake_minimum_required(VERSION 3.23) project(Graduate) set(CMAKE_CXX_STANDARD 17) add_executable(Graduate main.cpp) find_package(PCL 1.9 REQUIRED) include_directories(&amp;#34;/usr/include/eigen3&amp;#34;) include_directories(&amp;#34;/usr/local/include/vtk-8.2&amp;#34;) include_directories(${PCL_INCLUDE_DIRS}) link_directories(${PCL_LIBRARY_DIRS}) add_definitions(${PCL_DEFINITIONS}) target_link_libraries(Graduate ${PCL_LIBRARIES}) 4. error while loading shared libraries: libvtkRenderingCore-8.2.so.1 参考这篇
+不知道这个vtk的库为什么没直接装到/usr/local/lib/里面，而是装到了/usr/local/lib/x86_64-linux-gnu 里面。
+解决方法
+cat /etc/ld.so.conf sudo sh -c &amp;#34;echo &amp;#39;/usr/local/lib/x86_64-linux-gnu&amp;#39; &amp;gt;&amp;gt; /etc/ld.so.conf&amp;#34; sudo sh -c &amp;#34;ldconfig&amp;#34; 5. [xcb] Unknown sequence number while processing queue 编译通过了，但是运行demo的时候，出现了如下的错误：'><title>安装PCL时候踩过的一些小坑</title>
 
 <link rel='canonical' href='https://inariindream.cn/blog/2023/11/10/%E5%AE%89%E8%A3%85pcl%E6%97%B6%E5%80%99%E8%B8%A9%E8%BF%87%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E5%9D%91/'>
 
@@ -24,10 +30,16 @@ visualization库是需要安装vtk的，很多教程基本忽略了这一点，�
 网上找了下解决方案，然后在某喜爱四迪恩论坛发现了如下的言论：
 (`ゥ´ )哥你要不再想想为什么要用Cmake GUI来执行Cmake呢
 总之，解决方案就是在Cmake的选项中将BUILD_visualization设置为ON，然后重新编译即可。
-这一点不知道为什么在pcl的Github Issue栏也没看到有人提，难道大家的default都是ON吗？'>
+这一点不知道为什么在pcl的Github Issue栏也没看到有人提，难道大家的default都是ON吗？
+3. 编译时报错undefined reference to vtkDebugLeaksManager::vtkDebugLeaksManager() 鉴定为没好好看教程导致的，cmakelist.txt中没有添加find_package(VTK REQUIRED)，添加后重新编译即可。
+附上我的cmakelist.txt文件：
+cmake_minimum_required(VERSION 3.23) project(Graduate) set(CMAKE_CXX_STANDARD 17) add_executable(Graduate main.cpp) find_package(PCL 1.9 REQUIRED) include_directories(&amp;#34;/usr/include/eigen3&amp;#34;) include_directories(&amp;#34;/usr/local/include/vtk-8.2&amp;#34;) include_directories(${PCL_INCLUDE_DIRS}) link_directories(${PCL_LIBRARY_DIRS}) add_definitions(${PCL_DEFINITIONS}) target_link_libraries(Graduate ${PCL_LIBRARIES}) 4. error while loading shared libraries: libvtkRenderingCore-8.2.so.1 参考这篇
+不知道这个vtk的库为什么没直接装到/usr/local/lib/里面，而是装到了/usr/local/lib/x86_64-linux-gnu 里面。
+解决方法
+cat /etc/ld.so.conf sudo sh -c &amp;#34;echo &amp;#39;/usr/local/lib/x86_64-linux-gnu&amp;#39; &amp;gt;&amp;gt; /etc/ld.so.conf&amp;#34; sudo sh -c &amp;#34;ldconfig&amp;#34; 5. [xcb] Unknown sequence number while processing queue 编译通过了，但是运行demo的时候，出现了如下的错误：'>
 <meta property='og:url' content='https://inariindream.cn/blog/2023/11/10/%E5%AE%89%E8%A3%85pcl%E6%97%B6%E5%80%99%E8%B8%A9%E8%BF%87%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E5%9D%91/'>
 <meta property='og:site_name' content='Inari&#39;s Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='点云' /><meta property='article:published_time' content='2023-11-10T10:58:20&#43;00:00'/><meta property='article:modified_time' content='2023-11-11T11:23:18&#43;08:00'/><meta property='og:image' content='https://inariindream.cn/blog/2023/11/10/%E5%AE%89%E8%A3%85pcl%E6%97%B6%E5%80%99%E8%B8%A9%E8%BF%87%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E5%9D%91/111.png' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='点云' /><meta property='article:published_time' content='2023-11-10T10:58:20&#43;00:00'/><meta property='article:modified_time' content='2023-11-11T14:33:53&#43;08:00'/><meta property='og:image' content='https://inariindream.cn/blog/2023/11/10/%E5%AE%89%E8%A3%85pcl%E6%97%B6%E5%80%99%E8%B8%A9%E8%BF%87%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E5%9D%91/111.png' />
 <meta name="twitter:site" content="@inariindream">
     <meta name="twitter:creator" content="@inariindream"><meta name="twitter:title" content="安装PCL时候踩过的一些小坑">
 <meta name="twitter:description" content="安装时大体是参考这个网站和这个网站的教程进行安装的。但部分问题不管是在中文互联网还是英文互联网上都没有找到解决方案，所以记录一下。
@@ -39,7 +51,13 @@ visualization库是需要安装vtk的，很多教程基本忽略了这一点，�
 网上找了下解决方案，然后在某喜爱四迪恩论坛发现了如下的言论：
 (`ゥ´ )哥你要不再想想为什么要用Cmake GUI来执行Cmake呢
 总之，解决方案就是在Cmake的选项中将BUILD_visualization设置为ON，然后重新编译即可。
-这一点不知道为什么在pcl的Github Issue栏也没看到有人提，难道大家的default都是ON吗？"><meta name="twitter:card" content="summary_large_image">
+这一点不知道为什么在pcl的Github Issue栏也没看到有人提，难道大家的default都是ON吗？
+3. 编译时报错undefined reference to vtkDebugLeaksManager::vtkDebugLeaksManager() 鉴定为没好好看教程导致的，cmakelist.txt中没有添加find_package(VTK REQUIRED)，添加后重新编译即可。
+附上我的cmakelist.txt文件：
+cmake_minimum_required(VERSION 3.23) project(Graduate) set(CMAKE_CXX_STANDARD 17) add_executable(Graduate main.cpp) find_package(PCL 1.9 REQUIRED) include_directories(&amp;#34;/usr/include/eigen3&amp;#34;) include_directories(&amp;#34;/usr/local/include/vtk-8.2&amp;#34;) include_directories(${PCL_INCLUDE_DIRS}) link_directories(${PCL_LIBRARY_DIRS}) add_definitions(${PCL_DEFINITIONS}) target_link_libraries(Graduate ${PCL_LIBRARIES}) 4. error while loading shared libraries: libvtkRenderingCore-8.2.so.1 参考这篇
+不知道这个vtk的库为什么没直接装到/usr/local/lib/里面，而是装到了/usr/local/lib/x86_64-linux-gnu 里面。
+解决方法
+cat /etc/ld.so.conf sudo sh -c &amp;#34;echo &amp;#39;/usr/local/lib/x86_64-linux-gnu&amp;#39; &amp;gt;&amp;gt; /etc/ld.so.conf&amp;#34; sudo sh -c &amp;#34;ldconfig&amp;#34; 5. [xcb] Unknown sequence number while processing queue 编译通过了，但是运行demo的时候，出现了如下的错误："><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://inariindream.cn/blog/2023/11/10/%E5%AE%89%E8%A3%85pcl%E6%97%B6%E5%80%99%E8%B8%A9%E8%BF%87%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E5%9D%91/111.png' />
     <link rel="shortcut icon" href="https://s1.ax1x.com/2022/04/27/Lb5QhD.jpg" />
 
@@ -926,7 +944,47 @@ ODoyMSswMDowMEEubXoAAAAASUVORK5CYII=" />
 	
 ></p>
 <p>这一点不知道为什么在pcl的Github Issue栏也没看到有人提，难道大家的default都是<code>ON</code>吗？</p>
-
+<h2 id="3-编译时报错undefined-reference-to-vtkdebugleaksmanagervtkdebugleaksmanager">3. 编译时报错<code>undefined reference to vtkDebugLeaksManager::vtkDebugLeaksManager()</code></h2>
+<p>鉴定为没好好看教程导致的，<code>cmakelist.txt</code>中没有添加<code>find_package(VTK REQUIRED)</code>，添加后重新编译即可。</p>
+<p>附上我的<code>cmakelist.txt</code>文件：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmake" data-lang="cmake"><span style="display:flex;"><span>cmake_minimum_required(<span style="color:#e6db74">VERSION</span> <span style="color:#e6db74">3.23</span>)<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>project(<span style="color:#e6db74">Graduate</span>)<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>set(<span style="color:#e6db74">CMAKE_CXX_STANDARD</span> <span style="color:#e6db74">17</span>)<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>add_executable(<span style="color:#e6db74">Graduate</span> <span style="color:#e6db74">main.cpp</span>)<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>find_package(<span style="color:#e6db74">PCL</span> <span style="color:#e6db74">1.9</span> <span style="color:#e6db74">REQUIRED</span>)<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>include_directories(<span style="color:#e6db74">&#34;/usr/include/eigen3&#34;</span>)<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>include_directories(<span style="color:#e6db74">&#34;/usr/local/include/vtk-8.2&#34;</span>)<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>include_directories(<span style="color:#f92672">${</span>PCL_INCLUDE_DIRS<span style="color:#f92672">}</span>)<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>link_directories(<span style="color:#f92672">${</span>PCL_LIBRARY_DIRS<span style="color:#f92672">}</span>)<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>add_definitions(<span style="color:#f92672">${</span>PCL_DEFINITIONS<span style="color:#f92672">}</span>)<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>target_link_libraries(<span style="color:#e6db74">Graduate</span> <span style="color:#f92672">${</span>PCL_LIBRARIES<span style="color:#f92672">}</span>)<span style="color:#960050;background-color:#1e0010">
+</span></span></span></code></pre></div><h2 id="4-error-while-loading-shared-libraries-libvtkrenderingcore-82so1">4. <code>error while loading shared libraries: libvtkRenderingCore-8.2.so.1</code></h2>
+<p>参考<a class="link" href="https://blog.csdn.net/qq_42875548/article/details/115002196"  target="_blank" rel="noopener"
+    >这篇</a></p>
+<p>不知道这个vtk的库为什么没直接装到<code>/usr/local/lib/</code>里面，而是装到了<code>/usr/local/lib/x86_64-linux-gnu</code> 里面。</p>
+<p>解决方法</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cat /etc/ld.so.conf
+</span></span><span style="display:flex;"><span>sudo sh -c <span style="color:#e6db74">&#34;echo &#39;/usr/local/lib/x86_64-linux-gnu&#39; &gt;&gt; /etc/ld.so.conf&#34;</span>
+</span></span><span style="display:flex;"><span>sudo sh -c <span style="color:#e6db74">&#34;ldconfig&#34;</span>
+</span></span></code></pre></div><h2 id="5-xcb-unknown-sequence-number-while-processing-queue">5. <code>[xcb] Unknown sequence number while processing queue</code></h2>
+<p>编译通过了，但是运行demo的时候，出现了如下的错误：</p>
+<pre tabindex="0"><code>[xcb] Unknown sequence number while processing queue
+[xcb] Most likely this is a multi-threaded client and XInitThreads has not been called
+[xcb] Aborting, sorry about that. Graduate: ../../src/xcb_io.c:260: poll_for_event: Assertion `!xcb_xlib_threads_sequence_lost&#39; failed.****
+</code></pre><p>解决方法</p>
+<p>在开头加上这句</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;X11/Xlib.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">//避免和Eigen冲突
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">#ifdef Success
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#undef Success
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#endif
+</span></span></span></code></pre></div><p>在main函数中加上这句</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>XInitThreads();
+</span></span></code></pre></div>
 </section>
 
 
@@ -961,7 +1019,7 @@ ODoyMSswMDowMEEubXoAAAAASUVORK5CYII=" />
 
 
         <span>
-            最后更新于 Nov 11, 2023 11:23 CST
+            最后更新于 Nov 11, 2023 14:33 CST
         </span>
     </section></footer>
 
@@ -1126,6 +1184,9 @@ ODoyMSswMDowMEEubXoAAAAASUVORK5CYII=" />
   <ul>
     <li><a href="#1dvtk_wrap_pythonon">1、DVTK_WRAP_PYTHON=ON</a></li>
     <li><a href="#2无法找到visualization">2、无法找到Visualization</a></li>
+    <li><a href="#3-编译时报错undefined-reference-to-vtkdebugleaksmanagervtkdebugleaksmanager">3. 编译时报错<code>undefined reference to vtkDebugLeaksManager::vtkDebugLeaksManager()</code></a></li>
+    <li><a href="#4-error-while-loading-shared-libraries-libvtkrenderingcore-82so1">4. <code>error while loading shared libraries: libvtkRenderingCore-8.2.so.1</code></a></li>
+    <li><a href="#5-xcb-unknown-sequence-number-while-processing-queue">5. <code>[xcb] Unknown sequence number while processing queue</code></a></li>
   </ul>
 </nav>
         </div>
