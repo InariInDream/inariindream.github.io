@@ -6,6 +6,92 @@
         <description>Recent content on Inari&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language><atom:link href="https://inariindream.cn/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>安装PCL时候踩过的一些小坑</title>
+        <link>https://inariindream.cn/blog/2023/11/10/%E5%AE%89%E8%A3%85pcl%E6%97%B6%E5%80%99%E8%B8%A9%E8%BF%87%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E5%9D%91/</link>
+        <pubDate>Fri, 10 Nov 2023 10:58:20 +0000</pubDate>
+        
+        <guid>https://inariindream.cn/blog/2023/11/10/%E5%AE%89%E8%A3%85pcl%E6%97%B6%E5%80%99%E8%B8%A9%E8%BF%87%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E5%9D%91/</guid>
+        <description>&lt;img src="https://inariindream.cn/blog/2023/11/10/%E5%AE%89%E8%A3%85pcl%E6%97%B6%E5%80%99%E8%B8%A9%E8%BF%87%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E5%9D%91/111.png" alt="Featured image of post 安装PCL时候踩过的一些小坑" /&gt;&lt;p&gt;安装时大体是参考&lt;a class=&#34;link&#34; href=&#34;https://www.yuque.com/huangzhongqing/pcl/sgw7wt&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;这个网站&lt;/a&gt;和&lt;a class=&#34;link&#34; href=&#34;https://blog.csdn.net/dulingwen/article/details/92816163&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;这个网站&lt;/a&gt;的教程进行安装的。但部分问题不管是在中文互联网还是英文互联网上都没有找到解决方案，所以记录一下。&lt;/p&gt;
+&lt;h2 id=&#34;1dvtk_wrap_pythonon&#34;&gt;1、DVTK_WRAP_PYTHON=ON&lt;/h2&gt;
+&lt;p&gt;部分教程在给安装代码时，在cmake的环节会将&lt;code&gt;DVTK_WRAP_PYTHON&lt;/code&gt;设置为&lt;code&gt;ON&lt;/code&gt;，但是我个人的WSL是没有Python需求也就没有进行过Python环境的配置，所以在cmake的时候，将&lt;code&gt;DVTK_WRAP_PYTHON&lt;/code&gt;设置为&lt;code&gt;OFF&lt;/code&gt;。&lt;/p&gt;
+&lt;h2 id=&#34;2无法找到visualization&#34;&gt;2、无法找到Visualization&lt;/h2&gt;
+&lt;p&gt;在安装完成后，我用demo在编译的时候，提示无法找到&lt;code&gt;Visualization&lt;/code&gt;，如下图所示：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2023/11/10/%E5%AE%89%E8%A3%85pcl%E6%97%B6%E5%80%99%E8%B8%A9%E8%BF%87%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E5%9D%91/2023-11-11-11-04-46.png&#34;
+	width=&#34;566&#34;
+	height=&#34;172&#34;
+	srcset=&#34;https://inariindream.cn/blog/2023/11/10/%E5%AE%89%E8%A3%85pcl%E6%97%B6%E5%80%99%E8%B8%A9%E8%BF%87%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E5%9D%91/2023-11-11-11-04-46_hue97d2f17b840fd8a39680523f5d8293d_29136_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2023/11/10/%E5%AE%89%E8%A3%85pcl%E6%97%B6%E5%80%99%E8%B8%A9%E8%BF%87%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E5%9D%91/2023-11-11-11-04-46_hue97d2f17b840fd8a39680523f5d8293d_29136_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;图中可以将pcl移出pcl-1.9文件夹，这里只是本人偷懒了&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;329&#34;
+		data-flex-basis=&#34;789px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;visualization&lt;/code&gt;库是需要安装vtk的，很多教程基本忽略了这一点，只会告诉你需要安装vtk以及怎么装。&lt;/p&gt;
+&lt;p&gt;在正确编译并安装正确版本的vtk之后，重新编译demo文件，发现还是无法找到&lt;code&gt;Visualization&lt;/code&gt;，于是回去看cmake的输出，发现如下图所示：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2023/11/10/%E5%AE%89%E8%A3%85pcl%E6%97%B6%E5%80%99%E8%B8%A9%E8%BF%87%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E5%9D%91/2023-11-11-11-07-52.png&#34;
+	width=&#34;612&#34;
+	height=&#34;694&#34;
+	srcset=&#34;https://inariindream.cn/blog/2023/11/10/%E5%AE%89%E8%A3%85pcl%E6%97%B6%E5%80%99%E8%B8%A9%E8%BF%87%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E5%9D%91/2023-11-11-11-07-52_hu2eecb703cd3add2995db237c84a26deb_48768_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2023/11/10/%E5%AE%89%E8%A3%85pcl%E6%97%B6%E5%80%99%E8%B8%A9%E8%BF%87%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E5%9D%91/2023-11-11-11-07-52_hu2eecb703cd3add2995db237c84a26deb_48768_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;如果没有安装vtk这里就会显示vtk not found&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;88&#34;
+		data-flex-basis=&#34;211px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;发现了大大的&lt;code&gt;visualization: Disabled manually&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;网上找了下解决方案，然后在某喜爱四迪恩论坛发现了如下的言论：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2023/11/10/%E5%AE%89%E8%A3%85pcl%E6%97%B6%E5%80%99%E8%B8%A9%E8%BF%87%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E5%9D%91/2023-11-11-11-14-50.png&#34;
+	width=&#34;991&#34;
+	height=&#34;703&#34;
+	srcset=&#34;https://inariindream.cn/blog/2023/11/10/%E5%AE%89%E8%A3%85pcl%E6%97%B6%E5%80%99%E8%B8%A9%E8%BF%87%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E5%9D%91/2023-11-11-11-14-50_huc16c224920f9eae19f7df2cc4b6f9832_85810_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2023/11/10/%E5%AE%89%E8%A3%85pcl%E6%97%B6%E5%80%99%E8%B8%A9%E8%BF%87%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E5%9D%91/2023-11-11-11-14-50_huc16c224920f9eae19f7df2cc4b6f9832_85810_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;140&#34;
+		data-flex-basis=&#34;338px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;(`ゥ´ )哥你要不再想想为什么要用Cmake GUI来执行Cmake呢&lt;/p&gt;
+&lt;p&gt;总之，解决方案就是在Cmake的选项中将&lt;code&gt;BUILD_visualization&lt;/code&gt;设置为&lt;code&gt;ON&lt;/code&gt;，然后重新编译即可。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2023/11/10/%E5%AE%89%E8%A3%85pcl%E6%97%B6%E5%80%99%E8%B8%A9%E8%BF%87%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E5%9D%91/2023-11-11-11-19-02.png&#34;
+	width=&#34;421&#34;
+	height=&#34;134&#34;
+	srcset=&#34;https://inariindream.cn/blog/2023/11/10/%E5%AE%89%E8%A3%85pcl%E6%97%B6%E5%80%99%E8%B8%A9%E8%BF%87%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E5%9D%91/2023-11-11-11-19-02_hufcb9888427ff53108389f23eeef0c8bd_10354_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2023/11/10/%E5%AE%89%E8%A3%85pcl%E6%97%B6%E5%80%99%E8%B8%A9%E8%BF%87%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E5%9D%91/2023-11-11-11-19-02_hufcb9888427ff53108389f23eeef0c8bd_10354_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;314&#34;
+		data-flex-basis=&#34;754px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2023/11/10/%E5%AE%89%E8%A3%85pcl%E6%97%B6%E5%80%99%E8%B8%A9%E8%BF%87%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E5%9D%91/2023-11-11-11-11-30.png&#34;
+	width=&#34;760&#34;
+	height=&#34;861&#34;
+	srcset=&#34;https://inariindream.cn/blog/2023/11/10/%E5%AE%89%E8%A3%85pcl%E6%97%B6%E5%80%99%E8%B8%A9%E8%BF%87%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E5%9D%91/2023-11-11-11-11-30_hu83e34728787fea749c1816b0894b2ad7_66749_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2023/11/10/%E5%AE%89%E8%A3%85pcl%E6%97%B6%E5%80%99%E8%B8%A9%E8%BF%87%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E5%9D%91/2023-11-11-11-11-30_hu83e34728787fea749c1816b0894b2ad7_66749_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;88&#34;
+		data-flex-basis=&#34;211px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;这一点不知道为什么在pcl的Github Issue栏也没看到有人提，难道大家的default都是&lt;code&gt;ON&lt;/code&gt;吗？&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>你看我应有几分的欢欣</title>
         <link>https://inariindream.cn/blog/2023/10/04/%E4%BD%A0%E7%9C%8B%E6%88%91%E5%BA%94%E6%9C%89%E5%87%A0%E5%88%86%E7%9A%84%E6%AC%A2%E6%AC%A3/</link>
         <pubDate>Wed, 04 Oct 2023 11:32:49 +0000</pubDate>
@@ -338,11 +424,11 @@
         <guid>https://inariindream.cn/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/</guid>
         <description>&lt;img src="https://inariindream.cn/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/111.png" alt="Featured image of post Nvidia Jetson 部署教程" /&gt;&lt;h1 id=&#34;转移部署教程&#34;&gt;转移部署教程&lt;/h1&gt;
 &lt;h2 id=&#34;1安装anaconda&#34;&gt;1.安装Anaconda&lt;/h2&gt;
-&lt;h3 id=&#34;下载安装包&#34;&gt;下载安装包&lt;/h3&gt;
+&lt;h3 id=&#34;安装包&#34;&gt;安装包&lt;/h3&gt;
 &lt;p&gt;由于是aarch64架构，所以官方没有提供编译好的conda，要从其他渠道安装。&lt;/p&gt;
-&lt;p&gt;按ctrl + alt + T打开bash命令行，输入以下命令&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;wget https://github.com/Archiconda/build-tools/releases/download/0.2.3/Archiconda3-0.2.3-Linux-aarch64.sh
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;即可下载安装包到当前目录（如果不清楚当前目录在哪，可输入&lt;code&gt;pwd&lt;/code&gt;查看）&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;移动U盘中的&lt;code&gt;Archiconda3-0.2.3-Linux-aarch64.sh&lt;/code&gt;安装包到当前目录（如果不清楚当前目录在哪，可输入&lt;code&gt;pwd&lt;/code&gt;查看）&lt;/p&gt;
 &lt;h3 id=&#34;安装&#34;&gt;安装&lt;/h3&gt;
 &lt;p&gt;输入&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;./Archiconda3-0.2.3-Linux-aarch64.sh
@@ -383,7 +469,9 @@
 		data-flex-basis=&#34;418px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;注意检查路径是否和当前的conda位置符合&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;或选择gedit也可&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo gedit xxx(文件路径)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;注意检查路径是否和当前的conda位置符合&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;注意不要加在文件末尾，可以找文件中有相似格式的位置添加。&lt;/p&gt;
 &lt;p&gt;然后执行&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;source /etc/profile
@@ -393,73 +481,20 @@
 &lt;h2 id=&#34;2配置环境&#34;&gt;2.配置环境&lt;/h2&gt;
 &lt;h3 id=&#34;移动文件&#34;&gt;移动文件&lt;/h3&gt;
 &lt;p&gt;将U盘里的文件先转移到任意位置&lt;/p&gt;
-&lt;h3 id=&#34;移植python36环境&#34;&gt;移植python36环境&lt;/h3&gt;
-&lt;p&gt;找到conda文件夹，将U盘里的python36文件夹下移至envs文件夹下并解压，解压命令：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;unzip python36.zip
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;即python36文件夹应处于&lt;code&gt;/home/nvidia/.conda/envs/python36&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;可以输入&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;conda env list 
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;来验证此环境是否移植成功&lt;/p&gt;
-&lt;p&gt;然后使用以下命令激活环境&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;conda activate python36
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;显式声明环境变量&#34;&gt;显式声明环境变量&lt;/h3&gt;
+&lt;p&gt;将U盘里的&lt;code&gt;envs&lt;/code&gt;文件夹下的&lt;code&gt;py38&lt;/code&gt;文件夹移动到&lt;code&gt;/home/nvidia/.conda/envs&lt;/code&gt;下&lt;/p&gt;
+&lt;h3 id=&#34;显式声明环境变量&#34;&gt;显式声明环境变量&lt;/h3&gt;
 &lt;p&gt;打开前文提到的&lt;code&gt;.bashrc&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;在刚刚添加的语句后，新添一行&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;export LD_PRELOAD&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;$LD_PRELOAD:/home/nvidia/conda/envs/python3.6/lib/python3.6/site-packages/scikit_learn.libs/libgomp-d22c30c5.so.1.0.0
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;否则在引入时会报错（平台bug）&lt;/p&gt;
-&lt;p&gt;注意查看路径是否符合&lt;/p&gt;
-&lt;h3 id=&#34;可选删除本地的包&#34;&gt;（可选）删除本地的包&lt;/h3&gt;
-&lt;p&gt;如果在系统的这个位置不为空&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-36-25.png&#34;
-	width=&#34;406&#34;
-	height=&#34;41&#34;
-	srcset=&#34;https://inariindream.cn/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-36-25_hu59b7084fe77b13ba51db21c9e56cb951_8611_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-36-25_hu59b7084fe77b13ba51db21c9e56cb951_8611_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;990&#34;
-		data-flex-basis=&#34;2376px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;需要将&lt;code&gt;site-packages&lt;/code&gt;里面的文件/文件夹删除，这样conda才能找到我们刚刚移植的环境里的包&lt;/p&gt;
-&lt;h3 id=&#34;配置torch和torchvision重要&#34;&gt;&lt;strong&gt;配置torch和torchvision（重要）&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;注意，必须在激活python36环境下执行，即命令行最左边有&amp;rsquo;(python36)&amp;lsquo;字样&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;使用&lt;code&gt;cd&lt;/code&gt;命令将命令行转到有这两个文件的文件夹位置（从U盘中转移出来时的位置），也可直接在目标文件夹右键空白处然后点击&lt;code&gt;open terminal&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-49-35.png&#34;
-	width=&#34;551&#34;
-	height=&#34;377&#34;
-	srcset=&#34;https://inariindream.cn/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-49-35_hua2bdeaa581acfe828c6b1c34817d3b62_26354_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-49-35_hua2bdeaa581acfe828c6b1c34817d3b62_26354_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;146&#34;
-		data-flex-basis=&#34;350px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-49-45.png&#34;
-	width=&#34;677&#34;
-	height=&#34;423&#34;
-	srcset=&#34;https://inariindream.cn/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-49-45_hu8fa04028b39728cf31a591886b5ae56d_43986_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-29-17-49-45_hu8fa04028b39728cf31a591886b5ae56d_43986_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;160&#34;
-		data-flex-basis=&#34;384px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;然后使用下列命令安装&lt;code&gt;whl&lt;/code&gt;文件即可。 &lt;em&gt;(文件名不用输全，可以输几个字母然后按&lt;code&gt;Tab&lt;/code&gt;键进行自动补全)&lt;/em&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pip install torch-1.10.0-cp36-cp36m-linux_aarch64.whl
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pip install torchvision-0.11.0a0+fa347eb-cp36-cp36m-linux_aarch64.whl
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;3运行程序&#34;&gt;3.运行程序&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;export LD_PRELOAD&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;$LD_PRELOAD:/home/nvidia/conda/envs/py38/lib/python3.8/site-packages/scikit_learn.libs/libgomp-d22c30c5.so.1.0.0
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;h2 id=&#34;3运行程序&#34;&gt;3.运行程序&lt;/h2&gt;
 &lt;p&gt;在控制台里面使用&lt;code&gt;cd&lt;/code&gt;命令转移到U盘里deploy所转移到的的文件夹并&lt;code&gt;cd deploy&lt;/code&gt;（即当前控制台的最右边显示是&amp;rsquo;deploy&amp;rsquo;）&lt;/p&gt;
 &lt;p&gt;或直接打开deploy文件夹再右键空白处点击&lt;code&gt;open terminal&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;在执行过&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;conda activate python36
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;conda activate py38
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;的情况下，直接输入&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;python new01.py
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;python new0612.py
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;即可运行程序&lt;/p&gt;
 &lt;h2 id=&#34;4-设置开机自启动&#34;&gt;4. 设置开机自启动&lt;/h2&gt;
 &lt;p&gt;在终端输入&lt;/p&gt;
@@ -492,11 +527,147 @@
 &gt;&lt;/p&gt;
 &lt;p&gt;Name随便填，Comment可不填，在Command栏填写&lt;code&gt;gnome-terminal&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;然后打开前文提到的.bashrc文件，在文件的&lt;strong&gt;末尾&lt;/strong&gt;输入以下语句：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;conda activate python36
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;conda activate py38
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sleep &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cd deploy
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;python new01.py
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;可能遇到的问题&#34;&gt;可能遇到的问题&lt;/h2&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;python new0612.py
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;5备份与还原&#34;&gt;5.备份与还原&lt;/h2&gt;
+&lt;h3 id=&#34;tar命令&#34;&gt;tar命令&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;备份系统&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;我该如何备份我的Ubuntu系统呢？很简单，就像你备份或压缩其它东西一样，使用TAR。和Windows不同，Linux不会限制root访问任何东西，你可以把分区上的所有东西都扔到一个TAR文件里去！&lt;/p&gt;
+&lt;p&gt;首先成为root用户：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo su
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;然后，进入根目录后，使用下面的命令备份你的系统：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;tar cvpzf backup.tgz --exclude=/proc --exclude=/lost+found --exclude=/backup.tgz --exclude=/mnt --exclude=/sys /
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;让我们来简单看一下这个命令：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;tar&lt;/code&gt;当然就是我们备份系统所使用的程序了。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;cvpfz&lt;/code&gt;是tar的选项，意思是“创建档案文件”、“保持权限”(保留所有东西原来的权限)、“使用gzip来减小文件尺寸”。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;backup.gz&lt;/code&gt;是我们将要得到的档案文件的文件名。&lt;/p&gt;
+&lt;p&gt;/是我们要备份的目录，在这里是整个文件系统。&lt;/p&gt;
+&lt;p&gt;在 档案文件名“&lt;code&gt;backup.gz&lt;/code&gt;”和要备份的目录名“&lt;code&gt;/&lt;/code&gt;”之间给出了备份时必须排除在外的目录。有些目录是无用的，例如“&lt;code&gt;/proc&lt;/code&gt;”、“&lt;code&gt;/lost+ found&lt;/code&gt;”、“&lt;code&gt;/sys&lt;/code&gt;”。当然，“&lt;code&gt;backup.gz&lt;/code&gt;”这个档案文件本身必须排除在外，否则你可能会得到一些超出常理的结果。如果不把“/mnt”排 除在外，那么挂载在“/mnt”上的其它分区也会被备份。另外需要确认一下“&lt;code&gt;/media&lt;/code&gt;”上没有挂载任何东西(例如光盘、移动硬盘)，如果有挂载东西， 必须把“&lt;code&gt;/media&lt;/code&gt;”也排除在外。&lt;/p&gt;
+&lt;p&gt;你还可以用Bzip2来压缩文件，Bzip2比gzip的压缩率高，但是速度慢一些。如果压缩率对你来说很重要，那么你应该使用Bzip2，用“j”代替命令中的“z”，并且给档案文件一个正确的扩展名“bz2”。完整的命令如下：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;tar cvpjf backup.tar.bz2 --exclude=/proc --exclude=/lost+found --exclude=/backup.tar.bz2 --exclude=/mnt --exclude=/sys /
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;恢复系统&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;在进行恢复系统的操作时一定要小心！如果你不清楚自己在做什么，那么你有可能把重要的数据弄丢，请务必小心！&lt;/p&gt;
+&lt;p&gt;接着上面的例子。切换到root用户，并把文件“backup.tgz”拷贝到分区的根目录下。&lt;/p&gt;
+&lt;p&gt;在 Linux中有一件很美妙的事情，就是你可以在一个运行的系统中恢复系统，而不需要用boot-cd来专门引导。当然，如果你的系统已经挂掉不能启动了， 你可以用Live CD来启动，效果是一样的。&lt;/p&gt;
+&lt;p&gt;使用下面的命令来恢复系统：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;tar xvpfz backup.tgz -C /
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果你的档案文件是使用Bzip2压缩的，应该用：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;tar xvpfj backup.tar.bz2 -C /
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;注意：上面的命令会用档案文件中的文件覆盖分区上的所有文件。&lt;/p&gt;
+&lt;p&gt;执行恢复命令之前请再确认一下你所键入的命令是不是你想要的，执行恢复命令可能需要一段不短的时间。&lt;/p&gt;
+&lt;p&gt;恢复命令结束时，你的工作还没完成，别忘了重新创建那些在备份时被排除在外的目录：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;mkdir proc
+mkdir lost+found
+mkdir mnt
+mkdir sys
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;等等&lt;/p&gt;
+&lt;p&gt;当你重启电脑，你会发现一切东西恢复到你创建备份时的样子了&lt;/p&gt;
+&lt;h3 id=&#34;dd命令&#34;&gt;dd命令&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;磁盘克隆
+也就是把整个硬盘复制一份。当然你首先需要在计算机上在接上一块新硬盘，并让系统识别。例如这块硬盘可能被识别为&lt;code&gt;/dev/sdb&lt;/code&gt;,原有硬盘叫&lt;code&gt;/dev/sda&lt;/code&gt;. 然后你可以在linux命令行上简单地执行：
+&lt;code&gt;dd if=/dev/sda of=/dev/sdb&lt;/code&gt;
+对就这么简单，此命令完成后，你的第二块硬盘上将有一个和第一块硬盘一模一样的副本，也是可以启动的。因为dd操作就是简单的按字节复制，什么分区表啊，MBR啊统统照搬。
+当然你也可以做一些微调，来定制一下克隆操作。例如你可能希望把硬盘上的内容全部备份到一个磁盘文件中，而不是另一块新硬盘，你可以
+&lt;code&gt;dd if=/dev/sda of=~/disk1.img&lt;/code&gt;
+之后，disk1.img就是备份好的磁盘映像文件，你可以复制或转移到其他介质也可以压缩一下：
+&lt;code&gt;gzip disk1.img #generates disk1.img.gz&lt;/code&gt;
+或者在创建磁盘映像文件的同时就执行压缩：
+&lt;code&gt;dd if=/dev/sda | gzip &amp;gt; disk.img.gz&lt;/code&gt;
+当然，你也可以使用bzip2来压缩，它的压缩率更高，但是速度慢一些：
+&lt;code&gt;dd if=/dev/sda | bzip2 &amp;gt; disk.img.bz2&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;分区克隆
+如果我们不想克隆整块磁盘，只想把某些存放数据的分区备份一下，你会需要克隆一个分区。正如预备知识所述，分区在linux下也是一个文件。例如
+&lt;code&gt;dd if=/dev/sda1 of=~/part1.img&lt;/code&gt;
+将把第一块磁盘的第一个分区备份到名为&lt;code&gt;part1.img&lt;/code&gt;的文件中。
+也可以进行分区复制：
+&lt;code&gt;dd if=/dev/hda1 of=/dev/hda3&lt;/code&gt;
+将把分区一原样复制到分区3.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;从镜像文件恢复磁盘或分区
+很简单，把上面命令中，of和if指向的文件名互换一下即可实现恢复。例如
+&lt;code&gt;dd if=disk1.img of=/dev/sda&lt;/code&gt;
+把保存在disk1.img中的映像恢复到第一块磁盘
+&lt;code&gt;dd if=part1.img of=/dev/hda2&lt;/code&gt;
+把保存在part1.img中的映像恢复到第一块硬盘的第二个分区&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;最后，需要注意一点是，无论备份还是恢复，都需要保证 &lt;code&gt;of&lt;/code&gt; 指向的文件或磁盘空间要大于 &lt;code&gt;if&lt;/code&gt; 指向的内容，因为是按字节复制 如果没有足够的空间去存储内容，备份自然会失败。&lt;/p&gt;
+&lt;h2 id=&#34;6配置文件参数说明&#34;&gt;6.配置文件参数说明&lt;/h2&gt;
+&lt;p&gt;配置文件说明：&lt;br&gt;
+本程序部分参数使用配置文件进行配置，配置文件para.json位于deploy文件夹内，具体的参数定义如下：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;序号&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;参数名&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;含义说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;OPCAdd&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;PLC的opc地址&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;CamAdd&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;摄像头连接地址&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;3&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;lifebeat_to_etrs&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;PLC端心跳包node地址&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;4&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;lifebeat_from_etrs&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;ETRS端心跳包node地址&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;5&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;tray_in_pos&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;空框到位node地址&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;6&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;tray_empty&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;框体是否空node地址&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;7&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;high_top&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;检测画幅高度上&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;8&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;high_bottom&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;检测画幅高度下&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;9&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;width_left&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;检测画幅宽度左&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;10&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;width_right&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;检测画幅宽度右&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;可能遇到的问题&#34;&gt;可能遇到的问题&lt;/h2&gt;
 &lt;p&gt;Q：使用pip或者conda命令时出现&lt;code&gt;bad interpreter: No such file or directory:&lt;/code&gt;的错误&lt;/p&gt;
 &lt;p&gt;A: 打开python36和.conda目录下的&lt;code&gt;bin&lt;/code&gt;文件夹，查看&lt;code&gt;pip&lt;/code&gt;文件和&lt;code&gt;conda&lt;/code&gt;文件的第一行&lt;code&gt;#！&lt;/code&gt;后面的解释器路径配置是否正确&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2023/05/28/nvidia-jetson-%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/2023-05-31-18-10-09.png&#34;
@@ -523,6 +694,7 @@
 		data-flex-basis=&#34;527px&#34;
 	
 &gt;&lt;/p&gt;
+&lt;p&gt;（此处以python3.6示例，根据实际需求自行修改）&lt;/p&gt;
 &lt;p&gt;若与当前目录不符，修改即可。若没权限(文件只读)则可使用&lt;code&gt;sudo vim&lt;/code&gt;命令编辑文件&lt;/p&gt;
 </description>
         </item>
