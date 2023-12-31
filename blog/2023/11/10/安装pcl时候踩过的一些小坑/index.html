@@ -39,7 +39,7 @@ cmake_minimum_required(VERSION 3.23) project(Graduate) set(CMAKE_CXX_STANDARD 17
 cat /etc/ld.so.conf sudo sh -c &amp;#34;echo &amp;#39;/usr/local/lib/x86_64-linux-gnu&amp;#39; &amp;gt;&amp;gt; /etc/ld.so.conf&amp;#34; sudo sh -c &amp;#34;ldconfig&amp;#34; 5. [xcb] Unknown sequence number while processing queue 编译通过了，但是运行demo的时候，出现了如下的错误：'>
 <meta property='og:url' content='https://inariindream.cn/blog/2023/11/10/%E5%AE%89%E8%A3%85pcl%E6%97%B6%E5%80%99%E8%B8%A9%E8%BF%87%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E5%9D%91/'>
 <meta property='og:site_name' content='Inari&#39;s Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='点云' /><meta property='article:published_time' content='2023-11-10T10:58:20&#43;00:00'/><meta property='article:modified_time' content='2023-11-11T14:33:53&#43;08:00'/><meta property='og:image' content='https://inariindream.cn/blog/2023/11/10/%E5%AE%89%E8%A3%85pcl%E6%97%B6%E5%80%99%E8%B8%A9%E8%BF%87%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E5%9D%91/111.png' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='点云' /><meta property='article:published_time' content='2023-11-10T10:58:20&#43;00:00'/><meta property='article:modified_time' content='2023-11-11T14:35:29&#43;08:00'/><meta property='og:image' content='https://inariindream.cn/blog/2023/11/10/%E5%AE%89%E8%A3%85pcl%E6%97%B6%E5%80%99%E8%B8%A9%E8%BF%87%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E5%9D%91/111.png' />
 <meta name="twitter:site" content="@inariindream">
     <meta name="twitter:creator" content="@inariindream"><meta name="twitter:title" content="安装PCL时候踩过的一些小坑">
 <meta name="twitter:description" content="安装时大体是参考这个网站和这个网站的教程进行安装的。但部分问题不管是在中文互联网还是英文互联网上都没有找到解决方案，所以记录一下。
@@ -977,13 +977,13 @@ ODoyMSswMDowMEEubXoAAAAASUVORK5CYII=" />
 [xcb] Aborting, sorry about that. Graduate: ../../src/xcb_io.c:260: poll_for_event: Assertion `!xcb_xlib_threads_sequence_lost&#39; failed.****
 </code></pre><p>解决方法</p>
 <p>在开头加上这句</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;X11/Xlib.h&gt;</span><span style="color:#75715e">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;X11/Xlib.h&gt;</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">//避免和Eigen冲突
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">#ifdef Success
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">#undef Success
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">#endif
 </span></span></span></code></pre></div><p>在main函数中加上这句</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>XInitThreads();
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>XInitThreads();
 </span></span></code></pre></div>
 </section>
 
@@ -1019,7 +1019,7 @@ ODoyMSswMDowMEEubXoAAAAASUVORK5CYII=" />
 
 
         <span>
-            最后更新于 Nov 11, 2023 14:33 CST
+            最后更新于 Nov 11, 2023 14:35 CST
         </span>
     </section></footer>
 
