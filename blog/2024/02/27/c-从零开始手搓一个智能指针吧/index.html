@@ -9,7 +9,7 @@
 <meta property='og:description' content='以msvc的实现为例'>
 <meta property='og:url' content='https://inariindream.cn/blog/2024/02/27/c-%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%89%8B%E6%90%93%E4%B8%80%E4%B8%AA%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88%E5%90%A7/'>
 <meta property='og:site_name' content='Inari&#39;s Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='C&#43;&#43;' /><meta property='article:tag' content='智能指针' /><meta property='article:published_time' content='2024-02-27T19:57:41&#43;00:00'/><meta property='article:modified_time' content='2024-02-29T20:37:15&#43;08:00'/><meta property='og:image' content='https://inariindream.cn/blog/2024/02/27/c-%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%89%8B%E6%90%93%E4%B8%80%E4%B8%AA%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88%E5%90%A7/111.png' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='C&#43;&#43;' /><meta property='article:tag' content='智能指针' /><meta property='article:published_time' content='2024-02-27T19:57:41&#43;00:00'/><meta property='article:modified_time' content='2024-03-02T10:17:41&#43;08:00'/><meta property='og:image' content='https://inariindream.cn/blog/2024/02/27/c-%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%89%8B%E6%90%93%E4%B8%80%E4%B8%AA%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88%E5%90%A7/111.png' />
 <meta name="twitter:site" content="@inariindream">
     <meta name="twitter:creator" content="@inariindream"><meta name="twitter:title" content="C&#43;&#43;：从零开始手搓一个智能指针吧">
 <meta name="twitter:description" content="以msvc的实现为例"><meta name="twitter:card" content="summary_large_image">
@@ -811,7 +811,7 @@ ODoyMSswMDowMEEubXoAAAAASUVORK5CYII=" />
 
 
                 <time class="article-time--reading">
-                    3 minute read
+                    4 minute read
                 </time>
             </div>
         
@@ -1127,20 +1127,19 @@ ODoyMSswMDowMEEubXoAAAAASUVORK5CYII=" />
 </span></span></code></pre></div><p>由于基类的函数基本都实现得很完善，所以<code>shared_ptr</code>的实现就显得很简单了。</p>
 <p>这里讲一个地方：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>shared_ptr <span style="color:#f92672">&amp;</span><span style="color:#66d9ef">operator</span><span style="color:#f92672">=</span>(<span style="color:#66d9ef">const</span> shared_ptr <span style="color:#f92672">&amp;</span>rhs) {
-</span></span><span style="display:flex;"><span>        shared_ptr(rhs).swap(<span style="color:#f92672">*</span><span style="color:#66d9ef">this</span>);
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#f92672">*</span><span style="color:#66d9ef">this</span>;
-</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    shared_ptr(rhs).swap(<span style="color:#f92672">*</span><span style="color:#66d9ef">this</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#f92672">*</span><span style="color:#66d9ef">this</span>;
+</span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>shared_ptr <span style="color:#f92672">&amp;</span><span style="color:#66d9ef">operator</span><span style="color:#f92672">=</span>(shared_ptr <span style="color:#f92672">&amp;&amp;</span>rhs) <span style="color:#66d9ef">noexcept</span> {
 </span></span><span style="display:flex;"><span>    shared_ptr(std<span style="color:#f92672">::</span>move(rhs)).swap(<span style="color:#f92672">*</span><span style="color:#66d9ef">this</span>);
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#f92672">*</span><span style="color:#66d9ef">this</span>;
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>这里的赋值操作符重载，使用了copy-and-swap技术。</p>
-<p>一般来说移动构造函数需要加上<code>noexcept</code>，因为一般移动构造函数与析构函数提供了强异常安全保证，而它保证强异常安全的方式，就是移动<code>noexcept</code>。若一定要抛出异常，则破坏了它的强异常安全保证。（例如在移动时已经申请了新的空间，这时抛出了异常&hellip;就会导向不可知的结果）</p>
+</span></span></code></pre></div><p>一般来说移动构造函数需要加上<code>noexcept</code>，因为一般移动构造函数与析构函数提供了强异常安全保证，而它保证强异常安全的方式，就是移动<code>noexcept</code>。若一定要抛出异常，则破坏了它的强异常安全保证。（例如在移动时已经申请了新的空间，这时抛出了异常&hellip;就会导向不可知的结果）</p>
 <p><strong>重点说一下这个函数</strong></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>shared_ptr <span style="color:#f92672">&amp;</span><span style="color:#66d9ef">operator</span><span style="color:#f92672">=</span>(shared_ptr <span style="color:#f92672">&amp;&amp;</span>rhs) <span style="color:#66d9ef">noexcept</span> {
-</span></span><span style="display:flex;"><span>        shared_ptr(std<span style="color:#f92672">::</span>move(rhs)).swap(<span style="color:#f92672">*</span><span style="color:#66d9ef">this</span>);
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#f92672">*</span><span style="color:#66d9ef">this</span>;
+</span></span><span style="display:flex;"><span>    shared_ptr(std<span style="color:#f92672">::</span>move(rhs)).swap(<span style="color:#f92672">*</span><span style="color:#66d9ef">this</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#f92672">*</span><span style="color:#66d9ef">this</span>;
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><ol>
 <li>
@@ -1158,7 +1157,96 @@ ODoyMSswMDowMEEubXoAAAAASUVORK5CYII=" />
 </ol>
 <p>Q： 为什么还需要std::move()即使参数已经是右值引用(&amp;&amp;rhs)？</p>
 <p>A： 这是因为在函数参数列表中，<code>rhs</code>是一个右值引用，但在函数体内，它是一个左值。这是因为在函数体内，<code>rhs</code>是一个有名字的变量，而有名字的变量都是左值。因此，我们需要使用<code>std::move()</code>来将<code>rhs</code>转换为右值引用，这样我们就可以调用<code>shared_ptr</code>的移动构造函数了。</p>
-
+<h2 id="weak_ptr">weak_ptr</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">template</span> <span style="color:#f92672">&lt;</span><span style="color:#66d9ef">typename</span> T<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">weak_ptr</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">public</span> Ptr_base<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> {
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">using</span> Base <span style="color:#f92672">=</span> Ptr_base<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span>;
+</span></span><span style="display:flex;"><span>    weak_ptr() <span style="color:#66d9ef">noexcept</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">default</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">constexpr</span> <span style="color:#a6e22e">weak_ptr</span>(std<span style="color:#f92672">::</span>nullptr_t) <span style="color:#66d9ef">noexcept</span> {}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    weak_ptr(<span style="color:#66d9ef">const</span> weak_ptr <span style="color:#f92672">&amp;</span>rhs) {
+</span></span><span style="display:flex;"><span>        Base<span style="color:#f92672">::</span>_weakly_construct_from(rhs);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    weak_ptr(<span style="color:#66d9ef">const</span> shared_ptr<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> <span style="color:#f92672">&amp;</span>rhs) {
+</span></span><span style="display:flex;"><span>        Base<span style="color:#f92672">::</span>_weakly_construct_from(rhs);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    weak_ptr <span style="color:#f92672">&amp;</span><span style="color:#66d9ef">operator</span><span style="color:#f92672">=</span>(<span style="color:#66d9ef">const</span> weak_ptr <span style="color:#f92672">&amp;</span>rhs) {
+</span></span><span style="display:flex;"><span>        weak_ptr(rhs).swap(<span style="color:#f92672">*</span><span style="color:#66d9ef">this</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#f92672">*</span><span style="color:#66d9ef">this</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">~</span>weak_ptr() {
+</span></span><span style="display:flex;"><span>        Base<span style="color:#f92672">::</span>sub_wref();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    shared_ptr<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> lock() <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">noexcept</span> {
+</span></span><span style="display:flex;"><span>        shared_ptr<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> ret;
+</span></span><span style="display:flex;"><span>        ret._construct_from_weak(<span style="color:#f92672">*</span><span style="color:#66d9ef">this</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> ret;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">expired</span>() <span style="color:#66d9ef">const</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> Base<span style="color:#f92672">::</span>_ref<span style="color:#f92672">-&gt;</span>use_count() <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>注意看这个地方：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>shared_ptr <span style="color:#f92672">&amp;</span><span style="color:#66d9ef">operator</span><span style="color:#f92672">=</span>(<span style="color:#66d9ef">const</span> shared_ptr <span style="color:#f92672">&amp;</span>rhs) {
+</span></span><span style="display:flex;"><span>    shared_ptr(rhs).swap(<span style="color:#f92672">*</span><span style="color:#66d9ef">this</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#f92672">*</span><span style="color:#66d9ef">this</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>weak_ptr <span style="color:#f92672">&amp;</span><span style="color:#66d9ef">operator</span><span style="color:#f92672">=</span>(<span style="color:#66d9ef">const</span> weak_ptr <span style="color:#f92672">&amp;</span>rhs) {
+</span></span><span style="display:flex;"><span>    weak_ptr(rhs).swap(<span style="color:#f92672">*</span><span style="color:#66d9ef">this</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#f92672">*</span><span style="color:#66d9ef">this</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>如何去理解这里的copy-and-swap呢？</p>
+<p>从直觉上来说，赋值运算符居然要用<code>swap</code>，这多少显得有点怪异。</p>
+<p>但是考虑这样一个例子，</p>
+<pre tabindex="0"><code>a = b
+</code></pre><p>这里的<code>a</code>和<code>b</code><strong>并不是普通的整形变量</strong>，而是指向特定资源的指针。当将b赋值给a后，a就不再指向原来的资源A了，而是指向了b所指向的资源B。因此，对A的引用计数需要减一，对B的引用计数需要加一。这样的操作通过<code>swap</code>函数来实现。</p>
+<p>在copy-and-swap操作中，<code>shared_ptr(rhs)</code>先创建了一个临时对象，命中了</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>shared_ptr(<span style="color:#66d9ef">const</span> shared_ptr <span style="color:#f92672">&amp;</span>rhs) <span style="color:#66d9ef">noexcept</span> {
+</span></span><span style="display:flex;"><span>        Base<span style="color:#f92672">::</span>_copy_construct_from_shared(rhs);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>这个构造函数，相当于<strong>copy</strong>了一个<code>rhs</code>，使赋值符号右边的<code>rhs</code>的引用计数加一。然后，将这个引用计数加一过后的<code>rhs</code>和<code>*this</code>进行<strong>swap</strong>，这样<code>*this</code>就指向了<code>rhs</code>所指向的资源（引用计数已经加一了），而<code>rhs</code>则指向了<code>*this</code>原来指向的资源。</p>
+<p>最后，当创建的临时对象生命周期结束（即离开了作用域，这里是return后），它的析构函数会将<code>rhs</code>指向的资源的引用计数减一(此时已经是A的引用计数了)，从而达到想要的目的。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#f92672">~</span>shared_ptr() {
+</span></span><span style="display:flex;"><span>    Base<span style="color:#f92672">::</span>sub_ref();
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="make_shared">make_shared</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">template</span> <span style="color:#f92672">&lt;</span><span style="color:#66d9ef">typename</span> T, <span style="color:#66d9ef">typename</span>... Ts<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>shared_ptr<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> make_shared(Ts <span style="color:#f92672">&amp;&amp;</span>...args) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> shared_ptr<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span>{<span style="color:#66d9ef">new</span> <span style="color:#a6e22e">T</span>(std<span style="color:#f92672">::</span>forward<span style="color:#f92672">&lt;</span>Ts<span style="color:#f92672">&gt;</span>(args)...)};
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="enable_shared_from_this">enable_shared_from_this</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">template</span> <span style="color:#f92672">&lt;</span><span style="color:#66d9ef">typename</span> T<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">enable_shared_from_this</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">mutable</span> weak_ptr<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> _weak_this_;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">protected</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">constexpr</span> enable_shared_from_this() <span style="color:#66d9ef">noexcept</span> <span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>            _weak_this_() {
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        enable_shared_from_this(<span style="color:#66d9ef">const</span> enable_shared_from_this <span style="color:#f92672">&amp;</span>) <span style="color:#66d9ef">noexcept</span> {
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        enable_shared_from_this <span style="color:#f92672">&amp;</span><span style="color:#66d9ef">operator</span><span style="color:#f92672">=</span>(<span style="color:#66d9ef">const</span> enable_shared_from_this <span style="color:#f92672">&amp;</span>) <span style="color:#66d9ef">noexcept</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#f92672">*</span><span style="color:#66d9ef">this</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">~</span>enable_shared_from_this() <span style="color:#f92672">=</span> <span style="color:#66d9ef">default</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>        shared_ptr<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> shared_from_this() {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> shared_ptr<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span>(_weak_this_);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        shared_ptr<span style="color:#f92672">&lt;</span>T <span style="color:#66d9ef">const</span><span style="color:#f92672">&gt;</span> shared_from_this() <span style="color:#66d9ef">const</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> shared_ptr<span style="color:#f92672">&lt;</span>T <span style="color:#66d9ef">const</span><span style="color:#f92672">&gt;</span>(_weak_this_);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">friend</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">shared_ptr</span><span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span>;
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
 </section>
 
 
@@ -1195,7 +1283,7 @@ ODoyMSswMDowMEEubXoAAAAASUVORK5CYII=" />
 
 
         <span>
-            最后更新于 Feb 29, 2024 20:37 CST
+            最后更新于 Mar 02, 2024 10:17 CST
         </span>
     </section></footer>
 
@@ -1363,6 +1451,9 @@ ODoyMSswMDowMEEubXoAAAAASUVORK5CYII=" />
     <li><a href="#引用计数">引用计数</a></li>
     <li><a href="#ptrbase">PtrBase</a></li>
     <li><a href="#shared_ptr">shared_ptr</a></li>
+    <li><a href="#weak_ptr">weak_ptr</a></li>
+    <li><a href="#make_shared">make_shared</a></li>
+    <li><a href="#enable_shared_from_this">enable_shared_from_this</a></li>
   </ul>
 </nav>
         </div>
