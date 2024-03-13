@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>完美转发 on Inari&#39;s Blog</title>
+        <link>https://inariindream.cn/tags/%E5%AE%8C%E7%BE%8E%E8%BD%AC%E5%8F%91/</link>
+        <description>Recent content in 完美转发 on Inari&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <lastBuildDate>Tue, 12 Mar 2024 19:27:31 +0000</lastBuildDate><atom:link href="https://inariindream.cn/tags/%E5%AE%8C%E7%BE%8E%E8%BD%AC%E5%8F%91/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>C&#43;&#43;：std::forward的正确打开方式</title>
+        <link>https://inariindream.cn/blog/2024/03/12/c-stdforward%E7%9A%84%E6%AD%A3%E7%A1%AE%E6%89%93%E5%BC%80%E6%96%B9%E5%BC%8F/</link>
+        <pubDate>Tue, 12 Mar 2024 19:27:31 +0000</pubDate>
+        
+        <guid>https://inariindream.cn/blog/2024/03/12/c-stdforward%E7%9A%84%E6%AD%A3%E7%A1%AE%E6%89%93%E5%BC%80%E6%96%B9%E5%BC%8F/</guid>
+        <description>&lt;img src="https://inariindream.cn/blog/2024/03/12/c-stdforward%E7%9A%84%E6%AD%A3%E7%A1%AE%E6%89%93%E5%BC%80%E6%96%B9%E5%BC%8F/222.png" alt="Featured image of post C&#43;&#43;：std::forward的正确打开方式" /&gt;&lt;h1 id=&#34;cstdforward的正确打开方式&#34;&gt;C++：std::forward的正确打开方式&lt;/h1&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
