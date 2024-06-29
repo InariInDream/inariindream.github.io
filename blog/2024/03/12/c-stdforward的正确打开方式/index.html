@@ -9,7 +9,7 @@
 <meta property='og:description' content='把群友聊了很多次的话题拿来当作自己的知识储备😤'>
 <meta property='og:url' content='https://inariindream.cn/blog/2024/03/12/c-stdforward%E7%9A%84%E6%AD%A3%E7%A1%AE%E6%89%93%E5%BC%80%E6%96%B9%E5%BC%8F/'>
 <meta property='og:site_name' content='Inari&#39;s Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='C&#43;&#43;' /><meta property='article:tag' content='完美转发' /><meta property='article:published_time' content='2024-03-12T19:27:31&#43;00:00'/><meta property='article:modified_time' content='2024-03-15T15:45:15&#43;08:00'/><meta property='og:image' content='https://inariindream.cn/blog/2024/03/12/c-stdforward%E7%9A%84%E6%AD%A3%E7%A1%AE%E6%89%93%E5%BC%80%E6%96%B9%E5%BC%8F/222.png' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='C&#43;&#43;' /><meta property='article:tag' content='完美转发' /><meta property='article:published_time' content='2024-03-12T19:27:31&#43;00:00'/><meta property='article:modified_time' content='2024-03-26T18:03:29&#43;08:00'/><meta property='og:image' content='https://inariindream.cn/blog/2024/03/12/c-stdforward%E7%9A%84%E6%AD%A3%E7%A1%AE%E6%89%93%E5%BC%80%E6%96%B9%E5%BC%8F/222.png' />
 <meta name="twitter:site" content="@inariindream">
     <meta name="twitter:creator" content="@inariindream"><meta name="twitter:title" content="C&#43;&#43;：std::forward的正确打开方式">
 <meta name="twitter:description" content="把群友聊了很多次的话题拿来当作自己的知识储备😤"><meta name="twitter:card" content="summary_large_image">
@@ -981,6 +981,12 @@ ODoyMSswMDowMEEubXoAAAAASUVORK5CYII=" />
 <p><strong>这种引用,就被称为&quot;万能引用&quot;</strong></p>
 <h3 id="12-区分类型和值类别">1.2 区分&quot;类型&quot;和&quot;值类别&quot;</h3>
 <p>在匹配时, 还需要区分表达式的<strong>类型</strong>和<strong>值类别</strong>。</p>
+<p>例如以下代码：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">f</span>(T<span style="color:#f92672">&amp;&amp;</span> arg) {
+</span></span><span style="display:flex;"><span>    arg <span style="color:#f92672">=</span> <span style="color:#75715e">//...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><p>这里 <code>arg</code>的类型是“对 <code>T</code>的右值引用”，而 <code>arg</code>本身在 <code>f()</code>内部是左值！！！因为很显然，实参在函数调用栈帧中有地址。所以上述代码是可以运行的，虽然 <code>arg</code>是右值引用类型，但我们可以给它赋值。</p>
+<p>所以，在万能引用中，每个参数的“值类别”都是左值，但我们得想办法搞清楚它们的“类型”是左值引用还是右值引用。</p>
 <h2 id="2-模板实参推导">2. 模板实参推导</h2>
 <p>回到问题本身，何谓模板实参推导？</p>
 <p>《C++ Primer》里的相关章节：</p>
@@ -1053,7 +1059,7 @@ ODoyMSswMDowMEEubXoAAAAASUVORK5CYII=" />
 
 
         <span>
-            最后更新于 Mar 15, 2024 15:45 CST
+            最后更新于 Mar 26, 2024 18:03 CST
         </span>
     </section></footer>
 

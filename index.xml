@@ -6,6 +6,16 @@
         <description>Recent content on Inari&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language><atom:link href="https://inariindream.cn/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>毕业随笔</title>
+        <link>https://inariindream.cn/blog/2024/06/28/%E6%AF%95%E4%B8%9A%E9%9A%8F%E7%AC%94/</link>
+        <pubDate>Fri, 28 Jun 2024 16:57:38 +0000</pubDate>
+        
+        <guid>https://inariindream.cn/blog/2024/06/28/%E6%AF%95%E4%B8%9A%E9%9A%8F%E7%AC%94/</guid>
+        <description>&lt;img src="https://inariindream.cn/blog/2024/06/28/%E6%AF%95%E4%B8%9A%E9%9A%8F%E7%AC%94/111.png" alt="Featured image of post 毕业随笔" /&gt;&lt;h1 id=&#34;毕业随笔&#34;&gt;毕业随笔&lt;/h1&gt;
+&lt;p&gt;用这篇文章来回顾我在大学四年的生活&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>C&#43;&#43;：std::forward的正确打开方式</title>
         <link>https://inariindream.cn/blog/2024/03/12/c-stdforward%E7%9A%84%E6%AD%A3%E7%A1%AE%E6%89%93%E5%BC%80%E6%96%B9%E5%BC%8F/</link>
         <pubDate>Tue, 12 Mar 2024 19:27:31 +0000</pubDate>
@@ -167,6 +177,12 @@
 &lt;p&gt;&lt;strong&gt;这种引用,就被称为&amp;quot;万能引用&amp;quot;&lt;/strong&gt;&lt;/p&gt;
 &lt;h3 id=&#34;12-区分类型和值类别&#34;&gt;1.2 区分&amp;quot;类型&amp;quot;和&amp;quot;值类别&amp;quot;&lt;/h3&gt;
 &lt;p&gt;在匹配时, 还需要区分表达式的&lt;strong&gt;类型&lt;/strong&gt;和&lt;strong&gt;值类别&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;例如以下代码：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;f&lt;/span&gt;(T&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; arg) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    arg &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;//...
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这里 &lt;code&gt;arg&lt;/code&gt;的类型是“对 &lt;code&gt;T&lt;/code&gt;的右值引用”，而 &lt;code&gt;arg&lt;/code&gt;本身在 &lt;code&gt;f()&lt;/code&gt;内部是左值！！！因为很显然，实参在函数调用栈帧中有地址。所以上述代码是可以运行的，虽然 &lt;code&gt;arg&lt;/code&gt;是右值引用类型，但我们可以给它赋值。&lt;/p&gt;
+&lt;p&gt;所以，在万能引用中，每个参数的“值类别”都是左值，但我们得想办法搞清楚它们的“类型”是左值引用还是右值引用。&lt;/p&gt;
 &lt;h2 id=&#34;2-模板实参推导&#34;&gt;2. 模板实参推导&lt;/h2&gt;
 &lt;p&gt;回到问题本身，何谓模板实参推导？&lt;/p&gt;
 &lt;p&gt;《C++ Primer》里的相关章节：&lt;/p&gt;
