@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>公开课 on Inari&#39;s Blog</title>
+        <link>https://inariindream.cn/tags/%E5%85%AC%E5%BC%80%E8%AF%BE/</link>
+        <description>Recent content in 公开课 on Inari&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <lastBuildDate>Sun, 06 Jul 2025 16:11:49 +0000</lastBuildDate><atom:link href="https://inariindream.cn/tags/%E5%85%AC%E5%BC%80%E8%AF%BE/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>CMU 15-445 24Fall 小结 【P1篇】</title>
+        <link>https://inariindream.cn/blog/2025/07/06/cmu-15-445-24fall-%E5%B0%8F%E7%BB%93-p1%E7%AF%87/</link>
+        <pubDate>Sun, 06 Jul 2025 16:11:49 +0000</pubDate>
+        
+        <guid>https://inariindream.cn/blog/2025/07/06/cmu-15-445-24fall-%E5%B0%8F%E7%BB%93-p1%E7%AF%87/</guid>
+        <description>&lt;img src="https://inariindream.cn/blog/2025/07/06/cmu-15-445-24fall-%E5%B0%8F%E7%BB%93-p1%E7%AF%87/222.png" alt="Featured image of post CMU 15-445 24Fall 小结 【P1篇】" /&gt;&lt;h1 id=&#34;cmu-15-445-24fall-小结-p1篇&#34;&gt;CMU 15-445 24Fall 小结 【P1篇】&lt;/h1&gt;
+&lt;h2 id=&#34;课程介绍&#34;&gt;课程介绍&lt;/h2&gt;
+&lt;p&gt;这门课是CMU的数据库课程，15-445，24Fall版本。课程内容包括数据库系统的设计与实现，涵盖了缓冲池管理、查询处理、事务管理等核心概念。课程采用C++语言进行编程实践，学生需要实现一个简单的缓冲池管理系统。&lt;/p&gt;
+&lt;p&gt;笔者之前在写23 Fall的版本，但由于自身能动性的原因加上各种外力因素，在通过P0以及P1的Local Test后就暂时搁置了。前几天重新想起这件事想交到Gradescope上时，发现23 Fall的版本已于6月30日停止在线评测了。无奈只能重新下载24 Fall的版本，&lt;em&gt;几乎&lt;/em&gt;全部重来。&lt;/p&gt;
+&lt;p&gt;感谢CMU将课程内容开源，让我这样的菜鸡也能接触到丰富的学习资源和实践机会，遵从CMU将课程资料公开的条件，&lt;strong&gt;本文将不会公开代码实现的具体细节。&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;task-1lru-k-replacement&#34;&gt;Task 1：LRU-K Replacement&lt;/h2&gt;
+&lt;p&gt;原理很简单，LRU-K替换算法是LRU算法的扩展，项目文档的原文如下：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;When multiple frames have +inf backward k-distance, the replacer evicts the frame with the earliest overall timestamp (i.e., the frame whose least-recent recorded access is the overall least recent access, overall, out of all frames).&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;先问为什么&#34;&gt;先问为什么&lt;/h3&gt;
+&lt;p&gt;LRU 的根本缺陷在于，它基于“太少的信息”做出驱逐决策——它只考虑最近一次访问的时间戳。&lt;/p&gt;
+&lt;p&gt;这样带来了两个问题：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;无法区分访问频率：&lt;/strong&gt; 如果频繁访问的页面（B+Tree 索引根）和不频繁访问的页面的近期访问时间相似，LRU 算法无法区分它们。它可能会仅仅因为更有价值的、使用频率更高的页面不是最近访问的，就将其驱逐。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;易受大量频繁查询的影响：&lt;/strong&gt; 执行大型表扫描的查询会污染缓冲池。它会读取许多可能永远不会再使用的页面，但这样做会驱逐驻留在缓存中的潜在有价值的热页面。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;因此，需要使用LRU-K来额外维护一个访问历史记录（也即频率），以便更好地做出驱逐决策。&lt;/p&gt;
+&lt;h3 id=&#34;再问怎么做&#34;&gt;再问怎么做&lt;/h3&gt;
+&lt;p&gt;首先比较容易想的思路是使用两个&lt;code&gt;list&lt;/code&gt;来分别维护访问次数大于等于$k$的&lt;code&gt;frame&lt;/code&gt;和访问次数小于$k$的&lt;code&gt;frame&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;在进行驱逐时，自然是优先从访问次数未达到$k$的&lt;code&gt;frame&lt;/code&gt;中选择。&lt;/p&gt;
+&lt;p&gt;还有一个细节是，当访问次数达到$k$时，需要将该&lt;code&gt;frame&lt;/code&gt;从未达到$k$的&lt;code&gt;list&lt;/code&gt;中删除，并添加到已达到$k$的&lt;code&gt;list&lt;/code&gt;中。（当然一定有其他更好的实现）&lt;/p&gt;
+&lt;p&gt;在多线程的环境下，逻辑上最先进&lt;code&gt;list&lt;/code&gt;的&lt;code&gt;frame&lt;/code&gt;不一定是时间戳最老的，因此如果直接使用&lt;code&gt;list::front()&lt;/code&gt;来获取最老的时间戳会在后面的测试出错。因此还是得遍历寻找最老的时间戳。&lt;/p&gt;
+&lt;p&gt;一个比较容易想到的优化是使用优先队列&lt;code&gt;priority_queue&lt;/code&gt;来维护两个列表里的的&lt;code&gt;frame&lt;/code&gt;，这样可以在$O(logN)$的时间复杂度内获取最老的时间戳。&lt;/p&gt;
+&lt;p&gt;当然，为了防止Data Race，我们需要在每个操作的开始加一把大锁。&lt;/p&gt;
+&lt;h2 id=&#34;task-2disk-scheduler&#34;&gt;Task 2：Disk Scheduler&lt;/h2&gt;
+&lt;p&gt;这个部分主要是熟悉异步IO的使用，以及如何在多线程环境下进行磁盘调度，是本p里面最简单的部分。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;课程已经提前实现好了一个&lt;code&gt;Channel&lt;/code&gt;类，成员变量是&lt;code&gt;request_queue_&lt;/code&gt;，使用&lt;code&gt;std::condition_variable&lt;/code&gt;来实现异步IO的等待和通知，用于在调度线程和工作线程之间传递请求。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;Schedule(DiskRequest r)&lt;/code&gt; 负责接收一个 &lt;code&gt;DiskRequest&lt;/code&gt;，并将其放入 &lt;code&gt;request_queue_&lt;/code&gt; 中。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;StartWorkerThread()&lt;/code&gt; 启动一个工作线程，该线程会不断从 &lt;code&gt;request_queue_&lt;/code&gt; 中取出请求并处理。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在析构函数里面可以看到，&lt;code&gt;DiskScheduler&lt;/code&gt; 在销毁时会向队列里放一个&lt;code&gt;std::nullopt&lt;/code&gt;，以通知工作线程退出，那么我们只需要在循环里面检测到这个信号跳出就可以了。&lt;/p&gt;
+&lt;h2 id=&#34;task-3buffer-pool-manager&#34;&gt;Task 3：Buffer Pool Manager&lt;/h2&gt;
+&lt;p&gt;这个部分是整个P1的核心，需要将前面实现的LRU-K替换算法和磁盘调度器结合起来，完成缓冲池管理器的实现。&lt;/p&gt;
+&lt;p&gt;首先最该做的事情是了解项目结构，我们需要做什么以及怎么去做。&lt;/p&gt;
+&lt;p&gt;BPM 的核心职责就是透明地管理这个缓存 。当系统的其他部分需要一个 &lt;code&gt;page_id&lt;/code&gt; 对应的页面时，它向 BPM 发出请求。它不关心这个页面当前是否在内存中，或者需要从磁盘读取。BPM 负责处理所有这些细节，对上层屏蔽了底层的复杂性。&lt;/p&gt;
+&lt;p&gt;一个frame在BPM中有以下几种状态：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Free&lt;/strong&gt;：它不包含任何有效数据页，其 &lt;code&gt;page_id&lt;/code&gt; 为 &lt;code&gt;INVALID_PAGE_ID&lt;/code&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Cached &amp;amp;&amp;amp; Pinned&lt;/strong&gt;：帧中包含一个有效的数据页。&lt;code&gt;page_table_&lt;/code&gt; 中有 &lt;code&gt;page_id -&amp;gt; frame_id&lt;/code&gt; 的映射。页面的 &lt;code&gt;pin_count &amp;gt; 0&lt;/code&gt;。这意味着有线程正在使用这个页面，BPM &lt;strong&gt;绝对不能&lt;/strong&gt;驱逐它。此时，它也&lt;strong&gt;不能&lt;/strong&gt;在 &lt;code&gt;replacer_&lt;/code&gt; 中。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Cached &amp;amp;&amp;amp; Unpinned&lt;/strong&gt;： 帧中包含一个有效的数据页。&lt;code&gt;page_table_&lt;/code&gt; 中有映射。页面的 &lt;code&gt;pin_count == 0&lt;/code&gt;。没有线程在使用它，它是一个可以被驱逐的候选者。此时，它的 &lt;code&gt;frame_id&lt;/code&gt; &lt;strong&gt;必须&lt;/strong&gt;在 &lt;code&gt;replacer_&lt;/code&gt; 中，并被标记为 &lt;code&gt;evictable&lt;/code&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;由于&lt;code&gt;Page_Guard&lt;/code&gt;的加入，个人觉得24的Task 3要考虑的东西比23的多了很多。&lt;/p&gt;
+&lt;p&gt;在旧版的实现中，我们直接操作一个 &lt;code&gt;Page*&lt;/code&gt; 数组，新版则引入了 &lt;code&gt;FrameHeader&lt;/code&gt; 结构体来封装 &lt;code&gt;Page*&lt;/code&gt; 和其他元数据。&lt;/p&gt;
+&lt;p&gt;在旧版中，&lt;code&gt;FetchPage()&lt;/code&gt; 返回一个裸指针 &lt;code&gt;Page*&lt;/code&gt;，调用者有责任在用完后手动调用 &lt;code&gt;UnpinPage()&lt;/code&gt;,新版则使用 &lt;code&gt;PageGuard&lt;/code&gt; 类来自动管理页面的生命周期，确保在使用完页面后页面的&lt;code&gt;pin_count_&lt;/code&gt;自动减少。&lt;/p&gt;
+&lt;p&gt;这也就意味着，我们几乎需要同时实现 &lt;code&gt;BufferPoolManager&lt;/code&gt; 和 &lt;code&gt;PageGuard&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;先讲一讲个人对&lt;code&gt;PageGuard&lt;/code&gt;实现的理解&lt;/p&gt;
+&lt;h3 id=&#34;pageguard&#34;&gt;PageGuard&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;构造函数&lt;/strong&gt; (&lt;code&gt;ReadPageGuard(...)&lt;/code&gt;, &lt;code&gt;WritePageGuard(...)&lt;/code&gt;)&lt;/p&gt;
+&lt;p&gt;这个构造函数由BPM在成功获取并锁定一个页面后调用。将从BPM传入的参数（&lt;code&gt;page_id&lt;/code&gt;, &lt;code&gt;frame&lt;/code&gt;, &lt;code&gt;replacer&lt;/code&gt;, &lt;code&gt;bpm_latch&lt;/code&gt;）通过 &lt;code&gt;std::move&lt;/code&gt; 保存到自身的成员变量中。同时，设置一个内部标志位，表示这是一个有效的、持有资源的&lt;code&gt;Guard&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Move 语义&lt;/strong&gt; (&amp;amp;&amp;amp; 构造函数和赋值运算符)&lt;/p&gt;
+&lt;p&gt;详细的值类别讲解可以参考叔叔的&lt;a class=&#34;link&#34; href=&#34;https://zclll.com/index.php/cpp/value_category.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;这篇文章&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;这里暂时只讲此project里面的用处：一个 &lt;code&gt;PageGuard&lt;/code&gt; 代表了对一个页面的一次锁定。绝不能允许两个Guard对象认为它们同时拥有同一次锁定，否则当它们都被销毁时，会导致页面被解钉两次，引发未知的后果。Move语义确保了“所有权”的唯一性。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;Drop()&lt;/code&gt; 方法&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;RAII思想的体现，这是 &lt;code&gt;PageGuard&lt;/code&gt; 中最关键的方法，它在Guard被销毁时自动调用，负责归还资源。&lt;/p&gt;
+&lt;p&gt;首先它应该是幂等的，也就是说我们需要在最开始检查Guard的标志位。之后就是释放资源，比如&lt;code&gt;pin_count_&lt;/code&gt;的减少和后面会提到的对&lt;code&gt;FrameHeader&lt;/code&gt;实例的解锁，如果发现&lt;code&gt;pin_count_&lt;/code&gt;已经为0了，这意味着你是最后一个释放这个页面的线程，，需要与&lt;code&gt;replacer_&lt;/code&gt;进行交互，通知它可以驱逐这个页面。&lt;/p&gt;
+&lt;h3 id=&#34;bufferpoolmanager&#34;&gt;BufferPoolManager&lt;/h3&gt;
+&lt;p&gt;其他几个函数的实现都较为简单，与23 Fall版本的实现差别不大，这里重点讲一下最复杂也是最核心的&lt;code&gt;CheckedReadPage&lt;/code&gt; / &lt;code&gt;CheckedWritePage&lt;/code&gt;函数。&lt;/p&gt;
+&lt;p&gt;稍微思考后能设计出大致的流程应该如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;加一把大锁&lt;/li&gt;
+&lt;li&gt;在 &lt;code&gt;page_table_&lt;/code&gt; 中查找 &lt;code&gt;page_id&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;如果找到了，说明页面已经在内存中(cache hit)，更新元数据，返回对应的 &lt;code&gt;PageGuard&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;没找到，则进入缓存未命中(cache miss)的处理流程，与&lt;code&gt;replacer_&lt;/code&gt; 交互，尝试是否能获取到一个空闲/可驱逐的 &lt;code&gt;frame&lt;/code&gt;。
+&lt;ul&gt;
+&lt;li&gt;如果是空闲的 &lt;code&gt;frame&lt;/code&gt;，则直接使用它。&lt;/li&gt;
+&lt;li&gt;如果是可驱逐的 &lt;code&gt;frame&lt;/code&gt;，则需要先检查它的 &lt;code&gt;is_dirty_&lt;/code&gt; 标志位,如果是脏页需要先异步写回磁盘。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;如果以上步骤都失败了，说明缓冲池已满且所有页都被钉住，直接返回 &lt;code&gt;std::nullopt&lt;/code&gt;。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;以这样的思路应该可以完美地通过23 Fall的测试用例。&lt;/p&gt;
+&lt;p&gt;但可惜24 Fall的并发部分略微复杂和健全一点，在23 Fall的实现中，我们只需要关心 BPM 自身的大锁，在每次操作的最开头使用&lt;code&gt;std::lock_guard&lt;/code&gt; 来加锁，其会在生命周期结束（即函数返回）时自动解锁。&lt;/p&gt;
+&lt;p&gt;但在24 Fall的实现中，&lt;code&gt;FrameHeader&lt;/code&gt; 有自己单独的页级锁 &lt;code&gt;rwlatch_&lt;/code&gt;，它的生命周期并不归 BPM 管理，这意味着我们需要单独考虑 BPM 的大锁 &lt;code&gt;bpm_latch_&lt;/code&gt; 和 &lt;code&gt;FrameHeader&lt;/code&gt; 的 &lt;code&gt;rwlatch_&lt;/code&gt; 的加锁/解锁顺序。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;首先考虑一下页级锁和pin_count_的顺序&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;pin_count_&lt;/code&gt; 的值决定了页面是否可以被驱逐。只有当 &lt;code&gt;pin_count_ == 0&lt;/code&gt; 时，页面才可以被驱逐。&lt;/p&gt;
+&lt;p&gt;两者的关系应该是这样：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;(CheckedXXXPage函数) pin_count_ 增加 → rwlatch_ 加锁 → （Drop()函数）rwlatch_ 解锁 → pin_count_ 减少。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;从设计直觉上很好理解，先获取的资源后释放，后获取的资源先释放（Last-In, First-Out, LIFO），如果一个对象包含其他遵循RAII的对象成员，它们的构造和析构顺序也是栈式的。&lt;/p&gt;
+&lt;p&gt;那么为什么&lt;code&gt;pin_count_&lt;/code&gt;的改变要在&lt;code&gt;rwlatch_&lt;/code&gt;加锁之前呢？&lt;/p&gt;
+&lt;p&gt;因为&lt;code&gt;pin_count_&lt;/code&gt; 的值决定了页面是否可以被驱逐，这直接决定了此页面在BPM里面是以什么状态出现的，如果先加锁后，&lt;code&gt;pin_count_&lt;/code&gt; 的值还没来得及改变就被其他线程检测到为0了，那么就会导致这个页面有可能被驱逐，偏离原来的设计本意。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;然后考虑一下大锁和页级锁的顺序&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;一个很简单的思路是，在&lt;code&gt;CheckedXXXPage&lt;/code&gt;函数中，先加大锁，等到获取到&lt;code&gt;FrameHeader&lt;/code&gt;后，再对这个frame实例加上页级锁。&lt;/p&gt;
+&lt;p&gt;然后你激动地运行测试，发现 Terminal 的输出停在了这个地方：：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt; RUN      &lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; BufferPoolManagerTest.DeadlockTest
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;恭喜你，程序死锁了。&lt;/p&gt;
+&lt;p&gt;课程非常贴心地把这里的测试代码给出来了，我们来看看发生了什么。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;auto&lt;/span&gt; pid0 &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; bpm&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;NewPage();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;auto&lt;/span&gt; pid1 &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; bpm&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;NewPage();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;auto&lt;/span&gt; guard0 &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; bpm&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;WritePage(pid0);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;// A crude way of synchronizing threads, but works for this small case.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;  std&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;atomic&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;bool&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; start &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; false;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;auto&lt;/span&gt; child &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; std&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;thread&lt;/span&gt;([&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;]() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;// Acknowledge that we can begin the test.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    start.store(true);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;// Attempt to write to page 0.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;auto&lt;/span&gt; guard0 &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; bpm&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;WritePage(pid0);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  });
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;// Wait for the other thread to begin before we start the test.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt; (&lt;span style=&#34;color:#f92672&#34;&gt;!&lt;/span&gt;start.load()) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;// Make the other thread wait for a bit.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;// This mimics the main thread doing some work while holding the write latch on page 0.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;  std&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;this_thread&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;sleep_for(std&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;chrono&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;milliseconds(&lt;span style=&#34;color:#ae81ff&#34;&gt;1000&lt;/span&gt;));
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;// If your latching mechanism is incorrect, the next line of code will deadlock.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;// Think about what might happen if you hold a certain &amp;#34;all-encompassing&amp;#34; latch for too long...
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;// While holding page 0, take the latch on page 1.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;auto&lt;/span&gt; guard1 &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; bpm&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;WritePage(pid1);
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;复盘一下这里是怎么进入到死锁局面的：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;$T0$ 获取 &lt;code&gt;bpm_latch_&lt;/code&gt;，然后获取 $pid0$ 的 &lt;code&gt;rwlatch_&lt;/code&gt;，最后释放 &lt;code&gt;bpm_latch_&lt;/code&gt;，返回 Guard。此时，$T0$ 只持有 $pid0$ 的 &lt;code&gt;rwlatch_&lt;/code&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$T1$ (子): 调用 &lt;code&gt;WritePage(pid0)&lt;/code&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;它成功获取了全局 &lt;code&gt;bpm_latch_&lt;/code&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;然后它尝试获取 $pid0$ 的 &lt;code&gt;rwlatch_&lt;/code&gt;。但这个锁被 $T0$ 持有，&lt;strong&gt;所以 $T1$ 在这里被阻塞，并且它死死地攥着全局 &lt;code&gt;bpm_latch_&lt;/code&gt; 不放。&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;$T0$ (主): 睡醒后，调用 &lt;code&gt;WritePage(pid1)&lt;/code&gt;。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;这个操作需要通过BPM，因此它尝试获取全局 &lt;code&gt;bpm_latch_&lt;/code&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;但这个锁此刻正被阻塞的 $T1$ 攥在手里。所以 &lt;strong&gt;$T0$ 在这里也被阻塞了&lt;/strong&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://inariindream.cn/blog/2025/07/06/cmu-15-445-24fall-%E5%B0%8F%E7%BB%93-p1%E7%AF%87/deadlock.png&#34;
+	width=&#34;321&#34;
+	height=&#34;301&#34;
+	srcset=&#34;https://inariindream.cn/blog/2025/07/06/cmu-15-445-24fall-%E5%B0%8F%E7%BB%93-p1%E7%AF%87/deadlock_hu195b7fdd131d88be28551a3bbb2fa4cf_13233_480x0_resize_box_3.png 480w, https://inariindream.cn/blog/2025/07/06/cmu-15-445-24fall-%E5%B0%8F%E7%BB%93-p1%E7%AF%87/deadlock_hu195b7fdd131d88be28551a3bbb2fa4cf_13233_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;死锁情况&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;106&#34;
+		data-flex-basis=&#34;255px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;两个线程互相等待对方持有的资源，形成了经典的 AB-BA 死锁。整个程序因此永久挂起。&lt;/p&gt;
+&lt;p&gt;因此，我们不应该在持有一个粗粒度锁(&lt;code&gt;bpm_latch_&lt;/code&gt;)的同时去获取一个细粒度锁(&lt;code&gt;rwlatch_&lt;/code&gt;)。&lt;/p&gt;
+&lt;p&gt;综合以上两点，我们得出初步的加锁流程：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;获取粗粒度的 &lt;code&gt;bpm_latch_&lt;/code&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在 &lt;code&gt;page_table_&lt;/code&gt; 中找到对应的帧。（必须受 &lt;code&gt;bpm_latch_&lt;/code&gt; 保护）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;立刻增加 &lt;code&gt;pin_count_&lt;/code&gt;。确保它不会被我们在Task1写的&lt;code&gt;replacer_&lt;/code&gt;驱逐。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;释放粗粒度的 &lt;code&gt;bpm_latch_&lt;/code&gt; 。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;在没有持有全局锁的情况下&lt;/strong&gt;，去获取细粒度的 &lt;code&gt;rwlatch_&lt;/code&gt;。这个操作可能会阻塞，但不会影响其他线程操作BPM的其他页面。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;最后，返回一个 &lt;code&gt;PageGuard&lt;/code&gt;，它会在析构时自动调用 &lt;code&gt;Drop()&lt;/code&gt; 方法，在析构时，要先解锁 &lt;code&gt;rwlatch_&lt;/code&gt;，再减少 &lt;code&gt;pin_count_&lt;/code&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;那现在总能通过测试了吧？&lt;/p&gt;
+&lt;p&gt;当你这样想的时候你就会发现代码挂在了死锁测试的下一个测试&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt; RUN      &lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; BufferPoolManagerTest.EvictableTest
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Value of: bpm-&amp;gt;CheckedReadPage&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;loser_pid&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;.has_value&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  Actual: true
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Expected: false
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;  FAILED  &lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; BufferPoolManagerTest.EvictableTest &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1135&lt;/span&gt; ms&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;evictabletest&#34;&gt;EvictableTest&lt;/h4&gt;
+&lt;p&gt;先看一下这个测试在做什么：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; (size_t i &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;; i &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; rounds; i&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    std&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;mutex mutex;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    std&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;condition_variable cv;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;// This signal tells the readers that they can start reading after the main thread has already taken the read latch.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;bool&lt;/span&gt; signal &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; false;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;// This page will be loaded into the only available frame.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    page_id_t winner_pid &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; bpm&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;NewPage();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;// We will attempt to load this page into the occupied frame, and it should fail every time.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    page_id_t loser_pid &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; bpm&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;NewPage();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    std&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;vector&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;std&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;thread&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; readers;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; (size_t j &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;; j &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; num_readers; j&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      readers.emplace_back([&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;]() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        std&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;unique_lock&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;std&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;mutex&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; lock(mutex);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;// Wait until the main thread has taken a read latch on the page.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt; (&lt;span style=&#34;color:#f92672&#34;&gt;!&lt;/span&gt;signal) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          cv.wait(lock);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;// Read the page in shared mode.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;auto&lt;/span&gt; read_guard &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; bpm&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;ReadPage(winner_pid);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;// Since the only frame is pinned, no thread should be able to bring in a new page.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;        ASSERT_FALSE(bpm&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;CheckedReadPage(loser_pid).has_value());
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      });
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    std&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;unique_lock&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;std&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;mutex&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; lock(mutex);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (i &lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#75715e&#34;&gt;// Take the read latch on the page and pin it.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;      &lt;span style=&#34;color:#66d9ef&#34;&gt;auto&lt;/span&gt; read_guard &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; bpm&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;ReadPage(winner_pid);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#75715e&#34;&gt;// Wake up all of the readers.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;      signal &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; true;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      cv.notify_all();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      lock.unlock();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#75715e&#34;&gt;// Allow other threads to read.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;      read_guard.Drop();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    } &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#75715e&#34;&gt;// Take the read latch on the page and pin it.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;      &lt;span style=&#34;color:#66d9ef&#34;&gt;auto&lt;/span&gt; write_guard &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; bpm&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;WritePage(winner_pid);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#75715e&#34;&gt;// Wake up all of the readers.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;      signal &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; true;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      cv.notify_all();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      lock.unlock();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#75715e&#34;&gt;// Allow other threads to read.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;      write_guard.Drop();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; (size_t i &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;; i &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; num_readers; i&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      readers[i].join();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;测试首先将缓冲池的大小设置为只有 $1$ 个帧。这意味着缓冲池在任何时候最多只能容纳一个页面。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;然后一个&lt;code&gt;winner_pid&lt;/code&gt;占用了唯一的名额，随后$8$个线程同时读取&lt;code&gt;winner_pid&lt;/code&gt;，导致它的&lt;code&gt;pin_count_&lt;/code&gt;远大于$0$。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在此期间，测试试图加载一个&lt;code&gt;loser_pid&lt;/code&gt;，它应该失败，因为缓冲池已满，要加载它，就必须换出 &lt;code&gt;winner_pid&lt;/code&gt;，但 &lt;code&gt;winner_pid&lt;/code&gt; 被钉住了，不能换出。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;因此可以看到，我们在持有 BPM 的大锁时，还需要更新其他的元数据（&lt;code&gt;page_table_&lt;/code&gt;, &lt;code&gt;is_dirty_&lt;/code&gt;等），&lt;code&gt;pin_count_&lt;/code&gt; 的变化与 &lt;code&gt;SetEvictable&lt;/code&gt; 在其他线程看来必须保持原子性。当这些所有该 BPM 做的事都做完以后，BPM 此时才能安全地将 &lt;code&gt;bpm_latch_&lt;/code&gt; 解锁。&lt;/p&gt;
+&lt;p&gt;所以综上，我们能得到一个完整的加锁流程：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;获取粗粒度的 &lt;code&gt;bpm_latch_&lt;/code&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在 &lt;code&gt;page_table_&lt;/code&gt; 中找到对应的帧。（必须受 &lt;code&gt;bpm_latch_&lt;/code&gt; 保护）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;立刻增加 &lt;code&gt;pin_count_&lt;/code&gt;。确保它不会被我们在Task1写的&lt;code&gt;replacer_&lt;/code&gt;驱逐。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;更新其他元数据（&lt;code&gt;page_table_&lt;/code&gt;, &lt;code&gt;is_dirty_&lt;/code&gt;等），同时与 &lt;code&gt;replacer_&lt;/code&gt; 交互，记录访问和标记为不可驱逐。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;释放粗粒度的 &lt;code&gt;bpm_latch_&lt;/code&gt; 。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;在没有持有全局锁的情况下&lt;/strong&gt;，去获取细粒度的 &lt;code&gt;rwlatch_&lt;/code&gt;。这个操作可能会阻塞，但不会影响其他线程操作BPM的其他页面。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;（如果cache miss）使用 promise 和 future 异步地从磁盘读取页面到 &lt;code&gt;frame&lt;/code&gt; 中。&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;最后，返回一个 &lt;code&gt;PageGuard&lt;/code&gt;，它会在析构时自动调用 &lt;code&gt;Drop()&lt;/code&gt; 方法，在析构时，要先解锁 &lt;code&gt;rwlatch_&lt;/code&gt;，再减少 &lt;code&gt;pin_count_&lt;/code&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;这里我最早的实现写的很丑，还用了一个无限循环，在其中&lt;code&gt;try_lock()&lt;/code&gt; 和 &lt;code&gt;std::this_thread::yield()&lt;/code&gt; 等来避免死锁。但后来发现 BPM 的解锁时机可以放在较后面的时机，只要保证在获取 &lt;code&gt;rwlatch_&lt;/code&gt; 之前，所有的元数据都已经更新完毕即可。&lt;/p&gt;
+&lt;p&gt;但其实经过几次测试，我发现有一种特定的实现，在 Cache Miss 的路径上，当持有 BPM 的大锁时，再去尝试获取 &lt;code&gt;rwlatch_&lt;/code&gt; 也不会死锁。&lt;/p&gt;
+&lt;p&gt;这似乎有悖前面的结论，但终版代码确实能通过 Gradescope 的所有测试。&lt;/p&gt;
+&lt;p&gt;如果排除掉 Gradescope 测试用例太弱的话，原因应该是这样的：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;在 Cache Miss 时，BPM 会与 &lt;code&gt;replacer_&lt;/code&gt; 交互，获得了一个牺牲品页面，但在找到这个页面的后，我们需要保证其是全新的，才能供我们现在使用。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;这里涉及到另一个细节：如果驱逐途中发现，页面是脏页，我们需要先将其异步写回磁盘，&lt;strong&gt;并且重置其所有元数据&lt;/strong&gt;。这里的实现&lt;strong&gt;马上将其从 &lt;code&gt;page_table_&lt;/code&gt; 中也删除掉了&lt;/strong&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;因此，对于其他线程来说，当前这个线程获取到的 frame 要么是“不存在的”（不在 &lt;code&gt;page_table_&lt;/code&gt; 中），要么属于一个已经被逻辑上删除的旧页面。&lt;strong&gt;也自然不会有线程尝试获取这个页面的 &lt;code&gt;rwlatch_&lt;/code&gt; 了。&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;个人觉得这种实现应该不是 best practice，但其确实能通过所有测试，可能得在后续的优化环节思考怎么改进了，也欢迎大家评论区交流。&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
